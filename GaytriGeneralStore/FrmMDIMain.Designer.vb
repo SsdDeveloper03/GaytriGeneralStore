@@ -23,6 +23,7 @@ Partial Class FrmMDIMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMDIMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -30,15 +31,19 @@ Partial Class FrmMDIMain
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.BillingEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PaymentCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbCompany = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -97,16 +102,17 @@ Partial Class FrmMDIMain
         Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(72, 24)
         Me.EntryToolStripMenuItem.Text = "Entry"
         '
-        'XtraTabbedMdiManager1
-        '
-        Me.XtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders
-        Me.XtraTabbedMdiManager1.MdiParent = Me
-        '
         'BillingEntryToolStripMenuItem
         '
         Me.BillingEntryToolStripMenuItem.Name = "BillingEntryToolStripMenuItem"
         Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
         Me.BillingEntryToolStripMenuItem.Text = "Billing Entry"
+        '
+        'PaymentCollectionToolStripMenuItem
+        '
+        Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
+        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
+        Me.PaymentCollectionToolStripMenuItem.Text = "Payment Collection"
         '
         'ViewToolStripMenuItem
         '
@@ -123,6 +129,12 @@ Partial Class FrmMDIMain
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
         '
+        'PaymentAdjustToolStripMenuItem
+        '
+        Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
+        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
+        Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
+        '
         'UtilityToolStripMenuItem
         '
         Me.UtilityToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
@@ -137,31 +149,63 @@ Partial Class FrmMDIMain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(58, 24)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'PaymentAdjustToolStripMenuItem
+        'XtraTabbedMdiManager1
         '
-        Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
-        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
-        Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
-        '
-        'PaymentCollectionToolStripMenuItem
-        '
-        Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
-        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
-        Me.PaymentCollectionToolStripMenuItem.Text = "Payment Collection"
+        Me.XtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders
+        Me.XtraTabbedMdiManager1.MdiParent = Me
         '
         'Panel1
         '
+        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
         Me.Panel1.Location = New System.Drawing.Point(0, 33)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1289, 635)
         Me.Panel1.TabIndex = 1
         '
+        'cmbFinYr
+        '
+        Me.cmbFinYr.FormattingEnabled = True
+        Me.cmbFinYr.Location = New System.Drawing.Point(1157, 2)
+        Me.cmbFinYr.Name = "cmbFinYr"
+        Me.cmbFinYr.Size = New System.Drawing.Size(121, 24)
+        Me.cmbFinYr.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(1100, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 17)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Fin. Yr"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(783, 6)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(108, 17)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Company Name"
+        '
+        'cmbCompany
+        '
+        Me.cmbCompany.FormattingEnabled = True
+        Me.cmbCompany.Location = New System.Drawing.Point(896, 2)
+        Me.cmbCompany.Name = "cmbCompany"
+        Me.cmbCompany.Size = New System.Drawing.Size(198, 24)
+        Me.cmbCompany.TabIndex = 4
+        '
         'FrmMDIMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1291, 671)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cmbCompany)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmbFinYr)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.IsMdiContainer = True
@@ -195,4 +239,8 @@ Partial Class FrmMDIMain
     Friend WithEvents UtilityToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cmbFinYr As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmbCompany As ComboBox
 End Class
