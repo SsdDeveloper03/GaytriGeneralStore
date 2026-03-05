@@ -449,6 +449,12 @@
     <Compile Include="Class Files\DBManager.vb" />
     <Compile Include="Class Files\ModGeneral.vb" />
     <Compile Include="Class Files\ModVersion.vb" />
+    <Compile Include="Entry\FrmBillingEntry.Designer.vb">
+      <DependentUpon>FrmBillingEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Entry\FrmBillingEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMDIMain.Designer.vb">
       <DependentUpon>FrmMDIMain.vb</DependentUpon>
     </Compile>
@@ -498,6 +504,18 @@
     <Compile Include="Help\FrmSqlStep3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Master\FrmCustomerMaster.Designer.vb">
+      <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmCustomerMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\FrmEmployeeMaster.Designer.vb">
+      <DependentUpon>FrmEmployeeMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmEmployeeMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -513,6 +531,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Transaction\FrmPaymentCollection.Designer.vb">
+      <DependentUpon>FrmPaymentCollection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\FrmPaymentCollection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utility\FrmRunQuery.designer.vb">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
     </Compile>
@@ -527,6 +551,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Entry\FrmBillingEntry.resx">
+      <DependentUpon>FrmBillingEntry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -551,12 +578,18 @@
     <EmbeddedResource Include="Help\FrmSqlStep3.resx">
       <DependentUpon>FrmSqlStep3.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmCustomerMaster.resx">
+      <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\FrmPaymentCollection.resx">
+      <DependentUpon>FrmPaymentCollection.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmRunQuery.resx">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
@@ -576,7 +609,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Master\" />
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

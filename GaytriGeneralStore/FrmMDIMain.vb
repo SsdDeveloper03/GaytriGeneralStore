@@ -26,6 +26,35 @@
 
     End Sub
 
+    Private Sub BusinessProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusinessProfileToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
+        FrmCustomerMaster.MdiParent = Me
+        FrmCustomerMaster.Show()
+        FrmCustomerMaster.Activate()
+    End Sub
+
+    Private Sub EmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmployeeToolStripMenuItem.Click
+        FrmEmployeeMaster.MdiParent = Me
+        FrmEmployeeMaster.Show()
+        FrmEmployeeMaster.Activate()
+    End Sub
+
+    Private Sub BillingEntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BillingEntryToolStripMenuItem.Click
+        FrmBillingEntry.MdiParent = Me
+        FrmBillingEntry.Show()
+        FrmBillingEntry.Activate()
+    End Sub
+
+    Private Sub PaymentCollectionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaymentCollectionToolStripMenuItem.Click
+        FrmPaymentCollection.MdiParent = Me
+        FrmPaymentCollection.Show()
+        FrmPaymentCollection.Activate()
+    End Sub
+
+
     'Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
     '    For Each child As Form In Me.MdiChildren
     '        If TypeOf child Is FrmCustomerMaster Then

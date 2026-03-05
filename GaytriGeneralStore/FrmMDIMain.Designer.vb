@@ -22,166 +22,177 @@ Partial Class FrmMDIMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BusinessProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbCName = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
+        Me.EntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.BillingEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtilityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1457, 37)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Gaytri General Store"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-        Me.MenuStrip1.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.MasterToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(5, 41)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.MasterToolStripMenuItem, Me.EntryToolStripMenuItem, Me.ViewToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.UtilityToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(304, 30)
-        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1291, 28)
+        Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'HomeToolStripMenuItem
         '
-        Me.HomeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.HomeToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(69, 26)
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(76, 24)
         Me.HomeToolStripMenuItem.Text = "Home"
         '
         'MasterToolStripMenuItem
         '
         Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem})
+        Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(77, 26)
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(85, 24)
         Me.MasterToolStripMenuItem.Text = "Master"
         '
         'BusinessProfileToolStripMenuItem
         '
         Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
-        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
         Me.BusinessProfileToolStripMenuItem.Text = "Business Profile"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'EmployeeToolStripMenuItem
         '
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
         '
-        'Label2
+        'EntryToolStripMenuItem
         '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(889, 49)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(76, 21)
-        Me.Label2.TabIndex = 22
-        Me.Label2.Text = "Company"
+        Me.EntryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BillingEntryToolStripMenuItem, Me.PaymentCollectionToolStripMenuItem})
+        Me.EntryToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.EntryToolStripMenuItem.Name = "EntryToolStripMenuItem"
+        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(72, 24)
+        Me.EntryToolStripMenuItem.Text = "Entry"
         '
-        'cmbCName
+        'XtraTabbedMdiManager1
         '
-        Me.cmbCName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbCName.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmbCName.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCName.ForeColor = System.Drawing.Color.Navy
-        Me.cmbCName.FormattingEnabled = True
-        Me.cmbCName.Location = New System.Drawing.Point(970, 44)
-        Me.cmbCName.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmbCName.Name = "cmbCName"
-        Me.cmbCName.Size = New System.Drawing.Size(300, 27)
-        Me.cmbCName.TabIndex = 19
-        Me.cmbCName.TabStop = False
+        Me.XtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders
+        Me.XtraTabbedMdiManager1.MdiParent = Me
         '
-        'Label3
+        'BillingEntryToolStripMenuItem
         '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(1275, 49)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 21)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Year"
+        Me.BillingEntryToolStripMenuItem.Name = "BillingEntryToolStripMenuItem"
+        Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
+        Me.BillingEntryToolStripMenuItem.Text = "Billing Entry"
         '
-        'cmbFinYr
+        'ViewToolStripMenuItem
         '
-        Me.cmbFinYr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbFinYr.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmbFinYr.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.cmbFinYr.ForeColor = System.Drawing.Color.Navy
-        Me.cmbFinYr.FormattingEnabled = True
-        Me.cmbFinYr.Location = New System.Drawing.Point(1321, 44)
-        Me.cmbFinYr.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmbFinYr.Name = "cmbFinYr"
-        Me.cmbFinYr.Size = New System.Drawing.Size(129, 27)
-        Me.cmbFinYr.TabIndex = 20
-        Me.cmbFinYr.TabStop = False
+        Me.ViewToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(68, 24)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'TransactionToolStripMenuItem
+        '
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaymentAdjustToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
+        Me.TransactionToolStripMenuItem.Text = "Transaction"
+        '
+        'UtilityToolStripMenuItem
+        '
+        Me.UtilityToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.UtilityToolStripMenuItem.Name = "UtilityToolStripMenuItem"
+        Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(80, 24)
+        Me.UtilityToolStripMenuItem.Text = "Utility"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(58, 24)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'PaymentAdjustToolStripMenuItem
+        '
+        Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
+        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
+        Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
+        '
+        'PaymentCollectionToolStripMenuItem
+        '
+        Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
+        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
+        Me.PaymentCollectionToolStripMenuItem.Text = "Payment Collection"
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(0, 33)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1289, 635)
+        Me.Panel1.TabIndex = 1
         '
         'FrmMDIMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1457, 668)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbCName)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.cmbFinYr)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(1291, 671)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmMDIMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmMDIMain"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     Friend WithEvents HomeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MasterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EntryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BusinessProfileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CustomerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EmployeeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label2 As Label
-    Friend WithEvents cmbCName As ComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents cmbFinYr As ComboBox
+    Friend WithEvents BillingEntryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaymentCollectionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TransactionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaymentAdjustToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UtilityToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel1 As Panel
 End Class

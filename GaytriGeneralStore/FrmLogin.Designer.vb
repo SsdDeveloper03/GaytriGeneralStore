@@ -63,7 +63,7 @@ Partial Class FrmLogin
         Me.cmbDept.ForeColor = System.Drawing.Color.Black
         Me.cmbDept.FormattingEnabled = True
         Me.cmbDept.Location = New System.Drawing.Point(144, 437)
-        Me.cmbDept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbDept.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbDept.Name = "cmbDept"
         Me.cmbDept.Size = New System.Drawing.Size(233, 27)
         Me.cmbDept.TabIndex = 2
@@ -93,7 +93,7 @@ Partial Class FrmLogin
         Me.btnLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
         Me.btnLogin.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.btnLogin.Location = New System.Drawing.Point(487, 305)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(109, 53)
         Me.btnLogin.TabIndex = 3
@@ -109,7 +109,7 @@ Partial Class FrmLogin
         Me.btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
         Me.btnCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.btnCancel.Location = New System.Drawing.Point(604, 304)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(124, 53)
         Me.btnCancel.TabIndex = 4
@@ -119,7 +119,7 @@ Partial Class FrmLogin
         '
         Me.txtUserName.EditValue = ""
         Me.txtUserName.Location = New System.Drawing.Point(487, 212)
-        Me.txtUserName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtUserName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUserName.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -137,7 +137,7 @@ Partial Class FrmLogin
         '
         Me.txtPwd.EditValue = ""
         Me.txtPwd.Location = New System.Drawing.Point(487, 258)
-        Me.txtPwd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPwd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPwd.Name = "txtPwd"
         Me.txtPwd.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPwd.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -161,7 +161,7 @@ Partial Class FrmLogin
         Me.SimpleButton1.LookAndFeel.SkinName = "Visual Studio 2013 Dark"
         Me.SimpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
         Me.SimpleButton1.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(4)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(33, 37)
         Me.SimpleButton1.TabIndex = 9
@@ -175,7 +175,7 @@ Partial Class FrmLogin
         Me.SimpleButton2.LookAndFeel.SkinName = "Visual Studio 2013 Dark"
         Me.SimpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
         Me.SimpleButton2.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(4)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(33, 37)
         Me.SimpleButton2.TabIndex = 10
@@ -187,7 +187,7 @@ Partial Class FrmLogin
         Me.btnClose.FlatAppearance.BorderSize = 0
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClose.Location = New System.Drawing.Point(1147, 5)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(40, 37)
         Me.btnClose.TabIndex = 12
@@ -214,7 +214,7 @@ Partial Class FrmLogin
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateSoftwareToolStripMenuItem, Me.UpdateDatabseToolStripMenuItem, Me.UpdateReportFileToolStripMenuItem, Me.Extend20252026ToolStripMenuItem, Me.Extend20242025ToolStripMenuItem, Me.QueryToolStripMenuItem, Me.SQLInstalltionToolStripMenuItem, Me.SyncToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(272, 288)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(272, 260)
         '
         'UpdateSoftwareToolStripMenuItem
         '
@@ -290,7 +290,7 @@ Partial Class FrmLogin
         '
         Me.txtOTP.EditValue = ""
         Me.txtOTP.Location = New System.Drawing.Point(627, 367)
-        Me.txtOTP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtOTP.Margin = New System.Windows.Forms.Padding(4)
         Me.txtOTP.Name = "txtOTP"
         Me.txtOTP.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOTP.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -323,7 +323,7 @@ Partial Class FrmLogin
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(16, 529)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(67, 62)
         Me.PictureBox1.TabIndex = 33
@@ -351,7 +351,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbDept)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
