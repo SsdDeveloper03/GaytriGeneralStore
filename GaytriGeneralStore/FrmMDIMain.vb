@@ -21,7 +21,6 @@
 
 
     Private Sub FrmMDIMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         'commit
         Me.WindowState = FormWindowState.Maximized
 
