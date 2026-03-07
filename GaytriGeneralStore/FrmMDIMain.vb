@@ -55,6 +55,9 @@
     End Sub
 
 
+
+
+
     '
     'Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
     '    For Each child As Form In Me.MdiChildren

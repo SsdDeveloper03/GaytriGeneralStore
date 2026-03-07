@@ -3291,8 +3291,6 @@ Partial Class FrmCustomerMaster
         Me.cmbCollectionPerson = New System.Windows.Forms.ComboBox()
         Me.lblSalesPerson = New System.Windows.Forms.Label()
         Me.cmbSalesPerson = New System.Windows.Forms.ComboBox()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.cmbStatus = New System.Windows.Forms.ComboBox()
         Me.grpAddressDetails = New System.Windows.Forms.GroupBox()
         Me.tlpAddress = New System.Windows.Forms.TableLayoutPanel()
         Me.lblAddress1 = New System.Windows.Forms.Label()
@@ -3363,11 +3361,11 @@ Partial Class FrmCustomerMaster
         Me.pnlDataContainer.BackColor = System.Drawing.Color.White
         Me.pnlDataContainer.Controls.Add(Me.gcData)
         Me.pnlDataContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 480)
+        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 557)
         Me.pnlDataContainer.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlDataContainer.Name = "pnlDataContainer"
         Me.pnlDataContainer.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlDataContainer.Size = New System.Drawing.Size(1684, 391)
+        Me.pnlDataContainer.Size = New System.Drawing.Size(1684, 314)
         Me.pnlDataContainer.TabIndex = 6
         '
         'gcData
@@ -3377,7 +3375,7 @@ Partial Class FrmCustomerMaster
         Me.gcData.LookAndFeel.SkinName = "Office 2016 Colorful"
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1674, 381)
+        Me.gcData.Size = New System.Drawing.Size(1674, 304)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData, Me.GridView1})
         '
@@ -3452,10 +3450,10 @@ Partial Class FrmCustomerMaster
         Me.pnlHeader.Controls.Add(Me.lblTitle)
         Me.pnlHeader.Controls.Add(Me.lblTotalRecords)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlHeader.Location = New System.Drawing.Point(10, 429)
+        Me.pnlHeader.Location = New System.Drawing.Point(10, 504)
         Me.pnlHeader.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1684, 41)
+        Me.pnlHeader.Size = New System.Drawing.Size(1684, 43)
         Me.pnlHeader.TabIndex = 3
         '
         'lblTitle
@@ -3491,10 +3489,10 @@ Partial Class FrmCustomerMaster
         Me.pnlSearch.Controls.Add(Me.btnSearch)
         Me.pnlSearch.Controls.Add(Me.btnClearSearch)
         Me.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlSearch.Location = New System.Drawing.Point(10, 375)
+        Me.pnlSearch.Location = New System.Drawing.Point(10, 443)
         Me.pnlSearch.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlSearch.Name = "pnlSearch"
-        Me.pnlSearch.Size = New System.Drawing.Size(1684, 44)
+        Me.pnlSearch.Size = New System.Drawing.Size(1684, 51)
         Me.pnlSearch.TabIndex = 2
         '
         'lblSearch
@@ -3584,7 +3582,7 @@ Partial Class FrmCustomerMaster
         Me.pnlTopForm.Location = New System.Drawing.Point(10, 10)
         Me.pnlTopForm.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlTopForm.Name = "pnlTopForm"
-        Me.pnlTopForm.Size = New System.Drawing.Size(1684, 355)
+        Me.pnlTopForm.Size = New System.Drawing.Size(1684, 423)
         Me.pnlTopForm.TabIndex = 0
         '
         'grpCustomerDetails
@@ -3597,7 +3595,7 @@ Partial Class FrmCustomerMaster
         Me.grpCustomerDetails.Location = New System.Drawing.Point(0, 0)
         Me.grpCustomerDetails.Name = "grpCustomerDetails"
         Me.grpCustomerDetails.Padding = New System.Windows.Forms.Padding(8)
-        Me.grpCustomerDetails.Size = New System.Drawing.Size(1684, 355)
+        Me.grpCustomerDetails.Size = New System.Drawing.Size(1684, 423)
         Me.grpCustomerDetails.TabIndex = 0
         Me.grpCustomerDetails.TabStop = False
         Me.grpCustomerDetails.Text = "👤 CUSTOMER DETAILS"
@@ -3611,7 +3609,7 @@ Partial Class FrmCustomerMaster
         Me.pnlAllDetails.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlAllDetails.Location = New System.Drawing.Point(8, 33)
         Me.pnlAllDetails.Name = "pnlAllDetails"
-        Me.pnlAllDetails.Size = New System.Drawing.Size(1668, 314)
+        Me.pnlAllDetails.Size = New System.Drawing.Size(1668, 382)
         Me.pnlAllDetails.TabIndex = 0
         '
         'grpTaxInfo
@@ -3620,10 +3618,10 @@ Partial Class FrmCustomerMaster
         Me.grpTaxInfo.Dock = System.Windows.Forms.DockStyle.Right
         Me.grpTaxInfo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpTaxInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.grpTaxInfo.Location = New System.Drawing.Point(1240, 164)
+        Me.grpTaxInfo.Location = New System.Drawing.Point(1240, 177)
         Me.grpTaxInfo.Name = "grpTaxInfo"
         Me.grpTaxInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpTaxInfo.Size = New System.Drawing.Size(428, 150)
+        Me.grpTaxInfo.Size = New System.Drawing.Size(428, 205)
         Me.grpTaxInfo.TabIndex = 2
         Me.grpTaxInfo.TabStop = False
         Me.grpTaxInfo.Text = "💰 TAX & COLLECTION INFO"
@@ -3632,18 +3630,16 @@ Partial Class FrmCustomerMaster
         '
         Me.tlpTaxInfo.BackColor = System.Drawing.Color.Transparent
         Me.tlpTaxInfo.ColumnCount = 2
-        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
+        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.27638!))
+        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.72362!))
         Me.tlpTaxInfo.Controls.Add(Me.lblGSTNo, 0, 0)
         Me.tlpTaxInfo.Controls.Add(Me.txtGSTNo, 1, 0)
-        Me.tlpTaxInfo.Controls.Add(Me.lblTaxation, 0, 1)
-        Me.tlpTaxInfo.Controls.Add(Me.cmbTaxation, 1, 1)
-        Me.tlpTaxInfo.Controls.Add(Me.lblCollectionPerson, 0, 2)
-        Me.tlpTaxInfo.Controls.Add(Me.cmbCollectionPerson, 1, 2)
         Me.tlpTaxInfo.Controls.Add(Me.lblSalesPerson, 0, 3)
         Me.tlpTaxInfo.Controls.Add(Me.cmbSalesPerson, 1, 3)
-        Me.tlpTaxInfo.Controls.Add(Me.lblStatus, 0, 4)
-        Me.tlpTaxInfo.Controls.Add(Me.cmbStatus, 1, 4)
+        Me.tlpTaxInfo.Controls.Add(Me.cmbCollectionPerson, 1, 2)
+        Me.tlpTaxInfo.Controls.Add(Me.cmbTaxation, 1, 1)
+        Me.tlpTaxInfo.Controls.Add(Me.lblTaxation, 0, 1)
+        Me.tlpTaxInfo.Controls.Add(Me.lblCollectionPerson, 0, 2)
         Me.tlpTaxInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpTaxInfo.Location = New System.Drawing.Point(10, 33)
         Me.tlpTaxInfo.Name = "tlpTaxInfo"
@@ -3654,7 +3650,7 @@ Partial Class FrmCustomerMaster
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.Size = New System.Drawing.Size(408, 107)
+        Me.tlpTaxInfo.Size = New System.Drawing.Size(408, 162)
         Me.tlpTaxInfo.TabIndex = 0
         '
         'lblGSTNo
@@ -3675,9 +3671,9 @@ Partial Class FrmCustomerMaster
         Me.txtGSTNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtGSTNo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGSTNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtGSTNo.Location = New System.Drawing.Point(127, 8)
+        Me.txtGSTNo.Location = New System.Drawing.Point(228, 8)
         Me.txtGSTNo.Name = "txtGSTNo"
-        Me.txtGSTNo.Size = New System.Drawing.Size(273, 30)
+        Me.txtGSTNo.Size = New System.Drawing.Size(172, 30)
         Me.txtGSTNo.TabIndex = 1
         '
         'lblTaxation
@@ -3701,9 +3697,9 @@ Partial Class FrmCustomerMaster
         Me.cmbTaxation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbTaxation.FormattingEnabled = True
         Me.cmbTaxation.Items.AddRange(New Object() {"Auto Detect", "SGST+CGST", "IGST", "Taxable", "Non-Taxable", "Exempt"})
-        Me.cmbTaxation.Location = New System.Drawing.Point(127, 48)
+        Me.cmbTaxation.Location = New System.Drawing.Point(228, 48)
         Me.cmbTaxation.Name = "cmbTaxation"
-        Me.cmbTaxation.Size = New System.Drawing.Size(273, 31)
+        Me.cmbTaxation.Size = New System.Drawing.Size(172, 31)
         Me.cmbTaxation.TabIndex = 3
         '
         'lblCollectionPerson
@@ -3713,9 +3709,9 @@ Partial Class FrmCustomerMaster
         Me.lblCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.lblCollectionPerson.Location = New System.Drawing.Point(8, 85)
         Me.lblCollectionPerson.Name = "lblCollectionPerson"
-        Me.lblCollectionPerson.Size = New System.Drawing.Size(90, 23)
+        Me.lblCollectionPerson.Size = New System.Drawing.Size(147, 23)
         Me.lblCollectionPerson.TabIndex = 4
-        Me.lblCollectionPerson.Text = "Collection"
+        Me.lblCollectionPerson.Text = "Collection Person" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.lblCollectionPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbCollectionPerson
@@ -3727,9 +3723,9 @@ Partial Class FrmCustomerMaster
         Me.cmbCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbCollectionPerson.FormattingEnabled = True
         Me.cmbCollectionPerson.Items.AddRange(New Object() {"None", "John Doe", "Jane Smith", "Mike Johnson"})
-        Me.cmbCollectionPerson.Location = New System.Drawing.Point(127, 88)
+        Me.cmbCollectionPerson.Location = New System.Drawing.Point(228, 88)
         Me.cmbCollectionPerson.Name = "cmbCollectionPerson"
-        Me.cmbCollectionPerson.Size = New System.Drawing.Size(273, 31)
+        Me.cmbCollectionPerson.Size = New System.Drawing.Size(172, 31)
         Me.cmbCollectionPerson.TabIndex = 5
         '
         'lblSalesPerson
@@ -3753,36 +3749,10 @@ Partial Class FrmCustomerMaster
         Me.cmbSalesPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbSalesPerson.FormattingEnabled = True
         Me.cmbSalesPerson.Items.AddRange(New Object() {"None", "John Doe", "Jane Smith", "Mike Johnson"})
-        Me.cmbSalesPerson.Location = New System.Drawing.Point(127, 128)
+        Me.cmbSalesPerson.Location = New System.Drawing.Point(228, 128)
         Me.cmbSalesPerson.Name = "cmbSalesPerson"
-        Me.cmbSalesPerson.Size = New System.Drawing.Size(273, 31)
+        Me.cmbSalesPerson.Size = New System.Drawing.Size(172, 31)
         Me.cmbSalesPerson.TabIndex = 7
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(8, 165)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(60, 23)
-        Me.lblStatus.TabIndex = 8
-        Me.lblStatus.Text = "Status"
-        Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmbStatus
-        '
-        Me.cmbStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"Active", "Inactive", "Blocked", "Suspended"})
-        Me.cmbStatus.Location = New System.Drawing.Point(127, 168)
-        Me.cmbStatus.Name = "cmbStatus"
-        Me.cmbStatus.Size = New System.Drawing.Size(273, 31)
-        Me.cmbStatus.TabIndex = 9
         '
         'grpAddressDetails
         '
@@ -3790,10 +3760,10 @@ Partial Class FrmCustomerMaster
         Me.grpAddressDetails.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpAddressDetails.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpAddressDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.grpAddressDetails.Location = New System.Drawing.Point(0, 164)
+        Me.grpAddressDetails.Location = New System.Drawing.Point(0, 177)
         Me.grpAddressDetails.Name = "grpAddressDetails"
         Me.grpAddressDetails.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpAddressDetails.Size = New System.Drawing.Size(1668, 150)
+        Me.grpAddressDetails.Size = New System.Drawing.Size(1668, 205)
         Me.grpAddressDetails.TabIndex = 1
         Me.grpAddressDetails.TabStop = False
         Me.grpAddressDetails.Text = "📍 ADDRESS DETAILS"
@@ -3831,7 +3801,7 @@ Partial Class FrmCustomerMaster
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
-        Me.tlpAddress.Size = New System.Drawing.Size(1648, 107)
+        Me.tlpAddress.Size = New System.Drawing.Size(1648, 162)
         Me.tlpAddress.TabIndex = 0
         '
         'lblAddress1
@@ -4066,7 +4036,7 @@ Partial Class FrmCustomerMaster
         Me.grpBasicInfo.Location = New System.Drawing.Point(0, 0)
         Me.grpBasicInfo.Name = "grpBasicInfo"
         Me.grpBasicInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpBasicInfo.Size = New System.Drawing.Size(1668, 164)
+        Me.grpBasicInfo.Size = New System.Drawing.Size(1668, 177)
         Me.grpBasicInfo.TabIndex = 0
         Me.grpBasicInfo.TabStop = False
         Me.grpBasicInfo.Text = "📋 BASIC INFORMATION"
@@ -4086,13 +4056,13 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.Controls.Add(Me.lblDisplaySrNo, 0, 1)
         Me.tlpBasicInfo.Controls.Add(Me.txtDisplaySrNo, 1, 1)
         Me.tlpBasicInfo.Controls.Add(Me.lblCustomerType, 2, 1)
-        Me.tlpBasicInfo.Controls.Add(Me.cmbCustomerType, 3, 1)
         Me.tlpBasicInfo.Controls.Add(Me.lblMobileNo, 0, 2)
         Me.tlpBasicInfo.Controls.Add(Me.txtMobileNo, 1, 2)
         Me.tlpBasicInfo.Controls.Add(Me.lblPhoneNo, 2, 2)
-        Me.tlpBasicInfo.Controls.Add(Me.txtPhoneNo, 3, 2)
         Me.tlpBasicInfo.Controls.Add(Me.lblEmail, 0, 3)
         Me.tlpBasicInfo.Controls.Add(Me.txtEmail, 1, 3)
+        Me.tlpBasicInfo.Controls.Add(Me.cmbCustomerType, 3, 1)
+        Me.tlpBasicInfo.Controls.Add(Me.txtPhoneNo, 3, 2)
         Me.tlpBasicInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpBasicInfo.Location = New System.Drawing.Point(10, 33)
         Me.tlpBasicInfo.Name = "tlpBasicInfo"
@@ -4103,7 +4073,7 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpBasicInfo.Size = New System.Drawing.Size(1648, 121)
+        Me.tlpBasicInfo.Size = New System.Drawing.Size(1648, 134)
         Me.tlpBasicInfo.TabIndex = 0
         '
         'lblCustomerName
@@ -4289,9 +4259,9 @@ Partial Class FrmCustomerMaster
         Me.tlpMain.Name = "tlpMain"
         Me.tlpMain.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpMain.RowCount = 5
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 365.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 433.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.tlpMain.Size = New System.Drawing.Size(1704, 941)
@@ -4491,8 +4461,6 @@ Partial Class FrmCustomerMaster
     Friend WithEvents cmbCollectionPerson As ComboBox
     Friend WithEvents lblSalesPerson As Label
     Friend WithEvents cmbSalesPerson As ComboBox
-    Friend WithEvents lblStatus As Label
-    Friend WithEvents cmbStatus As ComboBox
     Friend WithEvents grpAddressDetails As GroupBox
     Friend WithEvents tlpAddress As TableLayoutPanel
     Friend WithEvents lblAddress1 As Label
