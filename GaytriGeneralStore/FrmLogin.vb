@@ -541,7 +541,7 @@ Public Class FrmLogin
             'UpdateDB()
             Insert_Audit_Session() 'Audit Trail
             Obtain_SessionId() 'Audit Trail            
-            checkHDDSrNumber()
+            'checkHDDSrNumber()
             '===
             Select Case M_SoftType
                 Case "TAILORING-STD"

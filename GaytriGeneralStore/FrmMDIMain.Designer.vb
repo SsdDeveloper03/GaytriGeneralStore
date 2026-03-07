@@ -574,7 +574,7 @@ Partial Class FrmMDIMain
         Me.cmbFinYr = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbCompany = New System.Windows.Forms.ComboBox()
+        Me.cmbCName = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -588,9 +588,9 @@ Partial Class FrmMDIMain
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.MasterToolStripMenuItem, Me.EntryToolStripMenuItem, Me.ViewToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.UtilityToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1365, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1160, 28)
         Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.TabStop = True
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'HomeToolStripMenuItem
@@ -599,7 +599,7 @@ Partial Class FrmMDIMain
         Me.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HomeToolStripMenuItem.Image = CType(resources.GetObject("HomeToolStripMenuItem.Image"), System.Drawing.Image)
         Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(96, 24)
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(84, 24)
         Me.HomeToolStripMenuItem.Text = "Home"
         '
         'MasterToolStripMenuItem
@@ -609,7 +609,7 @@ Partial Class FrmMDIMain
         Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(105, 24)
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(92, 24)
         Me.MasterToolStripMenuItem.Text = "Master"
         '
         'BusinessProfileToolStripMenuItem
@@ -618,7 +618,7 @@ Partial Class FrmMDIMain
         Me.BusinessProfileToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.BusinessProfileToolStripMenuItem.Image = CType(resources.GetObject("BusinessProfileToolStripMenuItem.Image"), System.Drawing.Image)
         Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
-        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
+        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
         Me.BusinessProfileToolStripMenuItem.Text = "Business Profile"
         '
         'CustomerToolStripMenuItem
@@ -627,7 +627,7 @@ Partial Class FrmMDIMain
         Me.CustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.CustomerToolStripMenuItem.Image = CType(resources.GetObject("CustomerToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'EmployeeToolStripMenuItem
@@ -636,7 +636,7 @@ Partial Class FrmMDIMain
         Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.EmployeeToolStripMenuItem.Image = CType(resources.GetObject("EmployeeToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(236, 26)
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
         '
         'EntryToolStripMenuItem
@@ -646,7 +646,7 @@ Partial Class FrmMDIMain
         Me.EntryToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.EntryToolStripMenuItem.Image = CType(resources.GetObject("EntryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EntryToolStripMenuItem.Name = "EntryToolStripMenuItem"
-        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(92, 24)
+        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(82, 24)
         Me.EntryToolStripMenuItem.Text = "Entry"
         '
         'BillingEntryToolStripMenuItem
@@ -655,7 +655,7 @@ Partial Class FrmMDIMain
         Me.BillingEntryToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.BillingEntryToolStripMenuItem.Image = CType(resources.GetObject("BillingEntryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.BillingEntryToolStripMenuItem.Name = "BillingEntryToolStripMenuItem"
-        Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
+        Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.BillingEntryToolStripMenuItem.Text = "Billing Entry"
         '
         'PaymentCollectionToolStripMenuItem
@@ -664,7 +664,7 @@ Partial Class FrmMDIMain
         Me.PaymentCollectionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.PaymentCollectionToolStripMenuItem.Image = CType(resources.GetObject("PaymentCollectionToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
-        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(268, 26)
+        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.PaymentCollectionToolStripMenuItem.Text = "Payment Collection"
         '
         'ViewToolStripMenuItem
@@ -673,7 +673,7 @@ Partial Class FrmMDIMain
         Me.ViewToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(88, 24)
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
         Me.ViewToolStripMenuItem.Text = "View"
         '
         'TransactionToolStripMenuItem
@@ -683,7 +683,7 @@ Partial Class FrmMDIMain
         Me.TransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.TransactionToolStripMenuItem.Image = CType(resources.GetObject("TransactionToolStripMenuItem.Image"), System.Drawing.Image)
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
-        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(153, 24)
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(131, 24)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
         '
         'PaymentAdjustToolStripMenuItem
@@ -692,7 +692,7 @@ Partial Class FrmMDIMain
         Me.PaymentAdjustToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.PaymentAdjustToolStripMenuItem.Image = CType(resources.GetObject("PaymentAdjustToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
-        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
+        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
         Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
         '
         'UtilityToolStripMenuItem
@@ -701,7 +701,7 @@ Partial Class FrmMDIMain
         Me.UtilityToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.UtilityToolStripMenuItem.Image = CType(resources.GetObject("UtilityToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UtilityToolStripMenuItem.Name = "UtilityToolStripMenuItem"
-        Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(100, 24)
+        Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(84, 24)
         Me.UtilityToolStripMenuItem.Text = "Utility"
         '
         'ExitToolStripMenuItem
@@ -710,7 +710,7 @@ Partial Class FrmMDIMain
         Me.ExitToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(69, 24)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'XtraTabbedMdiManager1
@@ -727,81 +727,88 @@ Partial Class FrmMDIMain
         Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 28)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1365, 643)
+        Me.Panel1.Size = New System.Drawing.Size(1160, 517)
         Me.Panel1.TabIndex = 1
         '
         'cmbFinYr
         '
+        Me.cmbFinYr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbFinYr.BackColor = System.Drawing.Color.White
         Me.cmbFinYr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbFinYr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbFinYr.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFinYr.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbFinYr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.cmbFinYr.FormattingEnabled = True
-        Me.cmbFinYr.Location = New System.Drawing.Point(1232, 0)
+        Me.cmbFinYr.Location = New System.Drawing.Point(1047, 2)
+        Me.cmbFinYr.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbFinYr.Name = "cmbFinYr"
-        Me.cmbFinYr.Size = New System.Drawing.Size(121, 29)
+        Me.cmbFinYr.Size = New System.Drawing.Size(112, 23)
         Me.cmbFinYr.TabIndex = 2
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1139, 0)
+        Me.Label1.Location = New System.Drawing.Point(995, 3)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.Label1.Size = New System.Drawing.Size(75, 28)
+        Me.Label1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Label1.Size = New System.Drawing.Size(46, 22)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Fin. Yr"
+        Me.Label1.Text = "Year"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(768, 1)
+        Me.Label2.Location = New System.Drawing.Point(717, 3)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Padding = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.Label2.Size = New System.Drawing.Size(161, 28)
+        Me.Label2.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Label2.Size = New System.Drawing.Size(81, 22)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Company Name"
+        Me.Label2.Text = "Company"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cmbCompany
+        'cmbCName
         '
-        Me.cmbCompany.BackColor = System.Drawing.Color.White
-        Me.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbCompany.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCompany.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.cmbCompany.FormattingEnabled = True
-        Me.cmbCompany.Location = New System.Drawing.Point(935, 0)
-        Me.cmbCompany.Name = "cmbCompany"
-        Me.cmbCompany.Size = New System.Drawing.Size(198, 29)
-        Me.cmbCompany.TabIndex = 4
+        Me.cmbCName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbCName.BackColor = System.Drawing.Color.White
+        Me.cmbCName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbCName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.cmbCName.FormattingEnabled = True
+        Me.cmbCName.Location = New System.Drawing.Point(801, 3)
+        Me.cmbCName.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbCName.Name = "cmbCName"
+        Me.cmbCName.Size = New System.Drawing.Size(190, 23)
+        Me.cmbCName.TabIndex = 4
         '
         'FrmMDIMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1365, 671)
+        Me.ClientSize = New System.Drawing.Size(1160, 545)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbCompany)
+        Me.Controls.Add(Me.cmbCName)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbFinYr)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmMDIMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Enterprise Resource Planning System"
@@ -833,5 +840,5 @@ Partial Class FrmMDIMain
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbFinYr As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents cmbCompany As ComboBox
+    Friend WithEvents cmbCName As ComboBox
 End Class

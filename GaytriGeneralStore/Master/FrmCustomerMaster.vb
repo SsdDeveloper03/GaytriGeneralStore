@@ -2,11 +2,10 @@
 
 Public Class FrmCustomerMaster
 
-
 #Region "Comments"
     'Name:Gaytri
     'Created By:Smit
-    'Form:FrmCustoemerMaster
+    'Form:FrmCustomerMaster
     'Date:07/03/2026
 #End Region
 
@@ -63,24 +62,22 @@ Public Class FrmCustomerMaster
 
         ds.Clear()
 
-        If cmbF_Area.Text = "ALL" Then
+        If cmbF_Area.Text <> "ALL" Then
             _filter = " And AcContactPerson = '" & Trim(cmbF_Area.Text) & "'"
         End If
 
         sql_query = "Select " & topRows & " * From  View_LedgerMaster" _
-            & " Where G_Id = 11 And (LedgerName Like N'" & Trim(txtSearch.Text) & "%' OR MobileNo LedgerName Like N'" & Trim(txtSearch.Text) & "%')  " & _filter & " Order By Code Desc"
+            & " Where G_Id = 11 And (LedgerName Like N'" & Trim(txtSearch.Text) & "%' OR MobileNo Like N'%" & Trim(txtSearch.Text) & "%')  " & _filter & " Order By Code Desc"
 
         obj.LoadData(sql_query, ds)
         gcData.DataSource = ds.Tables(0).DefaultView
 
         gvData.OptionsView.ColumnAutoWidth = False
         gvData.BestFitColumns()
-
-        lblTotalRecords.Text = "📋 " & gvData.RowCount & " Records"
-
         formatGrid()
 
         RestoreLayout(gvData, "FrmCustomerMaster")
+        lblTotalRecords.Text = "📋 " & gvData.RowCount & " Records"
 
         'If checkRightsToLoad("HIDE CUSTOMER CONTACT NO") = True Then
         '    gvData.Columns("MobileNo").Visible = False
@@ -254,7 +251,7 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub loadTime()
-        _LedgerCodeInitial = "C"
+        '_LedgerCodeInitial = "C"
 
 
         'cmbF_CustType.SelectedIndex = 0
@@ -267,7 +264,7 @@ Public Class FrmCustomerMaster
         ComboFill(cmbCountry, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Country') Order By MiscName")
         ComboFill(cmbSalesPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Sales Person') Order By MiscName")
         ComboFill(cmbCollectionPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Collection Person') Order By MiscName")
-        ComboFill(cmbF_Area, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+        ComboFill_Search(cmbF_Area, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
 
         gridfill(M_TopRows)
 
@@ -293,7 +290,6 @@ Public Class FrmCustomerMaster
         'btnExit.Enabled = True
 
         getLedgerCode()
-        cmbCustType.Focus()
         txtLedgerName.Focus()
 
 
@@ -341,24 +337,22 @@ Public Class FrmCustomerMaster
         txtLedgerCode.Clear()
         txtLedgerName.Clear()
         txtDisplaySrNo.Clear()
-        cmbArea.Text = ""
         txtAdd1.Clear()
         txtAdd2.Clear()
-        cmbCity.Text = ""
         txtPinCode.Clear()
-        cmbState.Text = ""
         txtGSTNo.Clear()
-        cmbTaxation.SelectedIndex = 0
-        cmbArea.Text = ""
         txtPhone.Clear()
         txtMobile.Clear()
-        cmbCountry.Text = ""
+        txtDueDays.Text = 0
         txtEMailId.Clear()
 
-        txtDueDays.Text = 0
-        cmbTaxation.Text = ""
-        cmbSalesPerson.Text = ""
-        cmbCollectionPerson.Text = ""
+        cmbCustType.Text = "-"
+        cmbArea.SelectedIndex = -1
+        cmbCity.SelectedIndex = -1
+        cmbState.SelectedIndex = -1
+        cmbTaxation.Text = "-"
+        cmbSalesPerson.SelectedIndex = -1
+        cmbCollectionPerson.SelectedIndex = -1
         cmbDrCr.Text = ""
         txtOpBal.Clear()
     End Sub
@@ -467,7 +461,9 @@ Public Class FrmCustomerMaster
     Public Sub getLedgerCode()
         sql_query = "Select IsNull(Max(Code),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
         txtDisplaySrNo.Text = obj.ScalarExecute(sql_query) ' Where G_Id Not In (6,11,30)
-        txtLedgerCode.Text = _LedgerCodeInitial & StrDup(5 - Trim(txtDisplaySrNo.Text).Length, "0") & Trim(txtDisplaySrNo.Text)
+        sql_query = "Select IsNull(Max(LedgerCode),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
+        Dim tmpLedgercode As String = obj.ScalarExecute(sql_query)
+        txtLedgerCode.Text = _LedgerCodeInitial & StrDup(5 - Trim(tmpLedgercode).Length, "0") & Trim(tmpLedgercode)
     End Sub
 
     Public Sub setTaxation()
@@ -551,7 +547,15 @@ Public Class FrmCustomerMaster
         txtLedgerName.CharacterCasing = CharacterCasing.Upper
         txtAdd1.CharacterCasing = CharacterCasing.Upper
         txtAdd2.CharacterCasing = CharacterCasing.Upper
+
         cmbCountry.Text = "INDIA"
+        cmbArea.SelectedIndex = -1
+        cmbCity.SelectedIndex = -1
+        cmbCollectionPerson.SelectedIndex = -1
+        cmbState.SelectedIndex = -1
+        cmbF_Area.Text = "ALL"
+
+        btnAdd.Focus()
     End Sub
 
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
@@ -682,15 +686,13 @@ Public Class FrmCustomerMaster
         End If
     End Sub
 
-    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerName.KeyPress
+    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerName.KeyPress, txtAdd1.KeyPress, txtAdd2.KeyPress, txtPinCode.KeyPress, txtEMailId.KeyPress, txtGSTNo.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbArea.KeyPress, cmbSalesPerson.KeyPress, cmbCollectionPerson.KeyPress, cmbCustType.KeyPress, cmbTaxation.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress
         If e.KeyChar = Chr(13) Then
-            If Trim(txtLedgerName.Text) = "" Then
-                Exit Sub
-            End If
+            SendKeys.Send("{Tab}")
         End If
     End Sub
 
-    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtDueDays.KeyPress
+    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtDueDays.KeyPress, txtPhone.KeyPress
         If UCase(M_AllowMultiCountryMobileSeries) = "NO" Then
             If e.KeyChar = Chr(13) Then
                 SendKeys.Send("{Tab}")
@@ -736,7 +738,7 @@ Public Class FrmCustomerMaster
 
 #End Region
 
-#Region "Import/Export"
+#Region "Other"
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         Dim ds_Excel As New Data.DataSet
@@ -884,7 +886,7 @@ Public Class FrmCustomerMaster
     Private Sub gvData_Click(sender As Object, e As EventArgs) Handles gvData.Click
         Dim selectedRows() As Integer = gvData.GetSelectedRows
 
-        If selectedRows.Length = 0 Then
+        If selectedRows.Length < 0 Then
             Exit Sub
         End If
         fillData()
@@ -899,7 +901,7 @@ Public Class FrmCustomerMaster
     Private Sub gvData_DoubleClick(sender As Object, e As EventArgs) Handles gvData.DoubleClick
         Dim selectedRows() As Integer = gvData.GetSelectedRows
 
-        If selectedRows.Length = 0 Then
+        If selectedRows.Length < 0 Then
             Exit Sub
         End If
         fillData()
@@ -921,7 +923,7 @@ Public Class FrmCustomerMaster
     Private Sub gvData_KeyUp(sender As Object, e As KeyEventArgs) Handles gvData.KeyUp
         Dim selectedRows() As Integer = gvData.GetSelectedRows
 
-        If selectedRows.Length = 0 Then
+        If selectedRows.Length < 0 Then
             Exit Sub
         End If
         fillData()
@@ -941,7 +943,51 @@ Public Class FrmCustomerMaster
         SaveLayout(gvData, "FrmCustomerMaster", Me)
     End Sub
 
+    Private Sub btnClearSearch_Click(sender As Object, e As EventArgs) Handles btnClearSearch.Click
+        txtSearch.Clear()
+        cmbF_Area.Text = "ALL"
+    End Sub
 
+    Private Sub btnAddArea_Click(sender As Object, e As EventArgs) Handles btnAddArea.Click
+        Dim misctype As String = UCase(cmbArea.Text)
+
+        If M_checkMiscMaster("Area", UCase(cmbArea.Text)) = False Then
+            insertMiscMaster("Area", UCase(cmbArea.Text))
+            ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+            cmbArea.Text = misctype
+            MsgBox(misctype & " Added Successfully", MsgBoxStyle.Information)
+        Else
+            MsgBox(misctype & " Already Exist", MsgBoxStyle.Information)
+        End If
+    End Sub
+
+    Private Sub txtPinCode_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtPinCode.Validating
+        cmbArea.Focus()
+    End Sub
+
+    Private Sub cmbSalesPerson_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbSalesPerson.Validating
+        btnsave.Focus()
+    End Sub
+
+    Private Sub txtDueDays_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtDueDays.Validating
+        txtGSTNo.Focus()
+    End Sub
+
+    Private Sub cmbArea_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbArea.Validating
+        cmbCity.Focus()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        gridfill("")
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        gridfill("")
+    End Sub
+
+    Private Sub cmbF_Area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbF_Area.SelectedValueChanged
+        gridfill("")
+    End Sub
 
 #End Region
 
