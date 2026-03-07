@@ -26,6 +26,16 @@
 
     End Sub
 
+    Private Sub XtraTabbedMdiManager1_PageAdded(sender As System.Object, e As DevExpress.XtraTabbedMdi.MdiTabPageEventArgs) Handles XtraTabbedMdiManager1.PageAdded
+        Panel1.Visible = False
+    End Sub
+
+    Private Sub XtraTabbedMdiManager1_PageRemoved(sender As System.Object, e As DevExpress.XtraTabbedMdi.MdiTabPageEventArgs) Handles XtraTabbedMdiManager1.PageRemoved
+        If XtraTabbedMdiManager1.Pages.Count = 0 Then
+            Panel1.Visible = True
+        End If
+    End Sub
+
     Private Sub BusinessProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusinessProfileToolStripMenuItem.Click
 
     End Sub
