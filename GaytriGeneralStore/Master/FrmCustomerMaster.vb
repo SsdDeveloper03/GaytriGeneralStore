@@ -12,6 +12,7 @@ Public Class FrmCustomerMaster
 #Region "Declaration"
     Dim ds As New Data.DataSet
     Dim dsComboGM As New Data.DataSet
+    Dim dsCmbCity As New Data.DataSet
     Dim obj As New DBManager
     Dim sql_query As String
     Dim edit_ins As Integer = -1
@@ -19,8 +20,10 @@ Public Class FrmCustomerMaster
     Dim oldLedgerCode As String
     Dim point As Boolean = False
     Dim _LedgerCodeInitial As String = ""
-#End Region
+    Dim dv As New DataView
+    Dim dt As New DataTable
 
+#End Region
 
 #Region "Method"
 
@@ -57,20 +60,31 @@ Public Class FrmCustomerMaster
         gvData.Columns("IsActive").Visible = False
     End Sub
 
-    Public Sub gridfill(ByVal topRows As String)
+    Public Sub gridfill(ByVal _Refresh As Boolean)
         Dim _filter As String = ""
 
         ds.Clear()
 
-        If cmbF_Area.Text <> "ALL" Then
-            _filter = " And AcContactPerson = '" & Trim(cmbF_Area.Text) & "'"
+        If cmbF_Area.Text <> "ALL" And cmbF_Area.Text <> "" Then
+            _filter = " And AcContactPerson = '" & Trim(cmbF_Area.SelectedValue) & "'"
         End If
 
-        sql_query = "Select " & topRows & " * From  View_LedgerMaster" _
-            & " Where G_Id = 11 And (LedgerName Like N'" & Trim(txtSearch.Text) & "%' OR MobileNo Like N'%" & Trim(txtSearch.Text) & "%')  " & _filter & " Order By Code Desc"
+        'sql_query = "Select " & topRows & " * From  View_LedgerMaster" _
+        '    & " Where G_Id = 11 And (LedgerName Like N'" & Trim(txtSearch.Text) & "%' OR MobileNo Like N'%" & Trim(txtSearch.Text) & "%')  " & _filter & " Order By Code Desc"
 
-        obj.LoadData(sql_query, ds)
-        gcData.DataSource = ds.Tables(0).DefaultView
+        'obj.LoadData(sql_query, ds)
+        'gcData.DataSource = ds.Tables(0).DefaultView
+        If _Refresh = True Then
+            loadLedgerMaster()
+            dv = New DataView(dsLedgerMaster.Tables(0))
+            dv.RowFilter = "G_Id = 11 And (LedgerName Like '" & Trim(txtSearch.Text) & "%' OR MobileNo Like '%" & Trim(txtSearch.Text) & "%') " & _filter
+            dt = dv.ToTable()
+        Else
+            dv.RowFilter = "G_Id = 11 And (LedgerName Like '" & Trim(txtSearch.Text) & "%' OR MobileNo Like '%" & Trim(txtSearch.Text) & "%') " & _filter
+            dt = dv.ToTable()
+        End If
+
+        gcData.DataSource = dt.DefaultView
 
         gvData.OptionsView.ColumnAutoWidth = False
         gvData.BestFitColumns()
@@ -99,6 +113,16 @@ Public Class FrmCustomerMaster
         cmb.ValueMember = dsCmb.Tables(0).Columns(0).ToString
         cmb.DisplayMember = dsCmb.Tables(0).Columns(1).ToString
         dsCmb.Dispose()
+    End Sub
+
+    Public Sub ComboFill_City(ByVal cmb As ComboBox, ByVal sql As String)
+        dsCmbCity.Clear()
+        sql_query = sql
+        obj.LoadData(sql_query, dsCmbCity)
+        cmb.DataSource = dsCmbCity.Tables(0).DefaultView
+        cmb.ValueMember = dsCmbCity.Tables(0).Columns(0).ToString
+        cmb.DisplayMember = dsCmbCity.Tables(0).Columns(1).ToString
+        dsCmbCity.Dispose()
     End Sub
 
     Public Sub ComboFill_Search(ByVal cmb As ComboBox, ByVal sql As String)
@@ -137,7 +161,7 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@InsCountry", Dtype.nvarchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsPhoneNo", Dtype.varchar, Trim(txtPhone.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsMobileNo", Dtype.varchar, Trim(txtMobile.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsFaxNo", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsFaxNo", Dtype.varchar, Val(cmbArea.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsEMail", Dtype.varchar, Trim(txtEMailId.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
@@ -150,11 +174,11 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@InsMICRCode", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsBankName", Dtype.nvarchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsBankAddress", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAcContactPerson", Dtype.nvarchar, Trim(cmbArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsAcContactPerson", Dtype.nvarchar, Val(cmbCollectionPerson.SelectedValue), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, Val(cmbSalesPerson.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, Trim(cmbSalesPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, Trim(cmbCollectionPerson.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsPANNo", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
@@ -194,7 +218,7 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@UpCountry", Dtype.nvarchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpPhoneNo", Dtype.varchar, Trim(txtPhone.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpMobileNo", Dtype.varchar, Trim(txtMobile.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpFaxNo", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpFaxNo", Dtype.varchar, Val(cmbArea.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpEMail", Dtype.varchar, Trim(txtEMailId.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
         obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
@@ -207,11 +231,11 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@UpMICRCode", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpBankName", Dtype.nvarchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpBankAddress", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAcContactPerson", Dtype.nvarchar, Trim(cmbArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpAcContactPerson", Dtype.nvarchar, Val(cmbCollectionPerson.SelectedValue), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, Val(cmbSalesPerson.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, Trim(cmbSalesPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, Trim(cmbCollectionPerson.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpPANNo", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
@@ -257,16 +281,16 @@ Public Class FrmCustomerMaster
         'cmbF_CustType.SelectedIndex = 0
         'cmbDrCr.SelectedIndex = 0
 
-        ComboFill(cmbCustType, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Customer Type') Order By MiscName")
-        ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
-        ComboFill(cmbCity, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('City') Order By MiscName")
-        ComboFill(cmbState, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('State') Order By MiscName")
-        ComboFill(cmbCountry, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Country') Order By MiscName")
-        ComboFill(cmbSalesPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Sales Person') Order By MiscName")
-        ComboFill(cmbCollectionPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Collection Person') Order By MiscName")
-        ComboFill_Search(cmbF_Area, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+        ComboFill(cmbCustType, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('CustType') Order By MiscName")
+        ComboFill(cmbArea, "Select AreaId, AreaName From tbl_AreaMaster Order By AreaName")
+        ComboFill_City(cmbCity, "Select AreaId, CityName, PinCode From tbl_AreaMaster Order By AreaName")
+        ComboFill(cmbState, "Select AreaId, StateName From tbl_AreaMaster Order By AreaName")
+        ComboFill(cmbCountry, "Select AreaId, CountryName From tbl_AreaMaster Order By AreaName")
+        ComboFill(cmbSalesPerson, "Select LedgerId, LedgerName From tbl_LedgerMaster Where CId = " & M_CId & " And G_Id = 30 Order By LedgerName")
+        ComboFill(cmbCollectionPerson, "Select LedgerId, LedgerName From tbl_LedgerMaster Where CId = " & M_CId & " And G_Id = 30 Order By LedgerName")
+        ComboFill_Search(cmbF_Area, "Select AreaId, AreaName From tbl_AreaMaster Order By AreaName")
 
-        gridfill(M_TopRows)
+        gridfill(False)
 
         btnAdd.Enabled = True
         btnEdit.Enabled = False
@@ -292,7 +316,6 @@ Public Class FrmCustomerMaster
         getLedgerCode()
         txtLedgerName.Focus()
 
-
         cmbCountry.Text = M_CCountry
         cmbState.Text = M_CState
         setTaxation()
@@ -317,8 +340,8 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub saveClickTime()
-        gridfill(M_TopRows)
-        gbMainDetail.Enabled = False
+        gridfill(True)
+        gbMaindetail.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
@@ -358,8 +381,8 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub deleteClickTime()
-        gridfill(M_TopRows)
-        gbMainDetail.Enabled = False
+        gridfill(True)
+        gbMaindetail.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
@@ -446,9 +469,9 @@ Public Class FrmCustomerMaster
         cmbTaxation.Text = gvData.GetFocusedRowCellValue("Taxation")
         txtPhone.Text = gvData.GetFocusedRowCellValue("PhoneNo")
         txtMobile.Text = gvData.GetFocusedRowCellValue("MobileNo")
-        cmbArea.Text = gvData.GetFocusedRowCellValue("AcContactPerson")
-        cmbSalesPerson.Text = gvData.GetFocusedRowCellValue("TranSMS")
-        cmbCollectionPerson.Text = gvData.GetFocusedRowCellValue("PromoSMS")
+        cmbArea.SelectedValue = gvData.GetFocusedRowCellValue("FaxNo")
+        cmbSalesPerson.SelectedValue = gvData.GetFocusedRowCellValue("AcContactNo")
+        cmbCollectionPerson.SelectedValue = Val(gvData.GetFocusedRowCellValue("AcContactPerson"))
 
         Dim _YrTo As String = "_" & M_dsFinYr.Tables(0).Rows(M_FinYrIndx)("YrSuffix")
         sql_query = "Select DrOpening + CrOpening From tbl_LedgerOpeningBalance" & _YrTo & " Where LedgerId = " & Val(lblLedgerId.Text)
@@ -459,11 +482,12 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub getLedgerCode()
-        sql_query = "Select IsNull(Max(Code),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
+        sql_query = "Select ISNULL(MAX(Code), 0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
         txtDisplaySrNo.Text = obj.ScalarExecute(sql_query) ' Where G_Id Not In (6,11,30)
-        sql_query = "Select IsNull(Max(LedgerCode),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
+        sql_query = "Select ISNULL(MAX(TRY_CAST(LedgerCode AS INT)), 0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
         Dim tmpLedgercode As String = obj.ScalarExecute(sql_query)
-        txtLedgerCode.Text = _LedgerCodeInitial & StrDup(5 - Trim(tmpLedgercode).Length, "0") & Trim(tmpLedgercode)
+        'txtLedgerCode.Text = _LedgerCodeInitial & StrDup(5 - Trim(tmpLedgercode).Length, "0") & Trim(tmpLedgercode)
+        txtLedgerCode.Text = tmpLedgercode
     End Sub
 
     Public Sub setTaxation()
@@ -484,14 +508,14 @@ Public Class FrmCustomerMaster
         'End If
 
         If edit_ins = 1 Then
-            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerCode='" & Trim(txtLedgerCode.Text) & "' And CId = " & M_CId)
+            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerCode='" & Trim(txtLedgerCode.Text) & "' And G_Id = 11 And CId = " & M_CId)
             If Trim(txtLedgerCode.Text) = existLedgerCode Then
                 Return True
             Else
                 Return False
             End If
         Else
-            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerId <>" & Val(lblLedgerId.Text) & " and LedgerCode='" & Trim(txtLedgerCode.Text) & "' And CId = " & M_CId)
+            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerId <>" & Val(lblLedgerId.Text) & " And G_Id = 11 And LedgerCode='" & Trim(txtLedgerCode.Text) & "' And CId = " & M_CId)
             If Trim(txtLedgerCode.Text) = existLedgerCode Then
                 Return True
             Else
@@ -513,6 +537,7 @@ Public Class FrmCustomerMaster
             txtLedgerCode.ReadOnly = True
             txtLedgerCode.TabStop = False
         End If
+        dv = New DataView(dsLedgerMaster.Tables(0))
 
         Select Case M_TaxCalculation
             Case "GST"
@@ -549,11 +574,10 @@ Public Class FrmCustomerMaster
         txtAdd2.CharacterCasing = CharacterCasing.Upper
 
         cmbCountry.Text = "INDIA"
-        cmbArea.SelectedIndex = -1
         cmbCity.SelectedIndex = -1
         cmbCollectionPerson.SelectedIndex = -1
         cmbState.SelectedIndex = -1
-        cmbF_Area.Text = "ALL"
+        'cmbF_Area.Text = "ALL"
 
         btnAdd.Focus()
     End Sub
@@ -936,7 +960,7 @@ Public Class FrmCustomerMaster
     End Sub
 
     Private Sub RenameColumnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenameColumnToolStripMenuItem.Click
-        gvData.FocusedColumn.Caption = InputBox("Column Header Text", "Field Name", gvData.FocusedColumn.FieldName)
+        Dx_Renamecolumn(gvData)
     End Sub
 
     Private Sub SaveLayoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLayoutToolStripMenuItem.Click
@@ -953,7 +977,8 @@ Public Class FrmCustomerMaster
 
         If M_checkMiscMaster("Area", UCase(cmbArea.Text)) = False Then
             insertMiscMaster("Area", UCase(cmbArea.Text))
-            ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+            'ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+            ComboFill(cmbArea, "Select AreaId , AreaName From tbl_AreaMaster Order By MiscName")
             cmbArea.Text = misctype
             MsgBox(misctype & " Added Successfully", MsgBoxStyle.Information)
         Else
@@ -961,7 +986,7 @@ Public Class FrmCustomerMaster
         End If
     End Sub
 
-    Private Sub txtPinCode_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtPinCode.Validating
+    Private Sub txtAdd2_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd2.Validating
         cmbArea.Focus()
     End Sub
 
@@ -973,23 +998,32 @@ Public Class FrmCustomerMaster
         txtGSTNo.Focus()
     End Sub
 
-    Private Sub cmbArea_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbArea.Validating
-        cmbCity.Focus()
-    End Sub
-
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        gridfill("")
+        gridfill(True)
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        gridfill("")
+        gridfill(True)
     End Sub
 
     Private Sub cmbF_Area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbF_Area.SelectedValueChanged
-        gridfill("")
+        gridfill(True)
     End Sub
 
-#End Region
+    Private Sub cmbArea_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbArea.SelectedIndexChanged
+        If cmbArea.SelectedIndex > 0 Then
+            cmbCity.SelectedValue = cmbArea.SelectedValue
+            cmbState.SelectedValue = cmbArea.SelectedValue
+            cmbCountry.SelectedValue = cmbArea.SelectedValue
+            txtPinCode.Text = dsCmbCity.Tables(0).Select("AreaId=" & cmbArea.SelectedValue)(0)("Pincode").ToString()
+        End If
+    End Sub
 
+    Private Sub ExportToExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToExcelToolStripMenuItem.Click
+        Dx_ExportToExcel(gvData)
+    End Sub
+
+
+#End Region
 
 End Class

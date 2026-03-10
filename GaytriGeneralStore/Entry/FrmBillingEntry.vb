@@ -2,11 +2,11 @@
 
 Public Class FrmBillingEntry
 
-    'Copy of customer master just need  changes
+    'Copy of INVOICE MASTER just need  changes
 #Region "Comments"
     'Name:Gaytri
-    'Created By:Smit
-    'Form:FrmBillingENtry
+    'Created By:Manav
+    'Form:FrmBillingEntry
     'Date:07/03/2026
 #End Region
 
@@ -16,46 +16,80 @@ Public Class FrmBillingEntry
     Dim obj As New DBManager
     Dim sql_query As String
     Dim edit_ins As Integer = -1
-    Dim existLedgerCode As String
+    Dim existBillNo As String
     Dim oldLedgerCode As String
     Dim point As Boolean = False
     Dim _LedgerCodeInitial As String = ""
+    Dim dv As New DataView
+    Dim dt As New DataTable
+
 #End Region
 
 
 #Region "Method"
 
     Public Sub formatGrid()
+        gvData.Columns("InvoiceNo").Caption = "invoice No"
+        gvData.Columns("InvId").Visible = False
+        gvData.Columns("InvoiceNumber").Caption = "Bill Number"
+        gvData.Columns("InvoiceDate").Caption = "Bill Date"
         gvData.Columns("LedgerId").Visible = False
-        gvData.Columns("Code").Caption = "Disp SrNo"
-        gvData.Columns("LedgerCode").Caption = "Ledger Code"
-        gvData.Columns("LedgerName").Caption = "Customer Name"
-        gvData.Columns("G_Id").Visible = False
-        gvData.Columns("G_Name").Caption = "Group Name"
-        gvData.Columns("GSTNo").Caption = "GST No"
-        gvData.Columns("PinCode").Visible = False
-        gvData.Columns("Country").Visible = False
-        gvData.Columns("PhoneNo").Visible = False
-        gvData.Columns("FaxNo").Visible = False
-        gvData.Columns("EMail").Visible = False
-        gvData.Columns("BirthDate").Visible = False
-        gvData.Columns("AnniDate").Visible = False
-        gvData.Columns("CustType").Visible = False
-        gvData.Columns("BeneficiaryName").Visible = False
-        gvData.Columns("BankAcType").Visible = False
-        gvData.Columns("BankAcNo").Visible = False
-        gvData.Columns("IFSCCode").Visible = False
-        gvData.Columns("MICRCode").Visible = False
-        gvData.Columns("BankName").Visible = False
-        gvData.Columns("BankAddress").Visible = False
-        gvData.Columns("AcContactPerson").Caption = "Area"
-        gvData.Columns("AcContactNo").Visible = False
-        gvData.Columns("AcEmailId").Visible = False
-        gvData.Columns("TranSMS").Caption = "Sales Person"
-        gvData.Columns("PromoSMS").Caption = "Collection Person"
-        'gvData.Columns("StateCode").Visible = False
+        gvData.Columns("WorkDays").Visible = False
+        gvData.Columns("DeliveryDate").Visible = False
+        gvData.Columns("TrialDate").Visible = False
+        gvData.Columns("DiscPer").Visible = False
+        gvData.Columns("Discount").Visible = False
+        gvData.Columns("SalesAcType").Visible = False
+        gvData.Columns("TIRINo").Visible = False
+        gvData.Columns("TIRINumber").Visible = False
+        gvData.Columns("Creditdays").Visible = False
+        gvData.Columns("TS_Id").Visible = False
+        gvData.Columns("V_Id").Visible = False
+        gvData.Columns("CST_Per").Visible = False
+        gvData.Columns("CST_Amt").Visible = False
+        gvData.Columns("CST_AddPer").Visible = False
+        gvData.Columns("CST_AddAmt").Visible = False
+        gvData.Columns("VAT_Per").Visible = False
+        gvData.Columns("VAT_Amt").Visible = False
+        gvData.Columns("VAT_AddPer").Visible = False
+        gvData.Columns("VAT_AddAmt").Visible = False
+        gvData.Columns("FreightAmt").Visible = False
+        gvData.Columns("AdjustAmt").Visible = False
+        gvData.Columns("SalesBillAmt").Visible = False
         gvData.Columns("CId").Visible = False
-        gvData.Columns("IsActive").Visible = False
+        gvData.Columns("Sys_Name").Visible = False
+        gvData.Columns("Sys_Time").Visible = False
+        gvData.Columns("CurrUsr").Visible = False
+        gvData.Columns("AcInvoiceNo").Visible = False
+        gvData.Columns("AcInvoiceDate").Visible = False
+        gvData.Columns("FeedbackDTM").Visible = False
+        gvData.Columns("Rating").Visible = False
+        gvData.Columns("Feedback").Visible = False
+        gvData.Columns("PmtMode").Visible = False
+        gvData.Columns("PmtNarration").Visible = False
+        gvData.Columns("Remark1").Visible = False
+        gvData.Columns("Remark2").Visible = False
+        gvData.Columns("Remark3").Visible = False
+        gvData.Columns("SP1Per").Visible = False
+        gvData.Columns("SP1Amt").Visible = False
+        gvData.Columns("SP1Comm").Visible = False
+        gvData.Columns("SP2").Visible = False
+        gvData.Columns("SP2Per").Visible = False
+        gvData.Columns("SP2Amt").Visible = False
+        gvData.Columns("SP2Comm").Visible = False
+        gvData.Columns("TokenNo").Visible = False
+        gvData.Columns("IE_Gst").Visible = False
+        gvData.Columns("Measurementby_Id").Visible = False
+
+        gvData.Columns("CNAmt").Visible = False
+        gvData.Columns("LedgerName").Caption = "Customer Name"
+        gvData.Columns("SP1").Caption = "Collection Person"
+        gvData.Columns("TotalAmt").Caption = "Total Amt"
+        gvData.Columns("ReceivedAmt").Caption = "Received Amt"
+        gvData.Columns("DueAmt").Caption = "Due Amt"
+        gvData.Columns("SalesDueDate").Visible = True
+        gvData.Columns("OrderFlag").Caption = "Deleted record"
+        gvData.Columns("Reference").Caption = "References"
     End Sub
 
     Public Sub gridfill(ByVal topRows As String)
@@ -63,12 +97,11 @@ Public Class FrmBillingEntry
 
         ds.Clear()
 
-        If cmbF_Area.Text <> "ALL" Then
-            _filter = " And AcContactPerson = '" & Trim(cmbF_Area.Text) & "'"
-        End If
+        'If cmbF_Area.Text <> "ALL" Then
+        '    _filter = " And AcContactPerson = '" & Trim(cmbF_Area.Text) & "'"
+        'End If
 
-        sql_query = "Select " & topRows & " * From  View_LedgerMaster" _
-            & " Where G_Id = 11 And (LedgerName Like N'" & Trim(txtSearch.Text) & "%' OR MobileNo Like N'%" & Trim(txtSearch.Text) & "%')  " & _filter & " Order By Code Desc"
+        sql_query = "Select " & topRows & " * From  View_InvoiceMaster order by InvId desc"
 
         obj.LoadData(sql_query, ds)
         gcData.DataSource = ds.Tables(0).DefaultView
@@ -77,8 +110,8 @@ Public Class FrmBillingEntry
         gvData.BestFitColumns()
         formatGrid()
 
-        RestoreLayout(gvData, "FrmCustomerMaster")
-        lblTotalRecords.Text = "📋 " & gvData.RowCount & " Records"
+        RestoreLayout(gvData, "FrmBillingMaster")
+        'lblTotalRecords.Text = "📋 " & gvData.RowCount & " Records"
 
         'If checkRightsToLoad("HIDE CUSTOMER CONTACT NO") = True Then
         '    gvData.Columns("MobileNo").Visible = False
@@ -102,6 +135,48 @@ Public Class FrmBillingEntry
         dsCmb.Dispose()
     End Sub
 
+    Public Sub Fill_Ledger()
+        Dim dsLedger As New DataSet()
+        'Select Case UCase(M_CompanyWisePurchase)
+        '    Case "YES"
+        '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) And CId = " & M_CId & " Order By LedgerName"
+        '        Exit Select
+        '    Case Else
+        '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) Order By LedgerName"
+        '        Exit Select
+        'End Select
+
+        'obj.LoadData(sql_query, dsLedger)
+        dv.RowFilter = "G_Id = 11 "
+        dt = dv.ToTable()
+
+        cmbLedger.Properties.DataSource = dt.DefaultView
+
+        cmbLedger.Properties.ValueMember = "LedgerId"
+        cmbLedger.Properties.DisplayMember = "LedgerName"
+        cmbLedger.Properties.PopulateViewColumns()
+
+        Dim visibleCols() As String = {"Code", "LedgerCode", "LedgerName", "MobileNo", "AreaName", "City", "State", "SP_LedgerName", "CP_LedgerName"}
+        For Each col As DevExpress.XtraGrid.Columns.GridColumn In cmbLedger.Properties.View.Columns
+            If visibleCols.Contains(col.FieldName) Then
+                col.Visible = True
+            Else
+                col.Visible = False
+            End If
+        Next
+        cmbLedger.Properties.View.Columns("Code").Caption = "SrNo"
+        cmbLedger.Properties.View.Columns("LedgerCode").Caption = "Code"
+        cmbLedger.Properties.View.Columns("LedgerName").Caption = "customer Name"
+        cmbLedger.Properties.View.Columns("LedgerName").Width = 350
+        cmbLedger.Properties.View.Columns("CP_LedgerName").Caption = "CP Name"
+        cmbLedger.Properties.View.Columns("SP_LedgerName").Caption = "SP Name"
+
+        cmbLedger.Properties.View.BestFitColumns()
+        cmbLedger.Properties.View.OptionsView.ColumnAutoWidth = True
+        cmbLedger.Properties.PopupFormWidth = 850
+    End Sub
+
+
     Public Sub ComboFill_Search(ByVal cmb As ComboBox, ByVal sql As String)
         Dim dsCmb As New Data.DataSet
         dsCmb.Clear()
@@ -117,63 +192,58 @@ Public Class FrmBillingEntry
 
     Public Sub insert()
         If M_GenerateCustomerNumberSaveTime = "Yes" Then
-            getLedgerCode()
+            getBillNo()
         End If
 
-        If checkLedgerCode() = True Then
-            MsgBox("Same Customer Number Found, Get New Number", MsgBoxStyle.Critical)
-            getLedgerCode()
-        End If
-
-        obj.Prepare("SP_InsertLedgerMaster_0507", SpType.StoredProcedure)
-        obj.AddCmdParameter("@InsCode", Dtype.int, Trim(txtDisplaySrNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsLedgerCode", Dtype.varchar, Trim(txtLedgerCode.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsLedgerName", Dtype.nvarchar, Trim(txtLedgerName.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsG_Id", Dtype.int, 11, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAddress1", Dtype.nvarchar, Trim(txtAdd1.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAddress2", Dtype.nvarchar, Trim(txtAdd2.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsCity", Dtype.nvarchar, Trim(cmbCity.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPinCode", Dtype.varchar, Trim(txtPincode.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsState", Dtype.nvarchar, Trim(cmbState.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsCountry", Dtype.nvarchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPhoneNo", Dtype.varchar, Trim(txtPhone.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsMobileNo", Dtype.varchar, Trim(txtMobile.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsFaxNo", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsEMail", Dtype.varchar, Trim(txtEMailId.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsCustType", Dtype.nvarchar, cmbCustType.Text, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsMobileNo2", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBeneficiaryName", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBankAcType", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBankAcNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsIFSCCode", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsMICRCode", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBankName", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsBankAddress", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAcContactPerson", Dtype.nvarchar, Trim(cmbArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, Trim(cmbSalesPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, Trim(cmbCollectionPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPANNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
+        obj.Prepare("SP_InsertInvoiceMaster", SpType.StoredProcedure)
+        obj.AddCmdParameter("@InsInvoiceNo", Dtype.int, Trim(txtBillNo.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsInvoiceDate", Dtype.DateTime, dtpBillDate.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsLedgerId", Dtype.int, cmbLedger.EditValue, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsReference", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsWorkDays", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsDeliveryDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTrialDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTotalAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsDiscPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsDiscount", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsReceivedAmt", Dtype.float, Val(txtReceivedAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsDueAmt", Dtype.float, Val(txtDueAmt.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsRemarks", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsSalesAcType", Dtype.varchar, cmbSeries.Text, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsInvoiceNumber", Dtype.varchar, Trim(txtBillNumber.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTIRINo", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTIRINumber", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCreditdays", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsSalesDueDate", Dtype.DateTime, dtpSalesDueDate.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsTS_Id", Dtype.int, 7, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsV_Id", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCST_Per", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCST_Amt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCST_AddPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCST_AddAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsVAT_Per", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsVAT_Amt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsVAT_AddPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsVAT_AddAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsFreightAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsAdjustAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsSalesBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsCId", Dtype.int, M_CId, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsSys_Name", Dtype.varchar, My.Computer.Name, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsSys_Time", Dtype.DateTime, Date.Now.ToString(M_DTMforSP & " HH:mm:ss tt"), ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsCurrUsr", Dtype.nvarchar, loggedUser, ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsIsActive", Dtype.Bit, "True", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsSys_Time", Dtype.DateTime, Date.Now, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCurrUsr", Dtype.varchar, loggedUser, ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsSP1", Dtype.nvarchar, cmbCollectionPerson.SelectedValue, ParaDirection.Input, True)
         obj.ExecuteCommand()
 
-        If Val(txtOpBal.Text) <> 0 Then
-            sql_query = "Select IsNull(Max(LedgerId),0) From tbl_LedgerMaster Where LedgerCode = '" & Trim(txtLedgerCode.Text) & "'"
-            setOpeningBalance(obj.ScalarExecute(sql_query))
-        End If
+        'If Val(txtOpBal.Text) <> 0 Then
+        '    sql_query = "Select IsNull(Max(LedgerId),0) From tbl_LedgerMaster Where LedgerCode = '" & Trim(cmbLedger.Text) & "'"
+        '    setOpeningBalance(obj.ScalarExecute(sql_query))
+        'End If
 
-        sql_query = "Select IsNull(Max(LedgerId),0) From tbl_LedgerMaster Where LedgerCode = '" & Trim(txtLedgerCode.Text) & "'"
-        lblLedgerId.Text = obj.ScalarExecute(sql_query)
+        'sql_query = "Select IsNull(Max(LedgerId),0) From tbl_LedgerMaster Where LedgerCode = '" & Trim(cmbLedger.Text) & "'"
+        'lblLedgerId.Text = obj.ScalarExecute(sql_query)
     End Sub
 
     Public Sub insertMiscMaster(ByVal _MiscType As String, ByVal _MiscName As String)
@@ -182,72 +252,120 @@ Public Class FrmBillingEntry
     End Sub
 
     Public Sub edit() 'Company Id is not Updated
-        obj.Prepare("SP_UpdateLedgerMaster", SpType.StoredProcedure) 'SP_UpdateLedgerMaster_CustMast
-        obj.AddCmdParameter("@UpCode", Dtype.int, Val(txtDisplaySrNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpLedgerCode", Dtype.varchar, Trim(txtLedgerCode.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpLedgerName", Dtype.nvarchar, Trim(txtLedgerName.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpG_Id", Dtype.int, 11, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAddress1", Dtype.nvarchar, Trim(txtAdd1.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAddress2", Dtype.nvarchar, Trim(txtAdd2.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpCity", Dtype.nvarchar, Trim(cmbCity.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPinCode", Dtype.varchar, Trim(txtPincode.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpState", Dtype.nvarchar, Trim(cmbState.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpCountry", Dtype.nvarchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPhoneNo", Dtype.varchar, Trim(txtPhone.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpMobileNo", Dtype.varchar, Trim(txtMobile.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpFaxNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpEMail", Dtype.varchar, Trim(txtEMailId.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpCustType", Dtype.nvarchar, cmbCustType.Text, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpMobileNo2", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBeneficiaryName", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBankAcType", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBankAcNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpIFSCCode", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpMICRCode", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBankName", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpBankAddress", Dtype.nvarchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAcContactPerson", Dtype.nvarchar, Trim(cmbArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, Trim(cmbSalesPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, Trim(cmbCollectionPerson.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPANNo", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpCId", Dtype.int, M_CId, ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpIsActive", Dtype.Bit, "True", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpLedgerId", Dtype.int, Val(lblLedgerId.Text), ParaDirection.Input, True)
+
+        obj.Prepare("SP_UpdateInvoiceMaster", SpType.StoredProcedure)
+        obj.AddCmdParameter("@UpInvoiceNo", Dtype.int, Val(txtBillNo.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpInvoiceDate", Dtype.DateTime, dtpBillDate.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpLedgerId", Dtype.int, Val(cmbLedger.EditValue), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpReference", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpWorkDays", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpDeliveryDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTrialDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTotalAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpDiscPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpDiscount", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpReceivedAmt", Dtype.float, Val(txtReceivedAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpDueAmt", Dtype.float, Val(txtDueAmt.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpRemarks", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpSalesAcType", Dtype.varchar, cmbSeries.Text, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpInvoiceNumber", Dtype.varchar, Trim(txtBillNumber.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTIRINo", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTIRINumber", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCreditdays", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpSalesDueDate", Dtype.DateTime, dtpSalesDueDate.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpTS_Id", Dtype.int, 7, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpV_Id", Dtype.int, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCST_Per", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCST_Amt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCST_AddPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCST_AddAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpVAT_Per", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpVAT_Amt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpVAT_AddPer", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpVAT_AddAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpFreightAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpAdjustAmt", Dtype.float, 0, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpSalesBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpRemark1", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpRemark2", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpRemark3", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpInvId", Dtype.int, Val(lblInvId.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UPSP1", Dtype.nvarchar, cmbCollectionPerson.Text, ParaDirection.Input, True)
         obj.ExecuteCommand()
 
-        setOpeningBalance(Val(lblLedgerId.Text))
+        'obj.Prepare("SP_UpdateInvoiceMaster", SpType.StoredProcedure)
+        'obj.AddCmdParameter("@UPInvoiceNo", Dtype.int, Trim(txtBillNo.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPInvoiceDate", Dtype.DateTime, dtpBillDate.Value, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPLedgerId", Dtype.int, cmbLedger.EditValue, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPReference", Dtype.varchar, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPWorkDays", Dtype.int, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPDeliveryDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPTrialDate", Dtype.DateTime, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPTotalAmt", Dtype.float, Trim(txtBillAmount.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPDiscPer", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPDiscount", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPBillAmt", Dtype.float, Trim(txtBillAmount.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPReceivedAmt", Dtype.float, Trim(txtReceivedAmount.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPDueAmt", Dtype.float, Val(txtDueAmt.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPRemarks", Dtype.varchar, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSalesAcType", Dtype.varchar, cmbSeries.Text, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPInvoiceNumber", Dtype.varchar, Trim(txtBillNumber.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPTIRINo", Dtype.int, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPTIRINumber", Dtype.varchar, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCreditdays", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSalesDueDate", Dtype.DateTime, dtpSalesDueDate.Value, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPTS_Id", Dtype.int, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPV_Id", Dtype.int, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCST_Per", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCST_Amt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCST_AddPer", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCST_AddAmt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPVAT_Per", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPVAT_Amt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPVAT_AddPer", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPVAT_AddAmt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPFreightAmt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPAdjustAmt", Dtype.float, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSalesBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCId", Dtype.int, M_CId, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSys_Name", Dtype.varchar, My.Computer.Name, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSys_Time", Dtype.DateTime, Date.Now.ToString(M_DTMforSP & " HH:mm:ss tt"), ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPCurrUsr", Dtype.varchar, loggedUser, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSP1", Dtype.nvarchar, cmbCollectionPerson.Text, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UpInvId", Dtype.int, Val(lblInvId.Text), ParaDirection.Input, True)
+        'obj.ExecuteCommand()
+
+        'setOpeningBalance(Val(lblLedgerId.Text))
 
     End Sub
 
-    Public Sub setOpeningBalance(ByVal ledgerId As Integer)
-        Dim _YrTo As String = "_" & M_dsFinYr.Tables(0).Rows(M_FinYrIndx)("YrSuffix")
-        If edit_ins = 0 Then
-            sql_query = "Delete from tbl_LedgerOpeningBalance" & _YrTo & " Where LedgerId = " & ledgerId
-            obj.QueryExecute(sql_query)
-        End If
+    'Public Sub setOpeningBalance(ByVal ledgerId As Integer)
+    '    Dim _YrTo As String = "_" & M_dsFinYr.Tables(0).Rows(M_FinYrIndx)("YrSuffix")
+    '    If edit_ins = 0 Then
+    '        sql_query = "Delete from tbl_LedgerOpeningBalance" & _YrTo & " Where LedgerId = " & ledgerId
+    '        obj.QueryExecute(sql_query)
+    '    End If
 
-        Select Case cmbDrCr.Text
-            Case "Cr"
-                sql_query = "Insert Into tbl_LedgerOpeningBalance" & _YrTo & " (LedgerId, DrOpening, CrOpening, DrCr, LastYrDr, LastYrCr, Remark) Values(" _
-                    & ledgerId & ",0," & Math.Abs(Val(txtOpBal.Text)) & ",'Cr',0,0,0)"
-                obj.QueryExecute(sql_query)
-                Exit Select
-            Case "Dr"
-                sql_query = "Insert Into tbl_LedgerOpeningBalance" & _YrTo & " (LedgerId, DrOpening, CrOpening, DrCr, LastYrDr, LastYrCr, Remark) Values(" _
-                    & ledgerId & "," & Math.Abs(Val(txtOpBal.Text)) & ",0,'Dr',0,0,0)"
-                obj.QueryExecute(sql_query)
-                Exit Select
-        End Select
-    End Sub
+    '    Select Case cmbDrCr.Text
+    '        Case "Cr"
+    '            sql_query = "Insert Into tbl_LedgerOpeningBalance" & _YrTo & " (LedgerId, DrOpening, CrOpening, DrCr, LastYrDr, LastYrCr, Remark) Values(" _
+    '                & ledgerId & ",0," & Math.Abs(Val(txtOpBal.Text)) & ",'Cr',0,0,0)"
+    '            obj.QueryExecute(sql_query)
+    '            Exit Select
+    '        Case "Dr"
+    '            sql_query = "Insert Into tbl_LedgerOpeningBalance" & _YrTo & " (LedgerId, DrOpening, CrOpening, DrCr, LastYrDr, LastYrCr, Remark) Values(" _
+    '                & ledgerId & "," & Math.Abs(Val(txtOpBal.Text)) & ",0,'Dr',0,0,0)"
+    '            obj.QueryExecute(sql_query)
+    '            Exit Select
+    '    End Select
+    'End Sub
 
     Public Sub del()
-        sql_query = "delete from tbl_LedgerMaster where LedgerId=" & Val(lblLedgerId.Text)
+        sql_query = "update tbl_InvoiceMaster set OrderFlag = 'deleted' where InvId = " & Val(lblInvId.Text)
+        'sql_query = "Delete From tbl_InvoiceMaster where InvId = " & Val(lblInvId.Text)
         obj.QueryExecute(sql_query)
     End Sub
 
@@ -258,157 +376,142 @@ Public Class FrmBillingEntry
         'cmbF_CustType.SelectedIndex = 0
         'cmbDrCr.SelectedIndex = 0
 
-        ComboFill(cmbCustType, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Customer Type') Order By MiscName")
-        ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
-        ComboFill(cmbCity, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('City') Order By MiscName")
-        ComboFill(cmbState, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('State') Order By MiscName")
-        ComboFill(cmbCountry, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Country') Order By MiscName")
-        ComboFill(cmbSalesPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Sales Person') Order By MiscName")
-        ComboFill(cmbCollectionPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Collection Person') Order By MiscName")
-        ComboFill_Search(cmbF_Area, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
-
+        ComboFill(cmbSeries, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Prefix') Order By MiscName")
+        ComboFill(cmbSuffix, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Suffix') Order By MiscName")
+        ComboFill(cmbCollectionPerson, "Select LedgerId , LedgerName From tbl_LedgerMaster Where CId = " & M_CId & " and G_Id = 30 Order By LedgerName")
+        'ComboFill(cmbCity, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('City') Order By MiscName")
+        'ComboFill(cmbState, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('State') Order By MiscName")
+        'ComboFill(cmbCountry, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Country') Order By MiscName")
+        'ComboFill(cmbSalesPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Sales Person') Order By MiscName")
+        'ComboFill(cmbCollectionPerson, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Collection Person') Order By MiscName")
+        'ComboFill_Search(cmbF_Area, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+        Fill_Ledger()
         gridfill(M_TopRows)
 
-        btnAdd.Enabled = True
-        btnEdit.Enabled = False
-        btnSave.Enabled = False
-        btnDelete.Enabled = False
-        btnCancel.Enabled = True
+        btn_Add.Enabled = True
+        btn_Edit.Enabled = False
+        btn_save.Enabled = False
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = True
         'btnExit.Enabled = True
         gcData.Enabled = True
-        gbMainDetail.Enabled = False
+        grpBillingInfo.Enabled = False
     End Sub
 
     Public Sub addClickTime()
-        gbMainDetail.Enabled = True
+        grpBillingInfo.Enabled = True
         gcData.Enabled = False
 
-        btnAdd.Enabled = False
-        btnEdit.Enabled = False
-        btnSave.Enabled = True
-        btnDelete.Enabled = False
-        btnCancel.Enabled = True
+        btn_Add.Enabled = False
+        btn_Edit.Enabled = False
+        btn_save.Enabled = True
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = True
         'btnExit.Enabled = True
 
-        getLedgerCode()
-        txtLedgerName.Focus()
-
-
-        cmbCountry.Text = M_CCountry
-        cmbState.Text = M_CState
-        setTaxation()
-
+        getBillNo()
+        cmbSeries.Focus()
+        cmbSeries.DroppedDown = True
         edit_ins = 1
+
+        txtDueAmt.Text = txtBillAmount.Text
+        txtReceivedAmount.Text = 0
     End Sub
 
     Public Sub editClickTime()
-        gbMainDetail.Enabled = True
+        grpBillingInfo.Enabled = True
         gcData.Enabled = False
 
-        btnAdd.Enabled = False
-        btnEdit.Enabled = False
-        btnSave.Enabled = True
-        btnDelete.Enabled = False
-        btnCancel.Enabled = True
+        btn_Add.Enabled = False
+        btn_Edit.Enabled = False
+        btn_save.Enabled = True
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = True
         'btnExit.Enabled = True
 
         edit_ins = 0
-        oldLedgerCode = Trim(txtLedgerCode.Text)
-        txtLedgerName.Focus()
+        oldLedgerCode = Trim(cmbLedger.Text)
+        txtBillAmount.Focus()
     End Sub
 
     Public Sub saveClickTime()
         gridfill(M_TopRows)
-        gbMainDetail.Enabled = False
+        grpBillingInfo.Enabled = False
         gcData.Enabled = True
 
-        btnAdd.Enabled = True
-        btnEdit.Enabled = False
-        btnSave.Enabled = False
-        btnDelete.Enabled = False
-        btnCancel.Enabled = True
+        btn_Add.Enabled = True
+        btn_Edit.Enabled = False
+        btn_save.Enabled = False
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = True
         'btnExit.Enabled = True
-        btnAdd.Focus()
+        btn_Add.Focus()
         clearclicktime()
 
         edit_ins = -1
     End Sub
 
     Public Sub clearclicktime()
-        txtLedgerCode.Clear()
-        txtLedgerName.Clear()
-        txtDisplaySrNo.Clear()
+        cmbLedger.Text = ""
+        'txtLedgerName.Clear()
+        'txtDisplaySrNo.Clear()
         txtAdd1.Clear()
         txtAdd2.Clear()
         txtPincode.Clear()
-        txtGSTNo.Clear()
-        txtPhone.Clear()
+        'txtGSTNo.Clear()
+        'txtPhone.Clear()
         txtMobile.Clear()
-        txtDueDays.Text = 0
-        txtEMailId.Clear()
+        'txtDueDays.Text = 0
+        'txtEMailId.Clear()
 
-        cmbCustType.Text = "-"
-        cmbArea.SelectedIndex = -1
-        cmbCity.SelectedIndex = -1
-        cmbState.SelectedIndex = -1
-        cmbTaxation.Text = "-"
-        cmbSalesPerson.SelectedIndex = -1
         cmbCollectionPerson.SelectedIndex = -1
-        cmbDrCr.Text = ""
-        txtOpBal.Clear()
+        'txtOpBal.Clear()
     End Sub
 
     Public Sub deleteClickTime()
         gridfill(M_TopRows)
-        gbMainDetail.Enabled = False
+        grpBillingInfo.Enabled = False
         gcData.Enabled = True
 
-        btnAdd.Enabled = True
-        btnEdit.Enabled = False
-        btnSave.Enabled = False
-        btnDelete.Enabled = False
-        btnCancel.Enabled = True
+        btn_Add.Enabled = True
+        btn_Edit.Enabled = False
+        btn_save.Enabled = False
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = True
         'btnExit.Enabled = True
-        btnAdd.Focus()
+        btn_Add.Focus()
 
 
-        txtLedgerCode.Clear()
-        txtLedgerName.Clear()
-        txtDisplaySrNo.Clear()
-        cmbArea.Text = ""
+        cmbLedger.Text = ""
+        txtBillAmount.Clear()
+        txtBillNo.Clear()
+        txtBillNumber.Clear()
+        txtCountry.Clear()
         txtAdd1.Clear()
         txtAdd2.Clear()
-        cmbCity.Text = ""
+        txtAreaCity.Clear()
+        txtState.Clear()
+        txtAdd1.Clear()
+        txtAdd2.Clear()
         txtPincode.Clear()
-        cmbState.Text = ""
-        txtGSTNo.Clear()
-        cmbTaxation.SelectedIndex = 0
-        cmbArea.Text = ""
-        txtPhone.Clear()
+        'txtPhone.Clear()
         txtMobile.Clear()
-        cmbCountry.Text = ""
-        txtEMailId.Clear()
-
-        txtDueDays.Text = 0
-        cmbTaxation.Text = ""
-        cmbSalesPerson.Text = ""
         cmbCollectionPerson.Text = ""
-        cmbDrCr.Text = ""
-        txtOpBal.Clear()
+        cmbSeries.Text = ""
 
         edit_ins = -1
     End Sub
 
     Public Sub cancelClickTime()
-        gbMainDetail.Enabled = False
+        grpBillingInfo.Enabled = False
         gcData.Enabled = True
 
-        btnAdd.Enabled = True
-        btnAdd.Focus()
-        btnEdit.Enabled = False
-        btnSave.Enabled = False
-        btnDelete.Enabled = False
-        btnCancel.Enabled = False
+        btn_Add.Enabled = True
+        btn_Add.Focus()
+        btn_Edit.Enabled = False
+        btn_save.Enabled = False
+        btn_Delete.Enabled = False
+        btn_Cancel.Enabled = False
         'btnExit.Enabled = True
 
         edit_ins = -1
@@ -433,67 +536,46 @@ Public Class FrmBillingEntry
             Exit Sub
         End If
 
-        lblLedgerId.Text = gvData.GetFocusedRowCellValue("LedgerId")
-        txtDisplaySrNo.Text = gvData.GetFocusedRowCellValue("Code")
-        txtLedgerCode.Text = gvData.GetFocusedRowCellValue("LedgerCode")
-        txtLedgerName.Text = gvData.GetFocusedRowCellValue("LedgerName")
+        lblInvId.Text = gvData.GetFocusedRowCellValue("InvId")
+        txtBillNo.Text = gvData.GetFocusedRowCellValue("InvoiceNo")
+        cmbLedger.Text = gvData.GetFocusedRowCellValue("LedgerId")
+        txtBillNumber.Text = gvData.GetFocusedRowCellValue("InvoiceNumber")
         txtAdd1.Text = gvData.GetFocusedRowCellValue("Address1")
         txtAdd2.Text = gvData.GetFocusedRowCellValue("Address2")
-        cmbCity.Text = gvData.GetFocusedRowCellValue("City")
+        txtAreaCity.Text = gvData.GetFocusedRowCellValue("City")
         txtPincode.Text = gvData.GetFocusedRowCellValue("PinCode")
-        cmbState.Text = gvData.GetFocusedRowCellValue("State")
-        txtGSTNo.Text = gvData.GetFocusedRowCellValue("GSTNo")
-        cmbCountry.Text = gvData.GetFocusedRowCellValue("Country")
-        cmbTaxation.Text = gvData.GetFocusedRowCellValue("Taxation")
-        txtPhone.Text = gvData.GetFocusedRowCellValue("PhoneNo")
+        txtState.Text = gvData.GetFocusedRowCellValue("State")
+        txtCountry.Text = gvData.GetFocusedRowCellValue("Country")
         txtMobile.Text = gvData.GetFocusedRowCellValue("MobileNo")
-        cmbArea.Text = gvData.GetFocusedRowCellValue("AcContactPerson")
-        cmbSalesPerson.Text = gvData.GetFocusedRowCellValue("TranSMS")
-        cmbCollectionPerson.Text = gvData.GetFocusedRowCellValue("PromoSMS")
+        cmbCollectionPerson.Text = gvData.GetFocusedRowCellValue("SP1")
 
-        Dim _YrTo As String = "_" & M_dsFinYr.Tables(0).Rows(M_FinYrIndx)("YrSuffix")
-        sql_query = "Select DrOpening + CrOpening From tbl_LedgerOpeningBalance" & _YrTo & " Where LedgerId = " & Val(lblLedgerId.Text)
-        txtOpBal.Text = obj.ScalarExecute(sql_query)
-
-        sql_query = "Select DrCr From tbl_LedgerOpeningBalance" & _YrTo & " Where LedgerId = " & Val(lblLedgerId.Text)
-        cmbDrCr.Text = obj.ScalarExecute(sql_query)
     End Sub
 
-    Public Sub getLedgerCode()
-        sql_query = "Select IsNull(Max(Code),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
-        txtDisplaySrNo.Text = obj.ScalarExecute(sql_query) ' Where G_Id Not In (6,11,30)
-        sql_query = "Select IsNull(Max(LedgerCode),0) + 1 From Tbl_LedgerMaster Where G_Id = 11 And CId = " & M_CId
-        Dim tmpLedgercode As String = obj.ScalarExecute(sql_query)
-        txtLedgerCode.Text = _LedgerCodeInitial & StrDup(5 - Trim(tmpLedgercode).Length, "0") & Trim(tmpLedgercode)
+    Public Sub getBillNo()
+        sql_query = "Select IsNull(Max(InvoiceNo),0) + 1 From tbl_InvoiceMaster Where ISNULL(SalesAcType,'') = '" & Trim(cmbSeries.Text) & "' And CId = " & M_CId
+        txtBillNo.Text = obj.ScalarExecute(sql_query)
     End Sub
 
-    Public Sub setTaxation()
-        If UCase(M_CState) = UCase(cmbState.Text) Then
-            cmbTaxation.Text = "SGST+CGST"
-        Else
-            cmbTaxation.Text = "IGST"
-        End If
-    End Sub
 
 #End Region
 
 #Region "function"
 
-    Public Function checkLedgerCode() As Boolean
+    Public Function checkBillNo() As Boolean
         'If M_AllwDupLcode = "Yes" Then
         '    Return False
         'End If
 
         If edit_ins = 1 Then
-            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerCode='" & Trim(txtLedgerCode.Text) & "' And CId = " & M_CId)
-            If Trim(txtLedgerCode.Text) = existLedgerCode Then
+            existBillNo = obj.ScalarExecute("select InvoiceNo from Tbl_InvoiceMaster where InvoiceNo ='" & Trim(txtBillNo.Text) & "' And CId = " & M_CId)
+            If Trim(txtBillNo.Text) = existBillNo Then
                 Return True
             Else
                 Return False
             End If
         Else
-            existLedgerCode = obj.ScalarExecute("select LedgerCode from tbl_LedgerMaster where LedgerId <>" & Val(lblLedgerId.Text) & " and LedgerCode='" & Trim(txtLedgerCode.Text) & "' And CId = " & M_CId)
-            If Trim(txtLedgerCode.Text) = existLedgerCode Then
+            existBillNo = obj.ScalarExecute("select InvoiceNo from Tbl_InvoiceMaster where InvId <>" & Val(lblInvId.Text) & " and InvoiceNo ='" & Trim(txtBillNo.Text) & "' And CId = " & M_CId)
+            If Trim(txtBillNo.Text) = existBillNo Then
                 Return True
             Else
                 Return False
@@ -511,29 +593,30 @@ Public Class FrmBillingEntry
         End If
 
         If M_GenerateCustomerNumberSaveTime = "Yes" Then
-            txtLedgerCode.ReadOnly = True
-            txtLedgerCode.TabStop = False
+            cmbLedger.ReadOnly = True
+            cmbLedger.TabStop = False
         End If
+        dv = New DataView(dsLedgerMaster.Tables(0))
 
-        Select Case M_TaxCalculation
-            Case "GST"
-                lblGSTNo.Text = "GST No."
-                cmbTaxation.Items.Add("-")
-                cmbTaxation.Items.Add("SGST+CGST")
-                cmbTaxation.Items.Add("IGST")
-                Exit Select
-            Case "VAT"
-                lblGSTNo.Text = "VAT No."
-                cmbTaxation.Items.Add("-")
-                cmbTaxation.Items.Add("VAT")
-                Exit Select
-            Case Else
-                lblGSTNo.Text = "GST No."
-                cmbTaxation.Items.Add("-")
-                cmbTaxation.Items.Add("SGST+CGST")
-                cmbTaxation.Items.Add("IGST")
-                Exit Select
-        End Select
+        'Select Case M_TaxCalculation
+        '    Case "GST"
+        '        lblGSTNo.Text = "GST No."
+        '        cmbTaxation.Items.Add("-")
+        '        cmbTaxation.Items.Add("SGST+CGST")
+        '        cmbTaxation.Items.Add("IGST")
+        '        Exit Select
+        '    Case "VAT"
+        '        lblGSTNo.Text = "VAT No."
+        '        cmbTaxation.Items.Add("-")
+        '        cmbTaxation.Items.Add("VAT")
+        '        Exit Select
+        '    Case Else
+        '        lblGSTNo.Text = "GST No."
+        '        cmbTaxation.Items.Add("-")
+        '        cmbTaxation.Items.Add("SGST+CGST")
+        '        cmbTaxation.Items.Add("IGST")
+        '        Exit Select
+        'End Select
 
         Select Case M_LedgerMasterF2
             Case True
@@ -545,25 +628,25 @@ Public Class FrmBillingEntry
                 Exit Select
         End Select
 
-        txtLedgerName.CharacterCasing = CharacterCasing.Upper
+        txtName.CharacterCasing = CharacterCasing.Upper
         txtAdd1.CharacterCasing = CharacterCasing.Upper
         txtAdd2.CharacterCasing = CharacterCasing.Upper
 
-        cmbCountry.Text = "INDIA"
-        cmbArea.SelectedIndex = -1
-        cmbCity.SelectedIndex = -1
+        'cmbCountry.Text = "INDIA"
+        'cmbArea.SelectedIndex = -1
+        'cmbCity.SelectedIndex = -1
         cmbCollectionPerson.SelectedIndex = -1
-        cmbState.SelectedIndex = -1
-        cmbF_Area.Text = "ALL"
+        'cmbState.SelectedIndex = -1
+        'cmbF_Area.Text = "ALL"
 
-        btnAdd.Focus()
+        btn_Add.Focus()
     End Sub
 
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        If checkRightsToAdd("CUSTOMER MASTER") = False Then
-            MsgBox("Unable To Add New Record", MsgBoxStyle.Information)
-            Exit Sub
-        End If
+    Private Sub btn_Add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Add.Click
+        'If checkRightsToAdd("INVOICE MASTER") = False Then
+        '    MsgBox("Unable To Add New Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
         'If M_IsDemoSetup = True Then'====
         '    sql_query = "Select Count(*) From Tbl_LedgerMaster"
@@ -576,63 +659,52 @@ Public Class FrmBillingEntry
         addClickTime()
     End Sub
 
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
-        If checkRightsToEdit("CUSTOMER MASTER") = False Then
-            MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
-            Exit Sub
-        End If
+    Private Sub btn_Edit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Edit.Click
+        'If checkRightsToEdit("INVOICE MASTER") = False Then
+        '    MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
         editClickTime()
     End Sub
 
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        If Trim(txtLedgerCode.Text) = "" Then
+    Private Sub btn_Save_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_save.Click
+        If Trim(cmbLedger.Text) = "" Then
             MsgBox("Please Specify Ledger Code", MsgBoxStyle.Information)
-            txtLedgerCode.Focus()
-            Exit Sub
-        End If
-        If Trim(txtLedgerName.Text) = "" Then
-            MsgBox("Please Specify Ledger Name", MsgBoxStyle.Information)
-            txtLedgerName.Focus()
+            cmbLedger.Focus()
             Exit Sub
         End If
 
-        If checkLedgerCode() = True Then
-            MsgBox("Ledger Code Already Exists, Please Specify Another One", MsgBoxStyle.Critical)
-            txtLedgerCode.Focus()
+        If Trim(txtName.Text) = "" Then
+            MsgBox("Please Specify Ledger Name", MsgBoxStyle.Information)
+            txtName.Focus()
+            Exit Sub
+        End If
+
+        If Val(txtBillAmount.Text) <= 0 Then
+            MsgBox("Please Specify BillAmt", MsgBoxStyle.Information)
+            txtBillAmount.Focus()
+            Exit Sub
+        End If
+
+        If checkBillNo() = True Then
+            MsgBox("Bill no Already Exists, Please Specify Another One", MsgBoxStyle.Critical)
+            cmbLedger.Focus()
             Exit Sub
         End If
         If Trim(txtMobile.Text) <> "" And Trim(txtMobile.Text.Length) <> M_MobileNoLength Then
             MsgBox("Please Specify Correct Mobile Number (10 Digits Required)", MsgBoxStyle.Information)
             Exit Sub
         End If
-
-        'If Val(txtOpBal.Text) <> 0 Then
-        '    If cmbDrCr.SelectedIndex = -1 Or Trim(cmbDrCr.Text) = "" Then
-        '        MsgBox("Please Select DrCr", MsgBoxStyle.Information)
-        '        cmbDrCr.Focus()
-        '        Exit Sub
-        '    End If
-        'End If
+        If checkBillNo() = True Then
+            MsgBox("Duplicate BillNo Please Apecify Another", MsgBoxStyle.Critical)
+            txtBillNo.Focus()
+            Exit Sub
+        End If
 
 
         If edit_ins = 1 Then
             insert()
-            'Select Case M_LedgerMasterF2
-            '    Case True
-            '        Select Case M_CallingFormLedgerCreation
-            '            Case "Invoice_Customer"
-            '                sql_query = "Select Max(LedgerId) From Tbl_LedgerMaster Where LedgerCode = '" & txtLedgerCode.Text & "'"
-            '                FrmInvoiceMaster_21.cmbLedger.EditValue = obj.ScalarExecute(sql_query)
-            '                FrmInvoiceMaster_21.cmbLedger.Text = txtLedgerName.Text
-            '                Exit Select
-            '        End Select
-
-            '        edit_ins = -1
-            '        exitClickTime()
-            '        Exit Sub
-            '        Exit Select
-            'End Select
         Else
             edit()
         End If
@@ -640,23 +712,13 @@ Public Class FrmBillingEntry
         saveClickTime()
     End Sub
 
-    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
-        If checkRightsToDelete("CUSTOMER MASTER") = False Then
-            MsgBox("Unable To Delete Record", MsgBoxStyle.Information)
-            Exit Sub
-        End If
+    Private Sub btn_Delete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
+        'sql_query = "Select Count(*) From tbl_VoucherEntryMast Where " & Val(lblInvId.Text) & " In (DrLedgerId, CrLedgerId)"
+        'If obj.ScalarExecute(sql_query) > 0 Then
+        '    MsgBox("Unable To Delete Ledger, Reference Records Found", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
-        sql_query = "Select Count(*) From tbl_VoucherEntryMast Where " & Val(lblLedgerId.Text) & " In (DrLedgerId, CrLedgerId)"
-        If obj.ScalarExecute(sql_query) > 0 Then
-            MsgBox("Unable To Delete Ledger, Reference Records Found", MsgBoxStyle.Information)
-            Exit Sub
-        End If
-
-        sql_query = "Select Count(*) From tbl_SalesMaster Where LedgerId = " & Val(lblLedgerId.Text)
-        If obj.ScalarExecute(sql_query) > 0 Then
-            MsgBox("Unable To Delete Item, Reference Records Found", MsgBoxStyle.Information)
-            Exit Sub
-        End If
 
         Dim dr As DialogResult
         dr = MsgBox("Sure To Delete ?", MsgBoxStyle.YesNo)
@@ -666,7 +728,7 @@ Public Class FrmBillingEntry
         End If
     End Sub
 
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
         cancelClickTime()
     End Sub
 
@@ -678,206 +740,186 @@ Public Class FrmBillingEntry
 
 #Region "Navigation"
 
-    Private Sub txtLedgerCode_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerCode.KeyPress
+    Private Sub cmbLedger_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If e.KeyChar = Chr(13) Then
-            If Trim(txtLedgerCode.Text) = "" Then
+            If Trim(cmbLedger.Text) = "" Then
                 Exit Sub
             End If
-            txtLedgerName.Focus()
+            txtName.Focus()
         End If
     End Sub
 
-    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerName.KeyPress, txtAdd1.KeyPress, txtAdd2.KeyPress, txtPincode.KeyPress, txtEMailId.KeyPress, txtGSTNo.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbArea.KeyPress, cmbSalesPerson.KeyPress, cmbCollectionPerson.KeyPress, cmbCustType.KeyPress, cmbTaxation.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress
-        If e.KeyChar = Chr(13) Then
-            SendKeys.Send("{Tab}")
-        End If
-    End Sub
-
-    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtDueDays.KeyPress, txtPhone.KeyPress
-        If UCase(M_AllowMultiCountryMobileSeries) = "NO" Then
-            If e.KeyChar = Chr(13) Then
-                SendKeys.Send("{Tab}")
-            End If
-            If e.KeyChar = Chr(8) Then
-                Exit Sub
-            End If
-            If checkNumber(Asc(e.KeyChar)) = False Then
-                e.KeyChar = Chr(0)
-            End If
-        End If
-    End Sub
-
-    Private Sub cmbCity_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbDrCr.Enter, cmbCity.Enter, cmbArea.Enter, cmbSalesPerson.Enter, cmbCollectionPerson.Enter, cmbCustType.Enter, cmbTaxation.Enter, cmbF_Area.Enter, cmbState.Enter, cmbCountry.Enter
+    Private Sub cmbCollectionPerson_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs)
         sender.DroppedDown = True
         If sender.SelectedIndex = -1 And sender.Items.Count > 0 Then
             sender.SelectedIndex = 0
         End If
     End Sub
 
-    Private Sub txtOpBal_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtOpBal.KeyPress
-        If e.KeyChar = Chr(13) Then
-            If Trim(sender.Text) = "" Then
-                sender.Text = "0"
-            End If
-            SendKeys.Send("{Tab}")
-        End If
+    'Private Sub txtOpBal_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtOpBal.KeyPress
+    '    If e.KeyChar = Chr(13) Then
+    '        If Trim(sender.Text) = "" Then
+    '            sender.Text = "0"
+    '        End If
+    '        SendKeys.Send("{Tab}")
+    '    End If
 
-        'If e.KeyChar = Chr(8) Then
-        '    Exit Sub
-        'End If
-        'If Not sender.Text.Contains(".") Then
-        '    point = False
-        'End If
-        'If e.KeyChar = Chr(46) And point = False Then
-        '    point = True
-        '    Exit Sub
-        'End If
-        'If checkNumber(Asc(e.KeyChar)) = False Then
-        '    e.KeyChar = Chr(0)
-        'End If
-    End Sub
+    '    'If e.KeyChar = Chr(8) Then
+    '    '    Exit Sub
+    '    'End If
+    '    'If Not sender.Text.Contains(".") Then
+    '    '    point = False
+    '    'End If
+    '    'If e.KeyChar = Chr(46) And point = False Then
+    '    '    point = True
+    '    '    Exit Sub
+    '    'End If
+    '    'If checkNumber(Asc(e.KeyChar)) = False Then
+    '    '    e.KeyChar = Chr(0)
+    '    'End If
+    'End Sub
 
 #End Region
 
 #Region "Other"
 
-    Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
-        Dim ds_Excel As New Data.DataSet
-        ds_Excel.Clear()
-        obj.LoadData_Excel("SELECT * FROM [Sheet1$]", ds_Excel, "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & OpenFileDialog1.FileName & "; Extended Properties=""Excel 8.0; HDR=Yes; IMEX=1""")
+    'Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+    '    Dim ds_Excel As New Data.DataSet
+    '    ds_Excel.Clear()
+    '    obj.LoadData_Excel("SELECT * FROM [Sheet1$]", ds_Excel, "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & OpenFileDialog1.FileName & "; Extended Properties=""Excel 8.0; HDR=Yes; IMEX=1""")
 
-        Dim newRecords As Integer = 0
-        Dim upRecords As Integer = 0
+    '    Dim newRecords As Integer = 0
+    '    Dim upRecords As Integer = 0
 
-        For i As Integer = 1 To ds_Excel.Tables(0).Rows.Count - 1
-            For j As Integer = 0 To ds_Excel.Tables(0).Columns.Count - 1
-                If IsDBNull(ds_Excel.Tables(0).Rows(i)(j)) Then
-                    ds_Excel.Tables(0).Rows(i)(j) = ""
-                End If
-            Next
-        Next
+    '    For i As Integer = 1 To ds_Excel.Tables(0).Rows.Count - 1
+    '        For j As Integer = 0 To ds_Excel.Tables(0).Columns.Count - 1
+    '            If IsDBNull(ds_Excel.Tables(0).Rows(i)(j)) Then
+    '                ds_Excel.Tables(0).Rows(i)(j) = ""
+    '            End If
+    '        Next
+    '    Next
 
-        For i As Integer = 0 To ds_Excel.Tables(0).Rows.Count - 1
-            Select Case ds_Excel.Tables(0).Rows(i)(0) 'ItemId
-                Case 0 'Insert
-                    obj.Prepare("SP_InsertLedgerMaster_0507", SpType.StoredProcedure)
-                    obj.AddCmdParameter("@InsCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(1), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsLedgerCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(2), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsLedgerName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(3), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsG_Id", Dtype.int, ds_Excel.Tables(0).Rows(i)(4), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsAddress1", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(6), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsAddress2", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(7), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsCity", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(8), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsPinCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(9), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsState", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(10), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsCountry", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(11), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsPhoneNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(12), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsMobileNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(13), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsFaxNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(14), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsEMail", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(15), ParaDirection.Input, True)
-                    If ds_Excel.Tables(0).Rows(i)(16) = "" Then
-                        obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-                    Else
-                        obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(16), ParaDirection.Input, True)
-                    End If
-                    If ds_Excel.Tables(0).Rows(i)(17) = "" Then
-                        obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-                    Else
-                        obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(17), ParaDirection.Input, True)
-                    End If
+    '    For i As Integer = 0 To ds_Excel.Tables(0).Rows.Count - 1
+    '        Select Case ds_Excel.Tables(0).Rows(i)(0) 'ItemId
+    '            Case 0 'Insert
+    '                obj.Prepare("SP_InsertLedgerMaster_0507", SpType.StoredProcedure)
+    '                obj.AddCmdParameter("@InsCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(1), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsLedgerCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(2), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsLedgerName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(3), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsG_Id", Dtype.int, ds_Excel.Tables(0).Rows(i)(4), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsAddress1", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(6), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsAddress2", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(7), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsCity", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(8), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsPinCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(9), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsState", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(10), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsCountry", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(11), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsPhoneNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(12), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsMobileNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(13), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsFaxNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(14), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsEMail", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(15), ParaDirection.Input, True)
+    '                If ds_Excel.Tables(0).Rows(i)(16) = "" Then
+    '                    obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+    '                Else
+    '                    obj.AddCmdParameter("@InsBirthDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(16), ParaDirection.Input, True)
+    '                End If
+    '                If ds_Excel.Tables(0).Rows(i)(17) = "" Then
+    '                    obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+    '                Else
+    '                    obj.AddCmdParameter("@InsAnniDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(17), ParaDirection.Input, True)
+    '                End If
 
-                    obj.AddCmdParameter("@InsCustType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(18), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsMobileNo2", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(19), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBeneficiaryName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(20), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBankAcType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(21), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBankAcNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(22), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsIFSCCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(23), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsMICRCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(24), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBankName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(25), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBankAddress", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(26), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsAcContactPerson", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(27), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(28), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsAcEmailId", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(29), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(30), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(31), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsGSTNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(32), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsPANNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(33), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsTaxation", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(34), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsStateCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(35), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsCId", Dtype.int, M_CId, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsBrokerId", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsRefId1", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsRefId2", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsIsActive", Dtype.Bit, True, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@InsCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
-                    obj.ExecuteCommand()
+    '                obj.AddCmdParameter("@InsCustType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(18), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsMobileNo2", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(19), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBeneficiaryName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(20), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBankAcType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(21), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBankAcNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(22), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsIFSCCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(23), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsMICRCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(24), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBankName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(25), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBankAddress", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(26), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsAcContactPerson", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(27), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(28), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsAcEmailId", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(29), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(30), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(31), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsGSTNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(32), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsPANNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(33), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsTaxation", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(34), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsStateCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(35), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsCId", Dtype.int, M_CId, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsBrokerId", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsRefId1", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsRefId2", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsIsActive", Dtype.Bit, True, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@InsCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
+    '                obj.ExecuteCommand()
 
-                    newRecords = newRecords + 1
-                    Exit Select
-                Case Is > 0 'Update
-                    obj.Prepare("SP_UpdateLedgerMaster_0507", SpType.StoredProcedure) 'SP_UpdateLedgerMaster_CustMast
-                    obj.AddCmdParameter("@UpCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(1), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpLedgerCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(2), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpLedgerName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(3), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpG_Id", Dtype.int, ds_Excel.Tables(0).Rows(i)(4), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpAddress1", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(6), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpAddress2", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(7), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpCity", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(8), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpPinCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(9), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpState", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(10), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpCountry", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(11), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpPhoneNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(12), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpMobileNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(13), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpFaxNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(14), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpEMail", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(15), ParaDirection.Input, True)
-                    If ds_Excel.Tables(0).Rows(i)(16) = "" Then
-                        obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-                    Else
-                        obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(16), ParaDirection.Input, True)
-                    End If
-                    If ds_Excel.Tables(0).Rows(i)(17) = "" Then
-                        obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
-                    Else
-                        obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(17), ParaDirection.Input, True)
-                    End If
+    '                newRecords = newRecords + 1
+    '                Exit Select
+    '            Case Is > 0 'Update
+    '                obj.Prepare("SP_UpdateLedgerMaster_0507", SpType.StoredProcedure) 'SP_UpdateLedgerMaster_CustMast
+    '                obj.AddCmdParameter("@UpCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(1), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpLedgerCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(2), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpLedgerName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(3), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpG_Id", Dtype.int, ds_Excel.Tables(0).Rows(i)(4), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpAddress1", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(6), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpAddress2", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(7), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpCity", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(8), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpPinCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(9), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpState", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(10), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpCountry", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(11), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpPhoneNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(12), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpMobileNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(13), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpFaxNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(14), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpEMail", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(15), ParaDirection.Input, True)
+    '                If ds_Excel.Tables(0).Rows(i)(16) = "" Then
+    '                    obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+    '                Else
+    '                    obj.AddCmdParameter("@UpBirthDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(16), ParaDirection.Input, True)
+    '                End If
+    '                If ds_Excel.Tables(0).Rows(i)(17) = "" Then
+    '                    obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, DBNull.Value, ParaDirection.Input, True)
+    '                Else
+    '                    obj.AddCmdParameter("@UpAnniDate", Dtype.DateTime, ds_Excel.Tables(0).Rows(i)(17), ParaDirection.Input, True)
+    '                End If
 
-                    obj.AddCmdParameter("@UpCustType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(18), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpMobileNo2", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(19), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBeneficiaryName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(20), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBankAcType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(21), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBankAcNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(22), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpIFSCCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(23), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpMICRCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(24), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBankName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(25), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBankAddress", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(26), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpAcContactPerson", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(27), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(28), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpAcEmailId", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(29), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(30), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(31), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpGSTNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(32), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpPANNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(33), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpTaxation", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(34), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpStateCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(35), ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpBrokerId", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpRefId1", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpRefId2", Dtype.int, 0, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpIsActive", Dtype.Bit, True, ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
-                    obj.AddCmdParameter("@UpLedgerId", Dtype.int, ds_Excel.Tables(0).Rows(i)(0), ParaDirection.Input, True)
-                    obj.ExecuteCommand()
+    '                obj.AddCmdParameter("@UpCustType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(18), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpMobileNo2", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(19), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBeneficiaryName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(20), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBankAcType", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(21), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBankAcNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(22), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpIFSCCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(23), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpMICRCode", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(24), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBankName", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(25), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBankAddress", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(26), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpAcContactPerson", Dtype.nvarchar, ds_Excel.Tables(0).Rows(i)(27), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(28), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpAcEmailId", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(29), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(30), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(31), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpGSTNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(32), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpPANNo", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(33), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpTaxation", Dtype.varchar, ds_Excel.Tables(0).Rows(i)(34), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpStateCode", Dtype.int, ds_Excel.Tables(0).Rows(i)(35), ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpBrokerId", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpRefId1", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpRefId2", Dtype.int, 0, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpIsActive", Dtype.Bit, True, ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
+    '                obj.AddCmdParameter("@UpLedgerId", Dtype.int, ds_Excel.Tables(0).Rows(i)(0), ParaDirection.Input, True)
+    '                obj.ExecuteCommand()
 
-                    upRecords = upRecords + 1
-                    Exit Select
-            End Select
-        Next
+    '                upRecords = upRecords + 1
+    '                Exit Select
+    '        End Select
+    '    Next
 
-        MsgBox("Data Processed Successfully" & vbCrLf & "New Records: " & newRecords & vbCrLf & "Updated Records: " & upRecords, MsgBoxStyle.Information)
+    '    MsgBox("Data Processed Successfully" & vbCrLf & "New Records: " & newRecords & vbCrLf & "Updated Records: " & upRecords, MsgBoxStyle.Information)
 
-    End Sub
+    'End Sub
 
-    Private Sub txtState_Validating(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbState.Validating
-        setTaxation()
+    Private Sub txtState_Validating(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles txtState.Validating
+        'setTaxation()
     End Sub
 
     Private Sub FrmCustomerMaster_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -892,25 +934,25 @@ Public Class FrmBillingEntry
         SaveLayout(gvData, "FrmCustomerMaster", Me)
     End Sub
 
-    Private Sub btnClearSearch_Click(sender As Object, e As EventArgs) Handles btnClearSearch.Click
-        txtSearch.Clear()
-    End Sub
+    'Private Sub btnClearSearch_Click(sender As Object, e As EventArgs) Handles btnClearSearch.Click
+    '    txtSearch.Clear()
+    'End Sub
 
-    Private Sub btnAddArea_Click(sender As Object, e As EventArgs) Handles btnAddArea.Click
-        Dim misctype As String = UCase(cmbArea.Text)
+    'Private Sub btnAddArea_Click(sender As Object, e As EventArgs) Handles btnAddArea.Click
+    '    Dim misctype As String = UCase(cmbArea.Text)
 
-        If M_checkMiscMaster("Area", UCase(cmbArea.Text)) = False Then
-            insertMiscMaster("Area", UCase(cmbArea.Text))
-            ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
-            cmbArea.Text = misctype
-            MsgBox(misctype & " Added Successfully", MsgBoxStyle.Information)
-        Else
-            MsgBox(misctype & " Already Exist", MsgBoxStyle.Information)
-        End If
-    End Sub
+    '    If M_checkMiscMaster("Area", UCase(cmbArea.Text)) = False Then
+    '        insertMiscMaster("Area", UCase(cmbArea.Text))
+    '        ComboFill(cmbArea, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Area') Order By MiscName")
+    '        cmbArea.Text = misctype
+    '        MsgBox(misctype & " Added Successfully", MsgBoxStyle.Information)
+    '    Else
+    '        MsgBox(misctype & " Already Exist", MsgBoxStyle.Information)
+    '    End If
+    'End Sub
 
 
-    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+    Private Sub btn_Refresh_Click(sender As Object, e As EventArgs) Handles btn_Refresh.Click
         gridfill("")
     End Sub
 
@@ -918,9 +960,113 @@ Public Class FrmBillingEntry
         gridfill("")
     End Sub
 
-    Private Sub cmbF_Area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbF_Area.SelectedValueChanged
-        gridfill("")
+    Private Sub cmbLedger_EditValueChanged(sender As Object, e As EventArgs) Handles cmbLedger.EditValueChanged
+        Dim slkp As DevExpress.XtraEditors.SearchLookUpEdit = sender
+
+        txtName.Text = slkp.Properties.View.GetFocusedRowCellValue("LedgerName")
+        txtPincode.Text = slkp.Properties.View.GetFocusedRowCellValue("Pincode")
+        txtAdd1.Text = slkp.Properties.View.GetFocusedRowCellValue("Address1")
+        txtAdd2.Text = slkp.Properties.View.GetFocusedRowCellValue("Address2")
+        txtMobile.Text = slkp.Properties.View.GetFocusedRowCellValue("MobileNo")
+        txtState.Text = slkp.Properties.View.GetFocusedRowCellValue("State")
+        txtCountry.Text = slkp.Properties.View.GetFocusedRowCellValue("Country")
+        txtAreaCity.Text = slkp.Properties.View.GetFocusedRowCellValue("AreaName") & " - " & slkp.Properties.View.GetFocusedRowCellValue("City")
+        cmbCollectionPerson.SelectedValue = slkp.Properties.View.GetFocusedRowCellValue("CP_LedgerId")
+        cmbCollectionPerson.Focus()
     End Sub
+
+    Private Sub txtBillNo_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtBillNo.Validating
+        txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+    End Sub
+
+    Private Sub cmbSeries_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbSeries.Validating, cmbSuffix.Validating
+        If Val(cmbSeries.SelectedIndex) > -1 Then
+            getBillNo()
+            txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+        End If
+    End Sub
+
+    Private Sub txtBillNo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtState.KeyPress, txtSearch.KeyPress, txtPincode.KeyPress, txtName.KeyPress, txtMobile.KeyPress, txtCountry.KeyPress, txtBillNumber.KeyPress, txtAreaCity.KeyPress, txtAdd2.KeyPress, txtAdd1.KeyPress, dtpBillDate.KeyPress, cmbSuffix.KeyPress, cmbSeries.KeyPress, cmbLedger.KeyPress, cmbCollectionPerson.KeyPress
+        If e.KeyChar = Chr(13) Then
+            SendKeys.Send("{Tab}")
+        End If
+    End Sub
+
+    Private Sub cmbSuffix_Enter(sender As Object, e As EventArgs) Handles cmbSuffix.Enter, cmbSeries.Enter, cmbCollectionPerson.Enter
+        sender.DroppedDown = True
+        If sender.SelectedIndex = -1 And sender.Items.Count > 0 Then
+            sender.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub cmbLedger_Enter(sender As Object, e As EventArgs) Handles cmbLedger.Enter
+        cmbLedger.ShowPopup()
+    End Sub
+
+    Private Sub txtBillAmount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtReceivedAmount.KeyPress, txtDueAmt.KeyPress, txtBillNo.KeyPress, txtBillAmount.KeyPress
+        If e.KeyChar = Chr(13) Then
+            SendKeys.Send("{Tab}")
+        End If
+        If e.KeyChar = Chr(8) Then
+                Exit Sub
+            End If
+            If checkNumber(Asc(e.KeyChar)) = False Then
+                e.KeyChar = Chr(0)
+            End If
+    End Sub
+
+    Private Sub gvData_Click(sender As Object, e As EventArgs) Handles gvData.Click
+        Dim selectedRows() As Integer = gvData.GetSelectedRows
+
+        If selectedRows.Length < 0 Then
+            Exit Sub
+        End If
+        fillData()
+
+        btn_Cancel.Enabled = True
+        btn_Edit.Enabled = True
+        btn_Delete.Enabled = True
+        btn_save.Enabled = False
+        btn_Add.Enabled = False
+    End Sub
+
+    Private Sub gvData_DoubleClick(sender As Object, e As EventArgs) Handles gvData.DoubleClick
+        Dim selectedRows() As Integer = gvData.GetSelectedRows
+
+        If selectedRows.Length < 0 Then
+            Exit Sub
+        End If
+        fillData()
+
+        btn_Cancel.Enabled = True
+        btn_Edit.Enabled = True
+        btn_Delete.Enabled = True
+        btn_save.Enabled = False
+        btn_Add.Enabled = False
+
+        'If checkRightsToEdit("BILL MASTER") = False Then
+        '    MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
+
+        editClickTime()
+    End Sub
+
+    Private Sub txtBillAmount_TextChanged(sender As Object, e As EventArgs) Handles txtBillAmount.TextChanged
+        txtDueAmt.Text = Val(txtBillAmount.Text) - Val(txtReceivedAmount.Text)
+    End Sub
+
+    Private Sub dtpBillDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpBillDate.ValueChanged
+
+    End Sub
+
+    Private Sub dtpSalesDueDate_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dtpSalesDueDate.Validating
+        btn_save.Focus()
+    End Sub
+
+    'Private Sub cmbF_Area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbF_Area.SelectedValueChanged
+    '    gridfill("")
+    'End Sub
 
 #End Region
 

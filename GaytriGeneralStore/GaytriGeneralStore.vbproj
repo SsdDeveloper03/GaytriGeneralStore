@@ -590,6 +590,9 @@
     <EmbeddedResource Include="Master\FrmCustomerMaster.resx">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmEmployeeMaster.resx">
+      <DependentUpon>FrmEmployeeMaster.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

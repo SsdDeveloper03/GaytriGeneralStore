@@ -16,7 +16,7 @@ Public Class FrmLogin
 #End Region
 
 #Region "Declaration"
-    Dim version As String = "(Version: 28.02.2026)"
+    Dim version As String = "(Version: 10.03.2026)"
     Dim obj As New DBManager
     Dim sql_Query As String
     Dim ds As New Data.DataSet
@@ -138,7 +138,7 @@ Public Class FrmLogin
 
     Public Sub checkHDDSrNumber()
         'If M_DbName.Contains("dbSTE_Demo") Then
-        If M_DbName.ToUpper().Contains("DBSTE_DEMO") Then
+        If M_DbName.ToUpper().Contains("DEMO") Then
             'Add 18-02-21        
             'Add 18-02-21        
             setVersionAndDate()
@@ -210,7 +210,7 @@ Public Class FrmLogin
                             'Next
 
                             Select Case Trim(serial)
-                                Case "20246G446307", "WD-WCAV9CF21761", "1806AD806956", "30023210682", "11ENC2L7T", "JA1086SB03MB9T", "00A0_7501_325D_8688.", "S3T6NX0KB57755", "0026111030DS", "UB202309221900000242", "UB202309221900000242", "WD-WXC1EC85608S", "            WKPS9C95", "3000_0000_0000_0000_0000_0000_0000_0000.", "E823_8FA6_BF53_0001_001B_448B_4B73_D7B0.", "HASE33241202963"
+                                Case "20246G446307", "WD-WCAV9CF21761", "1806AD806956", "30023210682", "11ENC2L7T", "JA1086SB03MB9T", "00A0_7501_325D_8688.", "S3T6NX0KB57755", "0026111030DS", "UB202309221900000242", "UB202309221900000242", "WD-WXC1EC85608S", "WKPS9C95", "3000_0000_0000_0000_0000_0000_0000_0000.", "E823_8FA6_BF53_0001_001B_448B_4B73_D7B0.", "HASE33241202963", "E823_8FA6_BF53_0001_001B_448B_4B73_D7B0."
                                     ssdPC = True
                                     flag = True
                                     Exit Select
@@ -541,75 +541,33 @@ Public Class FrmLogin
             'UpdateDB()
             Insert_Audit_Session() 'Audit Trail
             Obtain_SessionId() 'Audit Trail            
-            'checkHDDSrNumber()
+            checkHDDSrNumber()
             '===
-            Select Case M_SoftType
-                Case "TAILORING-STD"
-                    If M_DbName <> "dbSTE_Demo" Then
-                        FrmMDIMain.Text = "Sunrise Tailoring Software - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    Else
-                        FrmMDIMain.Text = "Sunrise Tailoring Software (Demo Version) - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    End If
-                    Exit Select
-                Case "TAILORING-LITE"
-                    If M_DbName <> "dbSTE_Demo" Then
-                        FrmMDIMain.Text = "Sunrise Tailoring Software (Lite) - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    Else
-                        FrmMDIMain.Text = "Sunrise Tailoring Software (Lite) (Demo Version) - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    End If
-                    Exit Select
-                Case "ERP"
-                    Select Case M_DbName
-                        Case "dbSTE_SunriseLive"
-                            FrmMDIMain.Text = "Sunrise ERP - [" & txtUserName.Text & "] " & version
-                            Exit Select
-                        Case "dbGaytri_General"
-                            FrmMDIMain.Text = "Sunrise [" & txtUserName.Text & "] " & version
-                            Exit Select
-                        Case Else
-                            If M_DbName <> "dbSTE_Demo" Then
-                                FrmMDIMain.Text = "Sunrise Tailoring ERP - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                            Else
-                                FrmMDIMain.Text = "Sunrise Tailoring ERP (Demo Version) - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                            End If
-                            Exit Select
-                    End Select
-                    Exit Select
-                Case "SALES"
-                    If M_DbName <> "dbSTE_Demo" Then
-                        FrmMDIMain.Text = "Sunrise Billing Software - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    Else
-                        FrmMDIMain.Text = "Sunrise Billing Software (Demo Version) - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
-                    End If
-                    Exit Select
-            End Select
+            If M_DbName.Contains("Demo") Then
+                FrmMDIMain.Text = "Sunrise Billing ERP (Demo Version)- [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
+            Else
+                FrmMDIMain.Text = "Sunrise Billing ERP - [" & txtUserName.Text & " @ " & cmbDept.Text & "] " & version
+            End If
 
-            'If DateDiff(DateInterval.Day, Today, M_MaxDate) < 15 Then
-            '    FrmMDIMain.Text = FrmMDIMain.Text & "                                     Days Left: " & DateDiff(DateInterval.Day, Today, M_MaxDate)
-            'End If
+            If DateDiff(DateInterval.Day, Today, M_MaxDate) < 15 Then
+                FrmMDIMain.Text = FrmMDIMain.Text & "                                     Days Left: " & DateDiff(DateInterval.Day, Today, M_MaxDate)
+            End If
 
-            'If DateDiff(DateInterval.Day, Today, M_MaxDate) < 7 Then
-            '    MsgBox("Days Left: " & DateDiff(DateInterval.Day, Today, M_MaxDate) & vbCrLf & "Please Contact Software Support Team", MsgBoxStyle.Information)
-            'End If
+            If DateDiff(DateInterval.Day, Today, M_MaxDate) < 7 Then
+                MsgBox("Days Left: " & DateDiff(DateInterval.Day, Today, M_MaxDate) & vbCrLf & "Please Contact Software Support Team", MsgBoxStyle.Information)
+            End If
 
-            'If DateTime.Now > M_MaxDate Then
-            '    insert_CRMDetails()
-            '    setVersionAndDate()
-            '    If DateTime.Now > M_MaxDate Then
-            '        MsgBox("Please Check Software Validity With Software Support Team", MsgBoxStyle.Information)
-            '        End
-            '    End If
-            'End If
+            If DateTime.Now > M_MaxDate Then
+                insert_CRMDetails()
+                setVersionAndDate()
+                If DateTime.Now > M_MaxDate Then
+                    MsgBox("Please Check Software Validity With Software Support Team", MsgBoxStyle.Information)
+                    End
+                End If
+            End If
 
             Me.Hide()
             FrmMDIMain.Show()
-
-            'If M_SalesItemMaster = "Uniform" Then
-            '    frmInvoiceMaster_Uniform.MdiParent = FrmMDIMain
-            '    frmInvoiceMaster_Uniform.Show()
-            '    frmInvoiceMaster_Uniform.Activate()
-            'End If
-
         Else
             txtUserName.Focus()
         End If

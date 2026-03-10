@@ -2763,11 +2763,11 @@ Module ModGeneral
         gvName.RestoreLayoutFromXml(Strings.Left(Application.StartupPath, Len(Application.StartupPath) - 9) & "\Report\GridLayout\" & xmlFileName & ".xml")
     End Sub
 
-    Public Sub RenameColumn(ByVal gvName As GridView)
+    Public Sub Dx_RenameColumn(ByVal gvName As GridView)
         gvName.FocusedColumn.Caption = InputBox("Column Header Text", "Field Name", gvName.FocusedColumn.FieldName)
     End Sub
 
-    Public Sub ExportToExcel(ByVal gvName As GridView)
+    Public Sub Dx_ExportToExcel(ByVal gvName As GridView)
         Dim sfd As New SaveFileDialog()
         If sfd.ShowDialog() = DialogResult.OK Then
             gvName.ExportToXls(sfd.FileName & ".xls")

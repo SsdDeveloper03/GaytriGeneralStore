@@ -22,6 +22,7 @@ Partial Class FrmBillingEntry
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlPagination = New System.Windows.Forms.Panel()
         Me.btn_Refresh = New System.Windows.Forms.Button()
         Me.btn_Close = New System.Windows.Forms.Button()
@@ -32,6 +33,7 @@ Partial Class FrmBillingEntry
         Me.btn_Edit = New System.Windows.Forms.Button()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlSearch = New System.Windows.Forms.Panel()
+        Me.lblInvId = New System.Windows.Forms.Label()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -44,6 +46,7 @@ Partial Class FrmBillingEntry
         Me.tlpBillingLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.grpBillInfo = New System.Windows.Forms.GroupBox()
         Me.tlpBillInfo = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lblSeries = New System.Windows.Forms.Label()
         Me.cmbSeries = New System.Windows.Forms.ComboBox()
         Me.lblBillNo = New System.Windows.Forms.Label()
@@ -51,6 +54,7 @@ Partial Class FrmBillingEntry
         Me.lblBillDate = New System.Windows.Forms.Label()
         Me.lblBillNumber = New System.Windows.Forms.Label()
         Me.txtBillNumber = New System.Windows.Forms.TextBox()
+        Me.cmbSuffix = New System.Windows.Forms.ComboBox()
         Me.dtpBillDate = New System.Windows.Forms.DateTimePicker()
         Me.grpCustomerDetails = New System.Windows.Forms.GroupBox()
         Me.tlpCustomerDetails = New System.Windows.Forms.TableLayoutPanel()
@@ -71,9 +75,10 @@ Partial Class FrmBillingEntry
         Me.txtCountry = New System.Windows.Forms.TextBox()
         Me.txtMobile = New System.Windows.Forms.TextBox()
         Me.grpCustomerSelect = New System.Windows.Forms.GroupBox()
+        Me.cmbLedger = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.tlpCustomerSelect = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCustomerCode = New System.Windows.Forms.Label()
-        Me.txtCustomerCode = New System.Windows.Forms.TextBox()
         Me.lblCollectionPerson = New System.Windows.Forms.Label()
         Me.cmbCollectionPerson = New System.Windows.Forms.ComboBox()
         Me.grpAmountDetails = New System.Windows.Forms.GroupBox()
@@ -83,10 +88,16 @@ Partial Class FrmBillingEntry
         Me.lblReceivedAmount = New System.Windows.Forms.Label()
         Me.txtReceivedAmount = New System.Windows.Forms.TextBox()
         Me.lblSalesDueDate = New System.Windows.Forms.Label()
+        Me.lblDueAmt = New System.Windows.Forms.Label()
+        Me.txtDueAmt = New System.Windows.Forms.TextBox()
         Me.dtpSalesDueDate = New System.Windows.Forms.DateTimePicker()
         Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.gcData = New DevExpress.XtraGrid.GridControl()
         Me.gvData = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RenameColumnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlPagination.SuspendLayout()
         Me.pnlSearch.SuspendLayout()
         Me.pnlBillingInfo.SuspendLayout()
@@ -97,12 +108,15 @@ Partial Class FrmBillingEntry
         Me.grpCustomerDetails.SuspendLayout()
         Me.tlpCustomerDetails.SuspendLayout()
         Me.grpCustomerSelect.SuspendLayout()
+        CType(Me.cmbLedger.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tlpCustomerSelect.SuspendLayout()
         Me.grpAmountDetails.SuspendLayout()
         Me.tlpAmountDetails.SuspendLayout()
         Me.tlpMain.SuspendLayout()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlPagination
@@ -129,11 +143,11 @@ Partial Class FrmBillingEntry
         Me.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Refresh.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Refresh.ForeColor = System.Drawing.Color.White
-        Me.btn_Refresh.Location = New System.Drawing.Point(1004, 10)
+        Me.btn_Refresh.Location = New System.Drawing.Point(1004, 8)
         Me.btn_Refresh.Name = "btn_Refresh"
         Me.btn_Refresh.Size = New System.Drawing.Size(112, 35)
         Me.btn_Refresh.TabIndex = 6
-        Me.btn_Refresh.Text = "🔄 REFRESH"
+        Me.btn_Refresh.Text = "🔄 &REFRESH"
         Me.btn_Refresh.UseVisualStyleBackColor = False
         '
         'btn_Close
@@ -144,11 +158,11 @@ Partial Class FrmBillingEntry
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Close.ForeColor = System.Drawing.Color.White
-        Me.btn_Close.Location = New System.Drawing.Point(908, 10)
+        Me.btn_Close.Location = New System.Drawing.Point(908, 8)
         Me.btn_Close.Name = "btn_Close"
         Me.btn_Close.Size = New System.Drawing.Size(90, 35)
         Me.btn_Close.TabIndex = 5
-        Me.btn_Close.Text = "🚪 CLOSE"
+        Me.btn_Close.Text = "🚪 CL&OSE"
         Me.btn_Close.UseVisualStyleBackColor = False
         '
         'btn_Cancel
@@ -159,11 +173,11 @@ Partial Class FrmBillingEntry
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(810, 10)
+        Me.btn_Cancel.Location = New System.Drawing.Point(810, 8)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(92, 35)
         Me.btn_Cancel.TabIndex = 4
-        Me.btn_Cancel.Text = "✘ CANCEL"
+        Me.btn_Cancel.Text = "✘ &CANCEL"
         Me.btn_Cancel.UseVisualStyleBackColor = False
         '
         'btn_save
@@ -174,11 +188,11 @@ Partial Class FrmBillingEntry
         Me.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_save.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_save.ForeColor = System.Drawing.Color.White
-        Me.btn_save.Location = New System.Drawing.Point(717, 10)
+        Me.btn_save.Location = New System.Drawing.Point(717, 8)
         Me.btn_save.Name = "btn_save"
         Me.btn_save.Size = New System.Drawing.Size(87, 35)
         Me.btn_save.TabIndex = 3
-        Me.btn_save.Text = "💾 SAVE"
+        Me.btn_save.Text = "💾 &SAVE"
         Me.btn_save.UseVisualStyleBackColor = False
         '
         'btn_Delete
@@ -189,11 +203,11 @@ Partial Class FrmBillingEntry
         Me.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Delete.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Delete.ForeColor = System.Drawing.Color.White
-        Me.btn_Delete.Location = New System.Drawing.Point(615, 10)
+        Me.btn_Delete.Location = New System.Drawing.Point(613, 8)
         Me.btn_Delete.Name = "btn_Delete"
         Me.btn_Delete.Size = New System.Drawing.Size(98, 35)
         Me.btn_Delete.TabIndex = 2
-        Me.btn_Delete.Text = "🗑️ DELETE"
+        Me.btn_Delete.Text = "🗑️ &DELETE"
         Me.btn_Delete.UseVisualStyleBackColor = False
         '
         'btn_Add
@@ -204,11 +218,11 @@ Partial Class FrmBillingEntry
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(407, 10)
+        Me.btn_Add.Location = New System.Drawing.Point(430, 8)
         Me.btn_Add.Name = "btn_Add"
         Me.btn_Add.Size = New System.Drawing.Size(85, 35)
         Me.btn_Add.TabIndex = 0
-        Me.btn_Add.Text = "➕ ADD"
+        Me.btn_Add.Text = "➕ &ADD"
         Me.btn_Add.UseVisualStyleBackColor = False
         '
         'btn_Edit
@@ -219,11 +233,11 @@ Partial Class FrmBillingEntry
         Me.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Edit.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Edit.ForeColor = System.Drawing.Color.White
-        Me.btn_Edit.Location = New System.Drawing.Point(498, 10)
+        Me.btn_Edit.Location = New System.Drawing.Point(522, 8)
         Me.btn_Edit.Name = "btn_Edit"
-        Me.btn_Edit.Size = New System.Drawing.Size(111, 35)
+        Me.btn_Edit.Size = New System.Drawing.Size(85, 35)
         Me.btn_Edit.TabIndex = 1
-        Me.btn_Edit.Text = "✏️ EDIT"
+        Me.btn_Edit.Text = "✏️ &EDIT"
         Me.btn_Edit.UseVisualStyleBackColor = False
         '
         'lblTitle
@@ -243,6 +257,7 @@ Partial Class FrmBillingEntry
         'pnlSearch
         '
         Me.pnlSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.pnlSearch.Controls.Add(Me.lblInvId)
         Me.pnlSearch.Controls.Add(Me.lblSearch)
         Me.pnlSearch.Controls.Add(Me.txtSearch)
         Me.pnlSearch.Controls.Add(Me.btnSearch)
@@ -256,6 +271,16 @@ Partial Class FrmBillingEntry
         Me.pnlSearch.Size = New System.Drawing.Size(1413, 41)
         Me.pnlSearch.TabIndex = 1
         '
+        'lblInvId
+        '
+        Me.lblInvId.AutoSize = True
+        Me.lblInvId.Location = New System.Drawing.Point(1072, 11)
+        Me.lblInvId.Name = "lblInvId"
+        Me.lblInvId.Size = New System.Drawing.Size(58, 20)
+        Me.lblInvId.TabIndex = 7
+        Me.lblInvId.Text = "lblInvId"
+        Me.lblInvId.Visible = False
+        '
         'lblSearch
         '
         Me.lblSearch.AutoSize = True
@@ -263,7 +288,7 @@ Partial Class FrmBillingEntry
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblSearch.Location = New System.Drawing.Point(10, 12)
         Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(99, 15)
+        Me.lblSearch.Size = New System.Drawing.Size(128, 20)
         Me.lblSearch.TabIndex = 0
         Me.lblSearch.Text = "🔍 Quick Search:"
         '
@@ -272,9 +297,9 @@ Partial Class FrmBillingEntry
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtSearch.ForeColor = System.Drawing.Color.Gray
-        Me.txtSearch.Location = New System.Drawing.Point(116, 9)
+        Me.txtSearch.Location = New System.Drawing.Point(144, 9)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(391, 23)
+        Me.txtSearch.Size = New System.Drawing.Size(391, 27)
         Me.txtSearch.TabIndex = 1
         '
         'btnSearch
@@ -296,9 +321,9 @@ Partial Class FrmBillingEntry
         Me.lblFrom.AutoSize = True
         Me.lblFrom.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.lblFrom.Location = New System.Drawing.Point(520, 12)
+        Me.lblFrom.Location = New System.Drawing.Point(581, 12)
         Me.lblFrom.Name = "lblFrom"
-        Me.lblFrom.Size = New System.Drawing.Size(39, 15)
+        Me.lblFrom.Size = New System.Drawing.Size(50, 20)
         Me.lblFrom.TabIndex = 3
         Me.lblFrom.Text = "From:"
         '
@@ -306,9 +331,9 @@ Partial Class FrmBillingEntry
         '
         Me.dtpFrom.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFrom.Location = New System.Drawing.Point(570, 9)
+        Me.dtpFrom.Location = New System.Drawing.Point(631, 9)
         Me.dtpFrom.Name = "dtpFrom"
-        Me.dtpFrom.Size = New System.Drawing.Size(100, 23)
+        Me.dtpFrom.Size = New System.Drawing.Size(100, 27)
         Me.dtpFrom.TabIndex = 4
         Me.dtpFrom.Value = New Date(2026, 3, 1, 0, 0, 0, 0)
         '
@@ -317,9 +342,9 @@ Partial Class FrmBillingEntry
         Me.lblTo.AutoSize = True
         Me.lblTo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.lblTo.Location = New System.Drawing.Point(690, 12)
+        Me.lblTo.Location = New System.Drawing.Point(751, 12)
         Me.lblTo.Name = "lblTo"
-        Me.lblTo.Size = New System.Drawing.Size(23, 15)
+        Me.lblTo.Size = New System.Drawing.Size(30, 20)
         Me.lblTo.TabIndex = 5
         Me.lblTo.Text = "To:"
         '
@@ -327,9 +352,9 @@ Partial Class FrmBillingEntry
         '
         Me.dtpTo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpTo.Location = New System.Drawing.Point(720, 9)
+        Me.dtpTo.Location = New System.Drawing.Point(781, 9)
         Me.dtpTo.Name = "dtpTo"
-        Me.dtpTo.Size = New System.Drawing.Size(100, 23)
+        Me.dtpTo.Size = New System.Drawing.Size(100, 27)
         Me.dtpTo.TabIndex = 6
         Me.dtpTo.Value = New Date(2026, 3, 31, 0, 0, 0, 0)
         '
@@ -367,12 +392,12 @@ Partial Class FrmBillingEntry
         Me.tlpBillingLayout.Controls.Add(Me.grpCustomerSelect, 0, 1)
         Me.tlpBillingLayout.Controls.Add(Me.grpAmountDetails, 1, 1)
         Me.tlpBillingLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpBillingLayout.Location = New System.Drawing.Point(3, 21)
+        Me.tlpBillingLayout.Location = New System.Drawing.Point(3, 26)
         Me.tlpBillingLayout.Name = "tlpBillingLayout"
         Me.tlpBillingLayout.RowCount = 2
         Me.tlpBillingLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.91667!))
         Me.tlpBillingLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.08333!))
-        Me.tlpBillingLayout.Size = New System.Drawing.Size(1407, 239)
+        Me.tlpBillingLayout.Size = New System.Drawing.Size(1407, 234)
         Me.tlpBillingLayout.TabIndex = 0
         '
         'grpBillInfo
@@ -383,18 +408,20 @@ Partial Class FrmBillingEntry
         Me.grpBillInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.grpBillInfo.Location = New System.Drawing.Point(3, 3)
         Me.grpBillInfo.Name = "grpBillInfo"
-        Me.grpBillInfo.Size = New System.Drawing.Size(415, 132)
+        Me.grpBillInfo.Size = New System.Drawing.Size(415, 129)
         Me.grpBillInfo.TabIndex = 0
         Me.grpBillInfo.TabStop = False
         Me.grpBillInfo.Text = "📋 BILL INFORMATION"
         '
         'tlpBillInfo
         '
-        Me.tlpBillInfo.ColumnCount = 4
+        Me.tlpBillInfo.ColumnCount = 5
         Me.tlpBillInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
         Me.tlpBillInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
         Me.tlpBillInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
         Me.tlpBillInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 317.0!))
+        Me.tlpBillInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpBillInfo.Controls.Add(Me.Label1, 0, 2)
         Me.tlpBillInfo.Controls.Add(Me.lblSeries, 0, 0)
         Me.tlpBillInfo.Controls.Add(Me.cmbSeries, 1, 0)
         Me.tlpBillInfo.Controls.Add(Me.lblBillNo, 2, 0)
@@ -402,15 +429,30 @@ Partial Class FrmBillingEntry
         Me.tlpBillInfo.Controls.Add(Me.lblBillDate, 0, 1)
         Me.tlpBillInfo.Controls.Add(Me.lblBillNumber, 2, 1)
         Me.tlpBillInfo.Controls.Add(Me.txtBillNumber, 3, 1)
-        Me.tlpBillInfo.Controls.Add(Me.dtpBillDate, 1, 1)
+        Me.tlpBillInfo.Controls.Add(Me.cmbSuffix, 1, 1)
+        Me.tlpBillInfo.Controls.Add(Me.dtpBillDate, 1, 2)
         Me.tlpBillInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpBillInfo.Location = New System.Drawing.Point(3, 19)
+        Me.tlpBillInfo.Location = New System.Drawing.Point(3, 23)
         Me.tlpBillInfo.Name = "tlpBillInfo"
-        Me.tlpBillInfo.RowCount = 2
+        Me.tlpBillInfo.RowCount = 3
         Me.tlpBillInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBillInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.tlpBillInfo.Size = New System.Drawing.Size(409, 110)
+        Me.tlpBillInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpBillInfo.Size = New System.Drawing.Size(409, 103)
         Me.tlpBillInfo.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(3, 60)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 43)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Bill Date "
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblSeries
         '
@@ -422,7 +464,7 @@ Partial Class FrmBillingEntry
         Me.lblSeries.Name = "lblSeries"
         Me.lblSeries.Size = New System.Drawing.Size(72, 30)
         Me.lblSeries.TabIndex = 0
-        Me.lblSeries.Text = "Series *"
+        Me.lblSeries.Text = "Preffix"
         Me.lblSeries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmbSeries
@@ -432,11 +474,10 @@ Partial Class FrmBillingEntry
         Me.cmbSeries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSeries.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.cmbSeries.FormattingEnabled = True
-        Me.cmbSeries.Items.AddRange(New Object() {"Select Series", "SERIES A", "SERIES B", "SERIES C"})
         Me.cmbSeries.Location = New System.Drawing.Point(81, 3)
         Me.cmbSeries.Name = "cmbSeries"
-        Me.cmbSeries.Size = New System.Drawing.Size(100, 23)
-        Me.cmbSeries.TabIndex = 1
+        Me.cmbSeries.Size = New System.Drawing.Size(100, 28)
+        Me.cmbSeries.TabIndex = 0
         '
         'lblBillNo
         '
@@ -447,21 +488,19 @@ Partial Class FrmBillingEntry
         Me.lblBillNo.Location = New System.Drawing.Point(187, 0)
         Me.lblBillNo.Name = "lblBillNo"
         Me.lblBillNo.Size = New System.Drawing.Size(97, 30)
-        Me.lblBillNo.TabIndex = 2
+        Me.lblBillNo.TabIndex = 0
         Me.lblBillNo.Text = "Bill No"
         Me.lblBillNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtBillNo
         '
-        Me.txtBillNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.txtBillNo.BackColor = System.Drawing.Color.White
         Me.txtBillNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBillNo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtBillNo.Location = New System.Drawing.Point(290, 3)
         Me.txtBillNo.Name = "txtBillNo"
-        Me.txtBillNo.ReadOnly = True
-        Me.txtBillNo.Size = New System.Drawing.Size(50, 23)
-        Me.txtBillNo.TabIndex = 3
-        Me.txtBillNo.Text = "1"
+        Me.txtBillNo.Size = New System.Drawing.Size(111, 27)
+        Me.txtBillNo.TabIndex = 1
         Me.txtBillNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblBillDate
@@ -469,12 +508,12 @@ Partial Class FrmBillingEntry
         Me.lblBillDate.AutoSize = True
         Me.lblBillDate.Dock = System.Windows.Forms.DockStyle.Left
         Me.lblBillDate.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblBillDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
+        Me.lblBillDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.lblBillDate.Location = New System.Drawing.Point(3, 30)
         Me.lblBillDate.Name = "lblBillDate"
-        Me.lblBillDate.Size = New System.Drawing.Size(62, 80)
+        Me.lblBillDate.Size = New System.Drawing.Size(50, 30)
         Me.lblBillDate.TabIndex = 4
-        Me.lblBillDate.Text = "Bill Date *"
+        Me.lblBillDate.Text = "Suffix"
         Me.lblBillDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblBillNumber
@@ -485,7 +524,7 @@ Partial Class FrmBillingEntry
         Me.lblBillNumber.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblBillNumber.Location = New System.Drawing.Point(187, 30)
         Me.lblBillNumber.Name = "lblBillNumber"
-        Me.lblBillNumber.Size = New System.Drawing.Size(97, 15)
+        Me.lblBillNumber.Size = New System.Drawing.Size(97, 20)
         Me.lblBillNumber.TabIndex = 6
         Me.lblBillNumber.Text = "Bill Number"
         Me.lblBillNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -498,19 +537,31 @@ Partial Class FrmBillingEntry
         Me.txtBillNumber.Location = New System.Drawing.Point(290, 33)
         Me.txtBillNumber.Name = "txtBillNumber"
         Me.txtBillNumber.ReadOnly = True
-        Me.txtBillNumber.Size = New System.Drawing.Size(111, 23)
-        Me.txtBillNumber.TabIndex = 7
-        Me.txtBillNumber.Text = "A252600001"
+        Me.txtBillNumber.Size = New System.Drawing.Size(111, 27)
+        Me.txtBillNumber.TabIndex = 3
+        Me.txtBillNumber.TabStop = False
         Me.txtBillNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'cmbSuffix
+        '
+        Me.cmbSuffix.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmbSuffix.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cmbSuffix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSuffix.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.cmbSuffix.FormattingEnabled = True
+        Me.cmbSuffix.Location = New System.Drawing.Point(81, 33)
+        Me.cmbSuffix.Name = "cmbSuffix"
+        Me.cmbSuffix.Size = New System.Drawing.Size(100, 28)
+        Me.cmbSuffix.TabIndex = 2
         '
         'dtpBillDate
         '
         Me.dtpBillDate.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.dtpBillDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpBillDate.Location = New System.Drawing.Point(81, 33)
+        Me.dtpBillDate.Location = New System.Drawing.Point(81, 63)
         Me.dtpBillDate.Name = "dtpBillDate"
-        Me.dtpBillDate.Size = New System.Drawing.Size(100, 23)
-        Me.dtpBillDate.TabIndex = 5
+        Me.dtpBillDate.Size = New System.Drawing.Size(100, 27)
+        Me.dtpBillDate.TabIndex = 4
         Me.dtpBillDate.Value = New Date(2026, 2, 28, 0, 0, 0, 0)
         '
         'grpCustomerDetails
@@ -549,14 +600,14 @@ Partial Class FrmBillingEntry
         Me.tlpCustomerDetails.Controls.Add(Me.txtCountry, 3, 3)
         Me.tlpCustomerDetails.Controls.Add(Me.txtMobile, 3, 0)
         Me.tlpCustomerDetails.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpCustomerDetails.Location = New System.Drawing.Point(3, 19)
+        Me.tlpCustomerDetails.Location = New System.Drawing.Point(3, 23)
         Me.tlpCustomerDetails.Name = "tlpCustomerDetails"
         Me.tlpCustomerDetails.RowCount = 4
         Me.tlpCustomerDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.tlpCustomerDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.tlpCustomerDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.tlpCustomerDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.tlpCustomerDetails.Size = New System.Drawing.Size(974, 106)
+        Me.tlpCustomerDetails.Size = New System.Drawing.Size(974, 102)
         Me.tlpCustomerDetails.TabIndex = 0
         '
         'lblName
@@ -574,13 +625,16 @@ Partial Class FrmBillingEntry
         '
         'txtName
         '
+        Me.txtName.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtName.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtName.Location = New System.Drawing.Point(83, 3)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(194, 22)
+        Me.txtName.ReadOnly = True
+        Me.txtName.Size = New System.Drawing.Size(194, 25)
         Me.txtName.TabIndex = 1
+        Me.txtName.TabStop = False
         '
         'lblMobile
         '
@@ -610,13 +664,16 @@ Partial Class FrmBillingEntry
         '
         'txtAdd1
         '
+        Me.txtAdd1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtAdd1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAdd1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtAdd1.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtAdd1.Location = New System.Drawing.Point(83, 28)
         Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(194, 22)
+        Me.txtAdd1.ReadOnly = True
+        Me.txtAdd1.Size = New System.Drawing.Size(194, 25)
         Me.txtAdd1.TabIndex = 5
+        Me.txtAdd1.TabStop = False
         '
         'lblAdd2
         '
@@ -633,12 +690,15 @@ Partial Class FrmBillingEntry
         '
         'txtAdd2
         '
+        Me.txtAdd2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtAdd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAdd2.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtAdd2.Location = New System.Drawing.Point(363, 28)
         Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(223, 22)
+        Me.txtAdd2.ReadOnly = True
+        Me.txtAdd2.Size = New System.Drawing.Size(225, 25)
         Me.txtAdd2.TabIndex = 7
+        Me.txtAdd2.TabStop = False
         '
         'lblPincode
         '
@@ -655,13 +715,16 @@ Partial Class FrmBillingEntry
         '
         'txtPincode
         '
+        Me.txtPincode.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtPincode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPincode.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtPincode.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtPincode.Location = New System.Drawing.Point(83, 53)
         Me.txtPincode.Name = "txtPincode"
-        Me.txtPincode.Size = New System.Drawing.Size(194, 22)
+        Me.txtPincode.ReadOnly = True
+        Me.txtPincode.Size = New System.Drawing.Size(194, 25)
         Me.txtPincode.TabIndex = 9
+        Me.txtPincode.TabStop = False
         '
         'lblAreaCity
         '
@@ -678,12 +741,15 @@ Partial Class FrmBillingEntry
         '
         'txtAreaCity
         '
+        Me.txtAreaCity.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtAreaCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAreaCity.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtAreaCity.Location = New System.Drawing.Point(363, 53)
         Me.txtAreaCity.Name = "txtAreaCity"
-        Me.txtAreaCity.Size = New System.Drawing.Size(306, 22)
+        Me.txtAreaCity.ReadOnly = True
+        Me.txtAreaCity.Size = New System.Drawing.Size(225, 25)
         Me.txtAreaCity.TabIndex = 11
+        Me.txtAreaCity.TabStop = False
         '
         'lblState
         '
@@ -693,20 +759,23 @@ Partial Class FrmBillingEntry
         Me.lblState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.lblState.Location = New System.Drawing.Point(3, 75)
         Me.lblState.Name = "lblState"
-        Me.lblState.Size = New System.Drawing.Size(74, 31)
+        Me.lblState.Size = New System.Drawing.Size(74, 27)
         Me.lblState.TabIndex = 12
         Me.lblState.Text = "State:"
         Me.lblState.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtState
         '
+        Me.txtState.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtState.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtState.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtState.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtState.Location = New System.Drawing.Point(83, 78)
         Me.txtState.Name = "txtState"
-        Me.txtState.Size = New System.Drawing.Size(194, 22)
+        Me.txtState.ReadOnly = True
+        Me.txtState.Size = New System.Drawing.Size(194, 25)
         Me.txtState.TabIndex = 13
+        Me.txtState.TabStop = False
         '
         'lblCountry
         '
@@ -716,41 +785,76 @@ Partial Class FrmBillingEntry
         Me.lblCountry.ForeColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
         Me.lblCountry.Location = New System.Drawing.Point(283, 75)
         Me.lblCountry.Name = "lblCountry"
-        Me.lblCountry.Size = New System.Drawing.Size(74, 31)
+        Me.lblCountry.Size = New System.Drawing.Size(74, 27)
         Me.lblCountry.TabIndex = 14
         Me.lblCountry.Text = "Country:"
         Me.lblCountry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtCountry
         '
+        Me.txtCountry.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtCountry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCountry.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtCountry.Location = New System.Drawing.Point(363, 78)
         Me.txtCountry.Name = "txtCountry"
-        Me.txtCountry.Size = New System.Drawing.Size(207, 22)
+        Me.txtCountry.ReadOnly = True
+        Me.txtCountry.Size = New System.Drawing.Size(225, 25)
         Me.txtCountry.TabIndex = 15
+        Me.txtCountry.TabStop = False
         '
         'txtMobile
         '
+        Me.txtMobile.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.txtMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtMobile.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.txtMobile.Location = New System.Drawing.Point(363, 3)
         Me.txtMobile.Name = "txtMobile"
-        Me.txtMobile.Size = New System.Drawing.Size(170, 22)
+        Me.txtMobile.ReadOnly = True
+        Me.txtMobile.Size = New System.Drawing.Size(225, 25)
         Me.txtMobile.TabIndex = 3
+        Me.txtMobile.TabStop = False
         '
         'grpCustomerSelect
         '
+        Me.grpCustomerSelect.Controls.Add(Me.cmbLedger)
         Me.grpCustomerSelect.Controls.Add(Me.tlpCustomerSelect)
         Me.grpCustomerSelect.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpCustomerSelect.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.grpCustomerSelect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.grpCustomerSelect.Location = New System.Drawing.Point(3, 141)
+        Me.grpCustomerSelect.Location = New System.Drawing.Point(3, 138)
         Me.grpCustomerSelect.Name = "grpCustomerSelect"
-        Me.grpCustomerSelect.Size = New System.Drawing.Size(415, 95)
+        Me.grpCustomerSelect.Size = New System.Drawing.Size(415, 93)
         Me.grpCustomerSelect.TabIndex = 1
         Me.grpCustomerSelect.TabStop = False
         Me.grpCustomerSelect.Text = "👤 CUSTOMER SELECTION"
+        '
+        'cmbLedger
+        '
+        Me.cmbLedger.EditValue = ""
+        Me.cmbLedger.EnterMoveNextControl = True
+        Me.cmbLedger.Location = New System.Drawing.Point(146, 25)
+        Me.cmbLedger.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbLedger.Name = "cmbLedger"
+        Me.cmbLedger.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbLedger.Properties.Appearance.Options.UseFont = True
+        Me.cmbLedger.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.cmbLedger.Properties.AppearanceDropDown.Options.UseFont = True
+        Me.cmbLedger.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbLedger.Properties.LookAndFeel.SkinName = "Office 2013"
+        Me.cmbLedger.Properties.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.cmbLedger.Properties.NullText = ""
+        Me.cmbLedger.Properties.PopupFormSize = New System.Drawing.Size(0, 300)
+        Me.cmbLedger.Properties.ValidateOnEnterKey = True
+        Me.cmbLedger.Properties.View = Me.GridView1
+        Me.cmbLedger.Size = New System.Drawing.Size(261, 28)
+        Me.cmbLedger.TabIndex = 0
+        '
+        'GridView1
+        '
+        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'tlpCustomerSelect
         '
@@ -758,16 +862,16 @@ Partial Class FrmBillingEntry
         Me.tlpCustomerSelect.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
         Me.tlpCustomerSelect.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269.0!))
         Me.tlpCustomerSelect.Controls.Add(Me.lblCustomerCode, 0, 0)
-        Me.tlpCustomerSelect.Controls.Add(Me.txtCustomerCode, 1, 0)
         Me.tlpCustomerSelect.Controls.Add(Me.lblCollectionPerson, 0, 1)
         Me.tlpCustomerSelect.Controls.Add(Me.cmbCollectionPerson, 1, 1)
         Me.tlpCustomerSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpCustomerSelect.Location = New System.Drawing.Point(3, 19)
+        Me.tlpCustomerSelect.Location = New System.Drawing.Point(3, 23)
         Me.tlpCustomerSelect.Name = "tlpCustomerSelect"
         Me.tlpCustomerSelect.RowCount = 2
         Me.tlpCustomerSelect.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpCustomerSelect.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.tlpCustomerSelect.Size = New System.Drawing.Size(409, 73)
+        Me.tlpCustomerSelect.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpCustomerSelect.Size = New System.Drawing.Size(409, 67)
         Me.tlpCustomerSelect.TabIndex = 0
         '
         'lblCustomerCode
@@ -783,16 +887,6 @@ Partial Class FrmBillingEntry
         Me.lblCustomerCode.Text = "Customer Code:"
         Me.lblCustomerCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtCustomerCode
-        '
-        Me.txtCustomerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtCustomerCode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtCustomerCode.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtCustomerCode.Location = New System.Drawing.Point(143, 3)
-        Me.txtCustomerCode.Name = "txtCustomerCode"
-        Me.txtCustomerCode.Size = New System.Drawing.Size(263, 23)
-        Me.txtCustomerCode.TabIndex = 1
-        '
         'lblCollectionPerson
         '
         Me.lblCollectionPerson.AutoSize = True
@@ -801,7 +895,7 @@ Partial Class FrmBillingEntry
         Me.lblCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.lblCollectionPerson.Location = New System.Drawing.Point(3, 30)
         Me.lblCollectionPerson.Name = "lblCollectionPerson"
-        Me.lblCollectionPerson.Size = New System.Drawing.Size(134, 15)
+        Me.lblCollectionPerson.Size = New System.Drawing.Size(134, 20)
         Me.lblCollectionPerson.TabIndex = 2
         Me.lblCollectionPerson.Text = "Collection Person:"
         Me.lblCollectionPerson.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -814,8 +908,8 @@ Partial Class FrmBillingEntry
         Me.cmbCollectionPerson.Items.AddRange(New Object() {"-", "John Doe", "Jane Smith", "Mike Johnson", "Sarah Williams"})
         Me.cmbCollectionPerson.Location = New System.Drawing.Point(143, 33)
         Me.cmbCollectionPerson.Name = "cmbCollectionPerson"
-        Me.cmbCollectionPerson.Size = New System.Drawing.Size(263, 23)
-        Me.cmbCollectionPerson.TabIndex = 3
+        Me.cmbCollectionPerson.Size = New System.Drawing.Size(263, 28)
+        Me.cmbCollectionPerson.TabIndex = 0
         '
         'grpAmountDetails
         '
@@ -823,9 +917,9 @@ Partial Class FrmBillingEntry
         Me.grpAmountDetails.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpAmountDetails.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.grpAmountDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.grpAmountDetails.Location = New System.Drawing.Point(424, 141)
+        Me.grpAmountDetails.Location = New System.Drawing.Point(424, 138)
         Me.grpAmountDetails.Name = "grpAmountDetails"
-        Me.grpAmountDetails.Size = New System.Drawing.Size(980, 95)
+        Me.grpAmountDetails.Size = New System.Drawing.Size(980, 93)
         Me.grpAmountDetails.TabIndex = 3
         Me.grpAmountDetails.TabStop = False
         Me.grpAmountDetails.Text = "💰 AMOUNT DETAILS"
@@ -834,22 +928,30 @@ Partial Class FrmBillingEntry
         '
         Me.tlpAmountDetails.ColumnCount = 4
         Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124.0!))
-        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109.0!))
-        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115.0!))
-        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 626.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 611.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpAmountDetails.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tlpAmountDetails.Controls.Add(Me.lblBillAmount, 0, 0)
         Me.tlpAmountDetails.Controls.Add(Me.txtBillAmount, 1, 0)
         Me.tlpAmountDetails.Controls.Add(Me.lblReceivedAmount, 2, 0)
         Me.tlpAmountDetails.Controls.Add(Me.txtReceivedAmount, 3, 0)
         Me.tlpAmountDetails.Controls.Add(Me.lblSalesDueDate, 0, 1)
+        Me.tlpAmountDetails.Controls.Add(Me.lblDueAmt, 2, 1)
+        Me.tlpAmountDetails.Controls.Add(Me.txtDueAmt, 2, 1)
         Me.tlpAmountDetails.Controls.Add(Me.dtpSalesDueDate, 1, 1)
         Me.tlpAmountDetails.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpAmountDetails.Location = New System.Drawing.Point(3, 19)
+        Me.tlpAmountDetails.Location = New System.Drawing.Point(3, 23)
         Me.tlpAmountDetails.Name = "tlpAmountDetails"
         Me.tlpAmountDetails.RowCount = 2
         Me.tlpAmountDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
         Me.tlpAmountDetails.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
-        Me.tlpAmountDetails.Size = New System.Drawing.Size(974, 73)
+        Me.tlpAmountDetails.Size = New System.Drawing.Size(974, 67)
         Me.tlpAmountDetails.TabIndex = 0
         '
         'lblBillAmount
@@ -873,9 +975,9 @@ Partial Class FrmBillingEntry
         Me.txtBillAmount.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtBillAmount.Location = New System.Drawing.Point(127, 3)
         Me.txtBillAmount.Name = "txtBillAmount"
-        Me.txtBillAmount.Size = New System.Drawing.Size(103, 23)
-        Me.txtBillAmount.TabIndex = 1
-        Me.txtBillAmount.Text = "0.00"
+        Me.txtBillAmount.Size = New System.Drawing.Size(146, 27)
+        Me.txtBillAmount.TabIndex = 0
+        Me.txtBillAmount.Text = "0"
         Me.txtBillAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblReceivedAmount
@@ -884,9 +986,9 @@ Partial Class FrmBillingEntry
         Me.lblReceivedAmount.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblReceivedAmount.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblReceivedAmount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.lblReceivedAmount.Location = New System.Drawing.Point(236, 0)
+        Me.lblReceivedAmount.Location = New System.Drawing.Point(279, 0)
         Me.lblReceivedAmount.Name = "lblReceivedAmount"
-        Me.lblReceivedAmount.Size = New System.Drawing.Size(109, 32)
+        Me.lblReceivedAmount.Size = New System.Drawing.Size(81, 32)
         Me.lblReceivedAmount.TabIndex = 2
         Me.lblReceivedAmount.Text = "Received Amt"
         Me.lblReceivedAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -897,12 +999,13 @@ Partial Class FrmBillingEntry
         Me.txtReceivedAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtReceivedAmount.Dock = System.Windows.Forms.DockStyle.Left
         Me.txtReceivedAmount.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtReceivedAmount.Location = New System.Drawing.Point(351, 3)
+        Me.txtReceivedAmount.Location = New System.Drawing.Point(366, 3)
         Me.txtReceivedAmount.Name = "txtReceivedAmount"
         Me.txtReceivedAmount.ReadOnly = True
-        Me.txtReceivedAmount.Size = New System.Drawing.Size(109, 23)
+        Me.txtReceivedAmount.Size = New System.Drawing.Size(109, 27)
         Me.txtReceivedAmount.TabIndex = 3
-        Me.txtReceivedAmount.Text = "0.00"
+        Me.txtReceivedAmount.TabStop = False
+        Me.txtReceivedAmount.Text = "0"
         Me.txtReceivedAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblSalesDueDate
@@ -912,9 +1015,36 @@ Partial Class FrmBillingEntry
         Me.lblSalesDueDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
         Me.lblSalesDueDate.Location = New System.Drawing.Point(3, 32)
         Me.lblSalesDueDate.Name = "lblSalesDueDate"
-        Me.lblSalesDueDate.Size = New System.Drawing.Size(91, 15)
+        Me.lblSalesDueDate.Size = New System.Drawing.Size(113, 20)
         Me.lblSalesDueDate.TabIndex = 4
         Me.lblSalesDueDate.Text = "Sales Due Date"
+        '
+        'lblDueAmt
+        '
+        Me.lblDueAmt.AutoSize = True
+        Me.lblDueAmt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblDueAmt.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblDueAmt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.lblDueAmt.Location = New System.Drawing.Point(279, 32)
+        Me.lblDueAmt.Name = "lblDueAmt"
+        Me.lblDueAmt.Size = New System.Drawing.Size(81, 35)
+        Me.lblDueAmt.TabIndex = 6
+        Me.lblDueAmt.Text = "Due Amt"
+        Me.lblDueAmt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtDueAmt
+        '
+        Me.txtDueAmt.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.txtDueAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDueAmt.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtDueAmt.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtDueAmt.Location = New System.Drawing.Point(366, 35)
+        Me.txtDueAmt.Name = "txtDueAmt"
+        Me.txtDueAmt.Size = New System.Drawing.Size(109, 27)
+        Me.txtDueAmt.TabIndex = 7
+        Me.txtDueAmt.TabStop = False
+        Me.txtDueAmt.Text = "0"
+        Me.txtDueAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'dtpSalesDueDate
         '
@@ -922,8 +1052,8 @@ Partial Class FrmBillingEntry
         Me.dtpSalesDueDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpSalesDueDate.Location = New System.Drawing.Point(127, 35)
         Me.dtpSalesDueDate.Name = "dtpSalesDueDate"
-        Me.dtpSalesDueDate.Size = New System.Drawing.Size(103, 23)
-        Me.dtpSalesDueDate.TabIndex = 5
+        Me.dtpSalesDueDate.Size = New System.Drawing.Size(146, 27)
+        Me.dtpSalesDueDate.TabIndex = 1
         Me.dtpSalesDueDate.Value = New Date(2026, 3, 28, 0, 0, 0, 0)
         '
         'tlpMain
@@ -952,6 +1082,7 @@ Partial Class FrmBillingEntry
         '
         'gcData
         '
+        Me.gcData.ContextMenuStrip = Me.ContextMenuStrip1
         Me.gcData.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gcData.Location = New System.Drawing.Point(6, 356)
         Me.gcData.LookAndFeel.SkinName = "Office 2016 Colorful"
@@ -1016,10 +1147,39 @@ Partial Class FrmBillingEntry
         Me.gvData.OptionsView.EnableAppearanceEvenRow = True
         Me.gvData.OptionsView.EnableAppearanceOddRow = True
         Me.gvData.OptionsView.ShowGroupPanel = False
+        Me.gvData.RowHeight = 27
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameColumnToolStripMenuItem, Me.ExportToExcelToolStripMenuItem, Me.SaveLayoutToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(207, 88)
+        '
+        'RenameColumnToolStripMenuItem
+        '
+        Me.RenameColumnToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RenameColumnToolStripMenuItem.Name = "RenameColumnToolStripMenuItem"
+        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(206, 28)
+        Me.RenameColumnToolStripMenuItem.Text = "Rename Column"
+        '
+        'ExportToExcelToolStripMenuItem
+        '
+        Me.ExportToExcelToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(206, 28)
+        Me.ExportToExcelToolStripMenuItem.Text = "Export to Excel"
+        '
+        'SaveLayoutToolStripMenuItem
+        '
+        Me.SaveLayoutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(206, 28)
+        Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
         '
         'FrmBillingEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1435, 698)
@@ -1042,6 +1202,8 @@ Partial Class FrmBillingEntry
         Me.tlpCustomerDetails.ResumeLayout(False)
         Me.tlpCustomerDetails.PerformLayout()
         Me.grpCustomerSelect.ResumeLayout(False)
+        CType(Me.cmbLedger.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tlpCustomerSelect.ResumeLayout(False)
         Me.tlpCustomerSelect.PerformLayout()
         Me.grpAmountDetails.ResumeLayout(False)
@@ -1050,6 +1212,7 @@ Partial Class FrmBillingEntry
         Me.tlpMain.ResumeLayout(False)
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1072,6 +1235,9 @@ Partial Class FrmBillingEntry
     Friend WithEvents lblTo As Label
     Friend WithEvents dtpTo As DateTimePicker
     Friend WithEvents pnlBillingInfo As Panel
+    Friend WithEvents tlpMain As TableLayoutPanel
+    Friend WithEvents gcData As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvData As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents grpBillingInfo As GroupBox
     Friend WithEvents tlpBillingLayout As TableLayoutPanel
     Friend WithEvents grpBillInfo As GroupBox
@@ -1081,15 +1247,14 @@ Partial Class FrmBillingEntry
     Friend WithEvents lblBillNo As Label
     Friend WithEvents txtBillNo As TextBox
     Friend WithEvents lblBillDate As Label
-    Friend WithEvents dtpBillDate As DateTimePicker
     Friend WithEvents lblBillNumber As Label
     Friend WithEvents txtBillNumber As TextBox
+    Friend WithEvents dtpBillDate As DateTimePicker
     Friend WithEvents grpCustomerDetails As GroupBox
     Friend WithEvents tlpCustomerDetails As TableLayoutPanel
     Friend WithEvents lblName As Label
     Friend WithEvents txtName As TextBox
     Friend WithEvents lblMobile As Label
-    Friend WithEvents txtMobile As TextBox
     Friend WithEvents lblAdd1 As Label
     Friend WithEvents txtAdd1 As TextBox
     Friend WithEvents lblAdd2 As Label
@@ -1102,10 +1267,10 @@ Partial Class FrmBillingEntry
     Friend WithEvents txtState As TextBox
     Friend WithEvents lblCountry As Label
     Friend WithEvents txtCountry As TextBox
+    Friend WithEvents txtMobile As TextBox
     Friend WithEvents grpCustomerSelect As GroupBox
     Friend WithEvents tlpCustomerSelect As TableLayoutPanel
     Friend WithEvents lblCustomerCode As Label
-    Friend WithEvents txtCustomerCode As TextBox
     Friend WithEvents lblCollectionPerson As Label
     Friend WithEvents cmbCollectionPerson As ComboBox
     Friend WithEvents grpAmountDetails As GroupBox
@@ -1115,8 +1280,16 @@ Partial Class FrmBillingEntry
     Friend WithEvents lblReceivedAmount As Label
     Friend WithEvents txtReceivedAmount As TextBox
     Friend WithEvents lblSalesDueDate As Label
+    Friend WithEvents lblDueAmt As Label
+    Friend WithEvents txtDueAmt As TextBox
     Friend WithEvents dtpSalesDueDate As DateTimePicker
-    Friend WithEvents tlpMain As TableLayoutPanel
-    Friend WithEvents gcData As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvData As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents lblInvId As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents RenameColumnToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportToExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveLayoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cmbSuffix As ComboBox
+    Friend WithEvents cmbLedger As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

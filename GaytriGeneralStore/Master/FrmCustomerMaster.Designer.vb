@@ -3287,12 +3287,12 @@ Partial Class FrmCustomerMaster
         Me.tlpTaxInfo = New System.Windows.Forms.TableLayoutPanel()
         Me.lblGSTNo = New System.Windows.Forms.Label()
         Me.txtGSTNo = New System.Windows.Forms.TextBox()
-        Me.lblSalesPerson = New System.Windows.Forms.Label()
         Me.cmbSalesPerson = New System.Windows.Forms.ComboBox()
         Me.cmbCollectionPerson = New System.Windows.Forms.ComboBox()
         Me.cmbTaxation = New System.Windows.Forms.ComboBox()
         Me.lblTaxation = New System.Windows.Forms.Label()
         Me.lblCollectionPerson = New System.Windows.Forms.Label()
+        Me.lblSalesPerson = New System.Windows.Forms.Label()
         Me.grpAddressDetails = New System.Windows.Forms.GroupBox()
         Me.tlpAddress = New System.Windows.Forms.TableLayoutPanel()
         Me.lblAddress1 = New System.Windows.Forms.Label()
@@ -3317,6 +3317,7 @@ Partial Class FrmCustomerMaster
         Me.cmbDrCr = New System.Windows.Forms.TextBox()
         Me.txtOpBal = New System.Windows.Forms.TextBox()
         Me.tlpBasicInfo = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.lblCustomerName = New System.Windows.Forms.Label()
         Me.txtLedgerName = New System.Windows.Forms.TextBox()
         Me.lblCustomerCode = New System.Windows.Forms.Label()
@@ -3370,11 +3371,11 @@ Partial Class FrmCustomerMaster
         Me.pnlDataContainer.Controls.Add(Me.lblLedgerId)
         Me.pnlDataContainer.Controls.Add(Me.gcData)
         Me.pnlDataContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 535)
+        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 529)
         Me.pnlDataContainer.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlDataContainer.Name = "pnlDataContainer"
         Me.pnlDataContainer.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlDataContainer.Size = New System.Drawing.Size(1584, 276)
+        Me.pnlDataContainer.Size = New System.Drawing.Size(1584, 282)
         Me.pnlDataContainer.TabIndex = 6
         '
         'lblLedgerId
@@ -3384,7 +3385,7 @@ Partial Class FrmCustomerMaster
         Me.lblLedgerId.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblLedgerId.Location = New System.Drawing.Point(864, 164)
         Me.lblLedgerId.Name = "lblLedgerId"
-        Me.lblLedgerId.Size = New System.Drawing.Size(70, 15)
+        Me.lblLedgerId.Size = New System.Drawing.Size(88, 20)
         Me.lblLedgerId.TabIndex = 16
         Me.lblLedgerId.Text = "lblLedgerId"
         Me.lblLedgerId.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3398,7 +3399,7 @@ Partial Class FrmCustomerMaster
         Me.gcData.LookAndFeel.SkinName = "Office 2016 Colorful"
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1574, 266)
+        Me.gcData.Size = New System.Drawing.Size(1574, 272)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
         '
@@ -3407,27 +3408,27 @@ Partial Class FrmCustomerMaster
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameColumnToolStripMenuItem, Me.ExportToExcelToolStripMenuItem, Me.SaveLayoutToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(186, 76)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(220, 94)
         '
         'RenameColumnToolStripMenuItem
         '
         Me.RenameColumnToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RenameColumnToolStripMenuItem.Name = "RenameColumnToolStripMenuItem"
-        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
         Me.RenameColumnToolStripMenuItem.Text = "Rename Column"
         '
         'ExportToExcelToolStripMenuItem
         '
         Me.ExportToExcelToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
-        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
         Me.ExportToExcelToolStripMenuItem.Text = "Export To Excel"
         '
         'SaveLayoutToolStripMenuItem
         '
         Me.SaveLayoutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
-        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
         Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
         '
         'gvData
@@ -3485,6 +3486,7 @@ Partial Class FrmCustomerMaster
         Me.gvData.OptionsView.EnableAppearanceEvenRow = True
         Me.gvData.OptionsView.EnableAppearanceOddRow = True
         Me.gvData.OptionsView.ShowGroupPanel = False
+        Me.gvData.RowHeight = 27
         '
         'pnlSearch
         '
@@ -3496,7 +3498,7 @@ Partial Class FrmCustomerMaster
         Me.pnlSearch.Controls.Add(Me.btnSearch)
         Me.pnlSearch.Controls.Add(Me.btnClearSearch)
         Me.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlSearch.Location = New System.Drawing.Point(10, 443)
+        Me.pnlSearch.Location = New System.Drawing.Point(10, 435)
         Me.pnlSearch.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlSearch.Name = "pnlSearch"
         Me.pnlSearch.Size = New System.Drawing.Size(1584, 37)
@@ -3510,7 +3512,7 @@ Partial Class FrmCustomerMaster
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblSearch.Location = New System.Drawing.Point(20, 9)
         Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(103, 19)
+        Me.lblSearch.Size = New System.Drawing.Size(122, 23)
         Me.lblSearch.TabIndex = 0
         Me.lblSearch.Text = "🔍 Search by:"
         '
@@ -3520,9 +3522,9 @@ Partial Class FrmCustomerMaster
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.ForeColor = System.Drawing.Color.Gray
-        Me.txtSearch.Location = New System.Drawing.Point(128, 7)
+        Me.txtSearch.Location = New System.Drawing.Point(143, 6)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(400, 25)
+        Me.txtSearch.Size = New System.Drawing.Size(400, 29)
         Me.txtSearch.TabIndex = 0
         '
         'lblSearchArea
@@ -3530,9 +3532,9 @@ Partial Class FrmCustomerMaster
         Me.lblSearchArea.AutoSize = True
         Me.lblSearchArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearchArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblSearchArea.Location = New System.Drawing.Point(546, 11)
+        Me.lblSearchArea.Location = New System.Drawing.Point(546, 10)
         Me.lblSearchArea.Name = "lblSearchArea"
-        Me.lblSearchArea.Size = New System.Drawing.Size(36, 15)
+        Me.lblSearchArea.Size = New System.Drawing.Size(46, 20)
         Me.lblSearchArea.TabIndex = 2
         Me.lblSearchArea.Text = "Area:"
         Me.lblSearchArea.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3545,9 +3547,9 @@ Partial Class FrmCustomerMaster
         Me.cmbF_Area.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbF_Area.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbF_Area.FormattingEnabled = True
-        Me.cmbF_Area.Location = New System.Drawing.Point(589, 7)
+        Me.cmbF_Area.Location = New System.Drawing.Point(597, 6)
         Me.cmbF_Area.Name = "cmbF_Area"
-        Me.cmbF_Area.Size = New System.Drawing.Size(180, 25)
+        Me.cmbF_Area.Size = New System.Drawing.Size(180, 29)
         Me.cmbF_Area.TabIndex = 1
         '
         'btnSearch
@@ -3574,7 +3576,7 @@ Partial Class FrmCustomerMaster
         Me.btnClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClearSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearSearch.ForeColor = System.Drawing.Color.White
-        Me.btnClearSearch.Location = New System.Drawing.Point(778, 4)
+        Me.btnClearSearch.Location = New System.Drawing.Point(786, 6)
         Me.btnClearSearch.Name = "btnClearSearch"
         Me.btnClearSearch.Size = New System.Drawing.Size(90, 28)
         Me.btnClearSearch.TabIndex = 3
@@ -3589,7 +3591,7 @@ Partial Class FrmCustomerMaster
         Me.pnlTopForm.Location = New System.Drawing.Point(10, 10)
         Me.pnlTopForm.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlTopForm.Name = "pnlTopForm"
-        Me.pnlTopForm.Size = New System.Drawing.Size(1584, 423)
+        Me.pnlTopForm.Size = New System.Drawing.Size(1584, 415)
         Me.pnlTopForm.TabIndex = 0
         '
         'gbMaindetail
@@ -3602,7 +3604,7 @@ Partial Class FrmCustomerMaster
         Me.gbMaindetail.Location = New System.Drawing.Point(0, 0)
         Me.gbMaindetail.Name = "gbMaindetail"
         Me.gbMaindetail.Padding = New System.Windows.Forms.Padding(8)
-        Me.gbMaindetail.Size = New System.Drawing.Size(1584, 423)
+        Me.gbMaindetail.Size = New System.Drawing.Size(1584, 415)
         Me.gbMaindetail.TabIndex = 0
         Me.gbMaindetail.TabStop = False
         Me.gbMaindetail.Text = "👤 CUSTOMER DETAILS"
@@ -3614,9 +3616,9 @@ Partial Class FrmCustomerMaster
         Me.pnlAllDetails.Controls.Add(Me.grpAddressDetails)
         Me.pnlAllDetails.Controls.Add(Me.grpBasicInfo)
         Me.pnlAllDetails.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlAllDetails.Location = New System.Drawing.Point(8, 28)
+        Me.pnlAllDetails.Location = New System.Drawing.Point(8, 33)
         Me.pnlAllDetails.Name = "pnlAllDetails"
-        Me.pnlAllDetails.Size = New System.Drawing.Size(1568, 387)
+        Me.pnlAllDetails.Size = New System.Drawing.Size(1568, 374)
         Me.pnlAllDetails.TabIndex = 0
         '
         'grpTaxInfo
@@ -3628,7 +3630,7 @@ Partial Class FrmCustomerMaster
         Me.grpTaxInfo.Location = New System.Drawing.Point(1140, 169)
         Me.grpTaxInfo.Name = "grpTaxInfo"
         Me.grpTaxInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpTaxInfo.Size = New System.Drawing.Size(428, 218)
+        Me.grpTaxInfo.Size = New System.Drawing.Size(428, 205)
         Me.grpTaxInfo.TabIndex = 2
         Me.grpTaxInfo.TabStop = False
         Me.grpTaxInfo.Text = "💰 TAX & COLLECTION INFO"
@@ -3641,14 +3643,14 @@ Partial Class FrmCustomerMaster
         Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.72362!))
         Me.tlpTaxInfo.Controls.Add(Me.lblGSTNo, 0, 0)
         Me.tlpTaxInfo.Controls.Add(Me.txtGSTNo, 1, 0)
-        Me.tlpTaxInfo.Controls.Add(Me.lblSalesPerson, 0, 3)
         Me.tlpTaxInfo.Controls.Add(Me.cmbSalesPerson, 1, 3)
         Me.tlpTaxInfo.Controls.Add(Me.cmbCollectionPerson, 1, 2)
         Me.tlpTaxInfo.Controls.Add(Me.cmbTaxation, 1, 1)
         Me.tlpTaxInfo.Controls.Add(Me.lblTaxation, 0, 1)
         Me.tlpTaxInfo.Controls.Add(Me.lblCollectionPerson, 0, 2)
+        Me.tlpTaxInfo.Controls.Add(Me.lblSalesPerson, 0, 3)
         Me.tlpTaxInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpTaxInfo.Location = New System.Drawing.Point(10, 28)
+        Me.tlpTaxInfo.Location = New System.Drawing.Point(10, 33)
         Me.tlpTaxInfo.Name = "tlpTaxInfo"
         Me.tlpTaxInfo.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpTaxInfo.RowCount = 5
@@ -3657,7 +3659,7 @@ Partial Class FrmCustomerMaster
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.Size = New System.Drawing.Size(408, 180)
+        Me.tlpTaxInfo.Size = New System.Drawing.Size(408, 162)
         Me.tlpTaxInfo.TabIndex = 0
         '
         'lblGSTNo
@@ -3667,7 +3669,7 @@ Partial Class FrmCustomerMaster
         Me.lblGSTNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblGSTNo.Location = New System.Drawing.Point(8, 5)
         Me.lblGSTNo.Name = "lblGSTNo"
-        Me.lblGSTNo.Size = New System.Drawing.Size(59, 19)
+        Me.lblGSTNo.Size = New System.Drawing.Size(70, 23)
         Me.lblGSTNo.TabIndex = 0
         Me.lblGSTNo.Text = "GST No"
         Me.lblGSTNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3682,20 +3684,8 @@ Partial Class FrmCustomerMaster
         Me.txtGSTNo.Location = New System.Drawing.Point(227, 8)
         Me.txtGSTNo.MaxLength = 15
         Me.txtGSTNo.Name = "txtGSTNo"
-        Me.txtGSTNo.Size = New System.Drawing.Size(172, 25)
+        Me.txtGSTNo.Size = New System.Drawing.Size(172, 29)
         Me.txtGSTNo.TabIndex = 0
-        '
-        'lblSalesPerson
-        '
-        Me.lblSalesPerson.AutoSize = True
-        Me.lblSalesPerson.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSalesPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.lblSalesPerson.Location = New System.Drawing.Point(8, 125)
-        Me.lblSalesPerson.Name = "lblSalesPerson"
-        Me.lblSalesPerson.Size = New System.Drawing.Size(93, 19)
-        Me.lblSalesPerson.TabIndex = 6
-        Me.lblSalesPerson.Text = "Sales Person"
-        Me.lblSalesPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbSalesPerson
         '
@@ -3707,7 +3697,7 @@ Partial Class FrmCustomerMaster
         Me.cmbSalesPerson.FormattingEnabled = True
         Me.cmbSalesPerson.Location = New System.Drawing.Point(227, 128)
         Me.cmbSalesPerson.Name = "cmbSalesPerson"
-        Me.cmbSalesPerson.Size = New System.Drawing.Size(172, 25)
+        Me.cmbSalesPerson.Size = New System.Drawing.Size(172, 29)
         Me.cmbSalesPerson.TabIndex = 3
         '
         'cmbCollectionPerson
@@ -3720,7 +3710,7 @@ Partial Class FrmCustomerMaster
         Me.cmbCollectionPerson.FormattingEnabled = True
         Me.cmbCollectionPerson.Location = New System.Drawing.Point(227, 88)
         Me.cmbCollectionPerson.Name = "cmbCollectionPerson"
-        Me.cmbCollectionPerson.Size = New System.Drawing.Size(172, 25)
+        Me.cmbCollectionPerson.Size = New System.Drawing.Size(172, 29)
         Me.cmbCollectionPerson.TabIndex = 2
         '
         'cmbTaxation
@@ -3733,8 +3723,9 @@ Partial Class FrmCustomerMaster
         Me.cmbTaxation.FormattingEnabled = True
         Me.cmbTaxation.Location = New System.Drawing.Point(227, 48)
         Me.cmbTaxation.Name = "cmbTaxation"
-        Me.cmbTaxation.Size = New System.Drawing.Size(172, 25)
+        Me.cmbTaxation.Size = New System.Drawing.Size(172, 29)
         Me.cmbTaxation.TabIndex = 1
+        Me.cmbTaxation.TabStop = False
         '
         'lblTaxation
         '
@@ -3743,7 +3734,7 @@ Partial Class FrmCustomerMaster
         Me.lblTaxation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblTaxation.Location = New System.Drawing.Point(8, 45)
         Me.lblTaxation.Name = "lblTaxation"
-        Me.lblTaxation.Size = New System.Drawing.Size(66, 19)
+        Me.lblTaxation.Size = New System.Drawing.Size(78, 23)
         Me.lblTaxation.TabIndex = 2
         Me.lblTaxation.Text = "Taxation"
         Me.lblTaxation.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3755,10 +3746,22 @@ Partial Class FrmCustomerMaster
         Me.lblCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.lblCollectionPerson.Location = New System.Drawing.Point(8, 85)
         Me.lblCollectionPerson.Name = "lblCollectionPerson"
-        Me.lblCollectionPerson.Size = New System.Drawing.Size(126, 19)
+        Me.lblCollectionPerson.Size = New System.Drawing.Size(147, 23)
         Me.lblCollectionPerson.TabIndex = 4
         Me.lblCollectionPerson.Text = "Collection Person" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.lblCollectionPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblSalesPerson
+        '
+        Me.lblSalesPerson.AutoSize = True
+        Me.lblSalesPerson.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSalesPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.lblSalesPerson.Location = New System.Drawing.Point(8, 125)
+        Me.lblSalesPerson.Name = "lblSalesPerson"
+        Me.lblSalesPerson.Size = New System.Drawing.Size(107, 23)
+        Me.lblSalesPerson.TabIndex = 6
+        Me.lblSalesPerson.Text = "Sales Person"
+        Me.lblSalesPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'grpAddressDetails
         '
@@ -3769,7 +3772,7 @@ Partial Class FrmCustomerMaster
         Me.grpAddressDetails.Location = New System.Drawing.Point(0, 169)
         Me.grpAddressDetails.Name = "grpAddressDetails"
         Me.grpAddressDetails.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpAddressDetails.Size = New System.Drawing.Size(1568, 218)
+        Me.grpAddressDetails.Size = New System.Drawing.Size(1568, 205)
         Me.grpAddressDetails.TabIndex = 1
         Me.grpAddressDetails.TabStop = False
         Me.grpAddressDetails.Text = "📍 ADDRESS DETAILS"
@@ -3799,7 +3802,7 @@ Partial Class FrmCustomerMaster
         Me.tlpAddress.Controls.Add(Me.cmbCity, 1, 2)
         Me.tlpAddress.Controls.Add(Me.cmbCountry, 1, 3)
         Me.tlpAddress.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpAddress.Location = New System.Drawing.Point(10, 28)
+        Me.tlpAddress.Location = New System.Drawing.Point(10, 33)
         Me.tlpAddress.Name = "tlpAddress"
         Me.tlpAddress.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpAddress.RowCount = 5
@@ -3808,7 +3811,7 @@ Partial Class FrmCustomerMaster
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpAddress.Size = New System.Drawing.Size(1548, 180)
+        Me.tlpAddress.Size = New System.Drawing.Size(1548, 162)
         Me.tlpAddress.TabIndex = 0
         '
         'lblAddress1
@@ -3818,7 +3821,7 @@ Partial Class FrmCustomerMaster
         Me.lblAddress1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblAddress1.Location = New System.Drawing.Point(8, 5)
         Me.lblAddress1.Name = "lblAddress1"
-        Me.lblAddress1.Size = New System.Drawing.Size(61, 15)
+        Me.lblAddress1.Size = New System.Drawing.Size(79, 20)
         Me.lblAddress1.TabIndex = 0
         Me.lblAddress1.Text = "Address 1"
         Me.lblAddress1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3831,7 +3834,7 @@ Partial Class FrmCustomerMaster
         Me.txtAdd1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtAdd1.Location = New System.Drawing.Point(238, 8)
         Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(410, 25)
+        Me.txtAdd1.Size = New System.Drawing.Size(410, 29)
         Me.txtAdd1.TabIndex = 0
         '
         'lblAddress2
@@ -3841,7 +3844,7 @@ Partial Class FrmCustomerMaster
         Me.lblAddress2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblAddress2.Location = New System.Drawing.Point(654, 5)
         Me.lblAddress2.Name = "lblAddress2"
-        Me.lblAddress2.Size = New System.Drawing.Size(61, 15)
+        Me.lblAddress2.Size = New System.Drawing.Size(79, 20)
         Me.lblAddress2.TabIndex = 2
         Me.lblAddress2.Text = "Address 2"
         Me.lblAddress2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3854,7 +3857,7 @@ Partial Class FrmCustomerMaster
         Me.txtAdd2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtAdd2.Location = New System.Drawing.Point(760, 8)
         Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(362, 25)
+        Me.txtAdd2.Size = New System.Drawing.Size(362, 29)
         Me.txtAdd2.TabIndex = 1
         '
         'lblArea
@@ -3864,7 +3867,7 @@ Partial Class FrmCustomerMaster
         Me.lblArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.lblArea.Location = New System.Drawing.Point(8, 40)
         Me.lblArea.Name = "lblArea"
-        Me.lblArea.Size = New System.Drawing.Size(33, 15)
+        Me.lblArea.Size = New System.Drawing.Size(42, 20)
         Me.lblArea.TabIndex = 4
         Me.lblArea.Text = "Area"
         Me.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3887,7 +3890,7 @@ Partial Class FrmCustomerMaster
         Me.cmbArea.FormattingEnabled = True
         Me.cmbArea.Location = New System.Drawing.Point(0, 0)
         Me.cmbArea.Name = "cmbArea"
-        Me.cmbArea.Size = New System.Drawing.Size(209, 25)
+        Me.cmbArea.Size = New System.Drawing.Size(209, 29)
         Me.cmbArea.TabIndex = 3
         '
         'btnAddArea
@@ -3905,6 +3908,7 @@ Partial Class FrmCustomerMaster
         Me.btnAddArea.TabStop = False
         Me.btnAddArea.Text = "➕"
         Me.btnAddArea.UseVisualStyleBackColor = False
+        Me.btnAddArea.Visible = False
         '
         'lblPinCode
         '
@@ -3913,7 +3917,7 @@ Partial Class FrmCustomerMaster
         Me.lblPinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.lblPinCode.Location = New System.Drawing.Point(654, 40)
         Me.lblPinCode.Name = "lblPinCode"
-        Me.lblPinCode.Size = New System.Drawing.Size(52, 15)
+        Me.lblPinCode.Size = New System.Drawing.Size(66, 20)
         Me.lblPinCode.TabIndex = 6
         Me.lblPinCode.Text = "PinCode"
         Me.lblPinCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3927,8 +3931,9 @@ Partial Class FrmCustomerMaster
         Me.txtPinCode.Location = New System.Drawing.Point(760, 43)
         Me.txtPinCode.MaxLength = 6
         Me.txtPinCode.Name = "txtPinCode"
-        Me.txtPinCode.Size = New System.Drawing.Size(200, 25)
+        Me.txtPinCode.Size = New System.Drawing.Size(200, 29)
         Me.txtPinCode.TabIndex = 2
+        Me.txtPinCode.TabStop = False
         '
         'lblState
         '
@@ -3937,7 +3942,7 @@ Partial Class FrmCustomerMaster
         Me.lblState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblState.Location = New System.Drawing.Point(654, 75)
         Me.lblState.Name = "lblState"
-        Me.lblState.Size = New System.Drawing.Size(37, 15)
+        Me.lblState.Size = New System.Drawing.Size(45, 20)
         Me.lblState.TabIndex = 10
         Me.lblState.Text = "State"
         Me.lblState.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3953,8 +3958,9 @@ Partial Class FrmCustomerMaster
         Me.cmbState.Items.AddRange(New Object() {"Gujarat", "Maharashtra", "Delhi", "Karnataka"})
         Me.cmbState.Location = New System.Drawing.Point(760, 78)
         Me.cmbState.Name = "cmbState"
-        Me.cmbState.Size = New System.Drawing.Size(200, 25)
+        Me.cmbState.Size = New System.Drawing.Size(200, 29)
         Me.cmbState.TabIndex = 5
+        Me.cmbState.TabStop = False
         '
         'lblDueDays
         '
@@ -3963,7 +3969,7 @@ Partial Class FrmCustomerMaster
         Me.lblDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
         Me.lblDueDays.Location = New System.Drawing.Point(654, 110)
         Me.lblDueDays.Name = "lblDueDays"
-        Me.lblDueDays.Size = New System.Drawing.Size(59, 15)
+        Me.lblDueDays.Size = New System.Drawing.Size(75, 20)
         Me.lblDueDays.TabIndex = 14
         Me.lblDueDays.Text = "Due Days"
         Me.lblDueDays.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3976,7 +3982,7 @@ Partial Class FrmCustomerMaster
         Me.txtDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtDueDays.Location = New System.Drawing.Point(760, 113)
         Me.txtDueDays.Name = "txtDueDays"
-        Me.txtDueDays.Size = New System.Drawing.Size(200, 25)
+        Me.txtDueDays.Size = New System.Drawing.Size(200, 29)
         Me.txtDueDays.TabIndex = 7
         Me.txtDueDays.Text = "0"
         Me.txtDueDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -3988,7 +3994,7 @@ Partial Class FrmCustomerMaster
         Me.lblCity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.lblCity.Location = New System.Drawing.Point(8, 75)
         Me.lblCity.Name = "lblCity"
-        Me.lblCity.Size = New System.Drawing.Size(28, 15)
+        Me.lblCity.Size = New System.Drawing.Size(36, 20)
         Me.lblCity.TabIndex = 12
         Me.lblCity.Text = "City"
         Me.lblCity.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4000,7 +4006,7 @@ Partial Class FrmCustomerMaster
         Me.lblCountry.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblCountry.Location = New System.Drawing.Point(8, 110)
         Me.lblCountry.Name = "lblCountry"
-        Me.lblCountry.Size = New System.Drawing.Size(51, 15)
+        Me.lblCountry.Size = New System.Drawing.Size(66, 20)
         Me.lblCountry.TabIndex = 8
         Me.lblCountry.Text = "Country"
         Me.lblCountry.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4015,8 +4021,9 @@ Partial Class FrmCustomerMaster
         Me.cmbCity.FormattingEnabled = True
         Me.cmbCity.Location = New System.Drawing.Point(238, 78)
         Me.cmbCity.Name = "cmbCity"
-        Me.cmbCity.Size = New System.Drawing.Size(209, 25)
+        Me.cmbCity.Size = New System.Drawing.Size(209, 29)
         Me.cmbCity.TabIndex = 4
+        Me.cmbCity.TabStop = False
         '
         'cmbCountry
         '
@@ -4028,8 +4035,9 @@ Partial Class FrmCustomerMaster
         Me.cmbCountry.FormattingEnabled = True
         Me.cmbCountry.Location = New System.Drawing.Point(238, 113)
         Me.cmbCountry.Name = "cmbCountry"
-        Me.cmbCountry.Size = New System.Drawing.Size(209, 25)
+        Me.cmbCountry.Size = New System.Drawing.Size(209, 29)
         Me.cmbCountry.TabIndex = 6
+        Me.cmbCountry.TabStop = False
         '
         'grpBasicInfo
         '
@@ -4055,7 +4063,7 @@ Partial Class FrmCustomerMaster
         Me.cmbDrCr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbDrCr.Location = New System.Drawing.Point(666, 3)
         Me.cmbDrCr.Name = "cmbDrCr"
-        Me.cmbDrCr.Size = New System.Drawing.Size(119, 25)
+        Me.cmbDrCr.Size = New System.Drawing.Size(119, 30)
         Me.cmbDrCr.TabIndex = 16
         Me.cmbDrCr.Visible = False
         '
@@ -4067,7 +4075,7 @@ Partial Class FrmCustomerMaster
         Me.txtOpBal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtOpBal.Location = New System.Drawing.Point(533, 3)
         Me.txtOpBal.Name = "txtOpBal"
-        Me.txtOpBal.Size = New System.Drawing.Size(119, 25)
+        Me.txtOpBal.Size = New System.Drawing.Size(119, 30)
         Me.txtOpBal.TabIndex = 15
         Me.txtOpBal.Visible = False
         '
@@ -4079,6 +4087,7 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
+        Me.tlpBasicInfo.Controls.Add(Me.Button1, 0, 4)
         Me.tlpBasicInfo.Controls.Add(Me.lblCustomerName, 2, 0)
         Me.tlpBasicInfo.Controls.Add(Me.txtLedgerName, 3, 0)
         Me.tlpBasicInfo.Controls.Add(Me.lblCustomerCode, 0, 0)
@@ -4094,7 +4103,7 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.Controls.Add(Me.cmbCustType, 3, 1)
         Me.tlpBasicInfo.Controls.Add(Me.txtPhone, 3, 2)
         Me.tlpBasicInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpBasicInfo.Location = New System.Drawing.Point(10, 28)
+        Me.tlpBasicInfo.Location = New System.Drawing.Point(10, 33)
         Me.tlpBasicInfo.Name = "tlpBasicInfo"
         Me.tlpBasicInfo.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpBasicInfo.RowCount = 5
@@ -4103,8 +4112,25 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpBasicInfo.Size = New System.Drawing.Size(1548, 131)
+        Me.tlpBasicInfo.Size = New System.Drawing.Size(1548, 126)
         Me.tlpBasicInfo.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(8, 128)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(30, 14)
+        Me.Button1.TabIndex = 14
+        Me.Button1.TabStop = False
+        Me.Button1.Text = "➕"
+        Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
         '
         'lblCustomerName
         '
@@ -4113,7 +4139,7 @@ Partial Class FrmCustomerMaster
         Me.lblCustomerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblCustomerName.Location = New System.Drawing.Point(776, 5)
         Me.lblCustomerName.Name = "lblCustomerName"
-        Me.lblCustomerName.Size = New System.Drawing.Size(127, 19)
+        Me.lblCustomerName.Size = New System.Drawing.Size(152, 23)
         Me.lblCustomerName.TabIndex = 0
         Me.lblCustomerName.Text = "Customer Name *"
         Me.lblCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4126,7 +4152,7 @@ Partial Class FrmCustomerMaster
         Me.txtLedgerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtLedgerName.Location = New System.Drawing.Point(1006, 8)
         Me.txtLedgerName.Name = "txtLedgerName"
-        Me.txtLedgerName.Size = New System.Drawing.Size(418, 25)
+        Me.txtLedgerName.Size = New System.Drawing.Size(418, 29)
         Me.txtLedgerName.TabIndex = 2
         '
         'lblCustomerCode
@@ -4136,21 +4162,20 @@ Partial Class FrmCustomerMaster
         Me.lblCustomerCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblCustomerCode.Location = New System.Drawing.Point(8, 5)
         Me.lblCustomerCode.Name = "lblCustomerCode"
-        Me.lblCustomerCode.Size = New System.Drawing.Size(112, 19)
+        Me.lblCustomerCode.Size = New System.Drawing.Size(133, 23)
         Me.lblCustomerCode.TabIndex = 2
         Me.lblCustomerCode.Text = "Customer Code"
         Me.lblCustomerCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLedgerCode
         '
-        Me.txtLedgerCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtLedgerCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.txtLedgerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLedgerCode.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtLedgerCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.txtLedgerCode.ForeColor = System.Drawing.Color.Green
         Me.txtLedgerCode.Location = New System.Drawing.Point(238, 8)
         Me.txtLedgerCode.Name = "txtLedgerCode"
-        Me.txtLedgerCode.ReadOnly = True
-        Me.txtLedgerCode.Size = New System.Drawing.Size(200, 25)
+        Me.txtLedgerCode.Size = New System.Drawing.Size(200, 29)
         Me.txtLedgerCode.TabIndex = 0
         Me.txtLedgerCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -4161,20 +4186,20 @@ Partial Class FrmCustomerMaster
         Me.lblDisplaySrNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.lblDisplaySrNo.Location = New System.Drawing.Point(8, 35)
         Me.lblDisplaySrNo.Name = "lblDisplaySrNo"
-        Me.lblDisplaySrNo.Size = New System.Drawing.Size(100, 19)
+        Me.lblDisplaySrNo.Size = New System.Drawing.Size(119, 23)
         Me.lblDisplaySrNo.TabIndex = 4
         Me.lblDisplaySrNo.Text = "Display Sr No"
         Me.lblDisplaySrNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtDisplaySrNo
         '
-        Me.txtDisplaySrNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtDisplaySrNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.txtDisplaySrNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDisplaySrNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtDisplaySrNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.txtDisplaySrNo.ForeColor = System.Drawing.Color.Green
         Me.txtDisplaySrNo.Location = New System.Drawing.Point(238, 38)
         Me.txtDisplaySrNo.Name = "txtDisplaySrNo"
-        Me.txtDisplaySrNo.Size = New System.Drawing.Size(200, 25)
+        Me.txtDisplaySrNo.Size = New System.Drawing.Size(200, 29)
         Me.txtDisplaySrNo.TabIndex = 1
         Me.txtDisplaySrNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -4185,7 +4210,7 @@ Partial Class FrmCustomerMaster
         Me.lblCustomerType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.lblCustomerType.Location = New System.Drawing.Point(776, 35)
         Me.lblCustomerType.Name = "lblCustomerType"
-        Me.lblCustomerType.Size = New System.Drawing.Size(109, 19)
+        Me.lblCustomerType.Size = New System.Drawing.Size(130, 23)
         Me.lblCustomerType.TabIndex = 6
         Me.lblCustomerType.Text = "Customer Type"
         Me.lblCustomerType.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4197,7 +4222,7 @@ Partial Class FrmCustomerMaster
         Me.lblMobileNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.lblMobileNo.Location = New System.Drawing.Point(8, 65)
         Me.lblMobileNo.Name = "lblMobileNo"
-        Me.lblMobileNo.Size = New System.Drawing.Size(90, 19)
+        Me.lblMobileNo.Size = New System.Drawing.Size(107, 23)
         Me.lblMobileNo.TabIndex = 8
         Me.lblMobileNo.Text = "Mobile No *"
         Me.lblMobileNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4211,7 +4236,7 @@ Partial Class FrmCustomerMaster
         Me.txtMobile.Location = New System.Drawing.Point(238, 68)
         Me.txtMobile.MaxLength = 10
         Me.txtMobile.Name = "txtMobile"
-        Me.txtMobile.Size = New System.Drawing.Size(200, 25)
+        Me.txtMobile.Size = New System.Drawing.Size(200, 29)
         Me.txtMobile.TabIndex = 4
         '
         'lblPhoneNo
@@ -4221,7 +4246,7 @@ Partial Class FrmCustomerMaster
         Me.lblPhoneNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
         Me.lblPhoneNo.Location = New System.Drawing.Point(776, 65)
         Me.lblPhoneNo.Name = "lblPhoneNo"
-        Me.lblPhoneNo.Size = New System.Drawing.Size(75, 19)
+        Me.lblPhoneNo.Size = New System.Drawing.Size(87, 23)
         Me.lblPhoneNo.TabIndex = 13
         Me.lblPhoneNo.Text = "Phone No"
         Me.lblPhoneNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4233,7 +4258,7 @@ Partial Class FrmCustomerMaster
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblEmail.Location = New System.Drawing.Point(8, 95)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(45, 19)
+        Me.lblEmail.Size = New System.Drawing.Size(54, 23)
         Me.lblEmail.TabIndex = 10
         Me.lblEmail.Text = "Email"
         Me.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4246,7 +4271,7 @@ Partial Class FrmCustomerMaster
         Me.txtEMailId.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtEMailId.Location = New System.Drawing.Point(238, 98)
         Me.txtEMailId.Name = "txtEMailId"
-        Me.txtEMailId.Size = New System.Drawing.Size(350, 25)
+        Me.txtEMailId.Size = New System.Drawing.Size(350, 29)
         Me.txtEMailId.TabIndex = 6
         '
         'cmbCustType
@@ -4260,7 +4285,7 @@ Partial Class FrmCustomerMaster
         Me.cmbCustType.Items.AddRange(New Object() {"Retail", "Wholesale", "Distributor", "Corporate"})
         Me.cmbCustType.Location = New System.Drawing.Point(1006, 38)
         Me.cmbCustType.Name = "cmbCustType"
-        Me.cmbCustType.Size = New System.Drawing.Size(200, 25)
+        Me.cmbCustType.Size = New System.Drawing.Size(200, 29)
         Me.cmbCustType.TabIndex = 3
         '
         'txtPhone
@@ -4272,7 +4297,7 @@ Partial Class FrmCustomerMaster
         Me.txtPhone.Location = New System.Drawing.Point(1006, 68)
         Me.txtPhone.MaxLength = 10
         Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(200, 25)
+        Me.txtPhone.Size = New System.Drawing.Size(200, 29)
         Me.txtPhone.TabIndex = 5
         '
         'tlpMain
@@ -4290,9 +4315,9 @@ Partial Class FrmCustomerMaster
         Me.tlpMain.Name = "tlpMain"
         Me.tlpMain.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpMain.RowCount = 5
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 433.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 425.0!))
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.tlpMain.Size = New System.Drawing.Size(1604, 881)
@@ -4390,7 +4415,7 @@ Partial Class FrmCustomerMaster
         Me.btnCancel.Location = New System.Drawing.Point(720, 8)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(100, 35)
+        Me.btnCancel.Size = New System.Drawing.Size(120, 35)
         Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "❌ &CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -4403,7 +4428,7 @@ Partial Class FrmCustomerMaster
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(830, 8)
+        Me.btnClose.Location = New System.Drawing.Point(850, 8)
         Me.btnClose.Margin = New System.Windows.Forms.Padding(0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(100, 35)
@@ -4419,7 +4444,7 @@ Partial Class FrmCustomerMaster
         Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefresh.ForeColor = System.Drawing.Color.White
-        Me.btnRefresh.Location = New System.Drawing.Point(940, 8)
+        Me.btnRefresh.Location = New System.Drawing.Point(961, 8)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(0)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(141, 35)
@@ -4433,10 +4458,10 @@ Partial Class FrmCustomerMaster
         Me.pnlHeader.Controls.Add(Me.lblTitle)
         Me.pnlHeader.Controls.Add(Me.lblTotalRecords)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlHeader.Location = New System.Drawing.Point(10, 490)
+        Me.pnlHeader.Location = New System.Drawing.Point(10, 482)
         Me.pnlHeader.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1584, 35)
+        Me.pnlHeader.Size = New System.Drawing.Size(1584, 37)
         Me.pnlHeader.TabIndex = 3
         '
         'lblTitle
@@ -4444,9 +4469,9 @@ Partial Class FrmCustomerMaster
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.White
-        Me.lblTitle.Location = New System.Drawing.Point(10, 4)
+        Me.lblTitle.Location = New System.Drawing.Point(10, 2)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(216, 25)
+        Me.lblTitle.Size = New System.Drawing.Size(287, 32)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "👤 CUSTOMER MASTER"
         '
@@ -4458,7 +4483,7 @@ Partial Class FrmCustomerMaster
         Me.lblTotalRecords.ForeColor = System.Drawing.Color.White
         Me.lblTotalRecords.Location = New System.Drawing.Point(1442, 6)
         Me.lblTotalRecords.Name = "lblTotalRecords"
-        Me.lblTotalRecords.Size = New System.Drawing.Size(100, 20)
+        Me.lblTotalRecords.Size = New System.Drawing.Size(126, 25)
         Me.lblTotalRecords.TabIndex = 1
         Me.lblTotalRecords.Text = "📋 0 Records"
         '
@@ -4468,7 +4493,7 @@ Partial Class FrmCustomerMaster
         '
         'FrmCustomerMaster
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1604, 881)
@@ -4585,4 +4610,5 @@ Partial Class FrmCustomerMaster
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblTotalRecords As Label
+    Friend WithEvents Button1 As Button
 End Class

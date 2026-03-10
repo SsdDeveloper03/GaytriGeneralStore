@@ -253,6 +253,16 @@ Public Class FrmMDIMain
         End Try
     End Sub
 
+    Private Sub HomeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HomeToolStripMenuItem.Click
+        If panelVisible = True Then
+            panelVisible = False
+            Panel1.Hide()
+        Else
+            Panel1.Show()
+            panelVisible = True
+        End If
+    End Sub
+
     Private Sub cmbFinYr_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbFinYr.Validating, cmbCName.Validating
         If sender.SelectedIndex = -1 Then
             Exit Sub

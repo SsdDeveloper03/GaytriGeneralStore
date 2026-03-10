@@ -62,9 +62,10 @@ Partial Class FrmLogin
         Me.cmbDept.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDept.ForeColor = System.Drawing.Color.Black
         Me.cmbDept.FormattingEnabled = True
-        Me.cmbDept.Location = New System.Drawing.Point(108, 355)
+        Me.cmbDept.Location = New System.Drawing.Point(144, 437)
+        Me.cmbDept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbDept.Name = "cmbDept"
-        Me.cmbDept.Size = New System.Drawing.Size(176, 23)
+        Me.cmbDept.Size = New System.Drawing.Size(233, 27)
         Me.cmbDept.TabIndex = 2
         Me.cmbDept.Visible = False
         '
@@ -74,9 +75,10 @@ Partial Class FrmLogin
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(26, 356)
+        Me.Label3.Location = New System.Drawing.Point(35, 438)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 18)
+        Me.Label3.Size = New System.Drawing.Size(103, 23)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Department"
         Me.Label3.Visible = False
@@ -91,9 +93,10 @@ Partial Class FrmLogin
         Me.btnLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
         Me.btnLogin.ImageOptions.Image = CType(resources.GetObject("btnLogin.ImageOptions.Image"), System.Drawing.Image)
         Me.btnLogin.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnLogin.Location = New System.Drawing.Point(365, 248)
+        Me.btnLogin.Location = New System.Drawing.Point(487, 305)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(82, 43)
+        Me.btnLogin.Size = New System.Drawing.Size(109, 53)
         Me.btnLogin.TabIndex = 3
         Me.btnLogin.Text = "&Login"
         '
@@ -107,16 +110,18 @@ Partial Class FrmLogin
         Me.btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
         Me.btnCancel.ImageOptions.Image = CType(resources.GetObject("btnCancel.ImageOptions.Image"), System.Drawing.Image)
         Me.btnCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnCancel.Location = New System.Drawing.Point(453, 247)
+        Me.btnCancel.Location = New System.Drawing.Point(604, 304)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(93, 43)
+        Me.btnCancel.Size = New System.Drawing.Size(124, 53)
         Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "&Cancel"
         '
         'txtUserName
         '
         Me.txtUserName.EditValue = ""
-        Me.txtUserName.Location = New System.Drawing.Point(365, 172)
+        Me.txtUserName.Location = New System.Drawing.Point(517, 212)
+        Me.txtUserName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUserName.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -127,13 +132,14 @@ Partial Class FrmLogin
         Me.txtUserName.Properties.LookAndFeel.SkinName = "Seven Classic"
         Me.txtUserName.Properties.LookAndFeel.UseDefaultLookAndFeel = False
         Me.txtUserName.Properties.MaxLength = 15
-        Me.txtUserName.Size = New System.Drawing.Size(180, 32)
+        Me.txtUserName.Size = New System.Drawing.Size(210, 38)
         Me.txtUserName.TabIndex = 0
         '
         'txtPwd
         '
         Me.txtPwd.EditValue = ""
-        Me.txtPwd.Location = New System.Drawing.Point(365, 210)
+        Me.txtPwd.Location = New System.Drawing.Point(517, 258)
+        Me.txtPwd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtPwd.Name = "txtPwd"
         Me.txtPwd.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPwd.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -145,33 +151,37 @@ Partial Class FrmLogin
         Me.txtPwd.Properties.LookAndFeel.UseDefaultLookAndFeel = False
         Me.txtPwd.Properties.MaxLength = 15
         Me.txtPwd.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPwd.Size = New System.Drawing.Size(180, 32)
+        Me.txtPwd.Size = New System.Drawing.Size(210, 38)
         Me.txtPwd.TabIndex = 1
         '
         'SimpleButton1
         '
         Me.SimpleButton1.BackgroundImage = CType(resources.GetObject("SimpleButton1.BackgroundImage"), System.Drawing.Image)
         Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(520, 173)
+        Me.SimpleButton1.Location = New System.Drawing.Point(485, 212)
         Me.SimpleButton1.LookAndFeel.SkinName = "Visual Studio 2013 Dark"
         Me.SimpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
         Me.SimpleButton1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(25, 30)
+        Me.SimpleButton1.Size = New System.Drawing.Size(33, 38)
         Me.SimpleButton1.TabIndex = 9
         Me.SimpleButton1.TabStop = False
         '
         'SimpleButton2
         '
         Me.SimpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton2.Location = New System.Drawing.Point(520, 211)
+        Me.SimpleButton2.Location = New System.Drawing.Point(485, 258)
         Me.SimpleButton2.LookAndFeel.SkinName = "Visual Studio 2013 Dark"
         Me.SimpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
         Me.SimpleButton2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(25, 30)
+        Me.SimpleButton2.Size = New System.Drawing.Size(33, 38)
         Me.SimpleButton2.TabIndex = 10
         Me.SimpleButton2.TabStop = False
         '
@@ -180,9 +190,10 @@ Partial Class FrmLogin
         Me.btnClose.BackColor = System.Drawing.Color.Transparent
         Me.btnClose.FlatAppearance.BorderSize = 0
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Location = New System.Drawing.Point(860, 4)
+        Me.btnClose.Location = New System.Drawing.Point(1147, 5)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(30, 30)
+        Me.btnClose.Size = New System.Drawing.Size(40, 37)
         Me.btnClose.TabIndex = 12
         Me.btnClose.UseVisualStyleBackColor = False
         '
@@ -193,9 +204,10 @@ Partial Class FrmLogin
         Me.llWebsite.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.llWebsite.ForeColor = System.Drawing.SystemColors.Desktop
         Me.llWebsite.LinkColor = System.Drawing.Color.White
-        Me.llWebsite.Location = New System.Drawing.Point(627, 465)
+        Me.llWebsite.Location = New System.Drawing.Point(836, 572)
+        Me.llWebsite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.llWebsite.Name = "llWebsite"
-        Me.llWebsite.Size = New System.Drawing.Size(208, 18)
+        Me.llWebsite.Size = New System.Drawing.Size(265, 23)
         Me.llWebsite.TabIndex = 13
         Me.llWebsite.TabStop = True
         Me.llWebsite.Text = "https://www.sunrisesoftware.in"
@@ -206,40 +218,41 @@ Partial Class FrmLogin
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateSoftwareToolStripMenuItem, Me.UpdateDatabseToolStripMenuItem, Me.UpdateReportFileToolStripMenuItem, Me.Extend20252026ToolStripMenuItem, Me.Extend20242025ToolStripMenuItem, Me.QueryToolStripMenuItem, Me.SQLInstalltionToolStripMenuItem, Me.SyncToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(224, 212)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(272, 260)
         '
         'UpdateSoftwareToolStripMenuItem
         '
         Me.UpdateSoftwareToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.UpdateSoftwareToolStripMenuItem.Name = "UpdateSoftwareToolStripMenuItem"
-        Me.UpdateSoftwareToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.UpdateSoftwareToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.UpdateSoftwareToolStripMenuItem.Text = "Update Software"
         '
         'UpdateDatabseToolStripMenuItem
         '
         Me.UpdateDatabseToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.UpdateDatabseToolStripMenuItem.Name = "UpdateDatabseToolStripMenuItem"
-        Me.UpdateDatabseToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.UpdateDatabseToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.UpdateDatabseToolStripMenuItem.Text = "Update Databse"
         '
         'UpdateReportFileToolStripMenuItem
         '
         Me.UpdateReportFileToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.UpdateReportFileToolStripMenuItem.Name = "UpdateReportFileToolStripMenuItem"
-        Me.UpdateReportFileToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.UpdateReportFileToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.UpdateReportFileToolStripMenuItem.Text = "Update Report File"
         '
         'Extend20252026ToolStripMenuItem
         '
         Me.Extend20252026ToolStripMenuItem.Name = "Extend20252026ToolStripMenuItem"
-        Me.Extend20252026ToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.Extend20252026ToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.Extend20252026ToolStripMenuItem.Text = "Extend 2025 - 2026"
+        Me.Extend20252026ToolStripMenuItem.Visible = False
         '
         'Extend20242025ToolStripMenuItem
         '
         Me.Extend20242025ToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Extend20242025ToolStripMenuItem.Name = "Extend20242025ToolStripMenuItem"
-        Me.Extend20242025ToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.Extend20242025ToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.Extend20242025ToolStripMenuItem.Text = "Extend 2024 - 2025"
         Me.Extend20242025ToolStripMenuItem.Visible = False
         '
@@ -247,41 +260,42 @@ Partial Class FrmLogin
         '
         Me.QueryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateConpathToolStripMenuItem, Me.RestoreDatabaseToolStripMenuItem})
         Me.QueryToolStripMenuItem.Name = "QueryToolStripMenuItem"
-        Me.QueryToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.QueryToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.QueryToolStripMenuItem.Text = "Query"
         '
         'UpdateConpathToolStripMenuItem
         '
         Me.UpdateConpathToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateConpathToolStripMenuItem.Name = "UpdateConpathToolStripMenuItem"
-        Me.UpdateConpathToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
+        Me.UpdateConpathToolStripMenuItem.Size = New System.Drawing.Size(235, 32)
         Me.UpdateConpathToolStripMenuItem.Text = "Update Conpath"
         '
         'RestoreDatabaseToolStripMenuItem
         '
         Me.RestoreDatabaseToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RestoreDatabaseToolStripMenuItem.Name = "RestoreDatabaseToolStripMenuItem"
-        Me.RestoreDatabaseToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
+        Me.RestoreDatabaseToolStripMenuItem.Size = New System.Drawing.Size(235, 32)
         Me.RestoreDatabaseToolStripMenuItem.Text = "SQL Installtion"
         Me.RestoreDatabaseToolStripMenuItem.Visible = False
         '
         'SQLInstalltionToolStripMenuItem
         '
         Me.SQLInstalltionToolStripMenuItem.Name = "SQLInstalltionToolStripMenuItem"
-        Me.SQLInstalltionToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.SQLInstalltionToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.SQLInstalltionToolStripMenuItem.Text = "SQL Installtion"
         '
         'SyncToolStripMenuItem
         '
         Me.SyncToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.SyncToolStripMenuItem.Name = "SyncToolStripMenuItem"
-        Me.SyncToolStripMenuItem.Size = New System.Drawing.Size(223, 26)
+        Me.SyncToolStripMenuItem.Size = New System.Drawing.Size(271, 32)
         Me.SyncToolStripMenuItem.Text = "Sync"
         '
         'txtOTP
         '
         Me.txtOTP.EditValue = ""
-        Me.txtOTP.Location = New System.Drawing.Point(470, 298)
+        Me.txtOTP.Location = New System.Drawing.Point(627, 367)
+        Me.txtOTP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtOTP.Name = "txtOTP"
         Me.txtOTP.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOTP.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -292,7 +306,7 @@ Partial Class FrmLogin
         Me.txtOTP.Properties.LookAndFeel.SkinName = "Seven Classic"
         Me.txtOTP.Properties.LookAndFeel.UseDefaultLookAndFeel = False
         Me.txtOTP.Properties.MaxLength = 4
-        Me.txtOTP.Size = New System.Drawing.Size(74, 32)
+        Me.txtOTP.Size = New System.Drawing.Size(99, 38)
         Me.txtOTP.TabIndex = 2
         Me.txtOTP.Visible = False
         '
@@ -302,9 +316,10 @@ Partial Class FrmLogin
         Me.lblOTP.BackColor = System.Drawing.Color.White
         Me.lblOTP.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOTP.ForeColor = System.Drawing.Color.Maroon
-        Me.lblOTP.Location = New System.Drawing.Point(366, 302)
+        Me.lblOTP.Location = New System.Drawing.Point(488, 372)
+        Me.lblOTP.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblOTP.Name = "lblOTP"
-        Me.lblOTP.Size = New System.Drawing.Size(41, 23)
+        Me.lblOTP.Size = New System.Drawing.Size(52, 29)
         Me.lblOTP.TabIndex = 22
         Me.lblOTP.Text = "OTP"
         Me.lblOTP.Visible = False
@@ -312,19 +327,21 @@ Partial Class FrmLogin
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 430)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 529)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(67, 62)
         Me.PictureBox1.TabIndex = 33
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'FrmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(847, 492)
+        Me.ClientSize = New System.Drawing.Size(1129, 606)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblOTP)
@@ -341,6 +358,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.cmbDept)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

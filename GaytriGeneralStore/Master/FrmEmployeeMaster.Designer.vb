@@ -22,6 +22,7 @@ Partial Class FrmEmployeeMaster
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.grpBasicInfo = New System.Windows.Forms.GroupBox()
         Me.pnlInputContainer = New System.Windows.Forms.Panel()
@@ -39,6 +40,9 @@ Partial Class FrmEmployeeMaster
         Me.txtGSTNo = New System.Windows.Forms.TextBox()
         Me.grpAddressDetails = New System.Windows.Forms.GroupBox()
         Me.pnlAddressContainer = New System.Windows.Forms.Panel()
+        Me.cmbDrCr = New System.Windows.Forms.TextBox()
+        Me.txtOpBal = New System.Windows.Forms.TextBox()
+        Me.btnAddArea = New System.Windows.Forms.Button()
         Me.lblAddress = New System.Windows.Forms.Label()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.lblPinCode = New System.Windows.Forms.Label()
@@ -61,8 +65,12 @@ Partial Class FrmEmployeeMaster
         Me.btn_Edit = New System.Windows.Forms.Button()
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.gcData = New DevExpress.XtraGrid.GridControl()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RenameColumnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.gvData = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.lblLedgerId = New System.Windows.Forms.Label()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlHeaderRight = New System.Windows.Forms.Panel()
@@ -81,8 +89,8 @@ Partial Class FrmEmployeeMaster
         Me.pnlAddressContainer.SuspendLayout()
         Me.pnlButtons.SuspendLayout()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlHeader.SuspendLayout()
         Me.pnlHeaderRight.SuspendLayout()
         Me.pnlSearch.SuspendLayout()
@@ -108,6 +116,7 @@ Partial Class FrmEmployeeMaster
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.White
         Me.SplitContainer1.Panel2.Controls.Add(Me.gcData)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblLedgerId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.pnlHeader)
         Me.SplitContainer1.Panel2.Controls.Add(Me.pnlSearch)
         Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(15)
@@ -126,7 +135,7 @@ Partial Class FrmEmployeeMaster
         Me.grpBasicInfo.Location = New System.Drawing.Point(15, 15)
         Me.grpBasicInfo.Name = "grpBasicInfo"
         Me.grpBasicInfo.Padding = New System.Windows.Forms.Padding(15)
-        Me.grpBasicInfo.Size = New System.Drawing.Size(559, 329)
+        Me.grpBasicInfo.Size = New System.Drawing.Size(559, 319)
         Me.grpBasicInfo.TabIndex = 0
         Me.grpBasicInfo.TabStop = False
         Me.grpBasicInfo.Text = "📋 BASIC INFORMATION"
@@ -149,7 +158,7 @@ Partial Class FrmEmployeeMaster
         Me.pnlInputContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlInputContainer.Location = New System.Drawing.Point(15, 40)
         Me.pnlInputContainer.Name = "pnlInputContainer"
-        Me.pnlInputContainer.Size = New System.Drawing.Size(529, 274)
+        Me.pnlInputContainer.Size = New System.Drawing.Size(529, 264)
         Me.pnlInputContainer.TabIndex = 0
         '
         'lblEmployeeName
@@ -167,19 +176,20 @@ Partial Class FrmEmployeeMaster
         '
         Me.txtEmployeeName.BackColor = System.Drawing.Color.White
         Me.txtEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmployeeName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtEmployeeName.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtEmployeeName.ForeColor = System.Drawing.Color.Black
         Me.txtEmployeeName.Location = New System.Drawing.Point(19, 103)
         Me.txtEmployeeName.Name = "txtEmployeeName"
-        Me.txtEmployeeName.Size = New System.Drawing.Size(208, 28)
-        Me.txtEmployeeName.TabIndex = 1
+        Me.txtEmployeeName.Size = New System.Drawing.Size(444, 28)
+        Me.txtEmployeeName.TabIndex = 2
         '
         'lblLedgerCode
         '
         Me.lblLedgerCode.AutoSize = True
         Me.lblLedgerCode.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblLedgerCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLedgerCode.Location = New System.Drawing.Point(15, 15)
+        Me.lblLedgerCode.Location = New System.Drawing.Point(15, 13)
         Me.lblLedgerCode.Name = "lblLedgerCode"
         Me.lblLedgerCode.Size = New System.Drawing.Size(155, 20)
         Me.lblLedgerCode.TabIndex = 2
@@ -190,11 +200,12 @@ Partial Class FrmEmployeeMaster
         Me.txtLedgerCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.txtLedgerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLedgerCode.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.txtLedgerCode.ForeColor = System.Drawing.Color.Gray
-        Me.txtLedgerCode.Location = New System.Drawing.Point(19, 44)
+        Me.txtLedgerCode.ForeColor = System.Drawing.Color.Green
+        Me.txtLedgerCode.Location = New System.Drawing.Point(19, 41)
         Me.txtLedgerCode.Name = "txtLedgerCode"
         Me.txtLedgerCode.Size = New System.Drawing.Size(151, 28)
-        Me.txtLedgerCode.TabIndex = 3
+        Me.txtLedgerCode.TabIndex = 0
+        Me.txtLedgerCode.TabStop = False
         Me.txtLedgerCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblMobileNo
@@ -202,7 +213,7 @@ Partial Class FrmEmployeeMaster
         Me.lblMobileNo.AutoSize = True
         Me.lblMobileNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblMobileNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMobileNo.Location = New System.Drawing.Point(251, 80)
+        Me.lblMobileNo.Location = New System.Drawing.Point(251, 139)
         Me.lblMobileNo.Name = "lblMobileNo"
         Me.lblMobileNo.Size = New System.Drawing.Size(150, 20)
         Me.lblMobileNo.TabIndex = 5
@@ -214,10 +225,11 @@ Partial Class FrmEmployeeMaster
         Me.txtMobileNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtMobileNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtMobileNo.ForeColor = System.Drawing.Color.Black
-        Me.txtMobileNo.Location = New System.Drawing.Point(255, 103)
+        Me.txtMobileNo.Location = New System.Drawing.Point(255, 162)
+        Me.txtMobileNo.MaxLength = 10
         Me.txtMobileNo.Name = "txtMobileNo"
-        Me.txtMobileNo.Size = New System.Drawing.Size(239, 28)
-        Me.txtMobileNo.TabIndex = 6
+        Me.txtMobileNo.Size = New System.Drawing.Size(208, 28)
+        Me.txtMobileNo.TabIndex = 4
         '
         'lblPhoneNo
         '
@@ -237,9 +249,10 @@ Partial Class FrmEmployeeMaster
         Me.txtPhoneNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtPhoneNo.ForeColor = System.Drawing.Color.Black
         Me.txtPhoneNo.Location = New System.Drawing.Point(19, 162)
+        Me.txtPhoneNo.MaxLength = 10
         Me.txtPhoneNo.Name = "txtPhoneNo"
-        Me.txtPhoneNo.Size = New System.Drawing.Size(395, 28)
-        Me.txtPhoneNo.TabIndex = 9
+        Me.txtPhoneNo.Size = New System.Drawing.Size(208, 28)
+        Me.txtPhoneNo.TabIndex = 3
         '
         'lblEmail
         '
@@ -260,15 +273,15 @@ Partial Class FrmEmployeeMaster
         Me.txtEmail.ForeColor = System.Drawing.Color.Black
         Me.txtEmail.Location = New System.Drawing.Point(19, 226)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(250, 28)
-        Me.txtEmail.TabIndex = 11
+        Me.txtEmail.Size = New System.Drawing.Size(444, 28)
+        Me.txtEmail.TabIndex = 5
         '
         'lblGSTNo
         '
         Me.lblGSTNo.AutoSize = True
         Me.lblGSTNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblGSTNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblGSTNo.Location = New System.Drawing.Point(294, 203)
+        Me.lblGSTNo.Location = New System.Drawing.Point(224, 13)
         Me.lblGSTNo.Name = "lblGSTNo"
         Me.lblGSTNo.Size = New System.Drawing.Size(107, 20)
         Me.lblGSTNo.TabIndex = 12
@@ -278,12 +291,15 @@ Partial Class FrmEmployeeMaster
         '
         Me.txtGSTNo.BackColor = System.Drawing.Color.White
         Me.txtGSTNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtGSTNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtGSTNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtGSTNo.ForeColor = System.Drawing.Color.Black
-        Me.txtGSTNo.Location = New System.Drawing.Point(288, 226)
+        Me.txtGSTNo.Location = New System.Drawing.Point(218, 41)
+        Me.txtGSTNo.MaxLength = 15
         Me.txtGSTNo.Name = "txtGSTNo"
-        Me.txtGSTNo.Size = New System.Drawing.Size(134, 28)
-        Me.txtGSTNo.TabIndex = 13
+        Me.txtGSTNo.Size = New System.Drawing.Size(245, 28)
+        Me.txtGSTNo.TabIndex = 1
+        Me.txtGSTNo.TabStop = False
         '
         'grpAddressDetails
         '
@@ -291,7 +307,7 @@ Partial Class FrmEmployeeMaster
         Me.grpAddressDetails.Controls.Add(Me.pnlAddressContainer)
         Me.grpAddressDetails.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpAddressDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.grpAddressDetails.Location = New System.Drawing.Point(15, 350)
+        Me.grpAddressDetails.Location = New System.Drawing.Point(15, 340)
         Me.grpAddressDetails.Name = "grpAddressDetails"
         Me.grpAddressDetails.Padding = New System.Windows.Forms.Padding(15)
         Me.grpAddressDetails.Size = New System.Drawing.Size(559, 291)
@@ -302,6 +318,9 @@ Partial Class FrmEmployeeMaster
         'pnlAddressContainer
         '
         Me.pnlAddressContainer.BackColor = System.Drawing.Color.White
+        Me.pnlAddressContainer.Controls.Add(Me.cmbDrCr)
+        Me.pnlAddressContainer.Controls.Add(Me.txtOpBal)
+        Me.pnlAddressContainer.Controls.Add(Me.btnAddArea)
         Me.pnlAddressContainer.Controls.Add(Me.lblAddress)
         Me.pnlAddressContainer.Controls.Add(Me.txtAddress)
         Me.pnlAddressContainer.Controls.Add(Me.lblPinCode)
@@ -320,6 +339,47 @@ Partial Class FrmEmployeeMaster
         Me.pnlAddressContainer.Name = "pnlAddressContainer"
         Me.pnlAddressContainer.Size = New System.Drawing.Size(529, 236)
         Me.pnlAddressContainer.TabIndex = 0
+        '
+        'cmbDrCr
+        '
+        Me.cmbDrCr.BackColor = System.Drawing.Color.White
+        Me.cmbDrCr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.cmbDrCr.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDrCr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cmbDrCr.Location = New System.Drawing.Point(361, 199)
+        Me.cmbDrCr.Name = "cmbDrCr"
+        Me.cmbDrCr.Size = New System.Drawing.Size(119, 30)
+        Me.cmbDrCr.TabIndex = 18
+        Me.cmbDrCr.Visible = False
+        '
+        'txtOpBal
+        '
+        Me.txtOpBal.BackColor = System.Drawing.Color.White
+        Me.txtOpBal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtOpBal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOpBal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtOpBal.Location = New System.Drawing.Point(228, 199)
+        Me.txtOpBal.Name = "txtOpBal"
+        Me.txtOpBal.Size = New System.Drawing.Size(119, 30)
+        Me.txtOpBal.TabIndex = 17
+        Me.txtOpBal.Visible = False
+        '
+        'btnAddArea
+        '
+        Me.btnAddArea.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnAddArea.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddArea.FlatAppearance.BorderSize = 0
+        Me.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddArea.ForeColor = System.Drawing.Color.White
+        Me.btnAddArea.Location = New System.Drawing.Point(211, 83)
+        Me.btnAddArea.Name = "btnAddArea"
+        Me.btnAddArea.Size = New System.Drawing.Size(30, 28)
+        Me.btnAddArea.TabIndex = 15
+        Me.btnAddArea.TabStop = False
+        Me.btnAddArea.Text = "➕"
+        Me.btnAddArea.UseVisualStyleBackColor = False
+        Me.btnAddArea.Visible = False
         '
         'lblAddress
         '
@@ -340,15 +400,15 @@ Partial Class FrmEmployeeMaster
         Me.txtAddress.ForeColor = System.Drawing.Color.Black
         Me.txtAddress.Location = New System.Drawing.Point(15, 31)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(429, 26)
-        Me.txtAddress.TabIndex = 1
+        Me.txtAddress.Size = New System.Drawing.Size(448, 26)
+        Me.txtAddress.TabIndex = 0
         '
         'lblPinCode
         '
         Me.lblPinCode.AutoSize = True
         Me.lblPinCode.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblPinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPinCode.Location = New System.Drawing.Point(220, 65)
+        Me.lblPinCode.Location = New System.Drawing.Point(267, 65)
         Me.lblPinCode.Name = "lblPinCode"
         Me.lblPinCode.Size = New System.Drawing.Size(103, 18)
         Me.lblPinCode.TabIndex = 4
@@ -360,10 +420,11 @@ Partial Class FrmEmployeeMaster
         Me.txtPinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPinCode.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.txtPinCode.ForeColor = System.Drawing.Color.Black
-        Me.txtPinCode.Location = New System.Drawing.Point(220, 86)
+        Me.txtPinCode.Location = New System.Drawing.Point(267, 86)
         Me.txtPinCode.Name = "txtPinCode"
-        Me.txtPinCode.Size = New System.Drawing.Size(190, 26)
-        Me.txtPinCode.TabIndex = 5
+        Me.txtPinCode.Size = New System.Drawing.Size(196, 26)
+        Me.txtPinCode.TabIndex = 2
+        Me.txtPinCode.TabStop = False
         '
         'lblSelectArea
         '
@@ -384,11 +445,10 @@ Partial Class FrmEmployeeMaster
         Me.cmbSelectArea.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbSelectArea.ForeColor = System.Drawing.Color.Black
         Me.cmbSelectArea.FormattingEnabled = True
-        Me.cmbSelectArea.Items.AddRange(New Object() {"Downtown", "Suburbs", "Industrial Area", "Commercial Zone", "Residential Area"})
         Me.cmbSelectArea.Location = New System.Drawing.Point(15, 86)
         Me.cmbSelectArea.Name = "cmbSelectArea"
         Me.cmbSelectArea.Size = New System.Drawing.Size(190, 26)
-        Me.cmbSelectArea.TabIndex = 7
+        Me.cmbSelectArea.TabIndex = 1
         '
         'lblCountry
         '
@@ -409,18 +469,18 @@ Partial Class FrmEmployeeMaster
         Me.cmbCountry.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCountry.ForeColor = System.Drawing.Color.Black
         Me.cmbCountry.FormattingEnabled = True
-        Me.cmbCountry.Items.AddRange(New Object() {"India"})
-        Me.cmbCountry.Location = New System.Drawing.Point(18, 203)
+        Me.cmbCountry.Location = New System.Drawing.Point(15, 203)
         Me.cmbCountry.Name = "cmbCountry"
         Me.cmbCountry.Size = New System.Drawing.Size(190, 26)
-        Me.cmbCountry.TabIndex = 9
+        Me.cmbCountry.TabIndex = 5
+        Me.cmbCountry.TabStop = False
         '
         'lblState
         '
         Me.lblState.AutoSize = True
         Me.lblState.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblState.Location = New System.Drawing.Point(220, 120)
+        Me.lblState.Location = New System.Drawing.Point(264, 120)
         Me.lblState.Name = "lblState"
         Me.lblState.Size = New System.Drawing.Size(77, 18)
         Me.lblState.TabIndex = 10
@@ -434,11 +494,11 @@ Partial Class FrmEmployeeMaster
         Me.cmbState.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbState.ForeColor = System.Drawing.Color.Black
         Me.cmbState.FormattingEnabled = True
-        Me.cmbState.Items.AddRange(New Object() {"Maharashtra", "Gujarat", "Delhi", "Karnataka", "Tamil Nadu"})
-        Me.cmbState.Location = New System.Drawing.Point(220, 138)
+        Me.cmbState.Location = New System.Drawing.Point(264, 138)
         Me.cmbState.Name = "cmbState"
-        Me.cmbState.Size = New System.Drawing.Size(190, 26)
-        Me.cmbState.TabIndex = 11
+        Me.cmbState.Size = New System.Drawing.Size(199, 26)
+        Me.cmbState.TabIndex = 4
+        Me.cmbState.TabStop = False
         '
         'lblCity
         '
@@ -459,11 +519,11 @@ Partial Class FrmEmployeeMaster
         Me.cmbCity.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCity.ForeColor = System.Drawing.Color.Black
         Me.cmbCity.FormattingEnabled = True
-        Me.cmbCity.Items.AddRange(New Object() {"Mumbai", "Pune", "Ahmedabad", "Delhi", "Bangalore", "Chennai"})
-        Me.cmbCity.Location = New System.Drawing.Point(18, 141)
+        Me.cmbCity.Location = New System.Drawing.Point(15, 141)
         Me.cmbCity.Name = "cmbCity"
         Me.cmbCity.Size = New System.Drawing.Size(190, 26)
-        Me.cmbCity.TabIndex = 13
+        Me.cmbCity.TabIndex = 3
+        Me.cmbCity.TabStop = False
         '
         'lblCountryDefault
         '
@@ -477,6 +537,7 @@ Partial Class FrmEmployeeMaster
         '
         'pnlButtons
         '
+        Me.pnlButtons.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.pnlButtons.Controls.Add(Me.btn_Refresh)
         Me.pnlButtons.Controls.Add(Me.btn_Close)
@@ -486,9 +547,9 @@ Partial Class FrmEmployeeMaster
         Me.pnlButtons.Controls.Add(Me.btn_Edit)
         Me.pnlButtons.Controls.Add(Me.btn_Add)
         Me.pnlButtons.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.pnlButtons.Location = New System.Drawing.Point(15, 647)
+        Me.pnlButtons.Location = New System.Drawing.Point(15, 638)
         Me.pnlButtons.Name = "pnlButtons"
-        Me.pnlButtons.Size = New System.Drawing.Size(543, 100)
+        Me.pnlButtons.Size = New System.Drawing.Size(559, 100)
         Me.pnlButtons.TabIndex = 2
         '
         'btn_Refresh
@@ -499,11 +560,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Refresh.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Refresh.ForeColor = System.Drawing.Color.White
-        Me.btn_Refresh.Location = New System.Drawing.Point(310, 60)
+        Me.btn_Refresh.Location = New System.Drawing.Point(332, 55)
         Me.btn_Refresh.Name = "btn_Refresh"
-        Me.btn_Refresh.Size = New System.Drawing.Size(130, 30)
+        Me.btn_Refresh.Size = New System.Drawing.Size(130, 32)
         Me.btn_Refresh.TabIndex = 6
-        Me.btn_Refresh.Text = "🔄 REFRESH"
+        Me.btn_Refresh.Text = "🔄 &REFRESH"
         Me.btn_Refresh.UseVisualStyleBackColor = False
         '
         'btn_Close
@@ -514,11 +575,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Close.ForeColor = System.Drawing.Color.White
-        Me.btn_Close.Location = New System.Drawing.Point(160, 60)
+        Me.btn_Close.Location = New System.Drawing.Point(216, 55)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(130, 30)
+        Me.btn_Close.Size = New System.Drawing.Size(110, 32)
         Me.btn_Close.TabIndex = 5
-        Me.btn_Close.Text = "🚪 CLOSE"
+        Me.btn_Close.Text = "🚪 CL&OSE"
         Me.btn_Close.UseVisualStyleBackColor = False
         '
         'btn_Cancel
@@ -529,11 +590,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(15, 60)
+        Me.btn_Cancel.Location = New System.Drawing.Point(91, 55)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(130, 30)
+        Me.btn_Cancel.Size = New System.Drawing.Size(119, 33)
         Me.btn_Cancel.TabIndex = 4
-        Me.btn_Cancel.Text = "❌ CANCEL"
+        Me.btn_Cancel.Text = "❌ &CANCEL"
         Me.btn_Cancel.UseVisualStyleBackColor = False
         '
         'btn_save
@@ -544,11 +605,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_save.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_save.ForeColor = System.Drawing.Color.White
-        Me.btn_save.Location = New System.Drawing.Point(310, 15)
+        Me.btn_save.Location = New System.Drawing.Point(279, 10)
         Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(130, 35)
-        Me.btn_save.TabIndex = 3
-        Me.btn_save.Text = "💾 SAVE"
+        Me.btn_save.Size = New System.Drawing.Size(122, 35)
+        Me.btn_save.TabIndex = 2
+        Me.btn_save.Text = "💾 &SAVE"
         Me.btn_save.UseVisualStyleBackColor = False
         '
         'btn_Delete
@@ -559,11 +620,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Delete.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Delete.ForeColor = System.Drawing.Color.White
-        Me.btn_Delete.Location = New System.Drawing.Point(160, 15)
+        Me.btn_Delete.Location = New System.Drawing.Point(409, 10)
         Me.btn_Delete.Name = "btn_Delete"
-        Me.btn_Delete.Size = New System.Drawing.Size(130, 35)
-        Me.btn_Delete.TabIndex = 2
-        Me.btn_Delete.Text = "🗑️ DELETE"
+        Me.btn_Delete.Size = New System.Drawing.Size(119, 35)
+        Me.btn_Delete.TabIndex = 3
+        Me.btn_Delete.Text = "🗑️ &DELETE"
         Me.btn_Delete.UseVisualStyleBackColor = False
         '
         'btn_Edit
@@ -574,11 +635,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Edit.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Edit.ForeColor = System.Drawing.Color.White
-        Me.btn_Edit.Location = New System.Drawing.Point(310, 15)
+        Me.btn_Edit.Location = New System.Drawing.Point(150, 10)
         Me.btn_Edit.Name = "btn_Edit"
-        Me.btn_Edit.Size = New System.Drawing.Size(130, 35)
+        Me.btn_Edit.Size = New System.Drawing.Size(121, 35)
         Me.btn_Edit.TabIndex = 1
-        Me.btn_Edit.Text = "✏️ EDIT"
+        Me.btn_Edit.Text = "✏️ &EDIT"
         Me.btn_Edit.UseVisualStyleBackColor = False
         '
         'btn_Add
@@ -589,90 +650,82 @@ Partial Class FrmEmployeeMaster
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(15, 15)
+        Me.btn_Add.Location = New System.Drawing.Point(24, 10)
         Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(130, 35)
+        Me.btn_Add.Size = New System.Drawing.Size(117, 35)
         Me.btn_Add.TabIndex = 0
-        Me.btn_Add.Text = "➕ ADD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_Add.Text = "➕ &ADD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.btn_Add.UseVisualStyleBackColor = False
         '
         'gcData
         '
-        Me.gcData.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gcData.Location = New System.Drawing.Point(15, 79)
-        Me.gcData.LookAndFeel.SkinName = "Office 2016 Colorful"
+        Me.gcData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gcData.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gcData.Location = New System.Drawing.Point(15, 161)
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1070, 656)
-        Me.gcData.TabIndex = 3
-        Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData, Me.GridView1})
+        Me.gcData.Size = New System.Drawing.Size(1070, 579)
+        Me.gcData.TabIndex = 0
+        Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameColumnToolStripMenuItem, Me.ExportToExcelToolStripMenuItem, Me.SaveLayoutToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(220, 94)
+        '
+        'RenameColumnToolStripMenuItem
+        '
+        Me.RenameColumnToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RenameColumnToolStripMenuItem.Name = "RenameColumnToolStripMenuItem"
+        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
+        Me.RenameColumnToolStripMenuItem.Text = "Rename Column"
+        '
+        'ExportToExcelToolStripMenuItem
+        '
+        Me.ExportToExcelToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
+        Me.ExportToExcelToolStripMenuItem.Text = "Export To Excel"
+        '
+        'SaveLayoutToolStripMenuItem
+        '
+        Me.SaveLayoutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(219, 30)
+        Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
         '
         'gvData
         '
-        Me.gvData.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.gvData.Appearance.EvenRow.Font = New System.Drawing.Font("Verdana", 9.0!)
-        Me.gvData.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black
-        Me.gvData.Appearance.EvenRow.Options.UseBackColor = True
-        Me.gvData.Appearance.EvenRow.Options.UseFont = True
-        Me.gvData.Appearance.EvenRow.Options.UseForeColor = True
-        Me.gvData.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.gvData.Appearance.FocusedRow.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.gvData.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black
+        Me.gvData.Appearance.FocusedRow.BackColor = System.Drawing.Color.LightBlue
+        Me.gvData.Appearance.FocusedRow.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvData.Appearance.FocusedRow.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.gvData.Appearance.FocusedRow.Options.UseBackColor = True
         Me.gvData.Appearance.FocusedRow.Options.UseFont = True
-        Me.gvData.Appearance.FocusedRow.Options.UseForeColor = True
-        Me.gvData.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.gvData.Appearance.FooterPanel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.gvData.Appearance.FooterPanel.ForeColor = System.Drawing.Color.White
-        Me.gvData.Appearance.FooterPanel.Options.UseBackColor = True
-        Me.gvData.Appearance.FooterPanel.Options.UseFont = True
-        Me.gvData.Appearance.FooterPanel.Options.UseForeColor = True
-        Me.gvData.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.gvData.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.gvData.Appearance.HeaderPanel.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.gvData.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.White
-        Me.gvData.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.gvData.Appearance.HeaderPanel.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvData.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvData.Appearance.HeaderPanel.Options.UseForeColor = True
-        Me.gvData.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvData.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvData.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.gvData.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.Black
-        Me.gvData.Appearance.HideSelectionRow.Options.UseBackColor = True
-        Me.gvData.Appearance.HideSelectionRow.Options.UseForeColor = True
-        Me.gvData.Appearance.OddRow.BackColor = System.Drawing.Color.White
-        Me.gvData.Appearance.OddRow.Font = New System.Drawing.Font("Verdana", 9.0!)
-        Me.gvData.Appearance.OddRow.ForeColor = System.Drawing.Color.Black
-        Me.gvData.Appearance.OddRow.Options.UseBackColor = True
-        Me.gvData.Appearance.OddRow.Options.UseFont = True
-        Me.gvData.Appearance.OddRow.Options.UseForeColor = True
-        Me.gvData.Appearance.Row.Font = New System.Drawing.Font("Verdana", 9.0!)
+        Me.gvData.Appearance.Row.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvData.Appearance.Row.Options.UseFont = True
-        Me.gvData.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvData.Appearance.SelectedRow.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.gvData.Appearance.SelectedRow.ForeColor = System.Drawing.Color.Black
-        Me.gvData.Appearance.SelectedRow.Options.UseBackColor = True
-        Me.gvData.Appearance.SelectedRow.Options.UseFont = True
-        Me.gvData.Appearance.SelectedRow.Options.UseForeColor = True
-        Me.gvData.ColumnPanelRowHeight = 40
         Me.gvData.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
         Me.gvData.GridControl = Me.gcData
         Me.gvData.Name = "gvData"
         Me.gvData.OptionsBehavior.Editable = False
-        Me.gvData.OptionsBehavior.ReadOnly = True
-        Me.gvData.OptionsSelection.MultiSelect = True
-        Me.gvData.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect
-        Me.gvData.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvData.OptionsView.EnableAppearanceOddRow = True
-        Me.gvData.OptionsView.RowAutoHeight = True
-        Me.gvData.OptionsView.ShowAutoFilterRow = True
-        Me.gvData.OptionsView.ShowFooter = True
+        Me.gvData.OptionsLayout.Columns.StoreAllOptions = True
         Me.gvData.OptionsView.ShowGroupPanel = False
+        Me.gvData.RowHeight = 27
         '
-        'GridView1
+        'lblLedgerId
         '
-        Me.GridView1.GridControl = Me.gcData
-        Me.GridView1.Name = "GridView1"
+        Me.lblLedgerId.AutoSize = True
+        Me.lblLedgerId.Location = New System.Drawing.Point(952, 116)
+        Me.lblLedgerId.Name = "lblLedgerId"
+        Me.lblLedgerId.Size = New System.Drawing.Size(101, 18)
+        Me.lblLedgerId.TabIndex = 4
+        Me.lblLedgerId.Text = "lblLedgerId"
+        Me.lblLedgerId.Visible = False
         '
         'pnlHeader
         '
@@ -738,9 +791,10 @@ Partial Class FrmEmployeeMaster
         Me.btnSearch.Location = New System.Drawing.Point(807, 15)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 30)
-        Me.btnSearch.TabIndex = 2
+        Me.btnSearch.TabIndex = 1
         Me.btnSearch.Text = "🔍 GO"
         Me.btnSearch.UseVisualStyleBackColor = False
+        Me.btnSearch.Visible = False
         '
         'lblSearch
         '
@@ -759,11 +813,10 @@ Partial Class FrmEmployeeMaster
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtSearch.ForeColor = System.Drawing.Color.Gray
-        Me.txtSearch.Location = New System.Drawing.Point(208, 17)
+        Me.txtSearch.Location = New System.Drawing.Point(213, 17)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(593, 28)
-        Me.txtSearch.TabIndex = 1
-        Me.txtSearch.Text = "Search by Name, Mobile, Email, GST No..."
+        Me.txtSearch.Size = New System.Drawing.Size(572, 28)
+        Me.txtSearch.TabIndex = 0
         '
         'FrmEmployeeMaster
         '
@@ -782,6 +835,7 @@ Partial Class FrmEmployeeMaster
         Me.Text = "👤 Employee Master Management"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.grpBasicInfo.ResumeLayout(False)
@@ -792,8 +846,8 @@ Partial Class FrmEmployeeMaster
         Me.pnlAddressContainer.PerformLayout()
         Me.pnlButtons.ResumeLayout(False)
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeaderRight.ResumeLayout(False)
         Me.pnlHeaderRight.PerformLayout()
@@ -849,7 +903,14 @@ Partial Class FrmEmployeeMaster
     Friend WithEvents btnSearch As Button
     Friend WithEvents lblSearch As Label
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents lblLedgerId As Label
+    Friend WithEvents btnAddArea As Button
     Friend WithEvents gcData As DevExpress.XtraGrid.GridControl
     Friend WithEvents gvData As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents cmbDrCr As TextBox
+    Friend WithEvents txtOpBal As TextBox
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents RenameColumnToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportToExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveLayoutToolStripMenuItem As ToolStripMenuItem
 End Class
