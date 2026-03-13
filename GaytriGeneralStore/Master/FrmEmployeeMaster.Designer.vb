@@ -666,7 +666,7 @@ Partial Class FrmEmployeeMaster
         Me.gcData.Location = New System.Drawing.Point(15, 161)
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1070, 579)
+        Me.gcData.Size = New System.Drawing.Size(1069, 579)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
         '
@@ -832,7 +832,7 @@ Partial Class FrmEmployeeMaster
         Me.MinimizeBox = False
         Me.Name = "FrmEmployeeMaster"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "👤 Employee Master Management"
+        Me.Text = "👤 Employee Master"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.Panel2.PerformLayout()

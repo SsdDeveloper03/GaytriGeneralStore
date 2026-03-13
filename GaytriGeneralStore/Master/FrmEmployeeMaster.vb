@@ -22,6 +22,7 @@ Public Class FrmEmployeeMaster
     Dim _LedgerCodeInitial As String = ""
     Dim dv As New DataView
     Dim dt As New DataTable
+    Dim escCount As Integer
 #End Region
 
 #Region "Methods"
@@ -251,6 +252,8 @@ Public Class FrmEmployeeMaster
     End Sub
 
     Private Sub FrmLedgerMaster_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
+
         If UCase(M_ValidateMobileNoLength) = "YES" Then
             txtMobileNo.MaxLength = Val(M_MobileNoLength)
         End If
@@ -750,6 +753,40 @@ Public Class FrmEmployeeMaster
         If sender.SelectedIndex = -1 And sender.Items.Count > 0 Then
             sender.SelectedIndex = 0
         End If
+    End Sub
+
+    Private Sub FrmEmployeeMaster_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+
+            Case Keys.F2
+                If btn_Add.Enabled = True Then btn_Add.PerformClick()
+
+            Case Keys.F3
+                If btn_Edit.Enabled = True Then btn_Edit.PerformClick()
+
+            Case Keys.F5
+                If btn_Refresh.Enabled = True Then btn_Refresh.PerformClick()
+
+            Case Keys.F6
+                If btn_save.Enabled = True Then btn_save.PerformClick()
+
+            Case Keys.F7
+                If btn_Delete.Enabled = True Then btn_Delete.PerformClick()
+
+            Case Keys.F8
+                If btn_Cancel.Enabled = True Then btn_Cancel.PerformClick()
+
+            Case Keys.Escape
+
+                escCount += 1
+
+                If escCount = 1 Then
+                    MsgBox("Press ESC again to close", MsgBoxStyle.Information)
+                ElseIf escCount = 2 Then
+                    Me.Close()
+                End If
+
+        End Select
     End Sub
 
 #End Region

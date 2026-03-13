@@ -4501,7 +4501,7 @@ Partial Class FrmCustomerMaster
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "FrmCustomerMaster"
-        Me.Text = "👤 Customer Master Management System"
+        Me.Text = "👤 Customer Master "
         Me.pnlDataContainer.ResumeLayout(False)
         Me.pnlDataContainer.PerformLayout()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).EndInit()

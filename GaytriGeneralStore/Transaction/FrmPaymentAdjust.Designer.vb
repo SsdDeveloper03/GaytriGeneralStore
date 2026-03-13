@@ -2001,13 +2001,13 @@ Partial Class FrmPaymentAdjust
         '
         'CmbFinancialYear
         '
-        Me.CmbFinancialYear.BackColor = System.Drawing.Color.White
+        Me.CmbFinancialYear.BackColor = System.Drawing.Color.Gainsboro
         Me.CmbFinancialYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbFinancialYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbFinancialYear.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbFinancialYear.FormattingEnabled = True
         Me.CmbFinancialYear.Items.AddRange(New Object() {"BOTH YEARS", "2024-2025", "2025-2026"})
-        Me.CmbFinancialYear.Location = New System.Drawing.Point(889, 36)
+        Me.CmbFinancialYear.Location = New System.Drawing.Point(1006, 36)
         Me.CmbFinancialYear.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbFinancialYear.Name = "CmbFinancialYear"
         Me.CmbFinancialYear.Size = New System.Drawing.Size(199, 29)
@@ -2018,7 +2018,7 @@ Partial Class FrmPaymentAdjust
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(764, 40)
+        Me.Label6.Location = New System.Drawing.Point(881, 40)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(117, 23)
@@ -2030,7 +2030,7 @@ Partial Class FrmPaymentAdjust
         Me.DtpBillTo.CalendarMonthBackground = System.Drawing.Color.White
         Me.DtpBillTo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtpBillTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpBillTo.Location = New System.Drawing.Point(613, 36)
+        Me.DtpBillTo.Location = New System.Drawing.Point(741, 36)
         Me.DtpBillTo.Margin = New System.Windows.Forms.Padding(4)
         Me.DtpBillTo.Name = "DtpBillTo"
         Me.DtpBillTo.Size = New System.Drawing.Size(132, 29)
@@ -2042,7 +2042,7 @@ Partial Class FrmPaymentAdjust
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(574, 40)
+        Me.Label5.Location = New System.Drawing.Point(702, 40)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 23)
@@ -2054,7 +2054,7 @@ Partial Class FrmPaymentAdjust
         Me.DtpBillFrom.CalendarMonthBackground = System.Drawing.Color.White
         Me.DtpBillFrom.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtpBillFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpBillFrom.Location = New System.Drawing.Point(422, 36)
+        Me.DtpBillFrom.Location = New System.Drawing.Point(559, 36)
         Me.DtpBillFrom.Margin = New System.Windows.Forms.Padding(4)
         Me.DtpBillFrom.Name = "DtpBillFrom"
         Me.DtpBillFrom.Size = New System.Drawing.Size(132, 29)
@@ -2066,7 +2066,7 @@ Partial Class FrmPaymentAdjust
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(334, 40)
+        Me.Label4.Location = New System.Drawing.Point(471, 40)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 23)
@@ -2081,10 +2081,10 @@ Partial Class FrmPaymentAdjust
         Me.CmbType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbType.FormattingEnabled = True
         Me.CmbType.Items.AddRange(New Object() {"ALL", "PURCHASE", "SALES", "RETURN"})
-        Me.CmbType.Location = New System.Drawing.Point(220, 36)
+        Me.CmbType.Location = New System.Drawing.Point(264, 36)
         Me.CmbType.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbType.Name = "CmbType"
-        Me.CmbType.Size = New System.Drawing.Size(92, 29)
+        Me.CmbType.Size = New System.Drawing.Size(199, 29)
         Me.CmbType.TabIndex = 3
         '
         'Label3
@@ -2092,7 +2092,7 @@ Partial Class FrmPaymentAdjust
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(163, 40)
+        Me.Label3.Location = New System.Drawing.Point(207, 40)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 23)
@@ -2110,7 +2110,7 @@ Partial Class FrmPaymentAdjust
         Me.CmbParty.Location = New System.Drawing.Point(54, 38)
         Me.CmbParty.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbParty.Name = "CmbParty"
-        Me.CmbParty.Size = New System.Drawing.Size(110, 29)
+        Me.CmbParty.Size = New System.Drawing.Size(145, 29)
         Me.CmbParty.TabIndex = 1
         '
         'Label2

@@ -1219,15 +1219,15 @@ Partial Class FrmPaymentCollection
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblAmount = New System.Windows.Forms.Label()
         Me.txtAmount = New System.Windows.Forms.TextBox()
-        Me.lblAccount = New System.Windows.Forms.Label()
         Me.cmbAccount = New System.Windows.Forms.ComboBox()
         Me.lblReferenceNo = New System.Windows.Forms.Label()
         Me.txtReferenceNo = New System.Windows.Forms.TextBox()
         Me.lblAttachment = New System.Windows.Forms.Label()
-        Me.txtAttachment = New System.Windows.Forms.TextBox()
-        Me.btnBrowse = New System.Windows.Forms.Button()
         Me.lblNarration = New System.Windows.Forms.Label()
         Me.txtNarration = New System.Windows.Forms.TextBox()
+        Me.lblAccount = New System.Windows.Forms.Label()
+        Me.btnBrowse = New System.Windows.Forms.Button()
+        Me.txtAttachment = New System.Windows.Forms.TextBox()
         Me.grpPendingContainer = New System.Windows.Forms.GroupBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.grpOfficeAck = New System.Windows.Forms.GroupBox()
@@ -1305,13 +1305,15 @@ Partial Class FrmPaymentCollection
         '
         'grpPaymentCollection
         '
+        Me.grpPaymentCollection.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpPaymentCollection.BackColor = System.Drawing.Color.White
         Me.grpPaymentCollection.Controls.Add(Me.tabPaymentInfo)
         Me.grpPaymentCollection.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
         Me.grpPaymentCollection.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.grpPaymentCollection.Location = New System.Drawing.Point(12, 12)
         Me.grpPaymentCollection.Name = "grpPaymentCollection"
-        Me.grpPaymentCollection.Size = New System.Drawing.Size(1500, 350)
+        Me.grpPaymentCollection.Size = New System.Drawing.Size(1509, 350)
         Me.grpPaymentCollection.TabIndex = 0
         Me.grpPaymentCollection.TabStop = False
         Me.grpPaymentCollection.Text = "💰 PAYMENT COLLECTION"
@@ -1325,7 +1327,7 @@ Partial Class FrmPaymentCollection
         Me.tabPaymentInfo.Location = New System.Drawing.Point(3, 35)
         Me.tabPaymentInfo.Name = "tabPaymentInfo"
         Me.tabPaymentInfo.SelectedIndex = 0
-        Me.tabPaymentInfo.Size = New System.Drawing.Size(1494, 312)
+        Me.tabPaymentInfo.Size = New System.Drawing.Size(1503, 312)
         Me.tabPaymentInfo.TabIndex = 0
         '
         'tabCollectionInfo
@@ -1335,7 +1337,7 @@ Partial Class FrmPaymentCollection
         Me.tabCollectionInfo.Location = New System.Drawing.Point(4, 32)
         Me.tabCollectionInfo.Name = "tabCollectionInfo"
         Me.tabCollectionInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.tabCollectionInfo.Size = New System.Drawing.Size(1486, 276)
+        Me.tabCollectionInfo.Size = New System.Drawing.Size(1495, 276)
         Me.tabCollectionInfo.TabIndex = 0
         Me.tabCollectionInfo.Text = "📋 COLLECTION INFORMATION"
         '
@@ -1354,7 +1356,7 @@ Partial Class FrmPaymentCollection
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.dgvCollectionBills)
         Me.SplitContainer2.Panel2.Controls.Add(Me.pnlTotalDue)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1466, 256)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1475, 256)
         Me.SplitContainer2.SplitterDistance = 120
         Me.SplitContainer2.TabIndex = 0
         '
@@ -1388,7 +1390,7 @@ Partial Class FrmPaymentCollection
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1466, 120)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1475, 120)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'lblDate
@@ -1408,7 +1410,7 @@ Partial Class FrmPaymentCollection
         Me.dtpDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.dtpDate.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDate.Location = New System.Drawing.Point(125, 13)
+        Me.dtpDate.Location = New System.Drawing.Point(126, 13)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(175, 30)
         Me.dtpDate.TabIndex = 2
@@ -1431,7 +1433,7 @@ Partial Class FrmPaymentCollection
         Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(125, 50)
+        Me.TextBox1.Location = New System.Drawing.Point(126, 50)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(175, 30)
         Me.TextBox1.TabIndex = 14
@@ -1453,7 +1455,7 @@ Partial Class FrmPaymentCollection
         Me.TextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(125, 87)
+        Me.TextBox2.Location = New System.Drawing.Point(126, 87)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(175, 30)
         Me.TextBox2.TabIndex = 15
@@ -1463,9 +1465,9 @@ Partial Class FrmPaymentCollection
         Me.lblAddress.AutoSize = True
         Me.lblAddress.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblAddress.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.lblAddress.Location = New System.Drawing.Point(339, 10)
+        Me.lblAddress.Location = New System.Drawing.Point(342, 10)
         Me.lblAddress.Name = "lblAddress"
-        Me.lblAddress.Size = New System.Drawing.Size(74, 37)
+        Me.lblAddress.Size = New System.Drawing.Size(79, 23)
         Me.lblAddress.TabIndex = 12
         Me.lblAddress.Text = "Address:"
         Me.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1475,7 +1477,7 @@ Partial Class FrmPaymentCollection
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(339, 47)
+        Me.lblEmail.Location = New System.Drawing.Point(342, 47)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(59, 23)
         Me.lblEmail.TabIndex = 8
@@ -1487,7 +1489,7 @@ Partial Class FrmPaymentCollection
         Me.lblPhone.AutoSize = True
         Me.lblPhone.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblPhone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblPhone.Location = New System.Drawing.Point(339, 84)
+        Me.lblPhone.Location = New System.Drawing.Point(342, 84)
         Me.lblPhone.Name = "lblPhone"
         Me.lblPhone.Size = New System.Drawing.Size(64, 23)
         Me.lblPhone.TabIndex = 10
@@ -1499,7 +1501,7 @@ Partial Class FrmPaymentCollection
         Me.lblAddressValue.AutoSize = True
         Me.lblAddressValue.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lblAddressValue.ForeColor = System.Drawing.Color.Black
-        Me.lblAddressValue.Location = New System.Drawing.Point(423, 10)
+        Me.lblAddressValue.Location = New System.Drawing.Point(427, 10)
         Me.lblAddressValue.Name = "lblAddressValue"
         Me.lblAddressValue.Size = New System.Drawing.Size(240, 23)
         Me.lblAddressValue.TabIndex = 13
@@ -1510,7 +1512,7 @@ Partial Class FrmPaymentCollection
         Me.lblEmailValue.AutoSize = True
         Me.lblEmailValue.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lblEmailValue.ForeColor = System.Drawing.Color.Black
-        Me.lblEmailValue.Location = New System.Drawing.Point(423, 47)
+        Me.lblEmailValue.Location = New System.Drawing.Point(427, 47)
         Me.lblEmailValue.Name = "lblEmailValue"
         Me.lblEmailValue.Size = New System.Drawing.Size(175, 23)
         Me.lblEmailValue.TabIndex = 9
@@ -1521,7 +1523,7 @@ Partial Class FrmPaymentCollection
         Me.lblPhoneValue.AutoSize = True
         Me.lblPhoneValue.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lblPhoneValue.ForeColor = System.Drawing.Color.Black
-        Me.lblPhoneValue.Location = New System.Drawing.Point(423, 84)
+        Me.lblPhoneValue.Location = New System.Drawing.Point(427, 84)
         Me.lblPhoneValue.Name = "lblPhoneValue"
         Me.lblPhoneValue.Size = New System.Drawing.Size(135, 23)
         Me.lblPhoneValue.TabIndex = 11
@@ -1541,7 +1543,7 @@ Partial Class FrmPaymentCollection
         Me.dgvCollectionBills.RowHeadersVisible = False
         Me.dgvCollectionBills.RowHeadersWidth = 51
         Me.dgvCollectionBills.RowTemplate.Height = 28
-        Me.dgvCollectionBills.Size = New System.Drawing.Size(1466, 106)
+        Me.dgvCollectionBills.Size = New System.Drawing.Size(1475, 106)
         Me.dgvCollectionBills.TabIndex = 1
         '
         'colBillNo
@@ -1594,7 +1596,7 @@ Partial Class FrmPaymentCollection
         Me.pnlTotalDue.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlTotalDue.Location = New System.Drawing.Point(0, 106)
         Me.pnlTotalDue.Name = "pnlTotalDue"
-        Me.pnlTotalDue.Size = New System.Drawing.Size(1466, 26)
+        Me.pnlTotalDue.Size = New System.Drawing.Size(1475, 26)
         Me.pnlTotalDue.TabIndex = 2
         '
         'lblTotalDueValue
@@ -1626,7 +1628,7 @@ Partial Class FrmPaymentCollection
         Me.tabPaymentDetails.Location = New System.Drawing.Point(4, 32)
         Me.tabPaymentDetails.Name = "tabPaymentDetails"
         Me.tabPaymentDetails.Padding = New System.Windows.Forms.Padding(10)
-        Me.tabPaymentDetails.Size = New System.Drawing.Size(1486, 276)
+        Me.tabPaymentDetails.Size = New System.Drawing.Size(1495, 276)
         Me.tabPaymentDetails.TabIndex = 1
         Me.tabPaymentDetails.Text = "💰 PAYMENT DETAILS"
         '
@@ -1658,7 +1660,7 @@ Partial Class FrmPaymentCollection
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1466, 256)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1475, 256)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'lblAmount
@@ -1677,23 +1679,11 @@ Partial Class FrmPaymentCollection
         '
         Me.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAmount.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.txtAmount.Location = New System.Drawing.Point(154, 18)
+        Me.txtAmount.Location = New System.Drawing.Point(155, 18)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.Size = New System.Drawing.Size(214, 32)
         Me.txtAmount.TabIndex = 2
         Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblAccount
-        '
-        Me.lblAccount.AutoSize = True
-        Me.lblAccount.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAccount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.lblAccount.Location = New System.Drawing.Point(379, 15)
-        Me.lblAccount.Name = "lblAccount"
-        Me.lblAccount.Size = New System.Drawing.Size(213, 25)
-        Me.lblAccount.TabIndex = 3
-        Me.lblAccount.Text = "Account (Cash/Bank) *"
-        Me.lblAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbAccount
         '
@@ -1702,7 +1692,7 @@ Partial Class FrmPaymentCollection
         Me.cmbAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbAccount.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.cmbAccount.Items.AddRange(New Object() {"Select Account", "CASH", "BANK", "UPI", "CHEQUE"})
-        Me.cmbAccount.Location = New System.Drawing.Point(603, 18)
+        Me.cmbAccount.Location = New System.Drawing.Point(608, 18)
         Me.cmbAccount.Name = "cmbAccount"
         Me.cmbAccount.Size = New System.Drawing.Size(180, 33)
         Me.cmbAccount.TabIndex = 4
@@ -1723,7 +1713,7 @@ Partial Class FrmPaymentCollection
         '
         Me.txtReferenceNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtReferenceNo.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.txtReferenceNo.Location = New System.Drawing.Point(154, 60)
+        Me.txtReferenceNo.Location = New System.Drawing.Point(155, 60)
         Me.txtReferenceNo.Name = "txtReferenceNo"
         Me.txtReferenceNo.Size = New System.Drawing.Size(214, 32)
         Me.txtReferenceNo.TabIndex = 6
@@ -1740,32 +1730,12 @@ Partial Class FrmPaymentCollection
         Me.lblAttachment.Text = "Attachment"
         Me.lblAttachment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'txtAttachment
-        '
-        Me.txtAttachment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtAttachment.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.txtAttachment.Location = New System.Drawing.Point(154, 102)
-        Me.txtAttachment.Name = "txtAttachment"
-        Me.txtAttachment.Size = New System.Drawing.Size(214, 32)
-        Me.txtAttachment.TabIndex = 10
-        '
-        'btnBrowse
-        '
-        Me.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBrowse.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.btnBrowse.Location = New System.Drawing.Point(379, 102)
-        Me.btnBrowse.Name = "btnBrowse"
-        Me.btnBrowse.Size = New System.Drawing.Size(100, 32)
-        Me.btnBrowse.TabIndex = 11
-        Me.btnBrowse.Text = "Browse..."
-        Me.btnBrowse.UseVisualStyleBackColor = True
-        '
         'lblNarration
         '
         Me.lblNarration.AutoSize = True
         Me.lblNarration.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
         Me.lblNarration.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblNarration.Location = New System.Drawing.Point(379, 57)
+        Me.lblNarration.Location = New System.Drawing.Point(382, 57)
         Me.lblNarration.Name = "lblNarration"
         Me.lblNarration.Size = New System.Drawing.Size(99, 25)
         Me.lblNarration.TabIndex = 7
@@ -1776,13 +1746,47 @@ Partial Class FrmPaymentCollection
         '
         Me.txtNarration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNarration.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.txtNarration.Location = New System.Drawing.Point(603, 60)
+        Me.txtNarration.Location = New System.Drawing.Point(608, 60)
         Me.txtNarration.Name = "txtNarration"
         Me.txtNarration.Size = New System.Drawing.Size(180, 32)
         Me.txtNarration.TabIndex = 8
         '
+        'lblAccount
+        '
+        Me.lblAccount.AutoSize = True
+        Me.lblAccount.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.lblAccount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.lblAccount.Location = New System.Drawing.Point(382, 15)
+        Me.lblAccount.Name = "lblAccount"
+        Me.lblAccount.Size = New System.Drawing.Size(213, 25)
+        Me.lblAccount.TabIndex = 3
+        Me.lblAccount.Text = "Account (Cash/Bank) *"
+        Me.lblAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnBrowse
+        '
+        Me.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBrowse.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.btnBrowse.Location = New System.Drawing.Point(382, 102)
+        Me.btnBrowse.Name = "btnBrowse"
+        Me.btnBrowse.Size = New System.Drawing.Size(100, 32)
+        Me.btnBrowse.TabIndex = 11
+        Me.btnBrowse.Text = "Browse..."
+        Me.btnBrowse.UseVisualStyleBackColor = True
+        '
+        'txtAttachment
+        '
+        Me.txtAttachment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtAttachment.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.txtAttachment.Location = New System.Drawing.Point(155, 102)
+        Me.txtAttachment.Name = "txtAttachment"
+        Me.txtAttachment.Size = New System.Drawing.Size(214, 32)
+        Me.txtAttachment.TabIndex = 10
+        '
         'grpPendingContainer
         '
+        Me.grpPendingContainer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpPendingContainer.BackColor = System.Drawing.Color.White
         Me.grpPendingContainer.Controls.Add(Me.SplitContainer1)
         Me.grpPendingContainer.Controls.Add(Me.pnlPendingSummary)
@@ -1790,7 +1794,7 @@ Partial Class FrmPaymentCollection
         Me.grpPendingContainer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.grpPendingContainer.Location = New System.Drawing.Point(12, 349)
         Me.grpPendingContainer.Name = "grpPendingContainer"
-        Me.grpPendingContainer.Size = New System.Drawing.Size(1500, 169)
+        Me.grpPendingContainer.Size = New System.Drawing.Size(1506, 169)
         Me.grpPendingContainer.TabIndex = 5
         Me.grpPendingContainer.TabStop = False
         Me.grpPendingContainer.Text = "📋 PENDING ITEMS"
@@ -1808,8 +1812,8 @@ Partial Class FrmPaymentCollection
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.grpBankRecon)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1494, 101)
-        Me.SplitContainer1.SplitterDistance = 745
+        Me.SplitContainer1.Size = New System.Drawing.Size(1500, 101)
+        Me.SplitContainer1.SplitterDistance = 747
         Me.SplitContainer1.TabIndex = 1
         '
         'grpOfficeAck
@@ -1820,7 +1824,7 @@ Partial Class FrmPaymentCollection
         Me.grpOfficeAck.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.grpOfficeAck.Location = New System.Drawing.Point(0, 0)
         Me.grpOfficeAck.Name = "grpOfficeAck"
-        Me.grpOfficeAck.Size = New System.Drawing.Size(745, 101)
+        Me.grpOfficeAck.Size = New System.Drawing.Size(747, 101)
         Me.grpOfficeAck.TabIndex = 0
         Me.grpOfficeAck.TabStop = False
         Me.grpOfficeAck.Text = "Pending Office Acknowledgement"
@@ -1840,7 +1844,7 @@ Partial Class FrmPaymentCollection
         Me.dgvOfficeAck.RowHeadersVisible = False
         Me.dgvOfficeAck.RowHeadersWidth = 51
         Me.dgvOfficeAck.RowTemplate.Height = 28
-        Me.dgvOfficeAck.Size = New System.Drawing.Size(739, 72)
+        Me.dgvOfficeAck.Size = New System.Drawing.Size(741, 72)
         Me.dgvOfficeAck.TabIndex = 0
         '
         'colAckName
@@ -1883,7 +1887,7 @@ Partial Class FrmPaymentCollection
         Me.grpBankRecon.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.grpBankRecon.Location = New System.Drawing.Point(0, 0)
         Me.grpBankRecon.Name = "grpBankRecon"
-        Me.grpBankRecon.Size = New System.Drawing.Size(745, 101)
+        Me.grpBankRecon.Size = New System.Drawing.Size(749, 101)
         Me.grpBankRecon.TabIndex = 1
         Me.grpBankRecon.TabStop = False
         Me.grpBankRecon.Text = "Pending Bank Reconciliation"
@@ -1903,7 +1907,7 @@ Partial Class FrmPaymentCollection
         Me.dgvBankRecon.RowHeadersVisible = False
         Me.dgvBankRecon.RowHeadersWidth = 51
         Me.dgvBankRecon.RowTemplate.Height = 28
-        Me.dgvBankRecon.Size = New System.Drawing.Size(739, 72)
+        Me.dgvBankRecon.Size = New System.Drawing.Size(743, 72)
         Me.dgvBankRecon.TabIndex = 1
         '
         'colReconDesc
@@ -1948,7 +1952,7 @@ Partial Class FrmPaymentCollection
         Me.pnlPendingSummary.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlPendingSummary.Location = New System.Drawing.Point(3, 129)
         Me.pnlPendingSummary.Name = "pnlPendingSummary"
-        Me.pnlPendingSummary.Size = New System.Drawing.Size(1494, 37)
+        Me.pnlPendingSummary.Size = New System.Drawing.Size(1500, 37)
         Me.pnlPendingSummary.TabIndex = 0
         '
         'lblPendingCount
@@ -1986,6 +1990,8 @@ Partial Class FrmPaymentCollection
         '
         'pnlSearch
         '
+        Me.pnlSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlSearch.Controls.Add(Me.lblQuickSearch)
@@ -1995,9 +2001,9 @@ Partial Class FrmPaymentCollection
         Me.pnlSearch.Controls.Add(Me.lblTo)
         Me.pnlSearch.Controls.Add(Me.dtpTo)
         Me.pnlSearch.Controls.Add(Me.btnGo)
-        Me.pnlSearch.Location = New System.Drawing.Point(12, 524)
+        Me.pnlSearch.Location = New System.Drawing.Point(13, 524)
         Me.pnlSearch.Name = "pnlSearch"
-        Me.pnlSearch.Size = New System.Drawing.Size(1500, 49)
+        Me.pnlSearch.Size = New System.Drawing.Size(1502, 49)
         Me.pnlSearch.TabIndex = 1
         '
         'lblQuickSearch
@@ -2081,13 +2087,15 @@ Partial Class FrmPaymentCollection
         '
         'lblTitle
         '
+        Me.lblTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
         Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(12, 579)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.lblTitle.Size = New System.Drawing.Size(1500, 38)
+        Me.lblTitle.Size = New System.Drawing.Size(1506, 38)
         Me.lblTitle.TabIndex = 2
         Me.lblTitle.Text = "💰 PAYMENT MASTER"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -2107,6 +2115,8 @@ Partial Class FrmPaymentCollection
         '
         Me.dgvPayments.AllowUserToAddRows = False
         Me.dgvPayments.AllowUserToDeleteRows = False
+        Me.dgvPayments.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPayments.BackgroundColor = System.Drawing.Color.White
         Me.dgvPayments.ColumnHeadersHeight = 40
         Me.dgvPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -2120,7 +2130,7 @@ Partial Class FrmPaymentCollection
         Me.dgvPayments.RowHeadersWidth = 51
         Me.dgvPayments.RowTemplate.Height = 32
         Me.dgvPayments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPayments.Size = New System.Drawing.Size(1503, 130)
+        Me.dgvPayments.Size = New System.Drawing.Size(1509, 130)
         Me.dgvPayments.TabIndex = 4
         '
         'colSNo
@@ -2214,6 +2224,8 @@ Partial Class FrmPaymentCollection
         '
         'pnlButtons
         '
+        Me.pnlButtons.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.pnlButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlButtons.Controls.Add(Me.btnRefresh)
@@ -2338,7 +2350,7 @@ Partial Class FrmPaymentCollection
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1567, 828)
+        Me.ClientSize = New System.Drawing.Size(1533, 828)
         Me.Controls.Add(Me.grpPendingContainer)
         Me.Controls.Add(Me.pnlButtons)
         Me.Controls.Add(Me.dgvPayments)
@@ -2350,7 +2362,7 @@ Partial Class FrmPaymentCollection
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Name = "FrmPaymentCollection"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "💰 Payment Collection Management System"
+        Me.Text = "💰 Payment Collection "
         Me.grpPaymentCollection.ResumeLayout(False)
         Me.tabPaymentInfo.ResumeLayout(False)
         Me.tabCollectionInfo.ResumeLayout(False)

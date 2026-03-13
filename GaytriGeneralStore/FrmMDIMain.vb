@@ -2,6 +2,10 @@
 
 Public Class FrmMDIMain
 
+#Region "Comments"
+
+#End Region
+
 #Region "Declaration"
     Dim obj As New DBManager
     Dim sql_query As String
@@ -261,6 +265,18 @@ Public Class FrmMDIMain
             Panel1.Show()
             panelVisible = True
         End If
+    End Sub
+
+    Private Sub OutstandingReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OutstandingReportToolStripMenuItem.Click
+        FrmOutstandingReport.MdiParent = Me
+        FrmOutstandingReport.Show()
+        FrmOutstandingReport.Activate()
+    End Sub
+
+    Private Sub DAreaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DAreaToolStripMenuItem.Click
+        FrmAreaMaster.MdiParent = Me
+        FrmAreaMaster.Show()
+        FrmAreaMaster.Activate()
     End Sub
 
     Private Sub cmbFinYr_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbFinYr.Validating, cmbCName.Validating

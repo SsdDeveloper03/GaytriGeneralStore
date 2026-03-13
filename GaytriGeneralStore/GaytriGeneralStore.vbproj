@@ -507,6 +507,12 @@
     <Compile Include="Help\FrmSqlStep3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Master\FrmAreaMaster.Designer.vb">
+      <DependentUpon>FrmAreaMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmAreaMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Master\FrmCustomerMaster.Designer.vb">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </Compile>
@@ -552,6 +558,12 @@
     <Compile Include="Utility\FrmRunQuery.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="View\FrmOutstandingReport.Designer.vb">
+      <DependentUpon>FrmOutstandingReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmOutstandingReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WaitForm1.Designer.vb">
       <DependentUpon>WaitForm1.vb</DependentUpon>
     </Compile>
@@ -587,6 +599,9 @@
     <EmbeddedResource Include="Help\FrmSqlStep3.resx">
       <DependentUpon>FrmSqlStep3.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmAreaMaster.resx">
+      <DependentUpon>FrmAreaMaster.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\FrmCustomerMaster.resx">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </EmbeddedResource>
@@ -609,6 +624,9 @@
     <EmbeddedResource Include="Utility\FrmRunQuery.resx">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmOutstandingReport.resx">
+      <DependentUpon>FrmOutstandingReport.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -623,9 +641,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Home.png" />
   </ItemGroup>

@@ -556,6 +556,12 @@ Partial Class FrmMDIMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMDIMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbCName = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BusinessProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -565,16 +571,12 @@ Partial Class FrmMDIMain
         Me.BillingEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaymentCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OutstandingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbCName = New System.Windows.Forms.ComboBox()
+        Me.DAreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -594,6 +596,85 @@ Partial Class FrmMDIMain
         Me.MenuStrip1.TabStop = True
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'XtraTabbedMdiManager1
+        '
+        Me.XtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders
+        Me.XtraTabbedMdiManager1.HeaderButtons = DevExpress.XtraTab.TabButtons.Close
+        Me.XtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded
+        Me.XtraTabbedMdiManager1.MdiParent = Me
+        '
+        'cmbFinYr
+        '
+        Me.cmbFinYr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbFinYr.BackColor = System.Drawing.Color.White
+        Me.cmbFinYr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFinYr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbFinYr.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFinYr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.cmbFinYr.FormattingEnabled = True
+        Me.cmbFinYr.Location = New System.Drawing.Point(1396, 2)
+        Me.cmbFinYr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbFinYr.Name = "cmbFinYr"
+        Me.cmbFinYr.Size = New System.Drawing.Size(148, 28)
+        Me.cmbFinYr.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(1327, 4)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Label1.Size = New System.Drawing.Size(58, 28)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Year"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(956, 4)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Label2.Size = New System.Drawing.Size(103, 28)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Company"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'cmbCName
+        '
+        Me.cmbCName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbCName.BackColor = System.Drawing.Color.White
+        Me.cmbCName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbCName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.cmbCName.FormattingEnabled = True
+        Me.cmbCName.Location = New System.Drawing.Point(1068, 4)
+        Me.cmbCName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbCName.Name = "cmbCName"
+        Me.cmbCName.Size = New System.Drawing.Size(252, 28)
+        Me.cmbCName.TabIndex = 4
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 28)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1547, 643)
+        Me.Panel1.TabIndex = 1
+        '
         'HomeToolStripMenuItem
         '
         Me.HomeToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -605,7 +686,7 @@ Partial Class FrmMDIMain
         '
         'MasterToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem})
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.DAreaToolStripMenuItem})
         Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
@@ -670,12 +751,19 @@ Partial Class FrmMDIMain
         '
         'ViewToolStripMenuItem
         '
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OutstandingReportToolStripMenuItem})
         Me.ViewToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
         Me.ViewToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(106, 24)
         Me.ViewToolStripMenuItem.Text = "&3.View"
+        '
+        'OutstandingReportToolStripMenuItem
+        '
+        Me.OutstandingReportToolStripMenuItem.Name = "OutstandingReportToolStripMenuItem"
+        Me.OutstandingReportToolStripMenuItem.Size = New System.Drawing.Size(266, 26)
+        Me.OutstandingReportToolStripMenuItem.Text = "Outstanding report"
         '
         'TransactionToolStripMenuItem
         '
@@ -714,84 +802,11 @@ Partial Class FrmMDIMain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
-        'XtraTabbedMdiManager1
+        'DAreaToolStripMenuItem
         '
-        Me.XtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders
-        Me.XtraTabbedMdiManager1.HeaderButtons = DevExpress.XtraTab.TabButtons.Close
-        Me.XtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded
-        Me.XtraTabbedMdiManager1.MdiParent = Me
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 28)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1547, 643)
-        Me.Panel1.TabIndex = 1
-        '
-        'cmbFinYr
-        '
-        Me.cmbFinYr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbFinYr.BackColor = System.Drawing.Color.White
-        Me.cmbFinYr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbFinYr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbFinYr.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbFinYr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.cmbFinYr.FormattingEnabled = True
-        Me.cmbFinYr.Location = New System.Drawing.Point(1396, 2)
-        Me.cmbFinYr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cmbFinYr.Name = "cmbFinYr"
-        Me.cmbFinYr.Size = New System.Drawing.Size(148, 28)
-        Me.cmbFinYr.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1327, 4)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Label1.Size = New System.Drawing.Size(58, 28)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Year"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(956, 4)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Label2.Size = New System.Drawing.Size(103, 28)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Company"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'cmbCName
-        '
-        Me.cmbCName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbCName.BackColor = System.Drawing.Color.White
-        Me.cmbCName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbCName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.cmbCName.FormattingEnabled = True
-        Me.cmbCName.Location = New System.Drawing.Point(1068, 4)
-        Me.cmbCName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cmbCName.Name = "cmbCName"
-        Me.cmbCName.Size = New System.Drawing.Size(252, 28)
-        Me.cmbCName.TabIndex = 4
+        Me.DAreaToolStripMenuItem.Name = "DAreaToolStripMenuItem"
+        Me.DAreaToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.DAreaToolStripMenuItem.Text = "D. Area"
         '
         'FrmMDIMain
         '
@@ -842,4 +857,6 @@ Partial Class FrmMDIMain
     Friend WithEvents cmbFinYr As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents cmbCName As ComboBox
+    Friend WithEvents OutstandingReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DAreaToolStripMenuItem As ToolStripMenuItem
 End Class
