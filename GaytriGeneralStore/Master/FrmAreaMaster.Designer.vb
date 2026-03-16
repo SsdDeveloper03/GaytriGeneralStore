@@ -384,23 +384,24 @@ Partial Class FrmAreaMaster
         Me.lblDispSrNo = New System.Windows.Forms.Label()
         Me.txtDispSrNo = New System.Windows.Forms.TextBox()
         Me.chkActive = New System.Windows.Forms.CheckBox()
-        Me.gcArea = New DevExpress.XtraGrid.GridControl()
-        Me.gvArea = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.lblAreaId = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.lblAreaId = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RenameColumnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportToExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.gcData = New DevExpress.XtraGrid.GridControl()
+        Me.gvData = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.grpAreaInfo.SuspendLayout()
-        CType(Me.gcArea, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvArea, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.gcData, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblHeader
@@ -410,13 +411,15 @@ Partial Class FrmAreaMaster
         Me.lblHeader.ForeColor = System.Drawing.Color.White
         Me.lblHeader.Location = New System.Drawing.Point(0, 0)
         Me.lblHeader.Name = "lblHeader"
-        Me.lblHeader.Size = New System.Drawing.Size(1200, 40)
+        Me.lblHeader.Size = New System.Drawing.Size(1437, 40)
         Me.lblHeader.TabIndex = 0
         Me.lblHeader.Text = "AREA MASTER"
-        Me.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'grpAreaInfo
         '
+        Me.grpAreaInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpAreaInfo.Controls.Add(Me.lblAreaName)
         Me.grpAreaInfo.Controls.Add(Me.txtAreaName)
         Me.grpAreaInfo.Controls.Add(Me.lblSubArea)
@@ -442,74 +445,74 @@ Partial Class FrmAreaMaster
         Me.grpAreaInfo.Controls.Add(Me.chkActive)
         Me.grpAreaInfo.Location = New System.Drawing.Point(10, 50)
         Me.grpAreaInfo.Name = "grpAreaInfo"
-        Me.grpAreaInfo.Size = New System.Drawing.Size(1180, 160)
+        Me.grpAreaInfo.Size = New System.Drawing.Size(1416, 160)
         Me.grpAreaInfo.TabIndex = 1
         Me.grpAreaInfo.TabStop = False
         '
         'lblAreaName
         '
-        Me.lblAreaName.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAreaName.Location = New System.Drawing.Point(20, 30)
+        Me.lblAreaName.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAreaName.Location = New System.Drawing.Point(20, 33)
         Me.lblAreaName.Name = "lblAreaName"
-        Me.lblAreaName.Size = New System.Drawing.Size(58, 23)
+        Me.lblAreaName.Size = New System.Drawing.Size(123, 27)
         Me.lblAreaName.TabIndex = 0
         Me.lblAreaName.Text = "Area Name"
         '
         'txtAreaName
         '
         Me.txtAreaName.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAreaName.Location = New System.Drawing.Point(84, 30)
+        Me.txtAreaName.Location = New System.Drawing.Point(149, 32)
         Me.txtAreaName.Name = "txtAreaName"
         Me.txtAreaName.Size = New System.Drawing.Size(200, 29)
         Me.txtAreaName.TabIndex = 0
         '
         'lblSubArea
         '
-        Me.lblSubArea.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubArea.Location = New System.Drawing.Point(336, 30)
+        Me.lblSubArea.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubArea.Location = New System.Drawing.Point(438, 33)
         Me.lblSubArea.Name = "lblSubArea"
-        Me.lblSubArea.Size = New System.Drawing.Size(83, 23)
+        Me.lblSubArea.Size = New System.Drawing.Size(102, 27)
         Me.lblSubArea.TabIndex = 2
         Me.lblSubArea.Text = "Sub Area"
         '
         'txtSubArea
         '
         Me.txtSubArea.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubArea.Location = New System.Drawing.Point(430, 28)
+        Me.txtSubArea.Location = New System.Drawing.Point(546, 32)
         Me.txtSubArea.Name = "txtSubArea"
         Me.txtSubArea.Size = New System.Drawing.Size(200, 29)
         Me.txtSubArea.TabIndex = 1
         '
         'lblLandmark
         '
-        Me.lblLandmark.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLandmark.Location = New System.Drawing.Point(671, 30)
+        Me.lblLandmark.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLandmark.Location = New System.Drawing.Point(425, 72)
         Me.lblLandmark.Name = "lblLandmark"
-        Me.lblLandmark.Size = New System.Drawing.Size(74, 23)
+        Me.lblLandmark.Size = New System.Drawing.Size(115, 23)
         Me.lblLandmark.TabIndex = 4
         Me.lblLandmark.Text = "Landmark"
         '
         'txtLandmark
         '
         Me.txtLandmark.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLandmark.Location = New System.Drawing.Point(760, 28)
+        Me.txtLandmark.Location = New System.Drawing.Point(546, 70)
         Me.txtLandmark.Name = "txtLandmark"
         Me.txtLandmark.Size = New System.Drawing.Size(200, 29)
         Me.txtLandmark.TabIndex = 2
         '
         'lblCity
         '
-        Me.lblCity.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCity.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCity.Location = New System.Drawing.Point(20, 70)
         Me.lblCity.Name = "lblCity"
-        Me.lblCity.Size = New System.Drawing.Size(58, 23)
+        Me.lblCity.Size = New System.Drawing.Size(123, 30)
         Me.lblCity.TabIndex = 6
         Me.lblCity.Text = "City"
         '
         'cmbCity
         '
         Me.cmbCity.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCity.Location = New System.Drawing.Point(84, 69)
+        Me.cmbCity.Location = New System.Drawing.Point(149, 70)
         Me.cmbCity.Name = "cmbCity"
         Me.cmbCity.Size = New System.Drawing.Size(200, 30)
         Me.cmbCity.TabIndex = 3
@@ -517,67 +520,69 @@ Partial Class FrmAreaMaster
         'lblZone
         '
         Me.lblZone.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblZone.Location = New System.Drawing.Point(336, 70)
+        Me.lblZone.Location = New System.Drawing.Point(952, 74)
         Me.lblZone.Name = "lblZone"
         Me.lblZone.Size = New System.Drawing.Size(83, 23)
         Me.lblZone.TabIndex = 8
         Me.lblZone.Text = "Zone"
+        Me.lblZone.Visible = False
         '
         'cmbZone
         '
         Me.cmbZone.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbZone.Location = New System.Drawing.Point(430, 68)
+        Me.cmbZone.Location = New System.Drawing.Point(1046, 72)
         Me.cmbZone.Name = "cmbZone"
         Me.cmbZone.Size = New System.Drawing.Size(200, 30)
         Me.cmbZone.TabIndex = 4
+        Me.cmbZone.Visible = False
         '
         'lblPincode
         '
-        Me.lblPincode.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPincode.Location = New System.Drawing.Point(671, 70)
+        Me.lblPincode.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPincode.Location = New System.Drawing.Point(799, 32)
         Me.lblPincode.Name = "lblPincode"
-        Me.lblPincode.Size = New System.Drawing.Size(74, 23)
+        Me.lblPincode.Size = New System.Drawing.Size(92, 28)
         Me.lblPincode.TabIndex = 10
         Me.lblPincode.Text = "Pincode"
         '
         'txtPincode
         '
         Me.txtPincode.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPincode.Location = New System.Drawing.Point(760, 69)
+        Me.txtPincode.Location = New System.Drawing.Point(897, 32)
         Me.txtPincode.Name = "txtPincode"
         Me.txtPincode.Size = New System.Drawing.Size(90, 29)
         Me.txtPincode.TabIndex = 7
         '
         'lblState
         '
-        Me.lblState.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblState.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblState.Location = New System.Drawing.Point(20, 110)
         Me.lblState.Name = "lblState"
-        Me.lblState.Size = New System.Drawing.Size(58, 23)
+        Me.lblState.Size = New System.Drawing.Size(123, 26)
         Me.lblState.TabIndex = 12
         Me.lblState.Text = "State"
         '
         'cmbState
         '
         Me.cmbState.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbState.Location = New System.Drawing.Point(84, 109)
+        Me.cmbState.Location = New System.Drawing.Point(149, 108)
         Me.cmbState.Name = "cmbState"
         Me.cmbState.Size = New System.Drawing.Size(200, 30)
         Me.cmbState.TabIndex = 5
         '
         'lblCountry
         '
-        Me.lblCountry.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCountry.Location = New System.Drawing.Point(336, 110)
+        Me.lblCountry.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCountry.Location = New System.Drawing.Point(425, 108)
         Me.lblCountry.Name = "lblCountry"
-        Me.lblCountry.Size = New System.Drawing.Size(83, 23)
+        Me.lblCountry.Size = New System.Drawing.Size(115, 30)
         Me.lblCountry.TabIndex = 14
         Me.lblCountry.Text = "Country"
         '
         'cmbCountry
         '
         Me.cmbCountry.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCountry.Location = New System.Drawing.Point(430, 108)
+        Me.cmbCountry.Location = New System.Drawing.Point(546, 108)
         Me.cmbCountry.Name = "cmbCountry"
         Me.cmbCountry.Size = New System.Drawing.Size(200, 30)
         Me.cmbCountry.TabIndex = 6
@@ -585,7 +590,7 @@ Partial Class FrmAreaMaster
         'lblLatitude
         '
         Me.lblLatitude.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLatitude.Location = New System.Drawing.Point(671, 110)
+        Me.lblLatitude.Location = New System.Drawing.Point(983, 110)
         Me.lblLatitude.Name = "lblLatitude"
         Me.lblLatitude.Size = New System.Drawing.Size(74, 23)
         Me.lblLatitude.TabIndex = 16
@@ -595,7 +600,7 @@ Partial Class FrmAreaMaster
         'txtLatitude
         '
         Me.txtLatitude.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLatitude.Location = New System.Drawing.Point(760, 108)
+        Me.txtLatitude.Location = New System.Drawing.Point(1072, 108)
         Me.txtLatitude.Name = "txtLatitude"
         Me.txtLatitude.Size = New System.Drawing.Size(90, 29)
         Me.txtLatitude.TabIndex = 10
@@ -604,7 +609,7 @@ Partial Class FrmAreaMaster
         'lblLongitude
         '
         Me.lblLongitude.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLongitude.Location = New System.Drawing.Point(860, 110)
+        Me.lblLongitude.Location = New System.Drawing.Point(1172, 110)
         Me.lblLongitude.Name = "lblLongitude"
         Me.lblLongitude.Size = New System.Drawing.Size(74, 23)
         Me.lblLongitude.TabIndex = 18
@@ -614,7 +619,7 @@ Partial Class FrmAreaMaster
         'txtLongitude
         '
         Me.txtLongitude.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLongitude.Location = New System.Drawing.Point(940, 108)
+        Me.txtLongitude.Location = New System.Drawing.Point(1252, 108)
         Me.txtLongitude.Name = "txtLongitude"
         Me.txtLongitude.Size = New System.Drawing.Size(90, 29)
         Me.txtLongitude.TabIndex = 11
@@ -622,17 +627,17 @@ Partial Class FrmAreaMaster
         '
         'lblDispSrNo
         '
-        Me.lblDispSrNo.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDispSrNo.Location = New System.Drawing.Point(860, 69)
+        Me.lblDispSrNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDispSrNo.Location = New System.Drawing.Point(993, 31)
         Me.lblDispSrNo.Name = "lblDispSrNo"
-        Me.lblDispSrNo.Size = New System.Drawing.Size(89, 23)
+        Me.lblDispSrNo.Size = New System.Drawing.Size(89, 31)
         Me.lblDispSrNo.TabIndex = 20
         Me.lblDispSrNo.Text = "Display Sr No"
         '
         'txtDispSrNo
         '
         Me.txtDispSrNo.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDispSrNo.Location = New System.Drawing.Point(960, 68)
+        Me.txtDispSrNo.Location = New System.Drawing.Point(1088, 32)
         Me.txtDispSrNo.Name = "txtDispSrNo"
         Me.txtDispSrNo.Size = New System.Drawing.Size(70, 29)
         Me.txtDispSrNo.TabIndex = 8
@@ -641,34 +646,29 @@ Partial Class FrmAreaMaster
         '
         Me.chkActive.Checked = True
         Me.chkActive.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkActive.Location = New System.Drawing.Point(1000, 30)
+        Me.chkActive.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkActive.Location = New System.Drawing.Point(1223, 30)
         Me.chkActive.Name = "chkActive"
-        Me.chkActive.Size = New System.Drawing.Size(104, 24)
+        Me.chkActive.Size = New System.Drawing.Size(124, 32)
         Me.chkActive.TabIndex = 9
         Me.chkActive.Text = "Active"
         '
-        'gcArea
+        'lblAreaId
         '
-        Me.gcArea.Location = New System.Drawing.Point(10, 220)
-        Me.gcArea.MainView = Me.gvArea
-        Me.gcArea.Name = "gcArea"
-        Me.gcArea.Size = New System.Drawing.Size(1180, 337)
-        Me.gcArea.TabIndex = 7
-        Me.gcArea.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvArea})
-        '
-        'gvArea
-        '
-        Me.gvArea.GridControl = Me.gcArea
-        Me.gvArea.Name = "gvArea"
-        Me.gvArea.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvArea.OptionsView.ShowAutoFilterRow = True
-        Me.gvArea.OptionsView.ShowGroupPanel = False
+        Me.lblAreaId.AutoSize = True
+        Me.lblAreaId.Location = New System.Drawing.Point(874, 227)
+        Me.lblAreaId.Name = "lblAreaId"
+        Me.lblAreaId.Size = New System.Drawing.Size(53, 17)
+        Me.lblAreaId.TabIndex = 9
+        Me.lblAreaId.Text = "Area Id"
+        Me.lblAreaId.Visible = False
         '
         'btnAdd
         '
+        Me.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnAdd.BackColor = System.Drawing.Color.SandyBrown
         Me.btnAdd.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(325, 563)
+        Me.btnAdd.Location = New System.Drawing.Point(358, 702)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(93, 47)
         Me.btnAdd.TabIndex = 0
@@ -677,9 +677,10 @@ Partial Class FrmAreaMaster
         '
         'btnEdit
         '
+        Me.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btnEdit.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(424, 563)
+        Me.btnEdit.Location = New System.Drawing.Point(457, 702)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(93, 47)
         Me.btnEdit.TabIndex = 2
@@ -688,9 +689,10 @@ Partial Class FrmAreaMaster
         '
         'btnDelete
         '
+        Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnDelete.BackColor = System.Drawing.Color.Red
         Me.btnDelete.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(523, 563)
+        Me.btnDelete.Location = New System.Drawing.Point(556, 702)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(93, 47)
         Me.btnDelete.TabIndex = 3
@@ -699,9 +701,10 @@ Partial Class FrmAreaMaster
         '
         'btnSave
         '
+        Me.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnSave.BackColor = System.Drawing.Color.SpringGreen
         Me.btnSave.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(622, 563)
+        Me.btnSave.Location = New System.Drawing.Point(655, 702)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(93, 47)
         Me.btnSave.TabIndex = 4
@@ -710,9 +713,10 @@ Partial Class FrmAreaMaster
         '
         'btnCancel
         '
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnCancel.BackColor = System.Drawing.Color.OrangeRed
         Me.btnCancel.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(721, 563)
+        Me.btnCancel.Location = New System.Drawing.Point(754, 702)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(93, 47)
         Me.btnCancel.TabIndex = 5
@@ -721,24 +725,15 @@ Partial Class FrmAreaMaster
         '
         'btnClose
         '
+        Me.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnClose.BackColor = System.Drawing.Color.Cornsilk
         Me.btnClose.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Location = New System.Drawing.Point(820, 563)
+        Me.btnClose.Location = New System.Drawing.Point(853, 702)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(93, 47)
         Me.btnClose.TabIndex = 6
         Me.btnClose.Text = "CL&OSE"
         Me.btnClose.UseVisualStyleBackColor = False
-        '
-        'lblAreaId
-        '
-        Me.lblAreaId.AutoSize = True
-        Me.lblAreaId.Location = New System.Drawing.Point(665, 225)
-        Me.lblAreaId.Name = "lblAreaId"
-        Me.lblAreaId.Size = New System.Drawing.Size(53, 17)
-        Me.lblAreaId.TabIndex = 9
-        Me.lblAreaId.Text = "Area Id"
-        Me.lblAreaId.Visible = False
         '
         'ContextMenuStrip1
         '
@@ -750,28 +745,73 @@ Partial Class FrmAreaMaster
         'RenameColumnToolStripMenuItem
         '
         Me.RenameColumnToolStripMenuItem.Name = "RenameColumnToolStripMenuItem"
-        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.RenameColumnToolStripMenuItem.Text = "Rename Column"
         '
         'ExportToExcelToolStripMenuItem
         '
         Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
-        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.ExportToExcelToolStripMenuItem.Text = "Export to Excel"
         '
         'SaveLayoutToolStripMenuItem
         '
         Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
-        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
+        '
+        'gcData
+        '
+        Me.gcData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gcData.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gcData.Location = New System.Drawing.Point(12, 221)
+        Me.gcData.MainView = Me.gvData
+        Me.gcData.Name = "gcData"
+        Me.gcData.Size = New System.Drawing.Size(1412, 475)
+        Me.gcData.TabIndex = 10
+        Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
+        '
+        'gvData
+        '
+        Me.gvData.Appearance.FocusedRow.BackColor = System.Drawing.Color.LightBlue
+        Me.gvData.Appearance.FocusedRow.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvData.Appearance.FocusedRow.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.gvData.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvData.Appearance.FocusedRow.Options.UseFont = True
+        Me.gvData.Appearance.HeaderPanel.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvData.Appearance.Row.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.Row.Options.UseFont = True
+        Me.gvData.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gvData.GridControl = Me.gcData
+        Me.gvData.Name = "gvData"
+        Me.gvData.OptionsBehavior.Editable = False
+        Me.gvData.OptionsLayout.Columns.StoreAllOptions = True
+        Me.gvData.OptionsView.ShowGroupPanel = False
+        Me.gvData.RowHeight = 27
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnRefresh.BackColor = System.Drawing.Color.OrangeRed
+        Me.btnRefresh.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.Location = New System.Drawing.Point(952, 702)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(93, 47)
+        Me.btnRefresh.TabIndex = 11
+        Me.btnRefresh.Text = "&REFRESH"
+        Me.btnRefresh.UseVisualStyleBackColor = False
         '
         'FrmAreaMaster
         '
-        Me.ClientSize = New System.Drawing.Size(1200, 620)
+        Me.ClientSize = New System.Drawing.Size(1436, 759)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.lblAreaId)
+        Me.Controls.Add(Me.gcData)
         Me.Controls.Add(Me.lblHeader)
         Me.Controls.Add(Me.grpAreaInfo)
-        Me.Controls.Add(Me.gcArea)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnDelete)
@@ -783,9 +823,9 @@ Partial Class FrmAreaMaster
         Me.Text = "Area Master"
         Me.grpAreaInfo.ResumeLayout(False)
         Me.grpAreaInfo.PerformLayout()
-        CType(Me.gcArea, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvArea, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.gcData, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -806,7 +846,6 @@ Partial Class FrmAreaMaster
     Friend WithEvents txtLandmark As TextBox
 
     Friend WithEvents lblZone As Label
-    Friend WithEvents cmbZone As ComboBox
 
     Friend WithEvents lblCity As Label
     Friend WithEvents cmbCity As ComboBox
@@ -831,9 +870,6 @@ Partial Class FrmAreaMaster
 
     Friend WithEvents chkActive As CheckBox
 
-    Friend WithEvents gcArea As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvArea As DevExpress.XtraGrid.Views.Grid.GridView
-
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
@@ -845,4 +881,8 @@ Partial Class FrmAreaMaster
     Friend WithEvents RenameColumnToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportToExcelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveLayoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents gcData As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvData As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents btnRefresh As Button
+    Friend WithEvents cmbZone As ComboBox
 End Class

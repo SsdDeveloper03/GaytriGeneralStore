@@ -138,7 +138,9 @@ Public Class FrmMDIMain
     End Sub
 
     Private Sub BusinessProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusinessProfileToolStripMenuItem.Click
-
+        FrmBusinessProfile.MdiParent = Me
+        FrmBusinessProfile.Show()
+        FrmBusinessProfile.Activate()
     End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
@@ -277,6 +279,18 @@ Public Class FrmMDIMain
         FrmAreaMaster.MdiParent = Me
         FrmAreaMaster.Show()
         FrmAreaMaster.Activate()
+    End Sub
+
+    Private Sub EMiscMasterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EMiscMasterToolStripMenuItem.Click
+        FrmMiscMaster.MdiParent = Me
+        FrmMiscMaster.Show()
+        FrmMiscMaster.Activate()
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        FrmSettings.MdiParent = Me
+        FrmSettings.Show()
+        FrmSettings.Activate()
     End Sub
 
     Private Sub cmbFinYr_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbFinYr.Validating, cmbCName.Validating

@@ -513,6 +513,12 @@
     <Compile Include="Master\FrmAreaMaster.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Master\FrmBusinessProfile.Designer.vb">
+      <DependentUpon>FrmBusinessProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmBusinessProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Master\FrmCustomerMaster.Designer.vb">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </Compile>
@@ -523,6 +529,12 @@
       <DependentUpon>FrmEmployeeMaster.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\FrmEmployeeMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\FrmMiscMaster.Designer.vb">
+      <DependentUpon>FrmMiscMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmMiscMaster.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -556,6 +568,12 @@
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
     </Compile>
     <Compile Include="Utility\FrmRunQuery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\FrmSettings.Designer.vb">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FrmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FrmOutstandingReport.Designer.vb">
@@ -602,11 +620,17 @@
     <EmbeddedResource Include="Master\FrmAreaMaster.resx">
       <DependentUpon>FrmAreaMaster.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmBusinessProfile.resx">
+      <DependentUpon>FrmBusinessProfile.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\FrmCustomerMaster.resx">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\FrmEmployeeMaster.resx">
       <DependentUpon>FrmEmployeeMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmMiscMaster.resx">
+      <DependentUpon>FrmMiscMaster.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -623,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmRunQuery.resx">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\FrmSettings.resx">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmOutstandingReport.resx">
       <DependentUpon>FrmOutstandingReport.vb</DependentUpon>
@@ -682,6 +709,8 @@
     <None Include="Resources\Exit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Misc.png" />
+    <None Include="Resources\Outstanding.png" />
     <Content Include="Sunrise Logo Icon FIles.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

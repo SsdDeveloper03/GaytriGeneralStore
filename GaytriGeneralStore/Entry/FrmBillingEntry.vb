@@ -4,7 +4,7 @@ Public Class FrmBillingEntry
 
     'Copy of INVOICE MASTER just need  changes
 #Region "Comments"
-    'Name:Gaytri
+    'Name:Gayatry
     'Created By:Manav
     'Form:FrmBillingEntry
     'Date:07/03/2026
@@ -22,7 +22,7 @@ Public Class FrmBillingEntry
     Dim _LedgerCodeInitial As String = ""
     Dim dv As New DataView
     Dim dt As New DataTable
-
+    Dim escCount As Integer
 #End Region
 
 
@@ -135,28 +135,68 @@ Public Class FrmBillingEntry
         dsCmb.Dispose()
     End Sub
 
-    Public Sub Fill_Ledger()
-        Dim dsLedger As New DataSet()
-        'Select Case UCase(M_CompanyWisePurchase)
-        '    Case "YES"
-        '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) And CId = " & M_CId & " Order By LedgerName"
-        '        Exit Select
-        '    Case Else
-        '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) Order By LedgerName"
-        '        Exit Select
-        'End Select
+    'Public Sub Fill_Ledger()
+    '    Dim dsLedger As New DataSet()
+    '    'Select Case UCase(M_CompanyWisePurchase)
+    '    '    Case "YES"
+    '    '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) And CId = " & M_CId & " Order By LedgerName"
+    '    '        Exit Select
+    '    '    Case Else
+    '    '        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, City, State, Taxation, FaxNo, AcContactPerson From tbl_LedgerMaster Where G_Id In (11) Order By LedgerName"
+    '    '        Exit Select
+    '    'End Select
 
-        'obj.LoadData(sql_query, dsLedger)
-        dv.RowFilter = "G_Id = 11 "
-        dt = dv.ToTable()
+    '    'obj.LoadData(sql_query, dsLedger)
+    '    dv.RowFilter = "G_Id = 11 "
+    '    dt = dv.ToTable()
 
-        cmbLedger.Properties.DataSource = dt.DefaultView
+    '    cmbLedger.Properties.DataSource = dt.DefaultView
 
+    '    cmbLedger.Properties.ValueMember = "LedgerId"
+    '    cmbLedger.Properties.DisplayMember = "LedgerName"
+    '    cmbLedger.Properties.PopulateViewColumns()
+
+    '    'Dim visibleCols() As String = {"Code", "LedgerCode", "LedgerName", "MobileNo", "AreaName", "City", "State", "SP_LedgerName", "CP_LedgerName"}
+    '    Dim visibleCols() As String = {"Code", "LedgerCode", "LedgerName", "MobileNo", "AreaName", "City", "State", "SP_LedgerName", "CP_LedgerName", "AcContactPerson"}
+    '    For Each col As DevExpress.XtraGrid.Columns.GridColumn In cmbLedger.Properties.View.Columns
+    '        If visibleCols.Contains(col.FieldName) Then
+    '            col.Visible = True
+    '        Else
+    '            col.Visible = False
+    '        End If
+    '    Next
+    '    cmbLedger.Properties.View.Columns("Code").Caption = "SrNo"
+    '    cmbLedger.Properties.View.Columns("LedgerCode").Caption = "Code"
+    '    cmbLedger.Properties.View.Columns("LedgerName").Caption = "customer Name"
+    '    cmbLedger.Properties.View.Columns("LedgerName").Width = 350
+    '    cmbLedger.Properties.View.Columns("CP_LedgerName").Caption = "CP Name"
+    '    cmbLedger.Properties.View.Columns("SP_LedgerName").Caption = "SP Name"
+
+    '    cmbLedger.Properties.View.Columns("AcContactPerson").Visible = False
+
+    '    cmbLedger.Properties.View.BestFitColumns()
+    '    cmbLedger.Properties.View.OptionsView.ColumnAutoWidth = True
+    '    cmbLedger.Properties.PopupFormWidth = 850
+    '    cmbLedger.Properties.View.Appearance.Row.Font = New Font("Segoe UI", 11)
+    '    cmbLedger.Properties.View.Appearance.HeaderPanel.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+    '    cmbLedger.Properties.View.RowHeight = 28
+    'End Sub
+
+    Public Sub fill_ledger()
+        Dim dsLedger As New DataSet
+
+        sql_query = "Select LedgerId, Code, LedgerCode, LedgerName, MobileNo, AreaName, City, State, SP_LedgerName, CP_LedgerName, CP_LedgerId, Address1, Address2, Pincode, Country, State From View_LedgerMaster_Gaytari Where G_Id = 11 And CId = " & M_CId & " Order By LedgerName"
+
+        obj.LoadData(sql_query, dsLedger)
+
+        cmbLedger.Properties.DataSource = dsLedger.Tables(0)
         cmbLedger.Properties.ValueMember = "LedgerId"
         cmbLedger.Properties.DisplayMember = "LedgerName"
+
         cmbLedger.Properties.PopulateViewColumns()
 
         Dim visibleCols() As String = {"Code", "LedgerCode", "LedgerName", "MobileNo", "AreaName", "City", "State", "SP_LedgerName", "CP_LedgerName"}
+
         For Each col As DevExpress.XtraGrid.Columns.GridColumn In cmbLedger.Properties.View.Columns
             If visibleCols.Contains(col.FieldName) Then
                 col.Visible = True
@@ -164,18 +204,17 @@ Public Class FrmBillingEntry
                 col.Visible = False
             End If
         Next
+
         cmbLedger.Properties.View.Columns("Code").Caption = "SrNo"
         cmbLedger.Properties.View.Columns("LedgerCode").Caption = "Code"
-        cmbLedger.Properties.View.Columns("LedgerName").Caption = "customer Name"
+        cmbLedger.Properties.View.Columns("LedgerName").Caption = "Customer Name"
         cmbLedger.Properties.View.Columns("LedgerName").Width = 350
         cmbLedger.Properties.View.Columns("CP_LedgerName").Caption = "CP Name"
         cmbLedger.Properties.View.Columns("SP_LedgerName").Caption = "SP Name"
 
-        cmbLedger.Properties.View.BestFitColumns()
-        cmbLedger.Properties.View.OptionsView.ColumnAutoWidth = True
         cmbLedger.Properties.PopupFormWidth = 850
+        cmbLedger.Properties.View.BestFitColumns()
     End Sub
-
 
     Public Sub ComboFill_Search(ByVal cmb As ComboBox, ByVal sql As String)
         Dim dsCmb As New Data.DataSet
@@ -234,7 +273,15 @@ Public Class FrmBillingEntry
         obj.AddCmdParameter("@InsSys_Time", Dtype.DateTime, Date.Now, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsCurrUsr", Dtype.varchar, loggedUser, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsSP1", Dtype.nvarchar, cmbCollectionPerson.SelectedValue, ParaDirection.Input, True)
+        Dim cp As String = ""
+
+        If cmbCollectionPerson.SelectedValue IsNot Nothing Then
+            cp = cmbCollectionPerson.SelectedValue.ToString()
+        End If
+
+        obj.AddCmdParameter("@InsSP1", Dtype.nvarchar, cp, ParaDirection.Input, True)
+
+        'obj.AddCmdParameter("@InsSP1", Dtype.nvarchar, cmbCollectionPerson.SelectedValue, ParaDirection.Input, True)
         obj.ExecuteCommand()
 
         'If Val(txtOpBal.Text) <> 0 Then
@@ -292,7 +339,14 @@ Public Class FrmBillingEntry
         obj.AddCmdParameter("@UpRemark3", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpInvId", Dtype.int, Val(lblInvId.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@UPSP1", Dtype.nvarchar, cmbCollectionPerson.Text, ParaDirection.Input, True)
+        Dim cp As String = ""
+
+        If cmbCollectionPerson.SelectedValue IsNot Nothing Then
+            cp = cmbCollectionPerson.SelectedValue.ToString()
+        End If
+
+        obj.AddCmdParameter("@UPSP1", Dtype.nvarchar, cp, ParaDirection.Input, True)
+        'obj.AddCmdParameter("@UPSP1", Dtype.nvarchar, cmbCollectionPerson.SelectedValue, ParaDirection.Input, True)
         obj.ExecuteCommand()
 
         'setOpeningBalance(Val(lblLedgerId.Text))
@@ -335,7 +389,9 @@ Public Class FrmBillingEntry
 
         ComboFill(cmbSeries, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Prefix') Order By MiscName")
         ComboFill(cmbSuffix, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Suffix') Order By MiscName")
-        ComboFill(cmbCollectionPerson, "Select LedgerId , LedgerName From tbl_LedgerMaster Where CId = " & M_CId & " and G_Id = 30 Order By LedgerName")
+        ComboFill(cmbCollectionPerson, "Select LedgerId , LedgerName From tbl_LedgerMaster Where G_Id = 30 And CId = " & M_CId & " Order By LedgerName")
+        'ComboFill(cmbCollectionPerson, "Select LedgerId , LedgerName From tbl_LedgerMaster Where CId = " & M_CId & " and G_Id = 30 Order By LedgerName")
+
         'ComboFill(cmbCity, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('City') Order By MiscName")
         'ComboFill(cmbState, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('State') Order By MiscName")
         'ComboFill(cmbCountry, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('Country') Order By MiscName")
@@ -495,7 +551,7 @@ Public Class FrmBillingEntry
 
         lblInvId.Text = gvData.GetFocusedRowCellValue("InvId")
         txtBillNo.Text = gvData.GetFocusedRowCellValue("InvoiceNo")
-        cmbLedger.Text = gvData.GetFocusedRowCellValue("LedgerId")
+        cmbLedger.EditValue = gvData.GetFocusedRowCellValue("LedgerId")
         txtBillNumber.Text = gvData.GetFocusedRowCellValue("InvoiceNumber")
         txtAdd1.Text = gvData.GetFocusedRowCellValue("Address1")
         txtAdd2.Text = gvData.GetFocusedRowCellValue("Address2")
@@ -504,12 +560,13 @@ Public Class FrmBillingEntry
         txtState.Text = gvData.GetFocusedRowCellValue("State")
         txtCountry.Text = gvData.GetFocusedRowCellValue("Country")
         txtMobile.Text = gvData.GetFocusedRowCellValue("MobileNo")
-        cmbCollectionPerson.Text = gvData.GetFocusedRowCellValue("SP1")
+        cmbCollectionPerson.SelectedValue = gvData.GetFocusedRowCellValue("SP1")
 
     End Sub
 
     Public Sub getBillNo()
-        sql_query = "Select IsNull(Max(InvoiceNo),0) + 1 From tbl_InvoiceMaster Where ISNULL(SalesAcType,'') = '" & Trim(cmbSeries.Text) & "' And CId = " & M_CId
+        'sql_query = "Select IsNull(Max(InvoiceNo),0) + 1 From tbl_InvoiceMaster Where ISNULL(SalesAcType,'') = '" & Trim(cmbSeries.Text) & "' And CId = " & M_CId
+        sql_query = "Select IsNull(Max(InvoiceNo),0) + 1 From tbl_InvoiceMaster Where CId = " & M_CId
         txtBillNo.Text = obj.ScalarExecute(sql_query)
     End Sub
 
@@ -582,6 +639,7 @@ Public Class FrmBillingEntry
                 Exit Select
             Case False
                 loadTime()
+                btn_Add.Focus()
                 Exit Select
         End Select
 
@@ -596,7 +654,8 @@ Public Class FrmBillingEntry
         'cmbState.SelectedIndex = -1
         'cmbF_Area.Text = "ALL"
 
-        btn_Add.Focus()
+        dtpBillDate.Value = Date.Today
+
     End Sub
 
     Private Sub btn_Add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Add.Click
@@ -667,6 +726,7 @@ Public Class FrmBillingEntry
         End If
 
         saveClickTime()
+        addClickTime()
     End Sub
 
     Private Sub btn_Delete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
@@ -918,32 +978,52 @@ Public Class FrmBillingEntry
     End Sub
 
     Private Sub cmbLedger_EditValueChanged(sender As Object, e As EventArgs) Handles cmbLedger.EditValueChanged
-        Dim slkp As DevExpress.XtraEditors.SearchLookUpEdit = sender
+        FillCustomerDetails()
 
-        txtName.Text = slkp.Properties.View.GetFocusedRowCellValue("LedgerName")
-        txtPincode.Text = slkp.Properties.View.GetFocusedRowCellValue("Pincode")
-        txtAdd1.Text = slkp.Properties.View.GetFocusedRowCellValue("Address1")
-        txtAdd2.Text = slkp.Properties.View.GetFocusedRowCellValue("Address2")
-        txtMobile.Text = slkp.Properties.View.GetFocusedRowCellValue("MobileNo")
-        txtState.Text = slkp.Properties.View.GetFocusedRowCellValue("State")
-        txtCountry.Text = slkp.Properties.View.GetFocusedRowCellValue("Country")
-        txtAreaCity.Text = slkp.Properties.View.GetFocusedRowCellValue("AreaName") & " - " & slkp.Properties.View.GetFocusedRowCellValue("City")
-        cmbCollectionPerson.SelectedValue = slkp.Properties.View.GetFocusedRowCellValue("CP_LedgerId")
-        cmbCollectionPerson.Focus()
+        'Dim slkp As DevExpress.XtraEditors.SearchLookUpEdit = sender
+
+        'txtName.Text = slkp.Properties.View.GetFocusedRowCellValue("LedgerName")
+        'txtPincode.Text = slkp.Properties.View.GetFocusedRowCellValue("Pincode")
+        'txtAdd1.Text = slkp.Properties.View.GetFocusedRowCellValue("Address1")
+        'txtAdd2.Text = slkp.Properties.View.GetFocusedRowCellValue("Address2")
+        'txtMobile.Text = slkp.Properties.View.GetFocusedRowCellValue("MobileNo")
+        'txtState.Text = slkp.Properties.View.GetFocusedRowCellValue("State")
+        'txtCountry.Text = slkp.Properties.View.GetFocusedRowCellValue("Country")
+        'txtAreaCity.Text = slkp.Properties.View.GetFocusedRowCellValue("AreaName") & " - " & slkp.Properties.View.GetFocusedRowCellValue("City")
+        'Dim cpId As Object = slkp.Properties.View.GetFocusedRowCellValue("CP_LedgerId")
+
+        'If cpId IsNot Nothing AndAlso Not IsDBNull(cpId) Then
+        '    cmbCollectionPerson.SelectedValue = cpId
+        'Else
+        '    cmbCollectionPerson.SelectedIndex = -1
+        'End If
+
+        'cmbCollectionPerson.SelectedValue = slkp.Properties.View.GetFocusedRowCellValue("SP1")
+        'cmbCollectionPerson.Focus()
     End Sub
 
     Private Sub txtBillNo_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtBillNo.Validating
-        txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+        Select Case UCase(Trim(cmbSeries.Text))
+            Case "REGULAR"
+                txtBillNumber.Text = txtBillNo.Text
+            Case Else
+                txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+        End Select
     End Sub
 
     Private Sub cmbSeries_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbSeries.Validating, cmbSuffix.Validating
         If Val(cmbSeries.SelectedIndex) > -1 Then
             getBillNo()
-            txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+            Select Case UCase(Trim(cmbSeries.Text))
+                Case "REGULAR"
+                    txtBillNumber.Text = txtBillNo.Text
+                Case Else
+                    txtBillNumber.Text = Trim(cmbSeries.Text & txtBillNo.Text & cmbSuffix.Text)
+            End Select
         End If
     End Sub
 
-    Private Sub txtBillNo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtState.KeyPress, txtSearch.KeyPress, txtPincode.KeyPress, txtName.KeyPress, txtMobile.KeyPress, txtCountry.KeyPress, txtBillNumber.KeyPress, txtAreaCity.KeyPress, txtAdd2.KeyPress, txtAdd1.KeyPress, dtpBillDate.KeyPress, cmbSuffix.KeyPress, cmbSeries.KeyPress, cmbLedger.KeyPress, cmbCollectionPerson.KeyPress
+    Private Sub txtBillNo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtState.KeyPress, dtpSalesDueDate.KeyPress, txtSearch.KeyPress, txtPincode.KeyPress, txtName.KeyPress, txtMobile.KeyPress, txtCountry.KeyPress, txtBillNumber.KeyPress, txtAreaCity.KeyPress, txtAdd2.KeyPress, txtAdd1.KeyPress, dtpBillDate.KeyPress, cmbSuffix.KeyPress, cmbSeries.KeyPress, cmbLedger.KeyPress, cmbCollectionPerson.KeyPress, txtDueAmt.KeyPress
         If e.KeyChar = Chr(13) Then
             SendKeys.Send("{Tab}")
         End If
@@ -975,7 +1055,7 @@ Public Class FrmBillingEntry
     Private Sub gvData_Click(sender As Object, e As EventArgs) Handles gvData.Click
         Dim selectedRows() As Integer = gvData.GetSelectedRows
 
-        If selectedRows.Length < 0 Then
+        If selectedRows.Length <= 0 Then
             Exit Sub
         End If
         fillData()
@@ -990,7 +1070,7 @@ Public Class FrmBillingEntry
     Private Sub gvData_DoubleClick(sender As Object, e As EventArgs) Handles gvData.DoubleClick
         Dim selectedRows() As Integer = gvData.GetSelectedRows
 
-        If selectedRows.Length < 0 Then
+        If selectedRows.Length <= 0 Then
             Exit Sub
         End If
         fillData()
@@ -1013,13 +1093,123 @@ Public Class FrmBillingEntry
         txtDueAmt.Text = Val(txtBillAmount.Text) - Val(txtReceivedAmount.Text)
     End Sub
 
-    Private Sub dtpBillDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpBillDate.ValueChanged
-
-    End Sub
-
     Private Sub dtpSalesDueDate_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dtpSalesDueDate.Validating
         btn_save.Focus()
     End Sub
+
+    Private Sub cmbLedger_Properties_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles cmbLedger.Properties.ButtonClick
+        If e.Button.Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Plus Then
+
+            Dim frm As New FrmCustomerMaster
+            frm.ShowDialog()
+
+            'Refresh Customer Lookup
+            Fill_Ledger()
+
+        End If
+    End Sub
+
+    Private Sub cmbLedger_KeyDown(sender As Object, e As KeyEventArgs) Handles cmbLedger.KeyDown
+
+        If e.KeyCode = Keys.F1 Then
+            OpenCustomerMaster()
+        End If
+
+    End Sub
+
+    Private Sub OpenCustomerMaster()
+        Dim frm As New FrmCustomerMaster
+        frm.OpenFromBilling = True
+        frm.ShowDialog()
+        If frm.NewLedgerId > 0 Then
+            Fill_Ledger()
+            cmbLedger.EditValue = frm.NewLedgerId
+            cmbLedger.Properties.View.FocusedRowHandle = cmbLedger.Properties.View.LocateByValue("LedgerId", frm.NewLedgerId)
+            FillCustomerDetails()
+            cmbLedger.Focus()
+        End If
+    End Sub
+
+    Private Sub cmbLedger_Popup(sender As Object, e As EventArgs) Handles cmbLedger.Popup
+
+        'If e.KeyCode = Keys.F1 Then
+        '    OpenCustomerMaster()
+        'End If
+
+    End Sub
+
+    Private Sub FrmBillingEntry_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+
+            Case Keys.F2
+                If btn_Add.Enabled = True Then btn_Add.PerformClick()
+
+            Case Keys.F3
+                If btn_Edit.Enabled = True Then btn_Edit.PerformClick()
+
+            Case Keys.F5
+                If btn_Refresh.Enabled = True Then btn_Refresh.PerformClick()
+
+            Case Keys.F6
+                If btn_save.Enabled = True Then btn_save.PerformClick()
+
+            Case Keys.F7
+                If btn_Delete.Enabled = True Then btn_Delete.PerformClick()
+
+            Case Keys.F8
+                If btn_Cancel.Enabled = True Then btn_Cancel.PerformClick()
+
+            Case Keys.Escape
+
+                escCount += 1
+
+                If escCount = 1 Then
+                    MsgBox("Press ESC again to close", MsgBoxStyle.Information)
+                ElseIf escCount = 2 Then
+                    Me.Close()
+                End If
+
+        End Select
+    End Sub
+
+    Private Sub FillCustomerDetails()
+
+        Dim view As DevExpress.XtraGrid.Views.Grid.GridView = cmbLedger.Properties.View
+
+        If view.FocusedRowHandle < 0 Then Exit Sub
+
+        txtName.Text = view.GetFocusedRowCellValue("LedgerName")
+        txtPincode.Text = view.GetFocusedRowCellValue("Pincode")
+        txtAdd1.Text = view.GetFocusedRowCellValue("Address1")
+        txtAdd2.Text = view.GetFocusedRowCellValue("Address2")
+        txtMobile.Text = view.GetFocusedRowCellValue("MobileNo")
+        txtState.Text = view.GetFocusedRowCellValue("State")
+        txtCountry.Text = view.GetFocusedRowCellValue("Country")
+
+        txtAreaCity.Text = view.GetFocusedRowCellValue("AreaName") & " - " & view.GetFocusedRowCellValue("City")
+
+        Dim cpId As Object = view.GetFocusedRowCellValue("CP_LedgerId")
+
+        If cpId IsNot Nothing AndAlso Not IsDBNull(cpId) Then
+            cmbCollectionPerson.SelectedValue = cpId
+        Else
+            cmbCollectionPerson.SelectedIndex = -1
+        End If
+
+    End Sub
+
+    'Private Sub cmbLedger_KeyDown(sender As Object, e As KeyEventArgs) Handles cmbLedger.KeyDown
+
+    '    If e.KeyCode = Keys.F2 Then
+
+    '        Dim frm As New FrmCustomerMaster
+    '        frm.ShowDialog()
+
+    '        Fill_Ledger()
+
+    '    End If
+
+    'End Sub
 
     'Private Sub cmbF_Area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbF_Area.SelectedValueChanged
     '    gridfill("")

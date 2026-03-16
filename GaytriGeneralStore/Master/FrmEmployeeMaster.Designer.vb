@@ -120,8 +120,8 @@ Partial Class FrmEmployeeMaster
         Me.SplitContainer1.Panel2.Controls.Add(Me.pnlHeader)
         Me.SplitContainer1.Panel2.Controls.Add(Me.pnlSearch)
         Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(15)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1690, 750)
-        Me.SplitContainer1.SplitterDistance = 585
+        Me.SplitContainer1.Size = New System.Drawing.Size(1733, 839)
+        Me.SplitContainer1.SplitterDistance = 599
         Me.SplitContainer1.SplitterIncrement = 10
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 0
@@ -135,7 +135,7 @@ Partial Class FrmEmployeeMaster
         Me.grpBasicInfo.Location = New System.Drawing.Point(15, 15)
         Me.grpBasicInfo.Name = "grpBasicInfo"
         Me.grpBasicInfo.Padding = New System.Windows.Forms.Padding(15)
-        Me.grpBasicInfo.Size = New System.Drawing.Size(559, 319)
+        Me.grpBasicInfo.Size = New System.Drawing.Size(559, 338)
         Me.grpBasicInfo.TabIndex = 0
         Me.grpBasicInfo.TabStop = False
         Me.grpBasicInfo.Text = "📋 BASIC INFORMATION"
@@ -158,17 +158,17 @@ Partial Class FrmEmployeeMaster
         Me.pnlInputContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlInputContainer.Location = New System.Drawing.Point(15, 40)
         Me.pnlInputContainer.Name = "pnlInputContainer"
-        Me.pnlInputContainer.Size = New System.Drawing.Size(529, 264)
+        Me.pnlInputContainer.Size = New System.Drawing.Size(529, 283)
         Me.pnlInputContainer.TabIndex = 0
         '
         'lblEmployeeName
         '
         Me.lblEmployeeName.AutoSize = True
-        Me.lblEmployeeName.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblEmployeeName.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmployeeName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblEmployeeName.Location = New System.Drawing.Point(15, 75)
+        Me.lblEmployeeName.Location = New System.Drawing.Point(15, 79)
         Me.lblEmployeeName.Name = "lblEmployeeName"
-        Me.lblEmployeeName.Size = New System.Drawing.Size(208, 20)
+        Me.lblEmployeeName.Size = New System.Drawing.Size(226, 29)
         Me.lblEmployeeName.TabIndex = 0
         Me.lblEmployeeName.Text = "👤 Employee Name *"
         '
@@ -179,19 +179,19 @@ Partial Class FrmEmployeeMaster
         Me.txtEmployeeName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtEmployeeName.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtEmployeeName.ForeColor = System.Drawing.Color.Black
-        Me.txtEmployeeName.Location = New System.Drawing.Point(19, 103)
+        Me.txtEmployeeName.Location = New System.Drawing.Point(19, 111)
         Me.txtEmployeeName.Name = "txtEmployeeName"
-        Me.txtEmployeeName.Size = New System.Drawing.Size(444, 28)
+        Me.txtEmployeeName.Size = New System.Drawing.Size(441, 28)
         Me.txtEmployeeName.TabIndex = 2
         '
         'lblLedgerCode
         '
         Me.lblLedgerCode.AutoSize = True
-        Me.lblLedgerCode.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblLedgerCode.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLedgerCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblLedgerCode.Location = New System.Drawing.Point(15, 13)
         Me.lblLedgerCode.Name = "lblLedgerCode"
-        Me.lblLedgerCode.Size = New System.Drawing.Size(155, 20)
+        Me.lblLedgerCode.Size = New System.Drawing.Size(168, 29)
         Me.lblLedgerCode.TabIndex = 2
         Me.lblLedgerCode.Text = "📊 Ledger Code"
         '
@@ -201,7 +201,7 @@ Partial Class FrmEmployeeMaster
         Me.txtLedgerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLedgerCode.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtLedgerCode.ForeColor = System.Drawing.Color.Green
-        Me.txtLedgerCode.Location = New System.Drawing.Point(19, 41)
+        Me.txtLedgerCode.Location = New System.Drawing.Point(19, 45)
         Me.txtLedgerCode.Name = "txtLedgerCode"
         Me.txtLedgerCode.Size = New System.Drawing.Size(151, 28)
         Me.txtLedgerCode.TabIndex = 0
@@ -211,11 +211,11 @@ Partial Class FrmEmployeeMaster
         'lblMobileNo
         '
         Me.lblMobileNo.AutoSize = True
-        Me.lblMobileNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblMobileNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMobileNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMobileNo.Location = New System.Drawing.Point(251, 139)
+        Me.lblMobileNo.Location = New System.Drawing.Point(251, 142)
         Me.lblMobileNo.Name = "lblMobileNo"
-        Me.lblMobileNo.Size = New System.Drawing.Size(150, 20)
+        Me.lblMobileNo.Size = New System.Drawing.Size(167, 29)
         Me.lblMobileNo.TabIndex = 5
         Me.lblMobileNo.Text = "📱 Mobile No *"
         '
@@ -225,20 +225,20 @@ Partial Class FrmEmployeeMaster
         Me.txtMobileNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtMobileNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtMobileNo.ForeColor = System.Drawing.Color.Black
-        Me.txtMobileNo.Location = New System.Drawing.Point(255, 162)
+        Me.txtMobileNo.Location = New System.Drawing.Point(264, 174)
         Me.txtMobileNo.MaxLength = 10
         Me.txtMobileNo.Name = "txtMobileNo"
-        Me.txtMobileNo.Size = New System.Drawing.Size(208, 28)
+        Me.txtMobileNo.Size = New System.Drawing.Size(196, 28)
         Me.txtMobileNo.TabIndex = 4
         '
         'lblPhoneNo
         '
         Me.lblPhoneNo.AutoSize = True
-        Me.lblPhoneNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPhoneNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPhoneNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(130, Byte), Integer))
-        Me.lblPhoneNo.Location = New System.Drawing.Point(15, 139)
+        Me.lblPhoneNo.Location = New System.Drawing.Point(15, 142)
         Me.lblPhoneNo.Name = "lblPhoneNo"
-        Me.lblPhoneNo.Size = New System.Drawing.Size(128, 20)
+        Me.lblPhoneNo.Size = New System.Drawing.Size(143, 29)
         Me.lblPhoneNo.TabIndex = 8
         Me.lblPhoneNo.Text = "📞 Phone No"
         '
@@ -248,7 +248,7 @@ Partial Class FrmEmployeeMaster
         Me.txtPhoneNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPhoneNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtPhoneNo.ForeColor = System.Drawing.Color.Black
-        Me.txtPhoneNo.Location = New System.Drawing.Point(19, 162)
+        Me.txtPhoneNo.Location = New System.Drawing.Point(19, 174)
         Me.txtPhoneNo.MaxLength = 10
         Me.txtPhoneNo.Name = "txtPhoneNo"
         Me.txtPhoneNo.Size = New System.Drawing.Size(208, 28)
@@ -257,11 +257,11 @@ Partial Class FrmEmployeeMaster
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblEmail.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(15, 203)
+        Me.lblEmail.Location = New System.Drawing.Point(15, 205)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(90, 20)
+        Me.lblEmail.Size = New System.Drawing.Size(101, 29)
         Me.lblEmail.TabIndex = 10
         Me.lblEmail.Text = "✉ Email"
         '
@@ -271,19 +271,19 @@ Partial Class FrmEmployeeMaster
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtEmail.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtEmail.ForeColor = System.Drawing.Color.Black
-        Me.txtEmail.Location = New System.Drawing.Point(19, 226)
+        Me.txtEmail.Location = New System.Drawing.Point(20, 237)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(444, 28)
+        Me.txtEmail.Size = New System.Drawing.Size(439, 28)
         Me.txtEmail.TabIndex = 5
         '
         'lblGSTNo
         '
         Me.lblGSTNo.AutoSize = True
-        Me.lblGSTNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblGSTNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGSTNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblGSTNo.Location = New System.Drawing.Point(224, 13)
         Me.lblGSTNo.Name = "lblGSTNo"
-        Me.lblGSTNo.Size = New System.Drawing.Size(107, 20)
+        Me.lblGSTNo.Size = New System.Drawing.Size(117, 29)
         Me.lblGSTNo.TabIndex = 12
         Me.lblGSTNo.Text = "🏷 GST No"
         '
@@ -294,10 +294,10 @@ Partial Class FrmEmployeeMaster
         Me.txtGSTNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtGSTNo.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
         Me.txtGSTNo.ForeColor = System.Drawing.Color.Black
-        Me.txtGSTNo.Location = New System.Drawing.Point(218, 41)
+        Me.txtGSTNo.Location = New System.Drawing.Point(218, 45)
         Me.txtGSTNo.MaxLength = 15
         Me.txtGSTNo.Name = "txtGSTNo"
-        Me.txtGSTNo.Size = New System.Drawing.Size(245, 28)
+        Me.txtGSTNo.Size = New System.Drawing.Size(242, 28)
         Me.txtGSTNo.TabIndex = 1
         Me.txtGSTNo.TabStop = False
         '
@@ -307,10 +307,10 @@ Partial Class FrmEmployeeMaster
         Me.grpAddressDetails.Controls.Add(Me.pnlAddressContainer)
         Me.grpAddressDetails.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpAddressDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.grpAddressDetails.Location = New System.Drawing.Point(15, 340)
+        Me.grpAddressDetails.Location = New System.Drawing.Point(15, 359)
         Me.grpAddressDetails.Name = "grpAddressDetails"
         Me.grpAddressDetails.Padding = New System.Windows.Forms.Padding(15)
-        Me.grpAddressDetails.Size = New System.Drawing.Size(559, 291)
+        Me.grpAddressDetails.Size = New System.Drawing.Size(559, 353)
         Me.grpAddressDetails.TabIndex = 1
         Me.grpAddressDetails.TabStop = False
         Me.grpAddressDetails.Text = "📍 ADDRESS DETAILS"
@@ -337,7 +337,7 @@ Partial Class FrmEmployeeMaster
         Me.pnlAddressContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlAddressContainer.Location = New System.Drawing.Point(15, 40)
         Me.pnlAddressContainer.Name = "pnlAddressContainer"
-        Me.pnlAddressContainer.Size = New System.Drawing.Size(529, 236)
+        Me.pnlAddressContainer.Size = New System.Drawing.Size(529, 298)
         Me.pnlAddressContainer.TabIndex = 0
         '
         'cmbDrCr
@@ -346,7 +346,7 @@ Partial Class FrmEmployeeMaster
         Me.cmbDrCr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.cmbDrCr.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDrCr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cmbDrCr.Location = New System.Drawing.Point(361, 199)
+        Me.cmbDrCr.Location = New System.Drawing.Point(361, 241)
         Me.cmbDrCr.Name = "cmbDrCr"
         Me.cmbDrCr.Size = New System.Drawing.Size(119, 30)
         Me.cmbDrCr.TabIndex = 18
@@ -358,7 +358,7 @@ Partial Class FrmEmployeeMaster
         Me.txtOpBal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtOpBal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOpBal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtOpBal.Location = New System.Drawing.Point(228, 199)
+        Me.txtOpBal.Location = New System.Drawing.Point(228, 241)
         Me.txtOpBal.Name = "txtOpBal"
         Me.txtOpBal.Size = New System.Drawing.Size(119, 30)
         Me.txtOpBal.TabIndex = 17
@@ -372,7 +372,7 @@ Partial Class FrmEmployeeMaster
         Me.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddArea.ForeColor = System.Drawing.Color.White
-        Me.btnAddArea.Location = New System.Drawing.Point(211, 83)
+        Me.btnAddArea.Location = New System.Drawing.Point(215, 115)
         Me.btnAddArea.Name = "btnAddArea"
         Me.btnAddArea.Size = New System.Drawing.Size(30, 28)
         Me.btnAddArea.TabIndex = 15
@@ -384,11 +384,11 @@ Partial Class FrmEmployeeMaster
         'lblAddress
         '
         Me.lblAddress.AutoSize = True
-        Me.lblAddress.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblAddress.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAddress.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblAddress.Location = New System.Drawing.Point(15, 10)
         Me.lblAddress.Name = "lblAddress"
-        Me.lblAddress.Size = New System.Drawing.Size(99, 18)
+        Me.lblAddress.Size = New System.Drawing.Size(127, 29)
         Me.lblAddress.TabIndex = 0
         Me.lblAddress.Text = "🏠 Address"
         '
@@ -398,19 +398,19 @@ Partial Class FrmEmployeeMaster
         Me.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAddress.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.txtAddress.ForeColor = System.Drawing.Color.Black
-        Me.txtAddress.Location = New System.Drawing.Point(15, 31)
+        Me.txtAddress.Location = New System.Drawing.Point(19, 42)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(448, 26)
+        Me.txtAddress.Size = New System.Drawing.Size(441, 26)
         Me.txtAddress.TabIndex = 0
         '
         'lblPinCode
         '
         Me.lblPinCode.AutoSize = True
-        Me.lblPinCode.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPinCode.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPinCode.Location = New System.Drawing.Point(267, 65)
+        Me.lblPinCode.Location = New System.Drawing.Point(267, 82)
         Me.lblPinCode.Name = "lblPinCode"
-        Me.lblPinCode.Size = New System.Drawing.Size(103, 18)
+        Me.lblPinCode.Size = New System.Drawing.Size(133, 29)
         Me.lblPinCode.TabIndex = 4
         Me.lblPinCode.Text = "📍 Pin Code"
         '
@@ -420,7 +420,7 @@ Partial Class FrmEmployeeMaster
         Me.txtPinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPinCode.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.txtPinCode.ForeColor = System.Drawing.Color.Black
-        Me.txtPinCode.Location = New System.Drawing.Point(267, 86)
+        Me.txtPinCode.Location = New System.Drawing.Point(264, 117)
         Me.txtPinCode.Name = "txtPinCode"
         Me.txtPinCode.Size = New System.Drawing.Size(196, 26)
         Me.txtPinCode.TabIndex = 2
@@ -429,11 +429,11 @@ Partial Class FrmEmployeeMaster
         'lblSelectArea
         '
         Me.lblSelectArea.AutoSize = True
-        Me.lblSelectArea.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblSelectArea.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSelectArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(130, Byte), Integer))
-        Me.lblSelectArea.Location = New System.Drawing.Point(12, 65)
+        Me.lblSelectArea.Location = New System.Drawing.Point(12, 81)
         Me.lblSelectArea.Name = "lblSelectArea"
-        Me.lblSelectArea.Size = New System.Drawing.Size(126, 18)
+        Me.lblSelectArea.Size = New System.Drawing.Size(157, 29)
         Me.lblSelectArea.TabIndex = 6
         Me.lblSelectArea.Text = "🔽 Select Area"
         '
@@ -445,7 +445,7 @@ Partial Class FrmEmployeeMaster
         Me.cmbSelectArea.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbSelectArea.ForeColor = System.Drawing.Color.Black
         Me.cmbSelectArea.FormattingEnabled = True
-        Me.cmbSelectArea.Location = New System.Drawing.Point(15, 86)
+        Me.cmbSelectArea.Location = New System.Drawing.Point(19, 117)
         Me.cmbSelectArea.Name = "cmbSelectArea"
         Me.cmbSelectArea.Size = New System.Drawing.Size(190, 26)
         Me.cmbSelectArea.TabIndex = 1
@@ -453,11 +453,11 @@ Partial Class FrmEmployeeMaster
         'lblCountry
         '
         Me.lblCountry.AutoSize = True
-        Me.lblCountry.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCountry.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCountry.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblCountry.Location = New System.Drawing.Point(19, 182)
+        Me.lblCountry.Location = New System.Drawing.Point(19, 209)
         Me.lblCountry.Name = "lblCountry"
-        Me.lblCountry.Size = New System.Drawing.Size(97, 18)
+        Me.lblCountry.Size = New System.Drawing.Size(125, 29)
         Me.lblCountry.TabIndex = 8
         Me.lblCountry.Text = "🌍 Country"
         '
@@ -469,7 +469,7 @@ Partial Class FrmEmployeeMaster
         Me.cmbCountry.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCountry.ForeColor = System.Drawing.Color.Black
         Me.cmbCountry.FormattingEnabled = True
-        Me.cmbCountry.Location = New System.Drawing.Point(15, 203)
+        Me.cmbCountry.Location = New System.Drawing.Point(19, 241)
         Me.cmbCountry.Name = "cmbCountry"
         Me.cmbCountry.Size = New System.Drawing.Size(190, 26)
         Me.cmbCountry.TabIndex = 5
@@ -478,11 +478,11 @@ Partial Class FrmEmployeeMaster
         'lblState
         '
         Me.lblState.AutoSize = True
-        Me.lblState.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblState.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblState.Location = New System.Drawing.Point(264, 120)
+        Me.lblState.Location = New System.Drawing.Point(264, 146)
         Me.lblState.Name = "lblState"
-        Me.lblState.Size = New System.Drawing.Size(77, 18)
+        Me.lblState.Size = New System.Drawing.Size(96, 29)
         Me.lblState.TabIndex = 10
         Me.lblState.Text = "🏛 State"
         '
@@ -494,20 +494,20 @@ Partial Class FrmEmployeeMaster
         Me.cmbState.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbState.ForeColor = System.Drawing.Color.Black
         Me.cmbState.FormattingEnabled = True
-        Me.cmbState.Location = New System.Drawing.Point(264, 138)
+        Me.cmbState.Location = New System.Drawing.Point(264, 180)
         Me.cmbState.Name = "cmbState"
-        Me.cmbState.Size = New System.Drawing.Size(199, 26)
+        Me.cmbState.Size = New System.Drawing.Size(196, 26)
         Me.cmbState.TabIndex = 4
         Me.cmbState.TabStop = False
         '
         'lblCity
         '
         Me.lblCity.AutoSize = True
-        Me.lblCity.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCity.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCity.Location = New System.Drawing.Point(19, 120)
+        Me.lblCity.Location = New System.Drawing.Point(19, 146)
         Me.lblCity.Name = "lblCity"
-        Me.lblCity.Size = New System.Drawing.Size(64, 18)
+        Me.lblCity.Size = New System.Drawing.Size(83, 29)
         Me.lblCity.TabIndex = 12
         Me.lblCity.Text = "🏙 City"
         '
@@ -519,7 +519,7 @@ Partial Class FrmEmployeeMaster
         Me.cmbCity.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCity.ForeColor = System.Drawing.Color.Black
         Me.cmbCity.FormattingEnabled = True
-        Me.cmbCity.Location = New System.Drawing.Point(15, 141)
+        Me.cmbCity.Location = New System.Drawing.Point(19, 180)
         Me.cmbCity.Name = "cmbCity"
         Me.cmbCity.Size = New System.Drawing.Size(190, 26)
         Me.cmbCity.TabIndex = 3
@@ -547,7 +547,7 @@ Partial Class FrmEmployeeMaster
         Me.pnlButtons.Controls.Add(Me.btn_Edit)
         Me.pnlButtons.Controls.Add(Me.btn_Add)
         Me.pnlButtons.Font = New System.Drawing.Font("Verdana", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.pnlButtons.Location = New System.Drawing.Point(15, 638)
+        Me.pnlButtons.Location = New System.Drawing.Point(15, 727)
         Me.pnlButtons.Name = "pnlButtons"
         Me.pnlButtons.Size = New System.Drawing.Size(559, 100)
         Me.pnlButtons.TabIndex = 2
@@ -666,7 +666,7 @@ Partial Class FrmEmployeeMaster
         Me.gcData.Location = New System.Drawing.Point(15, 161)
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1069, 579)
+        Me.gcData.Size = New System.Drawing.Size(1096, 668)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
         '
@@ -735,7 +735,7 @@ Partial Class FrmEmployeeMaster
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHeader.Location = New System.Drawing.Point(15, 15)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1070, 64)
+        Me.pnlHeader.Size = New System.Drawing.Size(1099, 64)
         Me.pnlHeader.TabIndex = 0
         '
         'lblTitle
@@ -753,7 +753,7 @@ Partial Class FrmEmployeeMaster
         '
         Me.pnlHeaderRight.Controls.Add(Me.lblTotalRecords)
         Me.pnlHeaderRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlHeaderRight.Location = New System.Drawing.Point(870, 0)
+        Me.pnlHeaderRight.Location = New System.Drawing.Point(899, 0)
         Me.pnlHeaderRight.Name = "pnlHeaderRight"
         Me.pnlHeaderRight.Size = New System.Drawing.Size(200, 64)
         Me.pnlHeaderRight.TabIndex = 1
@@ -823,7 +823,7 @@ Partial Class FrmEmployeeMaster
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1690, 750)
+        Me.ClientSize = New System.Drawing.Size(1733, 839)
         Me.Controls.Add(Me.SplitContainer1)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

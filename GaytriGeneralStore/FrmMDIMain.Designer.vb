@@ -563,20 +563,22 @@ Partial Class FrmMDIMain
         Me.cmbCName = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BusinessProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BillingEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaymentCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OutstandingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PaymentAdjustToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusinessProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DAreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EMiscMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -587,7 +589,7 @@ Partial Class FrmMDIMain
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.ForeColor = System.Drawing.Color.White
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.MasterToolStripMenuItem, Me.EntryToolStripMenuItem, Me.ViewToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.UtilityToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.EntryToolStripMenuItem, Me.ViewToolStripMenuItem, Me.UtilityToolStripMenuItem, Me.MasterToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -625,7 +627,7 @@ Partial Class FrmMDIMain
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1327, 4)
+        Me.Label1.Location = New System.Drawing.Point(1327, 1)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Label1.Size = New System.Drawing.Size(58, 28)
@@ -640,7 +642,7 @@ Partial Class FrmMDIMain
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(956, 4)
+        Me.Label2.Location = New System.Drawing.Point(956, 2)
         Me.Label2.Name = "Label2"
         Me.Label2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Label2.Size = New System.Drawing.Size(103, 28)
@@ -657,7 +659,7 @@ Partial Class FrmMDIMain
         Me.cmbCName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
         Me.cmbCName.FormattingEnabled = True
-        Me.cmbCName.Location = New System.Drawing.Point(1068, 4)
+        Me.cmbCName.Location = New System.Drawing.Point(1068, 2)
         Me.cmbCName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCName.Name = "cmbCName"
         Me.cmbCName.Size = New System.Drawing.Size(252, 28)
@@ -667,7 +669,7 @@ Partial Class FrmMDIMain
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 28)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
@@ -684,42 +686,25 @@ Partial Class FrmMDIMain
         Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(96, 24)
         Me.HomeToolStripMenuItem.Text = "Home"
         '
-        'MasterToolStripMenuItem
+        'TransactionToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.DAreaToolStripMenuItem})
-        Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(123, 24)
-        Me.MasterToolStripMenuItem.Text = "&1.Master"
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaymentAdjustToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.TransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.TransactionToolStripMenuItem.Image = CType(resources.GetObject("TransactionToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(171, 24)
+        Me.TransactionToolStripMenuItem.Text = "&1.Transaction"
         '
-        'BusinessProfileToolStripMenuItem
+        'PaymentAdjustToolStripMenuItem
         '
-        Me.BusinessProfileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.BusinessProfileToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.BusinessProfileToolStripMenuItem.Image = CType(resources.GetObject("BusinessProfileToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
-        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.BusinessProfileToolStripMenuItem.Text = "&A. Business Profile"
-        '
-        'CustomerToolStripMenuItem
-        '
-        Me.CustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.CustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.CustomerToolStripMenuItem.Image = CType(resources.GetObject("CustomerToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.CustomerToolStripMenuItem.Text = "&B. Customer"
-        '
-        'EmployeeToolStripMenuItem
-        '
-        Me.EmployeeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.EmployeeToolStripMenuItem.Image = CType(resources.GetObject("EmployeeToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.EmployeeToolStripMenuItem.Text = "&C. Employee"
+        Me.PaymentAdjustToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.PaymentAdjustToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.PaymentAdjustToolStripMenuItem.Image = CType(resources.GetObject("PaymentAdjustToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
+        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
+        Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
+        Me.PaymentAdjustToolStripMenuItem.Visible = False
         '
         'EntryToolStripMenuItem
         '
@@ -748,6 +733,7 @@ Partial Class FrmMDIMain
         Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
         Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
         Me.PaymentCollectionToolStripMenuItem.Text = "&B. Payment Collection"
+        Me.PaymentCollectionToolStripMenuItem.Visible = False
         '
         'ViewToolStripMenuItem
         '
@@ -761,37 +747,86 @@ Partial Class FrmMDIMain
         '
         'OutstandingReportToolStripMenuItem
         '
+        Me.OutstandingReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.OutstandingReportToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.OutstandingReportToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Outstanding
         Me.OutstandingReportToolStripMenuItem.Name = "OutstandingReportToolStripMenuItem"
         Me.OutstandingReportToolStripMenuItem.Size = New System.Drawing.Size(266, 26)
         Me.OutstandingReportToolStripMenuItem.Text = "Outstanding report"
         '
-        'TransactionToolStripMenuItem
-        '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaymentAdjustToolStripMenuItem})
-        Me.TransactionToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
-        Me.TransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.TransactionToolStripMenuItem.Image = CType(resources.GetObject("TransactionToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
-        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(171, 24)
-        Me.TransactionToolStripMenuItem.Text = "&4.Transaction"
-        '
-        'PaymentAdjustToolStripMenuItem
-        '
-        Me.PaymentAdjustToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
-        Me.PaymentAdjustToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.PaymentAdjustToolStripMenuItem.Image = CType(resources.GetObject("PaymentAdjustToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PaymentAdjustToolStripMenuItem.Name = "PaymentAdjustToolStripMenuItem"
-        Me.PaymentAdjustToolStripMenuItem.Size = New System.Drawing.Size(235, 26)
-        Me.PaymentAdjustToolStripMenuItem.Text = "Payment Adjust"
-        '
         'UtilityToolStripMenuItem
         '
+        Me.UtilityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
         Me.UtilityToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
         Me.UtilityToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.UtilityToolStripMenuItem.Image = CType(resources.GetObject("UtilityToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UtilityToolStripMenuItem.Name = "UtilityToolStripMenuItem"
         Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(118, 24)
-        Me.UtilityToolStripMenuItem.Text = "&5.Utility"
+        Me.UtilityToolStripMenuItem.Text = "&4.Utility"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(188, 26)
+        Me.SettingsToolStripMenuItem.Text = "&A. Settings"
+        '
+        'MasterToolStripMenuItem
+        '
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.DAreaToolStripMenuItem, Me.EMiscMasterToolStripMenuItem})
+        Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(123, 24)
+        Me.MasterToolStripMenuItem.Text = "&5.Master"
+        '
+        'BusinessProfileToolStripMenuItem
+        '
+        Me.BusinessProfileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.BusinessProfileToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.BusinessProfileToolStripMenuItem.Image = CType(resources.GetObject("BusinessProfileToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
+        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.BusinessProfileToolStripMenuItem.Text = "&A. Business Profile"
+        '
+        'CustomerToolStripMenuItem
+        '
+        Me.CustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.CustomerToolStripMenuItem.Image = CType(resources.GetObject("CustomerToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.CustomerToolStripMenuItem.Text = "&B. Customer"
+        '
+        'EmployeeToolStripMenuItem
+        '
+        Me.EmployeeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.EmployeeToolStripMenuItem.Image = CType(resources.GetObject("EmployeeToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.EmployeeToolStripMenuItem.Text = "&C. Employee"
+        '
+        'DAreaToolStripMenuItem
+        '
+        Me.DAreaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.DAreaToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DAreaToolStripMenuItem.Image = CType(resources.GetObject("DAreaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DAreaToolStripMenuItem.Name = "DAreaToolStripMenuItem"
+        Me.DAreaToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.DAreaToolStripMenuItem.Text = "&D. Area"
+        '
+        'EMiscMasterToolStripMenuItem
+        '
+        Me.EMiscMasterToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.EMiscMasterToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.EMiscMasterToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Misc
+        Me.EMiscMasterToolStripMenuItem.Name = "EMiscMasterToolStripMenuItem"
+        Me.EMiscMasterToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.EMiscMasterToolStripMenuItem.Text = "&E. Misc Master"
+        Me.EMiscMasterToolStripMenuItem.Visible = False
         '
         'ExitToolStripMenuItem
         '
@@ -801,12 +836,6 @@ Partial Class FrmMDIMain
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
         Me.ExitToolStripMenuItem.Text = "E&xit"
-        '
-        'DAreaToolStripMenuItem
-        '
-        Me.DAreaToolStripMenuItem.Name = "DAreaToolStripMenuItem"
-        Me.DAreaToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.DAreaToolStripMenuItem.Text = "D. Area"
         '
         'FrmMDIMain
         '
@@ -859,4 +888,6 @@ Partial Class FrmMDIMain
     Friend WithEvents cmbCName As ComboBox
     Friend WithEvents OutstandingReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DAreaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EMiscMasterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
 End Class

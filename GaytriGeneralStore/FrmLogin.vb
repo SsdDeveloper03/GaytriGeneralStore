@@ -652,7 +652,6 @@ Public Class FrmLogin
 
         M_UpdateSoftware()
 
-
         'Dim dr As DialogResult
         'dr = MsgBox("Sure To Update Software ?", MsgBoxStyle.YesNo)
         'If dr = Windows.Forms.DialogResult.Yes Then

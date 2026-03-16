@@ -3,14 +3,18 @@
 Public Class FrmAreaMaster
 
 #Region "Comments"
-
+    'Name:Texpert
+    'Created By:Manav
+    'Form:FrmAreaMaster
+    'Date:14/03/2026
 #End Region
 
 #Region "Declaration"
-    Dim obj As DBManager
+    Dim obj As New DBManager
     Dim sql_query As String
-    Dim ds As Data.DataSet
+    Dim ds As New Data.DataSet
     Dim edit_ins As Integer = -1
+    Dim escCount As Integer
 
 #End Region
 
@@ -21,52 +25,51 @@ Public Class FrmAreaMaster
     End Sub
 
     Public Sub gridfill()
-        sql_query = "Select AreaName, CityName, StateName, CountryName, DispSrNo, * from tbl_AreaMaster where IsActive = 'True'"
+
+        ds.Clear()
+
+        sql_query = "Select * from tbl_AreaMaster where IsActive = 1"
         obj.LoadData(sql_query, ds)
 
-        gcArea.DataSource = ds.Tables(0).DefaultView
-        gvArea.OptionsView.ColumnAutoWidth = False
-        gvArea.BestFitColumns()
+        gcData.DataSource = ds.Tables(0)
 
-        gvArea.Columns("AreaName").Caption = "Area Name"
-        gvArea.Columns("CityName").Caption = "City Name"
-        gvArea.Columns("StateName").Caption = "State Name"
-        gvArea.Columns("CountryName").Caption = "Country Name"
-        gvArea.Columns("Pincode").Caption = "Pincode"
-        gvArea.Columns("DispSrNo").Caption = "Display Sr No"
+        gvData.PopulateColumns()
 
-        gvArea.Columns("Landmark").Visible = False
-        gvArea.Columns("Latitude").Visible = False
-        gvArea.Columns("Longitude").Visible = False
-        gvArea.Columns("Zone").Visible = False
-        gvArea.Columns("CountryCode").Visible = False
-        gvArea.Columns("StateCode").Visible = False
-        gvArea.Columns("CreatedAt").Visible = False
-        gvArea.Columns("ModuifiedAt").Visible = False
-        gvArea.Columns("CreatedBy").Visible = False
-        gvArea.Columns("SysName").Visible = False
-        gvArea.Columns("CreatedFrom").Visible = False
-        gvArea.Columns("ModuifiedFrom").Visible = False
+        gvData.OptionsView.ColumnAutoWidth = False
+        gvData.BestFitColumns()
 
-        RestoreLayout(gvArea, "FrmAreaMaster")
+        gvData.Columns("AreaName").Caption = "Area Name"
+        gvData.Columns("CityName").Caption = "City Name"
+        gvData.Columns("StateName").Caption = "State Name"
+        gvData.Columns("CountryName").Caption = "Country Name"
+        gvData.Columns("Pincode").Caption = "Pincode"
+        gvData.Columns("DispSrNo").Caption = "Display Sr No"
+
+        gvData.Columns("Landmark").Visible = False
+        gvData.Columns("Latitude").Visible = False
+        gvData.Columns("Longitude").Visible = False
+        gvData.Columns("CountryCode").Visible = False
+        gvData.Columns("StateCode").Visible = False
+
+        RestoreLayout(gvData, "FrmAreaMaster")
+
     End Sub
 
     Public Sub filldata()
-        If gvArea.FocusedRowHandle < 0 Then
+        If gvData.FocusedRowHandle < 0 Then
             Exit Sub
         End If
 
-        lblAreaId.Text = gvArea.GetFocusedRowCellValue("AreaId")
-        txtAreaName.Text = gvArea.GetFocusedRowCellValue("AreaName")
-        cmbCity.Text = gvArea.GetFocusedRowCellValue("CityName")
-        cmbCountry.Text = gvArea.GetFocusedRowCellValue("CountryName")
-        cmbState.Text = gvArea.GetFocusedRowCellValue("StateName")
-        cmbZone.Text = gvArea.GetFocusedRowCellValue("ZoneName")
-        txtDispSrNo.Text = gvArea.GetFocusedRowCellValue("DispSrNo")
-        txtLandmark.Text = gvArea.GetFocusedRowCellValue("Landmark")
-        txtPincode.Text = gvArea.GetFocusedRowCellValue("Pincode")
-        txtSubArea.Text = gvArea.GetFocusedRowCellValue("SubArea")
-        chkActive.Checked = gvArea.GetFocusedRowCellValue("IsActive")
+        lblAreaId.Text = gvData.GetFocusedRowCellValue("AreaId")
+        txtAreaName.Text = gvData.GetFocusedRowCellValue("AreaName")
+        cmbCity.Text = gvData.GetFocusedRowCellValue("CityName")
+        cmbCountry.Text = gvData.GetFocusedRowCellValue("CountryName")
+        cmbState.Text = gvData.GetFocusedRowCellValue("StateName")
+        txtSubArea.Text = gvData.GetFocusedRowCellValue("SubAreaName")
+        txtDispSrNo.Text = gvData.GetFocusedRowCellValue("DispSrNo")
+        txtLandmark.Text = gvData.GetFocusedRowCellValue("Landmark")
+        txtPincode.Text = gvData.GetFocusedRowCellValue("Pincode")
+        chkActive.Checked = gvData.GetFocusedRowCellValue("IsActive")
 
     End Sub
 
@@ -88,47 +91,48 @@ Public Class FrmAreaMaster
 
     Public Sub Insert()
         obj.Prepare("SP_Insert_AreaMaster", SpType.StoredProcedure)
-        obj.AddCmdParameter("@AreaName", Dtype.varchar, Val(txtAreaName.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@Landmark", Dtype.varchar, Val(txtLandmark.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@SubAreaName", Dtype.varchar, Val(txtSubArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@ZoneName", Dtype.varchar, cmbZone.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CityName", Dtype.varchar, cmbCity.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@Pincode", Dtype.varchar, Val(txtPincode.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@Landmark", Dtype.varchar, Trim(txtLandmark.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@SubAreaName", Dtype.varchar, Trim(txtSubArea.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@AreaName", Dtype.varchar, Trim(txtAreaName.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@ZoneName", Dtype.varchar, Trim(cmbZone.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@CityName", Dtype.varchar, Trim(cmbCity.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@Pincode", Dtype.varchar, Trim(txtPincode.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@StateCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@StateName", Dtype.varchar, cmbState.SelectedValue, ParaDirection.Input, True)
+        obj.AddCmdParameter("@StateName", Dtype.varchar, Trim(cmbState.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@CountryCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CountryName", Dtype.varchar, cmbCountry.SelectedValue, ParaDirection.Input, True)
+        obj.AddCmdParameter("@CountryName", Dtype.varchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@Latitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
         obj.AddCmdParameter("@Longitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@DispSrNo", Dtype.int, Val(txtDispSrNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@IsActive", Dtype.Bit, Val(chkActive.Checked), ParaDirection.Input, True)
+        obj.AddCmdParameter("@DispSrNo", Dtype.int, If(txtDispSrNo.Text = "", 0, Val(txtDispSrNo.Text)), ParaDirection.Input, True)
+        obj.AddCmdParameter("@IsActive", Dtype.Bit, chkActive.Checked, ParaDirection.Input, True)
         obj.AddCmdParameter("@CreatedAt", Dtype.DateTime, DateTime.Now, ParaDirection.Input, True)
         obj.AddCmdParameter("@CreatedBy", Dtype.int, loggedUserId, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CreatedFrom", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@SysName", Dtype.nvarchar, Environment.MachineName, ParaDirection.Input, True)
+        obj.AddCmdParameter("@CreatedFrom", Dtype.varchar, "", ParaDirection.Input, True)
         obj.ExecuteCommand()
     End Sub
 
     Public Sub edit()
         obj.Prepare("SP_Update_AreaMaster", SpType.StoredProcedure)
-        obj.AddCmdParameter("@AreaName", Dtype.varchar, Val(txtAreaName.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@Landmark", Dtype.varchar, Val(txtLandmark.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@SubAreaName", Dtype.varchar, Val(txtSubArea.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@ZoneName", Dtype.varchar, cmbZone.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CityName", Dtype.varchar, cmbCity.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@Pincode", Dtype.varchar, Val(txtPincode.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@StateCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@StateName", Dtype.varchar, cmbState.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CountryCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@CountryName", Dtype.varchar, cmbCountry.SelectedValue, ParaDirection.Input, True)
-        obj.AddCmdParameter("@Latitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@Longitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
-        obj.AddCmdParameter("@DispSrNo", Dtype.int, Val(txtDispSrNo.Text), ParaDirection.Input, True)
-        obj.AddCmdParameter("@IsActive", Dtype.Bit, Val(chkActive.Checked), ParaDirection.Input, True)
-        obj.AddCmdParameter("@ModifiedAt", Dtype.DateTime, DateTime.Now, ParaDirection.Input, True)
-        obj.AddCmdParameter("@ModifiedBy", Dtype.int, loggedUserId, ParaDirection.Input, True)
-        obj.AddCmdParameter("@ModifiedFrom", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@SysName", Dtype.nvarchar, Environment.MachineName, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpLandmark", Dtype.varchar, Trim(txtLandmark.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpSubAreaName", Dtype.varchar, Trim(txtSubArea.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpAreaName", Dtype.varchar, Trim(txtAreaName.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpZoneName", Dtype.varchar, Trim(cmbZone.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCityName", Dtype.varchar, Trim(cmbCity.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpPincode", Dtype.varchar, Trim(txtPincode.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpStateCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpStateName", Dtype.varchar, Trim(cmbState.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCountryCode", Dtype.varchar, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCountryName", Dtype.varchar, Trim(cmbCountry.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpLatitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpLongitude", Dtype.float, DBNull.Value, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpDispSrNo", Dtype.int, If(txtDispSrNo.Text = "", 0, Val(txtDispSrNo.Text)), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpIsActive", Dtype.Bit, chkActive.Checked, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpModifiedAt", Dtype.DateTime, DateTime.Now, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpModifiedBy", Dtype.int, loggedUserId, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpSysName", Dtype.nvarchar, Environment.MachineName, ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpModifiedFrom", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@AreaId", Dtype.int, Val(lblAreaId.Text), ParaDirection.Input, True)
         obj.ExecuteCommand()
     End Sub
 
@@ -136,30 +140,45 @@ Public Class FrmAreaMaster
 
 #Region "Functions"
 
-    Public Function Validation()
+    Public Function Validation() As Boolean
+
         If txtAreaName.Text = "" Then
-            MsgBox("Please specify An Area Name.")
+            MsgBox("Please specify an Area Name.", MsgBoxStyle.Information)
+            txtAreaName.Focus()
+            Return False
         End If
 
         If txtPincode.Text = "" Then
-            MsgBox("Please specify Pincode Number.")
+            MsgBox("Please specify Pincode Number.", MsgBoxStyle.Information)
+            txtPincode.Focus()
+            Return False
         End If
 
         If txtSubArea.Text = "" Then
-            MsgBox("Please specify Sub Area Name.")
+            MsgBox("Please specify Sub Area Name.", MsgBoxStyle.Information)
+            txtSubArea.Focus()
+            Return False
         End If
 
         If txtLandmark.Text = "" Then
-            MsgBox("Please specify Landmark.")
+            MsgBox("Please specify Landmark.", MsgBoxStyle.Information)
+            txtLandmark.Focus()
+            Return False
         End If
 
         If cmbCity.SelectedIndex = -1 Then
-            MsgBox("Please Select a City.")
+            MsgBox("Please Select a City.", MsgBoxStyle.Information)
+            cmbCity.Focus()
+            Return False
         End If
 
-        If cmbZone.SelectedIndex = -1 Then
-            MsgBox("Please Select a Zone.")
-        End If
+        'If cmbZone.SelectedIndex = -1 Then
+        '    MsgBox("Please Select a Zone.", MsgBoxStyle.Information)
+        '    cmbZone.Focus()
+        '    Return False
+        'End If
+
+        Return True
 
     End Function
 
@@ -169,9 +188,9 @@ Public Class FrmAreaMaster
 
     Public Sub loadtime()
 
-        ComboFill(cmbCity, "Select Data1 from tbl_MiscMaster where Misctype = 'City'")
-        ComboFill(cmbState, "Select Data1 from tbl_MiscMaster where Misctype = 'State'")
-        ComboFill(cmbCountry, "Select Data1 from tbl_MiscMaster where Misctype = 'Country'")
+        ComboFill(cmbCity, "Select MiscId,MiscName from tbl_MiscMaster where Misctype = 'CITY'")
+        ComboFill(cmbState, "Select MiscId,MiscName from tbl_MiscMaster where Misctype = 'STATE'")
+        ComboFill(cmbCountry, "Select MiscId,MiscName from tbl_MiscMaster where Misctype = 'COUNTRY'")
 
         gridfill()
 
@@ -180,21 +199,21 @@ Public Class FrmAreaMaster
         btnSave.Enabled = False
         btnDelete.Enabled = False
 
-        gcArea.Enabled = True
+        gcData.Enabled = True
         grpAreaInfo.Enabled = False
 
     End Sub
 
     Public Sub AddClickTime()
         btnAdd.Enabled = True
-        btnSave.Enabled = False
+        btnSave.Enabled = True
         btnEdit.Enabled = False
         btnDelete.Enabled = False
 
-        gcArea.Enabled = False
+        gcData.Enabled = False
         grpAreaInfo.Enabled = True
 
-
+        edit_ins = 1
         txtAreaName.Focus()
     End Sub
 
@@ -205,7 +224,8 @@ Public Class FrmAreaMaster
         btnEdit.Enabled = True
         btnDelete.Enabled = True
 
-        gcArea.Enabled = False
+        edit_ins = 0
+        gcData.Enabled = False
         grpAreaInfo.Enabled = True
 
         filldata()
@@ -220,7 +240,7 @@ Public Class FrmAreaMaster
 
         del()
 
-        gcArea.Enabled = True
+        gcData.Enabled = True
         grpAreaInfo.Enabled = False
 
     End Sub
@@ -237,8 +257,9 @@ Public Class FrmAreaMaster
         btnEdit.Enabled = False
         btnDelete.Enabled = False
 
-        gcArea.Enabled = True
+        gcData.Enabled = True
         grpAreaInfo.Enabled = False
+
 
     End Sub
 
@@ -250,7 +271,7 @@ Public Class FrmAreaMaster
         btnEdit.Enabled = False
         btnDelete.Enabled = False
 
-        gcArea.Enabled = True
+        gcData.Enabled = True
         grpAreaInfo.Enabled = False
 
     End Sub
@@ -284,26 +305,148 @@ Public Class FrmAreaMaster
 
     End Sub
 
+    Public Sub RefreshClickTime()
+        btnAdd.Enabled = True
+        btnEdit.Enabled = False
+        btnSave.Enabled = False
+        btnDelete.Enabled = False
+        btnCancel.Enabled = True
+
+        clearfields()
+        gridfill()
+
+    End Sub
+
     Private Sub RenameColumnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenameColumnToolStripMenuItem.Click
-        gvArea.FocusedColumn.Caption = InputBox("Column Header Text", "Field Name", gvArea.FocusedColumn.FieldName)
+        gvData.FocusedColumn.Caption = InputBox("Column Header Text", "Field Name", gvData.FocusedColumn.FieldName)
     End Sub
 
     Private Sub ExportToExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToExcelToolStripMenuItem.Click
         Dim sfd As New SaveFileDialog
 
         If sfd.ShowDialog() = DialogResult.OK Then
-            gvArea.ExportToXlsx(sfd.FileName & ".xlsx")
+            gvData.ExportToXlsx(sfd.FileName & ".xlsx")
         End If
     End Sub
 
     Private Sub SaveLayoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLayoutToolStripMenuItem.Click
-        SaveLayout(gvArea, "FrmAreaMaster", Me)
+        SaveLayout(gvData, "FrmAreaMaster", Me)
     End Sub
 
-    Private Sub gvArea_MouseDown(sender As Object, e As MouseEventArgs) Handles gvArea.MouseDown
+    Private Sub gvData_MouseDown(sender As Object, e As MouseEventArgs)
         If e.Button = MouseButtons.Right Then
-            ContextMenuStrip1.Show(gcArea, e.Location)
+            ContextMenuStrip1.Show(gcData, e.Location)
         End If
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        AddClickTime()
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        EditClickTime()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        DeleteClickTime()
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+        If Validation() = False Then
+            Exit Sub
+        End If
+
+        SaveClickTime()
+        RefreshClickTime()
+    End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        CancelClickTime()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        ExitClickTime()
+    End Sub
+
+    Private Sub gvData_Click(sender As Object, e As EventArgs) Handles gvData.Click
+
+        Dim selectedRows() As Integer = gvData.GetSelectedRows
+
+        If selectedRows.Length <= 0 Then
+            Exit Sub
+        End If
+
+        filldata()
+
+        btnCancel.Enabled = True
+        btnEdit.Enabled = True
+        btnDelete.Enabled = True
+        btnSave.Enabled = False
+        btnAdd.Enabled = False
+    End Sub
+
+    Private Sub gvData_DoubleClick(sender As Object, e As EventArgs) Handles gvData.DoubleClick
+
+        Dim selectedRows() As Integer = gvData.GetSelectedRows
+
+        If selectedRows.Length <= 0 Then
+            Exit Sub
+        End If
+
+        filldata()
+
+        btnCancel.Enabled = True
+        btnEdit.Enabled = True
+        btnDelete.Enabled = True
+        btnSave.Enabled = False
+        btnAdd.Enabled = False
+
+        'If checkRightsToEdit("AREA MASTER") = False Then
+        '    MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
+
+        EditClickTime()
+
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        refreshclicktime()
+    End Sub
+
+    Private Sub FrmAreaMaster_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+
+            Case Keys.F2
+                If btnAdd.Enabled = True Then btnAdd.PerformClick()
+
+            Case Keys.F3
+                If btnEdit.Enabled = True Then btnEdit.PerformClick()
+
+            Case Keys.F5
+                If btnRefresh.Enabled = True Then btnRefresh.PerformClick()
+
+            Case Keys.F6
+                If btnSave.Enabled = True Then btnSave.PerformClick()
+
+            Case Keys.F7
+                If btnDelete.Enabled = True Then btnDelete.PerformClick()
+
+            Case Keys.F8
+                If btnCancel.Enabled = True Then btnCancel.PerformClick()
+
+            Case Keys.Escape
+
+                escCount += 1
+
+                If escCount = 1 Then
+                    MsgBox("Press ESC again to close", MsgBoxStyle.Information)
+                ElseIf escCount = 2 Then
+                    Me.Close()
+                End If
+
+        End Select
     End Sub
 
 #End Region

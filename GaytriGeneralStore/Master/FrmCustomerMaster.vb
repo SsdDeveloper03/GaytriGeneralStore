@@ -2,6 +2,8 @@
 
 Public Class FrmCustomerMaster
 
+    Public OpenFromBilling As Boolean = False
+    Public NewLedgerId As Integer = 0
 #Region "Comments"
     'Name:Gaytri
     'Created By:Smit
@@ -22,6 +24,7 @@ Public Class FrmCustomerMaster
     Dim _LedgerCodeInitial As String = ""
     Dim dv As New DataView
     Dim dt As New DataTable
+    Dim escCount As Integer
 
 #End Region
 
@@ -294,21 +297,21 @@ Public Class FrmCustomerMaster
 
         btnAdd.Enabled = True
         btnEdit.Enabled = False
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnDelete.Enabled = False
         btnCancel.Enabled = True
         'btnExit.Enabled = True
         gcData.Enabled = True
-        gbMainDetail.Enabled = False
+        gbMaindetail.Enabled = False
     End Sub
 
     Public Sub addClickTime()
-        gbMainDetail.Enabled = True
+        gbMaindetail.Enabled = True
         gcData.Enabled = False
 
         btnAdd.Enabled = False
         btnEdit.Enabled = False
-        btnSave.Enabled = True
+        btnsave.Enabled = True
         btnDelete.Enabled = False
         btnCancel.Enabled = True
         'btnExit.Enabled = True
@@ -324,12 +327,12 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub editClickTime()
-        gbMainDetail.Enabled = True
+        gbMaindetail.Enabled = True
         gcData.Enabled = False
 
         btnAdd.Enabled = False
         btnEdit.Enabled = False
-        btnSave.Enabled = True
+        btnsave.Enabled = True
         btnDelete.Enabled = False
         btnCancel.Enabled = True
         'btnExit.Enabled = True
@@ -346,7 +349,7 @@ Public Class FrmCustomerMaster
 
         btnAdd.Enabled = True
         btnEdit.Enabled = False
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnDelete.Enabled = False
         btnCancel.Enabled = True
         'btnExit.Enabled = True
@@ -387,7 +390,7 @@ Public Class FrmCustomerMaster
 
         btnAdd.Enabled = True
         btnEdit.Enabled = False
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnDelete.Enabled = False
         btnCancel.Enabled = True
         'btnExit.Enabled = True
@@ -422,13 +425,13 @@ Public Class FrmCustomerMaster
     End Sub
 
     Public Sub cancelClickTime()
-        gbMainDetail.Enabled = False
+        gbMaindetail.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
         btnAdd.Focus()
         btnEdit.Enabled = False
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnDelete.Enabled = False
         btnCancel.Enabled = False
         'btnExit.Enabled = True
@@ -608,7 +611,7 @@ Public Class FrmCustomerMaster
         editClickTime()
     End Sub
 
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsave.Click
         If Trim(txtLedgerCode.Text) = "" Then
             MsgBox("Please Specify Ledger Code", MsgBoxStyle.Information)
             txtLedgerCode.Focus()
@@ -656,6 +659,14 @@ Public Class FrmCustomerMaster
             '        Exit Sub
             '        Exit Select
             'End Select
+
+            NewLedgerId = obj.ScalarExecute("Select Max(LedgerId) From Tbl_LedgerMaster Where CId = " & M_CId)
+
+            'Close form only if opened from Billing Entry
+            If OpenFromBilling = True Then
+                Me.Close()
+                Exit Sub
+            End If
         Else
             edit()
         End If
@@ -710,7 +721,7 @@ Public Class FrmCustomerMaster
         End If
     End Sub
 
-    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerName.KeyPress, txtAdd1.KeyPress, txtAdd2.KeyPress, txtPinCode.KeyPress, txtEMailId.KeyPress, txtGSTNo.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbArea.KeyPress, cmbSalesPerson.KeyPress, cmbCollectionPerson.KeyPress, cmbCustType.KeyPress, cmbTaxation.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress
+    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAdd1.KeyPress, txtAdd2.KeyPress, txtPinCode.KeyPress, txtEMailId.KeyPress, txtGSTNo.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbArea.KeyPress, cmbSalesPerson.KeyPress, cmbCollectionPerson.KeyPress, cmbCustType.KeyPress, cmbTaxation.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress, txtLedgerName.KeyPress
         If e.KeyChar = Chr(13) Then
             SendKeys.Send("{Tab}")
         End If
@@ -1021,6 +1032,40 @@ Public Class FrmCustomerMaster
 
     Private Sub ExportToExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToExcelToolStripMenuItem.Click
         Dx_ExportToExcel(gvData)
+    End Sub
+
+    Private Sub FrmCustomerMaster_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+
+            Case Keys.F2
+                If btnAdd.Enabled = True Then btnAdd.PerformClick()
+
+            Case Keys.F3
+                If btnEdit.Enabled = True Then btnEdit.PerformClick()
+
+            Case Keys.F5
+                If btnRefresh.Enabled = True Then btnRefresh.PerformClick()
+
+            Case Keys.F6
+                If btnsave.Enabled = True Then btnsave.PerformClick()
+
+            Case Keys.F7
+                If btnDelete.Enabled = True Then btnDelete.PerformClick()
+
+            Case Keys.F8
+                If btnCancel.Enabled = True Then btnCancel.PerformClick()
+
+            Case Keys.Escape
+
+                escCount += 1
+
+                If escCount = 1 Then
+                    MsgBox("Press ESC again to close", MsgBoxStyle.Information)
+                ElseIf escCount = 2 Then
+                    Me.Close()
+                End If
+
+        End Select
     End Sub
 
 
