@@ -3280,9 +3280,16 @@ Partial Class FrmCustomerMaster
         Me.cmbF_Area = New System.Windows.Forms.ComboBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnClearSearch = New System.Windows.Forms.Button()
+        Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlBottomButtons = New System.Windows.Forms.Panel()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnsave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.pnlTopForm = New System.Windows.Forms.Panel()
-        Me.gbMaindetail = New System.Windows.Forms.GroupBox()
-        Me.pnlAllDetails = New System.Windows.Forms.Panel()
         Me.grpTaxInfo = New System.Windows.Forms.GroupBox()
         Me.tlpTaxInfo = New System.Windows.Forms.TableLayoutPanel()
         Me.lblGSTNo = New System.Windows.Forms.Label()
@@ -3293,6 +3300,8 @@ Partial Class FrmCustomerMaster
         Me.lblTaxation = New System.Windows.Forms.Label()
         Me.lblCollectionPerson = New System.Windows.Forms.Label()
         Me.lblSalesPerson = New System.Windows.Forms.Label()
+        Me.gbMaindetail = New System.Windows.Forms.GroupBox()
+        Me.pnlAllDetails = New System.Windows.Forms.Panel()
         Me.grpAddressDetails = New System.Windows.Forms.GroupBox()
         Me.tlpAddress = New System.Windows.Forms.TableLayoutPanel()
         Me.lblAddress1 = New System.Windows.Forms.Label()
@@ -3300,24 +3309,19 @@ Partial Class FrmCustomerMaster
         Me.lblAddress2 = New System.Windows.Forms.Label()
         Me.txtAdd2 = New System.Windows.Forms.TextBox()
         Me.lblArea = New System.Windows.Forms.Label()
-        Me.pnlArea = New System.Windows.Forms.Panel()
-        Me.cmbArea = New System.Windows.Forms.ComboBox()
-        Me.btnAddArea = New System.Windows.Forms.Button()
         Me.lblPinCode = New System.Windows.Forms.Label()
         Me.txtPinCode = New System.Windows.Forms.TextBox()
         Me.lblState = New System.Windows.Forms.Label()
         Me.cmbState = New System.Windows.Forms.ComboBox()
-        Me.lblDueDays = New System.Windows.Forms.Label()
-        Me.txtDueDays = New System.Windows.Forms.TextBox()
         Me.lblCity = New System.Windows.Forms.Label()
         Me.lblCountry = New System.Windows.Forms.Label()
         Me.cmbCity = New System.Windows.Forms.ComboBox()
         Me.cmbCountry = New System.Windows.Forms.ComboBox()
+        Me.cmbArea = New System.Windows.Forms.ComboBox()
         Me.grpBasicInfo = New System.Windows.Forms.GroupBox()
         Me.cmbDrCr = New System.Windows.Forms.TextBox()
         Me.txtOpBal = New System.Windows.Forms.TextBox()
         Me.tlpBasicInfo = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.lblCustomerName = New System.Windows.Forms.Label()
         Me.lblCustomerCode = New System.Windows.Forms.Label()
         Me.lblDisplaySrNo = New System.Windows.Forms.Label()
@@ -3332,36 +3336,28 @@ Partial Class FrmCustomerMaster
         Me.txtLedgerCode = New System.Windows.Forms.TextBox()
         Me.cmbCustType = New System.Windows.Forms.ComboBox()
         Me.txtDisplaySrNo = New System.Windows.Forms.TextBox()
-        Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
-        Me.pnlBottomButtons = New System.Windows.Forms.Panel()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnsave = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblTotalRecords = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.lblDueDays = New System.Windows.Forms.Label()
+        Me.txtDueDays = New System.Windows.Forms.TextBox()
         Me.pnlDataContainer.SuspendLayout()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlSearch.SuspendLayout()
-        Me.pnlTopForm.SuspendLayout()
-        Me.gbMaindetail.SuspendLayout()
-        Me.pnlAllDetails.SuspendLayout()
-        Me.grpTaxInfo.SuspendLayout()
-        Me.tlpTaxInfo.SuspendLayout()
-        Me.grpAddressDetails.SuspendLayout()
-        Me.tlpAddress.SuspendLayout()
-        Me.pnlArea.SuspendLayout()
-        Me.grpBasicInfo.SuspendLayout()
-        Me.tlpBasicInfo.SuspendLayout()
         Me.tlpMain.SuspendLayout()
         Me.pnlBottomButtons.SuspendLayout()
+        Me.pnlTopForm.SuspendLayout()
+        Me.grpTaxInfo.SuspendLayout()
+        Me.tlpTaxInfo.SuspendLayout()
+        Me.gbMaindetail.SuspendLayout()
+        Me.pnlAllDetails.SuspendLayout()
+        Me.grpAddressDetails.SuspendLayout()
+        Me.tlpAddress.SuspendLayout()
+        Me.grpBasicInfo.SuspendLayout()
+        Me.tlpBasicInfo.SuspendLayout()
         Me.pnlHeader.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -3371,11 +3367,11 @@ Partial Class FrmCustomerMaster
         Me.pnlDataContainer.Controls.Add(Me.lblLedgerId)
         Me.pnlDataContainer.Controls.Add(Me.gcData)
         Me.pnlDataContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 529)
+        Me.pnlDataContainer.Location = New System.Drawing.Point(10, 537)
         Me.pnlDataContainer.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlDataContainer.Name = "pnlDataContainer"
         Me.pnlDataContainer.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlDataContainer.Size = New System.Drawing.Size(1588, 380)
+        Me.pnlDataContainer.Size = New System.Drawing.Size(1588, 372)
         Me.pnlDataContainer.TabIndex = 6
         '
         'lblLedgerId
@@ -3399,7 +3395,7 @@ Partial Class FrmCustomerMaster
         Me.gcData.LookAndFeel.SkinName = "Office 2016 Colorful"
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1578, 370)
+        Me.gcData.Size = New System.Drawing.Size(1578, 362)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
         '
@@ -3498,10 +3494,10 @@ Partial Class FrmCustomerMaster
         Me.pnlSearch.Controls.Add(Me.btnSearch)
         Me.pnlSearch.Controls.Add(Me.btnClearSearch)
         Me.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlSearch.Location = New System.Drawing.Point(10, 435)
+        Me.pnlSearch.Location = New System.Drawing.Point(10, 430)
         Me.pnlSearch.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlSearch.Name = "pnlSearch"
-        Me.pnlSearch.Size = New System.Drawing.Size(1588, 37)
+        Me.pnlSearch.Size = New System.Drawing.Size(1588, 51)
         Me.pnlSearch.TabIndex = 2
         Me.pnlSearch.TabStop = True
         '
@@ -3510,7 +3506,7 @@ Partial Class FrmCustomerMaster
         Me.lblSearch.AutoSize = True
         Me.lblSearch.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblSearch.Location = New System.Drawing.Point(20, 9)
+        Me.lblSearch.Location = New System.Drawing.Point(11, 5)
         Me.lblSearch.Name = "lblSearch"
         Me.lblSearch.Size = New System.Drawing.Size(148, 29)
         Me.lblSearch.TabIndex = 0
@@ -3522,7 +3518,7 @@ Partial Class FrmCustomerMaster
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.ForeColor = System.Drawing.Color.Gray
-        Me.txtSearch.Location = New System.Drawing.Point(143, 6)
+        Me.txtSearch.Location = New System.Drawing.Point(165, 5)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(400, 29)
         Me.txtSearch.TabIndex = 0
@@ -3532,7 +3528,7 @@ Partial Class FrmCustomerMaster
         Me.lblSearchArea.AutoSize = True
         Me.lblSearchArea.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearchArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblSearchArea.Location = New System.Drawing.Point(546, 10)
+        Me.lblSearchArea.Location = New System.Drawing.Point(660, 5)
         Me.lblSearchArea.Name = "lblSearchArea"
         Me.lblSearchArea.Size = New System.Drawing.Size(68, 29)
         Me.lblSearchArea.TabIndex = 2
@@ -3547,7 +3543,7 @@ Partial Class FrmCustomerMaster
         Me.cmbF_Area.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbF_Area.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbF_Area.FormattingEnabled = True
-        Me.cmbF_Area.Location = New System.Drawing.Point(597, 6)
+        Me.cmbF_Area.Location = New System.Drawing.Point(739, 4)
         Me.cmbF_Area.Name = "cmbF_Area"
         Me.cmbF_Area.Size = New System.Drawing.Size(180, 29)
         Me.cmbF_Area.TabIndex = 1
@@ -3560,7 +3556,7 @@ Partial Class FrmCustomerMaster
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(1106, 5)
+        Me.btnSearch.Location = New System.Drawing.Point(1021, 5)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 28)
         Me.btnSearch.TabIndex = 2
@@ -3576,62 +3572,189 @@ Partial Class FrmCustomerMaster
         Me.btnClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClearSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearSearch.ForeColor = System.Drawing.Color.White
-        Me.btnClearSearch.Location = New System.Drawing.Point(786, 6)
+        Me.btnClearSearch.Location = New System.Drawing.Point(925, 5)
         Me.btnClearSearch.Name = "btnClearSearch"
         Me.btnClearSearch.Size = New System.Drawing.Size(90, 28)
         Me.btnClearSearch.TabIndex = 3
         Me.btnClearSearch.Text = "🗑️ CLEAR"
         Me.btnClearSearch.UseVisualStyleBackColor = False
         '
+        'tlpMain
+        '
+        Me.tlpMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.tlpMain.ColumnCount = 1
+        Me.tlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpMain.Controls.Add(Me.pnlBottomButtons, 0, 4)
+        Me.tlpMain.Controls.Add(Me.pnlTopForm, 0, 0)
+        Me.tlpMain.Controls.Add(Me.pnlSearch, 0, 1)
+        Me.tlpMain.Controls.Add(Me.pnlHeader, 0, 2)
+        Me.tlpMain.Controls.Add(Me.pnlDataContainer, 0, 3)
+        Me.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpMain.Location = New System.Drawing.Point(0, 0)
+        Me.tlpMain.Name = "tlpMain"
+        Me.tlpMain.Padding = New System.Windows.Forms.Padding(5)
+        Me.tlpMain.RowCount = 5
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 420.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpMain.Size = New System.Drawing.Size(1608, 979)
+        Me.tlpMain.TabIndex = 7
+        '
+        'pnlBottomButtons
+        '
+        Me.pnlBottomButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.pnlBottomButtons.Controls.Add(Me.btnAdd)
+        Me.pnlBottomButtons.Controls.Add(Me.btnEdit)
+        Me.pnlBottomButtons.Controls.Add(Me.btnDelete)
+        Me.pnlBottomButtons.Controls.Add(Me.btnsave)
+        Me.pnlBottomButtons.Controls.Add(Me.btnCancel)
+        Me.pnlBottomButtons.Controls.Add(Me.btnClose)
+        Me.pnlBottomButtons.Controls.Add(Me.btnRefresh)
+        Me.pnlBottomButtons.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlBottomButtons.Location = New System.Drawing.Point(10, 919)
+        Me.pnlBottomButtons.Margin = New System.Windows.Forms.Padding(5)
+        Me.pnlBottomButtons.Name = "pnlBottomButtons"
+        Me.pnlBottomButtons.Size = New System.Drawing.Size(1588, 50)
+        Me.pnlBottomButtons.TabIndex = 8
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAdd.FlatAppearance.BorderSize = 0
+        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.White
+        Me.btnAdd.Location = New System.Drawing.Point(166, 8)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(120, 35)
+        Me.btnAdd.TabIndex = 0
+        Me.btnAdd.Text = "➕ &ADD(F2)"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'btnEdit
+        '
+        Me.btnEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEdit.FlatAppearance.BorderSize = 0
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.ForeColor = System.Drawing.Color.White
+        Me.btnEdit.Location = New System.Drawing.Point(297, 8)
+        Me.btnEdit.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(122, 35)
+        Me.btnEdit.TabIndex = 1
+        Me.btnEdit.Text = "✏️ &EDIT(F3)"
+        Me.btnEdit.UseVisualStyleBackColor = False
+        '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.FlatAppearance.BorderSize = 0
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.White
+        Me.btnDelete.Location = New System.Drawing.Point(430, 8)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(140, 35)
+        Me.btnDelete.TabIndex = 2
+        Me.btnDelete.Text = "🗑️ &DELETE(F7)"
+        Me.btnDelete.UseVisualStyleBackColor = False
+        '
+        'btnsave
+        '
+        Me.btnsave.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnsave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnsave.FlatAppearance.BorderSize = 0
+        Me.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsave.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsave.ForeColor = System.Drawing.Color.White
+        Me.btnsave.Location = New System.Drawing.Point(581, 8)
+        Me.btnsave.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnsave.Name = "btnsave"
+        Me.btnsave.Size = New System.Drawing.Size(128, 35)
+        Me.btnsave.TabIndex = 3
+        Me.btnsave.Text = "💾 &SAVE(F6)"
+        Me.btnsave.UseVisualStyleBackColor = False
+        '
+        'btnCancel
+        '
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancel.FlatAppearance.BorderSize = 0
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.White
+        Me.btnCancel.Location = New System.Drawing.Point(720, 8)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(148, 35)
+        Me.btnCancel.TabIndex = 4
+        Me.btnCancel.Text = "❌ &CANCEL(F7)"
+        Me.btnCancel.UseVisualStyleBackColor = False
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(108, Byte), Integer), CType(CType(117, Byte), Integer), CType(CType(125, Byte), Integer))
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.White
+        Me.btnClose.Location = New System.Drawing.Point(880, 8)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(138, 35)
+        Me.btnClose.TabIndex = 5
+        Me.btnClose.Text = "🚪 CL&OSE(Esc)"
+        Me.btnClose.UseVisualStyleBackColor = False
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRefresh.FlatAppearance.BorderSize = 0
+        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.ForeColor = System.Drawing.Color.White
+        Me.btnRefresh.Location = New System.Drawing.Point(1030, 8)
+        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(154, 35)
+        Me.btnRefresh.TabIndex = 6
+        Me.btnRefresh.Text = "🔄 &REFRESH(F5)"
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
         'pnlTopForm
         '
         Me.pnlTopForm.BackColor = System.Drawing.Color.Transparent
+        Me.pnlTopForm.Controls.Add(Me.grpTaxInfo)
         Me.pnlTopForm.Controls.Add(Me.gbMaindetail)
         Me.pnlTopForm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlTopForm.Location = New System.Drawing.Point(10, 10)
         Me.pnlTopForm.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlTopForm.Name = "pnlTopForm"
-        Me.pnlTopForm.Size = New System.Drawing.Size(1588, 415)
+        Me.pnlTopForm.Size = New System.Drawing.Size(1588, 410)
         Me.pnlTopForm.TabIndex = 0
-        '
-        'gbMaindetail
-        '
-        Me.gbMaindetail.BackColor = System.Drawing.Color.White
-        Me.gbMaindetail.Controls.Add(Me.pnlAllDetails)
-        Me.gbMaindetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gbMaindetail.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbMaindetail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.gbMaindetail.Location = New System.Drawing.Point(0, 0)
-        Me.gbMaindetail.Name = "gbMaindetail"
-        Me.gbMaindetail.Padding = New System.Windows.Forms.Padding(8)
-        Me.gbMaindetail.Size = New System.Drawing.Size(1588, 415)
-        Me.gbMaindetail.TabIndex = 0
-        Me.gbMaindetail.TabStop = False
-        Me.gbMaindetail.Text = "👤 CUSTOMER DETAILS"
-        '
-        'pnlAllDetails
-        '
-        Me.pnlAllDetails.BackColor = System.Drawing.Color.Transparent
-        Me.pnlAllDetails.Controls.Add(Me.grpTaxInfo)
-        Me.pnlAllDetails.Controls.Add(Me.grpAddressDetails)
-        Me.pnlAllDetails.Controls.Add(Me.grpBasicInfo)
-        Me.pnlAllDetails.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlAllDetails.Location = New System.Drawing.Point(8, 33)
-        Me.pnlAllDetails.Name = "pnlAllDetails"
-        Me.pnlAllDetails.Size = New System.Drawing.Size(1572, 374)
-        Me.pnlAllDetails.TabIndex = 0
         '
         'grpTaxInfo
         '
+        Me.grpTaxInfo.BackColor = System.Drawing.Color.White
         Me.grpTaxInfo.Controls.Add(Me.tlpTaxInfo)
-        Me.grpTaxInfo.Dock = System.Windows.Forms.DockStyle.Right
         Me.grpTaxInfo.Font = New System.Drawing.Font("Segoe UI", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpTaxInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.grpTaxInfo.Location = New System.Drawing.Point(1144, 169)
+        Me.grpTaxInfo.Location = New System.Drawing.Point(1199, 204)
         Me.grpTaxInfo.Name = "grpTaxInfo"
         Me.grpTaxInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpTaxInfo.Size = New System.Drawing.Size(428, 205)
-        Me.grpTaxInfo.TabIndex = 2
+        Me.grpTaxInfo.Size = New System.Drawing.Size(389, 206)
+        Me.grpTaxInfo.TabIndex = 3
         Me.grpTaxInfo.TabStop = False
         Me.grpTaxInfo.Text = "💰 TAX & COLLECTION INFO"
         '
@@ -3639,8 +3762,8 @@ Partial Class FrmCustomerMaster
         '
         Me.tlpTaxInfo.BackColor = System.Drawing.Color.Transparent
         Me.tlpTaxInfo.ColumnCount = 2
-        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.27638!))
-        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.72362!))
+        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.24242!))
+        Me.tlpTaxInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.75758!))
         Me.tlpTaxInfo.Controls.Add(Me.lblGSTNo, 0, 0)
         Me.tlpTaxInfo.Controls.Add(Me.txtGSTNo, 1, 0)
         Me.tlpTaxInfo.Controls.Add(Me.cmbSalesPerson, 1, 3)
@@ -3649,17 +3772,17 @@ Partial Class FrmCustomerMaster
         Me.tlpTaxInfo.Controls.Add(Me.lblTaxation, 0, 1)
         Me.tlpTaxInfo.Controls.Add(Me.lblCollectionPerson, 0, 2)
         Me.tlpTaxInfo.Controls.Add(Me.lblSalesPerson, 0, 3)
-        Me.tlpTaxInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpTaxInfo.Location = New System.Drawing.Point(10, 46)
+        Me.tlpTaxInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.tlpTaxInfo.Location = New System.Drawing.Point(39, 46)
         Me.tlpTaxInfo.Name = "tlpTaxInfo"
         Me.tlpTaxInfo.Padding = New System.Windows.Forms.Padding(5)
         Me.tlpTaxInfo.RowCount = 5
-        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.tlpTaxInfo.Size = New System.Drawing.Size(408, 149)
+        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
+        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 231.0!))
+        Me.tlpTaxInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
+        Me.tlpTaxInfo.Size = New System.Drawing.Size(340, 150)
         Me.tlpTaxInfo.TabIndex = 0
         '
         'lblGSTNo
@@ -3681,10 +3804,10 @@ Partial Class FrmCustomerMaster
         Me.txtGSTNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtGSTNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtGSTNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtGSTNo.Location = New System.Drawing.Point(227, 8)
+        Me.txtGSTNo.Location = New System.Drawing.Point(153, 8)
         Me.txtGSTNo.MaxLength = 15
         Me.txtGSTNo.Name = "txtGSTNo"
-        Me.txtGSTNo.Size = New System.Drawing.Size(172, 29)
+        Me.txtGSTNo.Size = New System.Drawing.Size(179, 29)
         Me.txtGSTNo.TabIndex = 0
         '
         'cmbSalesPerson
@@ -3695,9 +3818,9 @@ Partial Class FrmCustomerMaster
         Me.cmbSalesPerson.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbSalesPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbSalesPerson.FormattingEnabled = True
-        Me.cmbSalesPerson.Location = New System.Drawing.Point(227, 128)
+        Me.cmbSalesPerson.Location = New System.Drawing.Point(153, 111)
         Me.cmbSalesPerson.Name = "cmbSalesPerson"
-        Me.cmbSalesPerson.Size = New System.Drawing.Size(172, 29)
+        Me.cmbSalesPerson.Size = New System.Drawing.Size(179, 29)
         Me.cmbSalesPerson.TabIndex = 3
         '
         'cmbCollectionPerson
@@ -3708,9 +3831,9 @@ Partial Class FrmCustomerMaster
         Me.cmbCollectionPerson.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbCollectionPerson.FormattingEnabled = True
-        Me.cmbCollectionPerson.Location = New System.Drawing.Point(227, 88)
+        Me.cmbCollectionPerson.Location = New System.Drawing.Point(153, 76)
         Me.cmbCollectionPerson.Name = "cmbCollectionPerson"
-        Me.cmbCollectionPerson.Size = New System.Drawing.Size(172, 29)
+        Me.cmbCollectionPerson.Size = New System.Drawing.Size(179, 29)
         Me.cmbCollectionPerson.TabIndex = 2
         '
         'cmbTaxation
@@ -3721,9 +3844,9 @@ Partial Class FrmCustomerMaster
         Me.cmbTaxation.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbTaxation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbTaxation.FormattingEnabled = True
-        Me.cmbTaxation.Location = New System.Drawing.Point(227, 48)
+        Me.cmbTaxation.Location = New System.Drawing.Point(153, 41)
         Me.cmbTaxation.Name = "cmbTaxation"
-        Me.cmbTaxation.Size = New System.Drawing.Size(172, 29)
+        Me.cmbTaxation.Size = New System.Drawing.Size(179, 29)
         Me.cmbTaxation.TabIndex = 1
         Me.cmbTaxation.TabStop = False
         '
@@ -3732,7 +3855,7 @@ Partial Class FrmCustomerMaster
         Me.lblTaxation.AutoSize = True
         Me.lblTaxation.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTaxation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblTaxation.Location = New System.Drawing.Point(8, 45)
+        Me.lblTaxation.Location = New System.Drawing.Point(8, 38)
         Me.lblTaxation.Name = "lblTaxation"
         Me.lblTaxation.Size = New System.Drawing.Size(98, 29)
         Me.lblTaxation.TabIndex = 2
@@ -3744,9 +3867,9 @@ Partial Class FrmCustomerMaster
         Me.lblCollectionPerson.AutoSize = True
         Me.lblCollectionPerson.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCollectionPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.lblCollectionPerson.Location = New System.Drawing.Point(8, 85)
+        Me.lblCollectionPerson.Location = New System.Drawing.Point(8, 73)
         Me.lblCollectionPerson.Name = "lblCollectionPerson"
-        Me.lblCollectionPerson.Size = New System.Drawing.Size(188, 29)
+        Me.lblCollectionPerson.Size = New System.Drawing.Size(113, 35)
         Me.lblCollectionPerson.TabIndex = 4
         Me.lblCollectionPerson.Text = "Collection Person" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.lblCollectionPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3756,23 +3879,47 @@ Partial Class FrmCustomerMaster
         Me.lblSalesPerson.AutoSize = True
         Me.lblSalesPerson.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSalesPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.lblSalesPerson.Location = New System.Drawing.Point(8, 125)
+        Me.lblSalesPerson.Location = New System.Drawing.Point(8, 108)
         Me.lblSalesPerson.Name = "lblSalesPerson"
         Me.lblSalesPerson.Size = New System.Drawing.Size(139, 29)
         Me.lblSalesPerson.TabIndex = 6
         Me.lblSalesPerson.Text = "Sales Person"
         Me.lblSalesPerson.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'gbMaindetail
+        '
+        Me.gbMaindetail.BackColor = System.Drawing.Color.White
+        Me.gbMaindetail.Controls.Add(Me.pnlAllDetails)
+        Me.gbMaindetail.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbMaindetail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.gbMaindetail.Location = New System.Drawing.Point(0, 0)
+        Me.gbMaindetail.Name = "gbMaindetail"
+        Me.gbMaindetail.Padding = New System.Windows.Forms.Padding(8)
+        Me.gbMaindetail.Size = New System.Drawing.Size(1588, 415)
+        Me.gbMaindetail.TabIndex = 0
+        Me.gbMaindetail.TabStop = False
+        Me.gbMaindetail.Text = "👤 CUSTOMER DETAILS"
+        '
+        'pnlAllDetails
+        '
+        Me.pnlAllDetails.BackColor = System.Drawing.Color.Transparent
+        Me.pnlAllDetails.Controls.Add(Me.grpAddressDetails)
+        Me.pnlAllDetails.Controls.Add(Me.grpBasicInfo)
+        Me.pnlAllDetails.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlAllDetails.Location = New System.Drawing.Point(8, 33)
+        Me.pnlAllDetails.Name = "pnlAllDetails"
+        Me.pnlAllDetails.Size = New System.Drawing.Size(1572, 374)
+        Me.pnlAllDetails.TabIndex = 0
+        '
         'grpAddressDetails
         '
         Me.grpAddressDetails.Controls.Add(Me.tlpAddress)
-        Me.grpAddressDetails.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpAddressDetails.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpAddressDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.grpAddressDetails.Location = New System.Drawing.Point(0, 169)
+        Me.grpAddressDetails.Location = New System.Drawing.Point(0, 175)
         Me.grpAddressDetails.Name = "grpAddressDetails"
         Me.grpAddressDetails.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpAddressDetails.Size = New System.Drawing.Size(1572, 205)
+        Me.grpAddressDetails.Size = New System.Drawing.Size(1185, 199)
         Me.grpAddressDetails.TabIndex = 1
         Me.grpAddressDetails.TabStop = False
         Me.grpAddressDetails.Text = "📍 ADDRESS DETAILS"
@@ -3780,27 +3927,28 @@ Partial Class FrmCustomerMaster
         'tlpAddress
         '
         Me.tlpAddress.BackColor = System.Drawing.Color.Transparent
-        Me.tlpAddress.ColumnCount = 4
-        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.04811!))
-        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.892067!))
-        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.03785!))
+        Me.tlpAddress.ColumnCount = 5
+        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.52503!))
+        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.19912!))
+        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.14772!))
+        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.12342!))
+        Me.tlpAddress.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129.0!))
         Me.tlpAddress.Controls.Add(Me.lblAddress1, 0, 0)
         Me.tlpAddress.Controls.Add(Me.txtAdd1, 1, 0)
         Me.tlpAddress.Controls.Add(Me.lblAddress2, 2, 0)
         Me.tlpAddress.Controls.Add(Me.txtAdd2, 3, 0)
         Me.tlpAddress.Controls.Add(Me.lblArea, 0, 1)
-        Me.tlpAddress.Controls.Add(Me.pnlArea, 1, 1)
         Me.tlpAddress.Controls.Add(Me.lblPinCode, 2, 1)
         Me.tlpAddress.Controls.Add(Me.txtPinCode, 3, 1)
         Me.tlpAddress.Controls.Add(Me.lblState, 2, 2)
         Me.tlpAddress.Controls.Add(Me.cmbState, 3, 2)
         Me.tlpAddress.Controls.Add(Me.lblDueDays, 2, 3)
-        Me.tlpAddress.Controls.Add(Me.txtDueDays, 3, 3)
         Me.tlpAddress.Controls.Add(Me.lblCity, 0, 2)
         Me.tlpAddress.Controls.Add(Me.lblCountry, 0, 3)
         Me.tlpAddress.Controls.Add(Me.cmbCity, 1, 2)
         Me.tlpAddress.Controls.Add(Me.cmbCountry, 1, 3)
+        Me.tlpAddress.Controls.Add(Me.txtDueDays, 3, 3)
+        Me.tlpAddress.Controls.Add(Me.cmbArea, 1, 1)
         Me.tlpAddress.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpAddress.Location = New System.Drawing.Point(10, 33)
         Me.tlpAddress.Name = "tlpAddress"
@@ -3811,8 +3959,8 @@ Partial Class FrmCustomerMaster
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tlpAddress.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpAddress.Size = New System.Drawing.Size(1552, 162)
-        Me.tlpAddress.TabIndex = 0
+        Me.tlpAddress.Size = New System.Drawing.Size(1165, 156)
+        Me.tlpAddress.TabIndex = 1
         '
         'lblAddress1
         '
@@ -3832,9 +3980,9 @@ Partial Class FrmCustomerMaster
         Me.txtAdd1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAdd1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtAdd1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtAdd1.Location = New System.Drawing.Point(239, 8)
+        Me.txtAdd1.Location = New System.Drawing.Point(146, 8)
         Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(410, 29)
+        Me.txtAdd1.Size = New System.Drawing.Size(375, 29)
         Me.txtAdd1.TabIndex = 0
         '
         'lblAddress2
@@ -3842,9 +3990,9 @@ Partial Class FrmCustomerMaster
         Me.lblAddress2.AutoSize = True
         Me.lblAddress2.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAddress2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblAddress2.Location = New System.Drawing.Point(656, 5)
+        Me.lblAddress2.Location = New System.Drawing.Point(527, 5)
         Me.lblAddress2.Name = "lblAddress2"
-        Me.lblAddress2.Size = New System.Drawing.Size(95, 35)
+        Me.lblAddress2.Size = New System.Drawing.Size(112, 29)
         Me.lblAddress2.TabIndex = 2
         Me.lblAddress2.Text = "Address 2"
         Me.lblAddress2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3855,9 +4003,9 @@ Partial Class FrmCustomerMaster
         Me.txtAdd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAdd2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtAdd2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtAdd2.Location = New System.Drawing.Point(762, 8)
+        Me.txtAdd2.Location = New System.Drawing.Point(651, 8)
         Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(362, 29)
+        Me.txtAdd2.Size = New System.Drawing.Size(374, 29)
         Me.txtAdd2.TabIndex = 1
         '
         'lblArea
@@ -3872,50 +4020,12 @@ Partial Class FrmCustomerMaster
         Me.lblArea.Text = "Area"
         Me.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'pnlArea
-        '
-        Me.pnlArea.Controls.Add(Me.cmbArea)
-        Me.pnlArea.Controls.Add(Me.btnAddArea)
-        Me.pnlArea.Location = New System.Drawing.Point(239, 43)
-        Me.pnlArea.Name = "pnlArea"
-        Me.pnlArea.Size = New System.Drawing.Size(410, 28)
-        Me.pnlArea.TabIndex = 15
-        '
-        'cmbArea
-        '
-        Me.cmbArea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmbArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbArea.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.cmbArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cmbArea.FormattingEnabled = True
-        Me.cmbArea.Location = New System.Drawing.Point(0, 0)
-        Me.cmbArea.Name = "cmbArea"
-        Me.cmbArea.Size = New System.Drawing.Size(209, 29)
-        Me.cmbArea.TabIndex = 3
-        '
-        'btnAddArea
-        '
-        Me.btnAddArea.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnAddArea.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAddArea.FlatAppearance.BorderSize = 0
-        Me.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddArea.ForeColor = System.Drawing.Color.White
-        Me.btnAddArea.Location = New System.Drawing.Point(230, -1)
-        Me.btnAddArea.Name = "btnAddArea"
-        Me.btnAddArea.Size = New System.Drawing.Size(30, 28)
-        Me.btnAddArea.TabIndex = 4
-        Me.btnAddArea.TabStop = False
-        Me.btnAddArea.Text = "➕"
-        Me.btnAddArea.UseVisualStyleBackColor = False
-        Me.btnAddArea.Visible = False
-        '
         'lblPinCode
         '
         Me.lblPinCode.AutoSize = True
         Me.lblPinCode.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.lblPinCode.Location = New System.Drawing.Point(656, 40)
+        Me.lblPinCode.Location = New System.Drawing.Point(527, 40)
         Me.lblPinCode.Name = "lblPinCode"
         Me.lblPinCode.Size = New System.Drawing.Size(96, 29)
         Me.lblPinCode.TabIndex = 6
@@ -3928,10 +4038,10 @@ Partial Class FrmCustomerMaster
         Me.txtPinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPinCode.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtPinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtPinCode.Location = New System.Drawing.Point(762, 43)
+        Me.txtPinCode.Location = New System.Drawing.Point(651, 43)
         Me.txtPinCode.MaxLength = 6
         Me.txtPinCode.Name = "txtPinCode"
-        Me.txtPinCode.Size = New System.Drawing.Size(200, 29)
+        Me.txtPinCode.Size = New System.Drawing.Size(187, 29)
         Me.txtPinCode.TabIndex = 2
         Me.txtPinCode.TabStop = False
         '
@@ -3940,7 +4050,7 @@ Partial Class FrmCustomerMaster
         Me.lblState.AutoSize = True
         Me.lblState.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblState.Location = New System.Drawing.Point(656, 75)
+        Me.lblState.Location = New System.Drawing.Point(527, 75)
         Me.lblState.Name = "lblState"
         Me.lblState.Size = New System.Drawing.Size(64, 29)
         Me.lblState.TabIndex = 10
@@ -3956,36 +4066,11 @@ Partial Class FrmCustomerMaster
         Me.cmbState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbState.FormattingEnabled = True
         Me.cmbState.Items.AddRange(New Object() {"Gujarat", "Maharashtra", "Delhi", "Karnataka"})
-        Me.cmbState.Location = New System.Drawing.Point(762, 78)
+        Me.cmbState.Location = New System.Drawing.Point(651, 78)
         Me.cmbState.Name = "cmbState"
-        Me.cmbState.Size = New System.Drawing.Size(200, 29)
+        Me.cmbState.Size = New System.Drawing.Size(187, 29)
         Me.cmbState.TabIndex = 5
         Me.cmbState.TabStop = False
-        '
-        'lblDueDays
-        '
-        Me.lblDueDays.AutoSize = True
-        Me.lblDueDays.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.lblDueDays.Location = New System.Drawing.Point(656, 110)
-        Me.lblDueDays.Name = "lblDueDays"
-        Me.lblDueDays.Size = New System.Drawing.Size(61, 35)
-        Me.lblDueDays.TabIndex = 14
-        Me.lblDueDays.Text = "Due Days"
-        Me.lblDueDays.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtDueDays
-        '
-        Me.txtDueDays.BackColor = System.Drawing.Color.White
-        Me.txtDueDays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDueDays.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtDueDays.Location = New System.Drawing.Point(762, 113)
-        Me.txtDueDays.Name = "txtDueDays"
-        Me.txtDueDays.Size = New System.Drawing.Size(200, 29)
-        Me.txtDueDays.TabIndex = 7
-        Me.txtDueDays.Text = "0"
-        Me.txtDueDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblCity
         '
@@ -4019,9 +4104,9 @@ Partial Class FrmCustomerMaster
         Me.cmbCity.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbCity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbCity.FormattingEnabled = True
-        Me.cmbCity.Location = New System.Drawing.Point(239, 78)
+        Me.cmbCity.Location = New System.Drawing.Point(146, 78)
         Me.cmbCity.Name = "cmbCity"
-        Me.cmbCity.Size = New System.Drawing.Size(209, 29)
+        Me.cmbCity.Size = New System.Drawing.Size(198, 29)
         Me.cmbCity.TabIndex = 4
         Me.cmbCity.TabStop = False
         '
@@ -4033,24 +4118,37 @@ Partial Class FrmCustomerMaster
         Me.cmbCountry.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbCountry.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbCountry.FormattingEnabled = True
-        Me.cmbCountry.Location = New System.Drawing.Point(239, 113)
+        Me.cmbCountry.Location = New System.Drawing.Point(146, 113)
         Me.cmbCountry.Name = "cmbCountry"
-        Me.cmbCountry.Size = New System.Drawing.Size(209, 29)
+        Me.cmbCountry.Size = New System.Drawing.Size(198, 29)
         Me.cmbCountry.TabIndex = 6
         Me.cmbCountry.TabStop = False
+        '
+        'cmbArea
+        '
+        Me.cmbArea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbArea.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.cmbArea.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cmbArea.FormattingEnabled = True
+        Me.cmbArea.Location = New System.Drawing.Point(146, 43)
+        Me.cmbArea.Name = "cmbArea"
+        Me.cmbArea.Size = New System.Drawing.Size(198, 29)
+        Me.cmbArea.TabIndex = 19
+        Me.cmbArea.TabStop = False
         '
         'grpBasicInfo
         '
         Me.grpBasicInfo.Controls.Add(Me.cmbDrCr)
         Me.grpBasicInfo.Controls.Add(Me.txtOpBal)
         Me.grpBasicInfo.Controls.Add(Me.tlpBasicInfo)
-        Me.grpBasicInfo.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpBasicInfo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpBasicInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.grpBasicInfo.Location = New System.Drawing.Point(0, 0)
         Me.grpBasicInfo.Name = "grpBasicInfo"
         Me.grpBasicInfo.Padding = New System.Windows.Forms.Padding(10)
-        Me.grpBasicInfo.Size = New System.Drawing.Size(1572, 169)
+        Me.grpBasicInfo.Size = New System.Drawing.Size(1564, 175)
         Me.grpBasicInfo.TabIndex = 0
         Me.grpBasicInfo.TabStop = False
         Me.grpBasicInfo.Text = "📋 BASIC INFORMATION"
@@ -4087,7 +4185,6 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.tlpBasicInfo.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
-        Me.tlpBasicInfo.Controls.Add(Me.Button1, 0, 4)
         Me.tlpBasicInfo.Controls.Add(Me.lblCustomerName, 2, 0)
         Me.tlpBasicInfo.Controls.Add(Me.lblCustomerCode, 0, 0)
         Me.tlpBasicInfo.Controls.Add(Me.lblDisplaySrNo, 0, 1)
@@ -4110,34 +4207,17 @@ Partial Class FrmCustomerMaster
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpBasicInfo.Size = New System.Drawing.Size(1552, 126)
+        Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
+        Me.tlpBasicInfo.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.tlpBasicInfo.Size = New System.Drawing.Size(1544, 132)
         Me.tlpBasicInfo.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(8, 128)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 14)
-        Me.Button1.TabIndex = 14
-        Me.Button1.TabStop = False
-        Me.Button1.Text = "➕"
-        Me.Button1.UseVisualStyleBackColor = False
-        Me.Button1.Visible = False
         '
         'lblCustomerName
         '
         Me.lblCustomerName.AutoSize = True
         Me.lblCustomerName.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCustomerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblCustomerName.Location = New System.Drawing.Point(778, 5)
+        Me.lblCustomerName.Location = New System.Drawing.Point(774, 5)
         Me.lblCustomerName.Name = "lblCustomerName"
         Me.lblCustomerName.Size = New System.Drawing.Size(167, 29)
         Me.lblCustomerName.TabIndex = 0
@@ -4173,7 +4253,7 @@ Partial Class FrmCustomerMaster
         Me.lblCustomerType.AutoSize = True
         Me.lblCustomerType.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCustomerType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.lblCustomerType.Location = New System.Drawing.Point(778, 35)
+        Me.lblCustomerType.Location = New System.Drawing.Point(774, 35)
         Me.lblCustomerType.Name = "lblCustomerType"
         Me.lblCustomerType.Size = New System.Drawing.Size(145, 29)
         Me.lblCustomerType.TabIndex = 6
@@ -4183,37 +4263,41 @@ Partial Class FrmCustomerMaster
         'lblMobileNo
         '
         Me.lblMobileNo.AutoSize = True
+        Me.lblMobileNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblMobileNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMobileNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lblMobileNo.Image = Global.GaytriGeneralStore.My.Resources.Resources.Whatsapp_Icon
+        Me.lblMobileNo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblMobileNo.Location = New System.Drawing.Point(8, 65)
         Me.lblMobileNo.Name = "lblMobileNo"
-        Me.lblMobileNo.Size = New System.Drawing.Size(135, 29)
+        Me.lblMobileNo.Size = New System.Drawing.Size(224, 30)
         Me.lblMobileNo.TabIndex = 8
         Me.lblMobileNo.Text = "Mobile No *"
-        Me.lblMobileNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblMobileNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtMobile
         '
         Me.txtMobile.BackColor = System.Drawing.Color.White
         Me.txtMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtMobile.Dock = System.Windows.Forms.DockStyle.Left
         Me.txtMobile.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtMobile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtMobile.Location = New System.Drawing.Point(239, 68)
+        Me.txtMobile.Location = New System.Drawing.Point(238, 68)
         Me.txtMobile.MaxLength = 10
         Me.txtMobile.Name = "txtMobile"
         Me.txtMobile.Size = New System.Drawing.Size(200, 29)
-        Me.txtMobile.TabIndex = 4
+        Me.txtMobile.TabIndex = 2
         '
         'lblPhoneNo
         '
         Me.lblPhoneNo.AutoSize = True
         Me.lblPhoneNo.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPhoneNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.lblPhoneNo.Location = New System.Drawing.Point(778, 65)
+        Me.lblPhoneNo.Location = New System.Drawing.Point(774, 65)
         Me.lblPhoneNo.Name = "lblPhoneNo"
-        Me.lblPhoneNo.Size = New System.Drawing.Size(111, 29)
+        Me.lblPhoneNo.Size = New System.Drawing.Size(135, 29)
         Me.lblPhoneNo.TabIndex = 13
-        Me.lblPhoneNo.Text = "Phone No"
+        Me.lblPhoneNo.Text = "Mobile No 2"
         Me.lblPhoneNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEmail
@@ -4234,10 +4318,10 @@ Partial Class FrmCustomerMaster
         Me.txtEMailId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtEMailId.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtEMailId.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtEMailId.Location = New System.Drawing.Point(239, 98)
+        Me.txtEMailId.Location = New System.Drawing.Point(238, 98)
         Me.txtEMailId.Name = "txtEMailId"
         Me.txtEMailId.Size = New System.Drawing.Size(350, 29)
-        Me.txtEMailId.TabIndex = 6
+        Me.txtEMailId.TabIndex = 3
         '
         'txtPhone
         '
@@ -4245,11 +4329,11 @@ Partial Class FrmCustomerMaster
         Me.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPhone.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtPhone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtPhone.Location = New System.Drawing.Point(1009, 68)
+        Me.txtPhone.Location = New System.Drawing.Point(1004, 68)
         Me.txtPhone.MaxLength = 10
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(200, 29)
-        Me.txtPhone.TabIndex = 5
+        Me.txtPhone.TabIndex = 6
         '
         'txtLedgerName
         '
@@ -4257,10 +4341,10 @@ Partial Class FrmCustomerMaster
         Me.txtLedgerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLedgerName.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtLedgerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtLedgerName.Location = New System.Drawing.Point(239, 8)
+        Me.txtLedgerName.Location = New System.Drawing.Point(238, 8)
         Me.txtLedgerName.Name = "txtLedgerName"
-        Me.txtLedgerName.Size = New System.Drawing.Size(418, 29)
-        Me.txtLedgerName.TabIndex = 2
+        Me.txtLedgerName.Size = New System.Drawing.Size(405, 29)
+        Me.txtLedgerName.TabIndex = 0
         '
         'txtLedgerCode
         '
@@ -4268,10 +4352,10 @@ Partial Class FrmCustomerMaster
         Me.txtLedgerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtLedgerCode.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtLedgerCode.ForeColor = System.Drawing.Color.Green
-        Me.txtLedgerCode.Location = New System.Drawing.Point(1009, 8)
+        Me.txtLedgerCode.Location = New System.Drawing.Point(1004, 8)
         Me.txtLedgerCode.Name = "txtLedgerCode"
         Me.txtLedgerCode.Size = New System.Drawing.Size(200, 29)
-        Me.txtLedgerCode.TabIndex = 0
+        Me.txtLedgerCode.TabIndex = 4
         Me.txtLedgerCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cmbCustType
@@ -4282,11 +4366,10 @@ Partial Class FrmCustomerMaster
         Me.cmbCustType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbCustType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cmbCustType.FormattingEnabled = True
-        Me.cmbCustType.Items.AddRange(New Object() {"Retail", "Wholesale", "Distributor", "Corporate"})
-        Me.cmbCustType.Location = New System.Drawing.Point(239, 38)
+        Me.cmbCustType.Location = New System.Drawing.Point(238, 38)
         Me.cmbCustType.Name = "cmbCustType"
         Me.cmbCustType.Size = New System.Drawing.Size(200, 29)
-        Me.cmbCustType.TabIndex = 3
+        Me.cmbCustType.TabIndex = 1
         '
         'txtDisplaySrNo
         '
@@ -4294,163 +4377,11 @@ Partial Class FrmCustomerMaster
         Me.txtDisplaySrNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDisplaySrNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtDisplaySrNo.ForeColor = System.Drawing.Color.Green
-        Me.txtDisplaySrNo.Location = New System.Drawing.Point(1009, 38)
+        Me.txtDisplaySrNo.Location = New System.Drawing.Point(1004, 38)
         Me.txtDisplaySrNo.Name = "txtDisplaySrNo"
         Me.txtDisplaySrNo.Size = New System.Drawing.Size(200, 29)
-        Me.txtDisplaySrNo.TabIndex = 1
+        Me.txtDisplaySrNo.TabIndex = 5
         Me.txtDisplaySrNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'tlpMain
-        '
-        Me.tlpMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.tlpMain.ColumnCount = 1
-        Me.tlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpMain.Controls.Add(Me.pnlBottomButtons, 0, 4)
-        Me.tlpMain.Controls.Add(Me.pnlTopForm, 0, 0)
-        Me.tlpMain.Controls.Add(Me.pnlSearch, 0, 1)
-        Me.tlpMain.Controls.Add(Me.pnlHeader, 0, 2)
-        Me.tlpMain.Controls.Add(Me.pnlDataContainer, 0, 3)
-        Me.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpMain.Location = New System.Drawing.Point(0, 0)
-        Me.tlpMain.Name = "tlpMain"
-        Me.tlpMain.Padding = New System.Windows.Forms.Padding(5)
-        Me.tlpMain.RowCount = 5
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 425.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
-        Me.tlpMain.Size = New System.Drawing.Size(1608, 979)
-        Me.tlpMain.TabIndex = 7
-        '
-        'pnlBottomButtons
-        '
-        Me.pnlBottomButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.pnlBottomButtons.Controls.Add(Me.btnAdd)
-        Me.pnlBottomButtons.Controls.Add(Me.btnEdit)
-        Me.pnlBottomButtons.Controls.Add(Me.btnDelete)
-        Me.pnlBottomButtons.Controls.Add(Me.btnsave)
-        Me.pnlBottomButtons.Controls.Add(Me.btnCancel)
-        Me.pnlBottomButtons.Controls.Add(Me.btnClose)
-        Me.pnlBottomButtons.Controls.Add(Me.btnRefresh)
-        Me.pnlBottomButtons.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlBottomButtons.Location = New System.Drawing.Point(10, 919)
-        Me.pnlBottomButtons.Margin = New System.Windows.Forms.Padding(5)
-        Me.pnlBottomButtons.Name = "pnlBottomButtons"
-        Me.pnlBottomButtons.Size = New System.Drawing.Size(1588, 50)
-        Me.pnlBottomButtons.TabIndex = 8
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAdd.FlatAppearance.BorderSize = 0
-        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(250, 8)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(120, 35)
-        Me.btnAdd.TabIndex = 0
-        Me.btnAdd.Text = "➕ &ADD NEW"
-        Me.btnAdd.UseVisualStyleBackColor = False
-        '
-        'btnEdit
-        '
-        Me.btnEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnEdit.FlatAppearance.BorderSize = 0
-        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEdit.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.ForeColor = System.Drawing.Color.White
-        Me.btnEdit.Location = New System.Drawing.Point(380, 8)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(100, 35)
-        Me.btnEdit.TabIndex = 1
-        Me.btnEdit.Text = "✏️ &EDIT"
-        Me.btnEdit.UseVisualStyleBackColor = False
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.FlatAppearance.BorderSize = 0
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(490, 8)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(110, 35)
-        Me.btnDelete.TabIndex = 2
-        Me.btnDelete.Text = "🗑️ &DELETE"
-        Me.btnDelete.UseVisualStyleBackColor = False
-        '
-        'btnsave
-        '
-        Me.btnsave.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnsave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnsave.FlatAppearance.BorderSize = 0
-        Me.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsave.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsave.ForeColor = System.Drawing.Color.White
-        Me.btnsave.Location = New System.Drawing.Point(610, 8)
-        Me.btnsave.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnsave.Name = "btnsave"
-        Me.btnsave.Size = New System.Drawing.Size(100, 35)
-        Me.btnsave.TabIndex = 3
-        Me.btnsave.Text = "💾 &SAVE"
-        Me.btnsave.UseVisualStyleBackColor = False
-        '
-        'btnCancel
-        '
-        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCancel.FlatAppearance.BorderSize = 0
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(720, 8)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(120, 35)
-        Me.btnCancel.TabIndex = 4
-        Me.btnCancel.Text = "❌ &CANCEL"
-        Me.btnCancel.UseVisualStyleBackColor = False
-        '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(108, Byte), Integer), CType(CType(117, Byte), Integer), CType(CType(125, Byte), Integer))
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(850, 8)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(100, 35)
-        Me.btnClose.TabIndex = 5
-        Me.btnClose.Text = "🚪 CL&OSE"
-        Me.btnClose.UseVisualStyleBackColor = False
-        '
-        'btnRefresh
-        '
-        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRefresh.FlatAppearance.BorderSize = 0
-        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRefresh.ForeColor = System.Drawing.Color.White
-        Me.btnRefresh.Location = New System.Drawing.Point(961, 8)
-        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(141, 35)
-        Me.btnRefresh.TabIndex = 6
-        Me.btnRefresh.Text = "🔄 &REFRESH"
-        Me.btnRefresh.UseVisualStyleBackColor = False
         '
         'pnlHeader
         '
@@ -4458,10 +4389,10 @@ Partial Class FrmCustomerMaster
         Me.pnlHeader.Controls.Add(Me.lblTitle)
         Me.pnlHeader.Controls.Add(Me.lblTotalRecords)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlHeader.Location = New System.Drawing.Point(10, 482)
+        Me.pnlHeader.Location = New System.Drawing.Point(10, 491)
         Me.pnlHeader.Margin = New System.Windows.Forms.Padding(5)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1588, 37)
+        Me.pnlHeader.Size = New System.Drawing.Size(1588, 36)
         Me.pnlHeader.TabIndex = 3
         '
         'lblTitle
@@ -4484,12 +4415,38 @@ Partial Class FrmCustomerMaster
         Me.lblTotalRecords.Location = New System.Drawing.Point(1446, 6)
         Me.lblTotalRecords.Name = "lblTotalRecords"
         Me.lblTotalRecords.Size = New System.Drawing.Size(126, 25)
-        Me.lblTotalRecords.TabIndex = 1
+        Me.lblTotalRecords.TabIndex = 0
         Me.lblTotalRecords.Text = "📋 0 Records"
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'lblDueDays
+        '
+        Me.lblDueDays.AutoSize = True
+        Me.lblDueDays.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblDueDays.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
+        Me.lblDueDays.Location = New System.Drawing.Point(527, 110)
+        Me.lblDueDays.Name = "lblDueDays"
+        Me.lblDueDays.Size = New System.Drawing.Size(118, 35)
+        Me.lblDueDays.TabIndex = 14
+        Me.lblDueDays.Text = "Due Days"
+        Me.lblDueDays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtDueDays
+        '
+        Me.txtDueDays.BackColor = System.Drawing.Color.White
+        Me.txtDueDays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDueDays.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtDueDays.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtDueDays.Location = New System.Drawing.Point(651, 113)
+        Me.txtDueDays.Name = "txtDueDays"
+        Me.txtDueDays.Size = New System.Drawing.Size(92, 29)
+        Me.txtDueDays.TabIndex = 7
+        Me.txtDueDays.Text = "0"
+        Me.txtDueDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'FrmCustomerMaster
         '
@@ -4509,22 +4466,21 @@ Partial Class FrmCustomerMaster
         CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlSearch.ResumeLayout(False)
         Me.pnlSearch.PerformLayout()
+        Me.tlpMain.ResumeLayout(False)
+        Me.pnlBottomButtons.ResumeLayout(False)
         Me.pnlTopForm.ResumeLayout(False)
-        Me.gbMaindetail.ResumeLayout(False)
-        Me.pnlAllDetails.ResumeLayout(False)
         Me.grpTaxInfo.ResumeLayout(False)
         Me.tlpTaxInfo.ResumeLayout(False)
         Me.tlpTaxInfo.PerformLayout()
+        Me.gbMaindetail.ResumeLayout(False)
+        Me.pnlAllDetails.ResumeLayout(False)
         Me.grpAddressDetails.ResumeLayout(False)
         Me.tlpAddress.ResumeLayout(False)
         Me.tlpAddress.PerformLayout()
-        Me.pnlArea.ResumeLayout(False)
         Me.grpBasicInfo.ResumeLayout(False)
         Me.grpBasicInfo.PerformLayout()
         Me.tlpBasicInfo.ResumeLayout(False)
         Me.tlpBasicInfo.PerformLayout()
-        Me.tlpMain.ResumeLayout(False)
-        Me.pnlBottomButtons.ResumeLayout(False)
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
         Me.ResumeLayout(False)
@@ -4540,53 +4496,6 @@ Partial Class FrmCustomerMaster
     Friend WithEvents lblSearchArea As Label
     Friend WithEvents cmbF_Area As ComboBox
     Friend WithEvents btnClearSearch As Button
-    Friend WithEvents pnlTopForm As Panel
-    Friend WithEvents gbMaindetail As GroupBox
-    Friend WithEvents pnlAllDetails As Panel
-    Friend WithEvents grpTaxInfo As GroupBox
-    Friend WithEvents tlpTaxInfo As TableLayoutPanel
-    Friend WithEvents lblGSTNo As Label
-    Friend WithEvents txtGSTNo As TextBox
-    Friend WithEvents lblTaxation As Label
-    Friend WithEvents cmbTaxation As ComboBox
-    Friend WithEvents lblCollectionPerson As Label
-    Friend WithEvents cmbCollectionPerson As ComboBox
-    Friend WithEvents lblSalesPerson As Label
-    Friend WithEvents cmbSalesPerson As ComboBox
-    Friend WithEvents grpAddressDetails As GroupBox
-    Friend WithEvents tlpAddress As TableLayoutPanel
-    Friend WithEvents lblAddress1 As Label
-    Friend WithEvents txtAdd1 As TextBox
-    Friend WithEvents lblAddress2 As Label
-    Friend WithEvents txtAdd2 As TextBox
-    Friend WithEvents lblArea As Label
-    Friend WithEvents pnlArea As Panel
-    Friend WithEvents cmbArea As ComboBox
-    Friend WithEvents btnAddArea As Button
-    Friend WithEvents lblPinCode As Label
-    Friend WithEvents txtPinCode As TextBox
-    Friend WithEvents lblCountry As Label
-    Friend WithEvents cmbCountry As ComboBox
-    Friend WithEvents lblState As Label
-    Friend WithEvents cmbState As ComboBox
-    Friend WithEvents lblCity As Label
-    Friend WithEvents cmbCity As ComboBox
-    Friend WithEvents lblDueDays As Label
-    Friend WithEvents txtDueDays As TextBox
-    Friend WithEvents grpBasicInfo As GroupBox
-    Friend WithEvents tlpBasicInfo As TableLayoutPanel
-    Friend WithEvents lblCustomerCode As Label
-    Friend WithEvents txtLedgerCode As TextBox
-    Friend WithEvents lblDisplaySrNo As Label
-    Friend WithEvents txtDisplaySrNo As TextBox
-    Friend WithEvents lblCustomerType As Label
-    Friend WithEvents cmbCustType As ComboBox
-    Friend WithEvents lblMobileNo As Label
-    Friend WithEvents txtMobile As TextBox
-    Friend WithEvents lblPhoneNo As Label
-    Friend WithEvents txtPhone As TextBox
-    Friend WithEvents lblEmail As Label
-    Friend WithEvents txtEMailId As TextBox
     Friend WithEvents tlpMain As TableLayoutPanel
     Friend WithEvents pnlBottomButtons As Panel
     Friend WithEvents btnAdd As Button
@@ -4596,9 +4505,7 @@ Partial Class FrmCustomerMaster
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnClose As Button
     Friend WithEvents btnRefresh As Button
-    Friend WithEvents txtOpBal As TextBox
     Friend WithEvents lblLedgerId As Label
-    Friend WithEvents cmbDrCr As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents RenameColumnToolStripMenuItem As ToolStripMenuItem
@@ -4608,7 +4515,53 @@ Partial Class FrmCustomerMaster
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblTotalRecords As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents pnlTopForm As Panel
+    Friend WithEvents grpTaxInfo As GroupBox
+    Friend WithEvents tlpTaxInfo As TableLayoutPanel
+    Friend WithEvents lblGSTNo As Label
+    Friend WithEvents txtGSTNo As TextBox
+    Friend WithEvents cmbSalesPerson As ComboBox
+    Friend WithEvents cmbCollectionPerson As ComboBox
+    Friend WithEvents cmbTaxation As ComboBox
+    Friend WithEvents lblTaxation As Label
+    Friend WithEvents lblCollectionPerson As Label
+    Friend WithEvents lblSalesPerson As Label
+    Friend WithEvents gbMaindetail As GroupBox
+    Friend WithEvents pnlAllDetails As Panel
+    Friend WithEvents grpAddressDetails As GroupBox
+    Friend WithEvents tlpAddress As TableLayoutPanel
+    Friend WithEvents lblAddress1 As Label
+    Friend WithEvents txtAdd1 As TextBox
+    Friend WithEvents lblAddress2 As Label
+    Friend WithEvents txtAdd2 As TextBox
+    Friend WithEvents lblArea As Label
+    Friend WithEvents lblPinCode As Label
+    Friend WithEvents txtPinCode As TextBox
+    Friend WithEvents lblState As Label
+    Friend WithEvents cmbState As ComboBox
+    Friend WithEvents lblCity As Label
+    Friend WithEvents lblCountry As Label
+    Friend WithEvents cmbCity As ComboBox
+    Friend WithEvents cmbCountry As ComboBox
+    Friend WithEvents grpBasicInfo As GroupBox
+    Friend WithEvents cmbDrCr As TextBox
+    Friend WithEvents txtOpBal As TextBox
+    Friend WithEvents tlpBasicInfo As TableLayoutPanel
     Friend WithEvents lblCustomerName As Label
+    Friend WithEvents lblCustomerCode As Label
+    Friend WithEvents lblDisplaySrNo As Label
+    Friend WithEvents lblCustomerType As Label
+    Friend WithEvents lblMobileNo As Label
+    Friend WithEvents txtMobile As TextBox
+    Friend WithEvents lblPhoneNo As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents txtEMailId As TextBox
+    Friend WithEvents txtPhone As TextBox
     Friend WithEvents txtLedgerName As TextBox
+    Friend WithEvents txtLedgerCode As TextBox
+    Friend WithEvents cmbCustType As ComboBox
+    Friend WithEvents txtDisplaySrNo As TextBox
+    Friend WithEvents cmbArea As ComboBox
+    Friend WithEvents lblDueDays As Label
+    Friend WithEvents txtDueDays As TextBox
 End Class

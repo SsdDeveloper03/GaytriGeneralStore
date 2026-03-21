@@ -519,10 +519,20 @@
     <Compile Include="Master\FrmBusinessProfile.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Master\FrmCreditMaster.Designer.vb">
+      <DependentUpon>FrmCreditMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmCreditMaster.vb" />
     <Compile Include="Master\FrmCustomerMaster.Designer.vb">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\FrmCustomerMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\FrmEmployeeMapping.Designer.vb">
+      <DependentUpon>FrmEmployeeMapping.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmEmployeeMapping.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Master\FrmEmployeeMaster.Designer.vb">
@@ -623,8 +633,14 @@
     <EmbeddedResource Include="Master\FrmBusinessProfile.resx">
       <DependentUpon>FrmBusinessProfile.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmCreditMaster.resx">
+      <DependentUpon>FrmCreditMaster.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\FrmCustomerMaster.resx">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmEmployeeMapping.resx">
+      <DependentUpon>FrmEmployeeMapping.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\FrmEmployeeMaster.resx">
       <DependentUpon>FrmEmployeeMaster.vb</DependentUpon>
@@ -711,6 +727,8 @@
   <ItemGroup>
     <None Include="Resources\Misc.png" />
     <None Include="Resources\Outstanding.png" />
+    <None Include="Resources\Whatsapp.gif" />
+    <None Include="Resources\Whatsapp Icon.png" />
     <Content Include="Sunrise Logo Icon FIles.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

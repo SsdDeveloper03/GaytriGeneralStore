@@ -156,9 +156,7 @@ Public Class FrmMDIMain
     End Sub
 
     Private Sub BillingEntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BillingEntryToolStripMenuItem.Click
-        FrmBillingEntry.MdiParent = Me
-        FrmBillingEntry.Show()
-        FrmBillingEntry.Activate()
+
     End Sub
 
     Private Sub PaymentCollectionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaymentCollectionToolStripMenuItem.Click
@@ -291,6 +289,22 @@ Public Class FrmMDIMain
         FrmSettings.MdiParent = Me
         FrmSettings.Show()
         FrmSettings.Activate()
+    End Sub
+
+    Private Sub QuickSalesEntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuickSalesEntryToolStripMenuItem.Click
+        FrmBillingEntry.MdiParent = Me
+        FrmBillingEntry.Show()
+        FrmBillingEntry.Activate()
+    End Sub
+
+    Private Sub GEmployeeMappingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GEmployeeMappingToolStripMenuItem.Click
+        FrmEmployeeMapping.MdiParent = Me
+        FrmEmployeeMapping.Show()
+        FrmEmployeeMapping.Activate()
+    End Sub
+
+    Private Sub FToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FCreditMasterToolStripMenuItem.Click
+
     End Sub
 
     Private Sub cmbFinYr_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbFinYr.Validating, cmbCName.Validating

@@ -606,6 +606,8 @@ Public Class FrmBillingEntry
             txtMobile.MaxLength = Val(M_MobileNoLength)
         End If
 
+        Me.KeyPreview = True
+
         If M_GenerateCustomerNumberSaveTime = "Yes" Then
             cmbLedger.ReadOnly = True
             cmbLedger.TabStop = False
@@ -1098,14 +1100,15 @@ Public Class FrmBillingEntry
     End Sub
 
     Private Sub cmbLedger_Properties_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles cmbLedger.Properties.ButtonClick
-        If e.Button.Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Plus Then
+        Dim frm As New FrmCustomerMaster
+        frm.OpenFromBilling = True
 
-            Dim frm As New FrmCustomerMaster
-            frm.ShowDialog()
+        frm.ShowDialog()
 
-            'Refresh Customer Lookup
-            Fill_Ledger()
-
+        If frm.NewLedgerId > 0 Then
+            fill_ledger()
+            cmbLedger.EditValue = frm.NewLedgerId
+            FillCustomerDetails()
         End If
     End Sub
 
@@ -1121,8 +1124,9 @@ Public Class FrmBillingEntry
         Dim frm As New FrmCustomerMaster
         frm.OpenFromBilling = True
         frm.ShowDialog()
+
         If frm.NewLedgerId > 0 Then
-            Fill_Ledger()
+            fill_ledger()
             cmbLedger.EditValue = frm.NewLedgerId
             cmbLedger.Properties.View.FocusedRowHandle = cmbLedger.Properties.View.LocateByValue("LedgerId", frm.NewLedgerId)
             FillCustomerDetails()

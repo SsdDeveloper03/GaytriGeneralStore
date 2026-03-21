@@ -144,11 +144,11 @@ Partial Class FrmBillingEntry
         Me.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Refresh.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Refresh.ForeColor = System.Drawing.Color.White
-        Me.btn_Refresh.Location = New System.Drawing.Point(1004, 8)
+        Me.btn_Refresh.Location = New System.Drawing.Point(1004, 4)
         Me.btn_Refresh.Name = "btn_Refresh"
-        Me.btn_Refresh.Size = New System.Drawing.Size(112, 35)
+        Me.btn_Refresh.Size = New System.Drawing.Size(141, 40)
         Me.btn_Refresh.TabIndex = 6
-        Me.btn_Refresh.Text = "🔄 &REFRESH"
+        Me.btn_Refresh.Text = "🔄 REFRESH(F5)"
         Me.btn_Refresh.UseVisualStyleBackColor = False
         '
         'btn_Close
@@ -159,11 +159,11 @@ Partial Class FrmBillingEntry
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Close.ForeColor = System.Drawing.Color.White
-        Me.btn_Close.Location = New System.Drawing.Point(908, 8)
+        Me.btn_Close.Location = New System.Drawing.Point(872, 4)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(90, 35)
+        Me.btn_Close.Size = New System.Drawing.Size(125, 40)
         Me.btn_Close.TabIndex = 5
-        Me.btn_Close.Text = "🚪 CL&OSE"
+        Me.btn_Close.Text = "🚪 CLOSE(Esc)"
         Me.btn_Close.UseVisualStyleBackColor = False
         '
         'btn_Cancel
@@ -174,11 +174,11 @@ Partial Class FrmBillingEntry
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(810, 8)
+        Me.btn_Cancel.Location = New System.Drawing.Point(745, 4)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(92, 35)
+        Me.btn_Cancel.Size = New System.Drawing.Size(121, 40)
         Me.btn_Cancel.TabIndex = 4
-        Me.btn_Cancel.Text = "✘ &CANCEL"
+        Me.btn_Cancel.Text = "✘ CANCEL(F8)"
         Me.btn_Cancel.UseVisualStyleBackColor = False
         '
         'btn_save
@@ -189,11 +189,11 @@ Partial Class FrmBillingEntry
         Me.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_save.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_save.ForeColor = System.Drawing.Color.White
-        Me.btn_save.Location = New System.Drawing.Point(717, 8)
+        Me.btn_save.Location = New System.Drawing.Point(630, 4)
         Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(87, 35)
+        Me.btn_save.Size = New System.Drawing.Size(109, 40)
         Me.btn_save.TabIndex = 3
-        Me.btn_save.Text = "💾 &SAVE"
+        Me.btn_save.Text = "💾 SAVE(F6)"
         Me.btn_save.UseVisualStyleBackColor = False
         '
         'btn_Delete
@@ -204,11 +204,11 @@ Partial Class FrmBillingEntry
         Me.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Delete.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Delete.ForeColor = System.Drawing.Color.White
-        Me.btn_Delete.Location = New System.Drawing.Point(613, 8)
+        Me.btn_Delete.Location = New System.Drawing.Point(498, 4)
         Me.btn_Delete.Name = "btn_Delete"
-        Me.btn_Delete.Size = New System.Drawing.Size(98, 35)
+        Me.btn_Delete.Size = New System.Drawing.Size(126, 40)
         Me.btn_Delete.TabIndex = 2
-        Me.btn_Delete.Text = "🗑️ &DELETE"
+        Me.btn_Delete.Text = "🗑️ DELETE(F7)"
         Me.btn_Delete.UseVisualStyleBackColor = False
         '
         'btn_Add
@@ -219,11 +219,11 @@ Partial Class FrmBillingEntry
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(430, 8)
+        Me.btn_Add.Location = New System.Drawing.Point(261, 4)
         Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(85, 35)
+        Me.btn_Add.Size = New System.Drawing.Size(111, 40)
         Me.btn_Add.TabIndex = 0
-        Me.btn_Add.Text = "➕ &ADD"
+        Me.btn_Add.Text = "➕ ADD(F2)"
         Me.btn_Add.UseVisualStyleBackColor = False
         '
         'btn_Edit
@@ -234,11 +234,11 @@ Partial Class FrmBillingEntry
         Me.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Edit.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Edit.ForeColor = System.Drawing.Color.White
-        Me.btn_Edit.Location = New System.Drawing.Point(522, 8)
+        Me.btn_Edit.Location = New System.Drawing.Point(378, 4)
         Me.btn_Edit.Name = "btn_Edit"
-        Me.btn_Edit.Size = New System.Drawing.Size(85, 35)
+        Me.btn_Edit.Size = New System.Drawing.Size(114, 40)
         Me.btn_Edit.TabIndex = 1
-        Me.btn_Edit.Text = "✏️ &EDIT"
+        Me.btn_Edit.Text = "✏️ EDIT(F3)"
         Me.btn_Edit.UseVisualStyleBackColor = False
         '
         'lblTitle

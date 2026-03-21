@@ -537,7 +537,6 @@ Partial Class FrmEmployeeMaster
         '
         'pnlButtons
         '
-        Me.pnlButtons.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlButtons.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.pnlButtons.Controls.Add(Me.btn_Refresh)
         Me.pnlButtons.Controls.Add(Me.btn_Close)
@@ -560,11 +559,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Refresh.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Refresh.ForeColor = System.Drawing.Color.White
-        Me.btn_Refresh.Location = New System.Drawing.Point(332, 55)
+        Me.btn_Refresh.Location = New System.Drawing.Point(368, 52)
         Me.btn_Refresh.Name = "btn_Refresh"
-        Me.btn_Refresh.Size = New System.Drawing.Size(130, 32)
+        Me.btn_Refresh.Size = New System.Drawing.Size(127, 45)
         Me.btn_Refresh.TabIndex = 6
-        Me.btn_Refresh.Text = "🔄 &REFRESH"
+        Me.btn_Refresh.Text = "🔄 &REFRESH (F5)"
         Me.btn_Refresh.UseVisualStyleBackColor = False
         '
         'btn_Close
@@ -575,11 +574,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Close.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Close.ForeColor = System.Drawing.Color.White
-        Me.btn_Close.Location = New System.Drawing.Point(216, 55)
+        Me.btn_Close.Location = New System.Drawing.Point(230, 52)
         Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(110, 32)
+        Me.btn_Close.Size = New System.Drawing.Size(106, 45)
         Me.btn_Close.TabIndex = 5
-        Me.btn_Close.Text = "🚪 CL&OSE"
+        Me.btn_Close.Text = "🚪 CL&OSE (Esc)"
         Me.btn_Close.UseVisualStyleBackColor = False
         '
         'btn_Cancel
@@ -590,11 +589,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Cancel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Cancel.ForeColor = System.Drawing.Color.White
-        Me.btn_Cancel.Location = New System.Drawing.Point(91, 55)
+        Me.btn_Cancel.Location = New System.Drawing.Point(92, 52)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(119, 33)
+        Me.btn_Cancel.Size = New System.Drawing.Size(106, 45)
         Me.btn_Cancel.TabIndex = 4
-        Me.btn_Cancel.Text = "❌ &CANCEL"
+        Me.btn_Cancel.Text = "❌ &CANCEL (F8)"
         Me.btn_Cancel.UseVisualStyleBackColor = False
         '
         'btn_save
@@ -605,11 +604,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_save.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_save.ForeColor = System.Drawing.Color.White
-        Me.btn_save.Location = New System.Drawing.Point(279, 10)
+        Me.btn_save.Location = New System.Drawing.Point(291, 4)
         Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(122, 35)
+        Me.btn_save.Size = New System.Drawing.Size(106, 45)
         Me.btn_save.TabIndex = 2
-        Me.btn_save.Text = "💾 &SAVE"
+        Me.btn_save.Text = "💾 &SAVE (F6)"
         Me.btn_save.UseVisualStyleBackColor = False
         '
         'btn_Delete
@@ -620,11 +619,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Delete.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Delete.ForeColor = System.Drawing.Color.White
-        Me.btn_Delete.Location = New System.Drawing.Point(409, 10)
+        Me.btn_Delete.Location = New System.Drawing.Point(420, 4)
         Me.btn_Delete.Name = "btn_Delete"
-        Me.btn_Delete.Size = New System.Drawing.Size(119, 35)
+        Me.btn_Delete.Size = New System.Drawing.Size(106, 45)
         Me.btn_Delete.TabIndex = 3
-        Me.btn_Delete.Text = "🗑️ &DELETE"
+        Me.btn_Delete.Text = "🗑️ &DELETE (F7)"
         Me.btn_Delete.UseVisualStyleBackColor = False
         '
         'btn_Edit
@@ -635,11 +634,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Edit.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Edit.ForeColor = System.Drawing.Color.White
-        Me.btn_Edit.Location = New System.Drawing.Point(150, 10)
+        Me.btn_Edit.Location = New System.Drawing.Point(162, 4)
         Me.btn_Edit.Name = "btn_Edit"
-        Me.btn_Edit.Size = New System.Drawing.Size(121, 35)
+        Me.btn_Edit.Size = New System.Drawing.Size(106, 45)
         Me.btn_Edit.TabIndex = 1
-        Me.btn_Edit.Text = "✏️ &EDIT"
+        Me.btn_Edit.Text = "✏️ &EDIT (F3)"
         Me.btn_Edit.UseVisualStyleBackColor = False
         '
         'btn_Add
@@ -650,11 +649,11 @@ Partial Class FrmEmployeeMaster
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Add.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btn_Add.ForeColor = System.Drawing.Color.White
-        Me.btn_Add.Location = New System.Drawing.Point(24, 10)
+        Me.btn_Add.Location = New System.Drawing.Point(33, 4)
         Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(117, 35)
+        Me.btn_Add.Size = New System.Drawing.Size(106, 45)
         Me.btn_Add.TabIndex = 0
-        Me.btn_Add.Text = "➕ &ADD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_Add.Text = "➕ &ADD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " (F2)"
         Me.btn_Add.UseVisualStyleBackColor = False
         '
         'gcData
@@ -666,7 +665,7 @@ Partial Class FrmEmployeeMaster
         Me.gcData.Location = New System.Drawing.Point(15, 161)
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1096, 668)
+        Me.gcData.Size = New System.Drawing.Size(1095, 668)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
         '

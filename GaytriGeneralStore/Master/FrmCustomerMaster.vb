@@ -26,6 +26,7 @@ Public Class FrmCustomerMaster
     Dim dt As New DataTable
     Dim escCount As Integer
 
+
 #End Region
 
 #Region "Method"
@@ -284,7 +285,7 @@ Public Class FrmCustomerMaster
         'cmbF_CustType.SelectedIndex = 0
         'cmbDrCr.SelectedIndex = 0
 
-        ComboFill(cmbCustType, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('CustType') Order By MiscName")
+        ComboFill(cmbCustType, "Select MiscId , MiscName From Tbl_MiscMaster Where CId = " & M_CId & " And MiscType in ('CustType') Order By MiscId")
         ComboFill(cmbArea, "Select AreaId, AreaName From tbl_AreaMaster Order By AreaName")
         ComboFill_City(cmbCity, "Select AreaId, CityName, PinCode From tbl_AreaMaster Order By AreaName")
         ComboFill(cmbState, "Select AreaId, StateName From tbl_AreaMaster Order By AreaName")
@@ -532,6 +533,8 @@ Public Class FrmCustomerMaster
 #Region "Events"
 
     Private Sub FrmLedgerMaster_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.KeyPreview = True
         If UCase(M_ValidateMobileNoLength) = "YES" Then
             txtMobile.MaxLength = Val(M_MobileNoLength)
         End If
@@ -583,13 +586,20 @@ Public Class FrmCustomerMaster
         'cmbF_Area.Text = "ALL"
 
         btnAdd.Focus()
+        LoadCustomerAutoComplete()
+
+        If OpenFromBilling = True Then
+            addClickTime()
+            txtLedgerName.Focus()
+        End If
+
     End Sub
 
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        If checkRightsToAdd("CUSTOMER MASTER") = False Then
-            MsgBox("Unable To Add New Record", MsgBoxStyle.Information)
-            Exit Sub
-        End If
+        'If checkRightsToAdd("CUSTOMER MASTER") = False Then
+        '    MsgBox("Unable To Add New Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
         'If M_IsDemoSetup = True Then'====
         '    sql_query = "Select Count(*) From Tbl_LedgerMaster"
@@ -603,10 +613,10 @@ Public Class FrmCustomerMaster
     End Sub
 
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
-        If checkRightsToEdit("CUSTOMER MASTER") = False Then
-            MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
-            Exit Sub
-        End If
+        'If checkRightsToEdit("CUSTOMER MASTER") = False Then
+        '    MsgBox("Unable To Edit Record", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
         editClickTime()
     End Sub
@@ -628,8 +638,15 @@ Public Class FrmCustomerMaster
             txtLedgerCode.Focus()
             Exit Sub
         End If
+
         If Trim(txtMobile.Text) <> "" And Trim(txtMobile.Text.Length) <> M_MobileNoLength Then
             MsgBox("Please Specify Correct Mobile Number (10 Digits Required)", MsgBoxStyle.Information)
+            Exit Sub
+        End If
+
+        If IsCustomerExists() Then
+            MsgBox("Customer already exists! Please enter a different name.", MsgBoxStyle.Exclamation)
+            txtLedgerName.Focus()
             Exit Sub
         End If
 
@@ -714,34 +731,44 @@ Public Class FrmCustomerMaster
 
     Private Sub txtLedgerCode_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLedgerCode.KeyPress
         If e.KeyChar = Chr(13) Then
-            If Trim(txtLedgerCode.Text) = "" Then
-                Exit Sub
-            End If
-            txtLedgerName.Focus()
+            e.Handled = True
+
+            If Trim(txtLedgerCode.Text) = "" Then Exit Sub
+
+            txtPhone.Focus()
         End If
     End Sub
 
-    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAdd1.KeyPress, txtAdd2.KeyPress, txtPinCode.KeyPress, txtEMailId.KeyPress, txtGSTNo.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbArea.KeyPress, cmbSalesPerson.KeyPress, cmbCollectionPerson.KeyPress, cmbCustType.KeyPress, cmbTaxation.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress, txtLedgerName.KeyPress
+    Private Sub txtLedgerName_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAdd1.KeyPress, txtAdd2.KeyPress, txtPinCode.KeyPress, txtEMailId.KeyPress, cmbDrCr.KeyPress, cmbCity.KeyPress, cmbCustType.KeyPress, cmbF_Area.KeyPress, cmbState.KeyPress, cmbCountry.KeyPress, txtLedgerName.KeyPress
+
         If e.KeyChar = Chr(13) Then
-            SendKeys.Send("{Tab}")
+            e.Handled = True
+            Me.SelectNextControl(CType(sender, Control), True, True, True, True)
         End If
+
     End Sub
 
-    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtDueDays.KeyPress, txtPhone.KeyPress
+    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtPhone.KeyPress, txtDueDays.KeyPress
+
         If UCase(M_AllowMultiCountryMobileSeries) = "NO" Then
+
             If e.KeyChar = Chr(13) Then
-                SendKeys.Send("{Tab}")
-            End If
-            If e.KeyChar = Chr(8) Then
+                e.Handled = True
+                Me.SelectNextControl(CType(sender, Control), True, True, True, True)
                 Exit Sub
             End If
+
+            If e.KeyChar = Chr(8) Then Exit Sub
+
             If checkNumber(Asc(e.KeyChar)) = False Then
                 e.KeyChar = Chr(0)
             End If
+
         End If
+
     End Sub
 
-    Private Sub cmbCity_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbDrCr.Enter, cmbCity.Enter, cmbArea.Enter, cmbSalesPerson.Enter, cmbCollectionPerson.Enter, cmbCustType.Enter, cmbTaxation.Enter, cmbF_Area.Enter, cmbState.Enter, cmbCountry.Enter
+    Private Sub cmbCity_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbDrCr.Enter, cmbCity.Enter, cmbCustType.Enter, cmbF_Area.Enter, cmbState.Enter, cmbCountry.Enter
         sender.DroppedDown = True
         If sender.SelectedIndex = -1 And sender.Items.Count > 0 Then
             sender.SelectedIndex = 0
@@ -929,7 +956,7 @@ Public Class FrmCustomerMaster
         btnCancel.Enabled = True
         btnEdit.Enabled = True
         btnDelete.Enabled = True
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnAdd.Enabled = False
     End Sub
 
@@ -944,7 +971,7 @@ Public Class FrmCustomerMaster
         btnCancel.Enabled = True
         btnEdit.Enabled = True
         btnDelete.Enabled = True
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnAdd.Enabled = False
 
         If checkRightsToEdit("CUSTOMER MASTER") = False Then
@@ -966,12 +993,12 @@ Public Class FrmCustomerMaster
         btnCancel.Enabled = True
         btnEdit.Enabled = True
         btnDelete.Enabled = True
-        btnSave.Enabled = False
+        btnsave.Enabled = False
         btnAdd.Enabled = False
     End Sub
 
     Private Sub RenameColumnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenameColumnToolStripMenuItem.Click
-        Dx_Renamecolumn(gvData)
+        Dx_RenameColumn(gvData)
     End Sub
 
     Private Sub SaveLayoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLayoutToolStripMenuItem.Click
@@ -983,7 +1010,7 @@ Public Class FrmCustomerMaster
         cmbF_Area.Text = "ALL"
     End Sub
 
-    Private Sub btnAddArea_Click(sender As Object, e As EventArgs) Handles btnAddArea.Click
+    Private Sub btnAddArea_Click(sender As Object, e As EventArgs)
         Dim misctype As String = UCase(cmbArea.Text)
 
         If M_checkMiscMaster("Area", UCase(cmbArea.Text)) = False Then
@@ -1001,7 +1028,7 @@ Public Class FrmCustomerMaster
         cmbArea.Focus()
     End Sub
 
-    Private Sub cmbSalesPerson_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmbSalesPerson.Validating
+    Private Sub cmbSalesPerson_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs)
         btnsave.Focus()
     End Sub
 
@@ -1021,7 +1048,7 @@ Public Class FrmCustomerMaster
         gridfill(True)
     End Sub
 
-    Private Sub cmbArea_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbArea.SelectedIndexChanged
+    Private Sub cmbArea_SelectedIndexChanged(sender As Object, e As EventArgs)
         If cmbArea.SelectedIndex > 0 Then
             cmbCity.SelectedValue = cmbArea.SelectedValue
             cmbState.SelectedValue = cmbArea.SelectedValue
@@ -1068,6 +1095,51 @@ Public Class FrmCustomerMaster
         End Select
     End Sub
 
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub txtPhone_Leave(sender As Object, e As EventArgs) Handles txtPhone.Leave
+        txtAdd1.Focus()
+    End Sub
+
+    Public Sub LoadCustomerAutoComplete()
+        Dim dsLedger As New DataSet
+
+        sql_query = "SELECT LedgerName FROM tbl_LedgerMaster WHERE G_Id = 11 AND CId = " & M_CId
+        obj.LoadData(sql_query, dsLedger)
+
+        Dim collection As New AutoCompleteStringCollection()
+
+        For Each row As DataRow In dt.Rows
+            collection.Add(row("LedgerName").ToString())
+        Next
+
+        txtLedgerName.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        txtLedgerName.AutoCompleteSource = AutoCompleteSource.CustomSource
+        txtLedgerName.AutoCompleteCustomSource = collection
+    End Sub
+
+    Public Function IsCustomerExists() As Boolean
+        Dim result As Object
+
+        If edit_ins = 1 Then
+            ' Insert mode
+            sql_query = "SELECT COUNT(*) FROM tbl_LedgerMaster 
+                     WHERE LedgerName = '" & Trim(txtLedgerName.Text) & "' 
+                     AND G_Id = 11 AND CId = " & M_CId
+        Else
+            ' Edit mode → ignore same record
+            sql_query = "SELECT COUNT(*) FROM tbl_LedgerMaster 
+                     WHERE LedgerName = '" & Trim(txtLedgerName.Text) & "' 
+                     AND LedgerId <> " & Val(lblLedgerId.Text) & "
+                     AND G_Id = 11 AND CId = " & M_CId
+        End If
+
+        result = obj.ScalarExecute(sql_query)
+
+        Return Val(result) > 0
+    End Function
 
 #End Region
 
