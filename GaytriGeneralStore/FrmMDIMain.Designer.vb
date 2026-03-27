@@ -556,6 +556,12 @@ Partial Class FrmMDIMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMDIMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbCName = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BillingEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -580,12 +586,7 @@ Partial Class FrmMDIMain
         Me.FCreditMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GEmployeeMappingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.cmbFinYr = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbCName = New System.Windows.Forms.ComboBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.HUsersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -604,214 +605,6 @@ Partial Class FrmMDIMain
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.TabStop = True
         Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'HomeToolStripMenuItem
-        '
-        Me.HomeToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.HomeToolStripMenuItem.Image = CType(resources.GetObject("HomeToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(96, 24)
-        Me.HomeToolStripMenuItem.Text = "Home"
-        '
-        'EntryToolStripMenuItem
-        '
-        Me.EntryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BillingEntryToolStripMenuItem, Me.PaymentCollectionToolStripMenuItem})
-        Me.EntryToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
-        Me.EntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EntryToolStripMenuItem.Image = CType(resources.GetObject("EntryToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EntryToolStripMenuItem.Name = "EntryToolStripMenuItem"
-        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
-        Me.EntryToolStripMenuItem.Text = "&1.Entry"
-        '
-        'BillingEntryToolStripMenuItem
-        '
-        Me.BillingEntryToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.BillingEntryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickSalesEntryToolStripMenuItem, Me.SalesBillEntryToolStripMenuItem, Me.SalesRetrunToolStripMenuItem})
-        Me.BillingEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.BillingEntryToolStripMenuItem.Image = CType(resources.GetObject("BillingEntryToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.BillingEntryToolStripMenuItem.Name = "BillingEntryToolStripMenuItem"
-        Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
-        Me.BillingEntryToolStripMenuItem.Text = "&A. Sales Entry"
-        '
-        'QuickSalesEntryToolStripMenuItem
-        '
-        Me.QuickSalesEntryToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.QuickSalesEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.QuickSalesEntryToolStripMenuItem.Name = "QuickSalesEntryToolStripMenuItem"
-        Me.QuickSalesEntryToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.QuickSalesEntryToolStripMenuItem.Text = "Quick Sales Entry"
-        '
-        'SalesBillEntryToolStripMenuItem
-        '
-        Me.SalesBillEntryToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.SalesBillEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.SalesBillEntryToolStripMenuItem.Name = "SalesBillEntryToolStripMenuItem"
-        Me.SalesBillEntryToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.SalesBillEntryToolStripMenuItem.Text = "Sales Bill Entry"
-        '
-        'SalesRetrunToolStripMenuItem
-        '
-        Me.SalesRetrunToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.SalesRetrunToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.SalesRetrunToolStripMenuItem.Name = "SalesRetrunToolStripMenuItem"
-        Me.SalesRetrunToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
-        Me.SalesRetrunToolStripMenuItem.Text = "Sales Retrun Entry"
-        '
-        'PaymentCollectionToolStripMenuItem
-        '
-        Me.PaymentCollectionToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.PaymentCollectionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.PaymentCollectionToolStripMenuItem.Image = CType(resources.GetObject("PaymentCollectionToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
-        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
-        Me.PaymentCollectionToolStripMenuItem.Text = "&B. Payment Collection"
-        Me.PaymentCollectionToolStripMenuItem.Visible = False
-        '
-        'ViewToolStripMenuItem
-        '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OutstandingReportToolStripMenuItem})
-        Me.ViewToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
-        Me.ViewToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(106, 24)
-        Me.ViewToolStripMenuItem.Text = "&2.View"
-        '
-        'OutstandingReportToolStripMenuItem
-        '
-        Me.OutstandingReportToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.OutstandingReportToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.OutstandingReportToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Outstanding
-        Me.OutstandingReportToolStripMenuItem.Name = "OutstandingReportToolStripMenuItem"
-        Me.OutstandingReportToolStripMenuItem.Size = New System.Drawing.Size(266, 26)
-        Me.OutstandingReportToolStripMenuItem.Text = "Outstanding report"
-        '
-        'UtilityToolStripMenuItem
-        '
-        Me.UtilityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.BChangePasswordToolStripMenuItem, Me.CDataBackUpToolStripMenuItem, Me.DUserRightsToolStripMenuItem, Me.EToolStripMenuItem})
-        Me.UtilityToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
-        Me.UtilityToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.UtilityToolStripMenuItem.Image = CType(resources.GetObject("UtilityToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.UtilityToolStripMenuItem.Name = "UtilityToolStripMenuItem"
-        Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(118, 24)
-        Me.UtilityToolStripMenuItem.Text = "&3.Utility"
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
-        Me.SettingsToolStripMenuItem.Text = "&A. Settings"
-        Me.SettingsToolStripMenuItem.Visible = False
-        '
-        'BChangePasswordToolStripMenuItem
-        '
-        Me.BChangePasswordToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.BChangePasswordToolStripMenuItem.Name = "BChangePasswordToolStripMenuItem"
-        Me.BChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
-        Me.BChangePasswordToolStripMenuItem.Text = "&B. Change Password"
-        '
-        'CDataBackUpToolStripMenuItem
-        '
-        Me.CDataBackUpToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.CDataBackUpToolStripMenuItem.Name = "CDataBackUpToolStripMenuItem"
-        Me.CDataBackUpToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
-        Me.CDataBackUpToolStripMenuItem.Text = "&C. Data BackUp"
-        '
-        'DUserRightsToolStripMenuItem
-        '
-        Me.DUserRightsToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.DUserRightsToolStripMenuItem.Name = "DUserRightsToolStripMenuItem"
-        Me.DUserRightsToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
-        Me.DUserRightsToolStripMenuItem.Text = "&D. User Rights"
-        '
-        'EToolStripMenuItem
-        '
-        Me.EToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.EToolStripMenuItem.Name = "EToolStripMenuItem"
-        Me.EToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
-        Me.EToolStripMenuItem.Text = "&E. Run Query"
-        '
-        'MasterToolStripMenuItem
-        '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.DAreaToolStripMenuItem, Me.EMiscMasterToolStripMenuItem, Me.FCreditMasterToolStripMenuItem, Me.GEmployeeMappingToolStripMenuItem})
-        Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(123, 24)
-        Me.MasterToolStripMenuItem.Text = "&4.Master"
-        '
-        'BusinessProfileToolStripMenuItem
-        '
-        Me.BusinessProfileToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.BusinessProfileToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.BusinessProfileToolStripMenuItem.Image = CType(resources.GetObject("BusinessProfileToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
-        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.BusinessProfileToolStripMenuItem.Text = "&A. Business Profile"
-        '
-        'CustomerToolStripMenuItem
-        '
-        Me.CustomerToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.CustomerToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.CustomerToolStripMenuItem.Image = CType(resources.GetObject("CustomerToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.CustomerToolStripMenuItem.Text = "&B. Customer"
-        '
-        'EmployeeToolStripMenuItem
-        '
-        Me.EmployeeToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EmployeeToolStripMenuItem.Image = CType(resources.GetObject("EmployeeToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.EmployeeToolStripMenuItem.Text = "&C. Employee"
-        '
-        'DAreaToolStripMenuItem
-        '
-        Me.DAreaToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.DAreaToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.DAreaToolStripMenuItem.Image = CType(resources.GetObject("DAreaToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.DAreaToolStripMenuItem.Name = "DAreaToolStripMenuItem"
-        Me.DAreaToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.DAreaToolStripMenuItem.Text = "&D. Area"
-        '
-        'EMiscMasterToolStripMenuItem
-        '
-        Me.EMiscMasterToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.EMiscMasterToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EMiscMasterToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Misc
-        Me.EMiscMasterToolStripMenuItem.Name = "EMiscMasterToolStripMenuItem"
-        Me.EMiscMasterToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.EMiscMasterToolStripMenuItem.Text = "&E. Misc Master"
-        Me.EMiscMasterToolStripMenuItem.Visible = False
-        '
-        'FCreditMasterToolStripMenuItem
-        '
-        Me.FCreditMasterToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.FCreditMasterToolStripMenuItem.Name = "FCreditMasterToolStripMenuItem"
-        Me.FCreditMasterToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.FCreditMasterToolStripMenuItem.Text = "&F. Credit Master"
-        '
-        'GEmployeeMappingToolStripMenuItem
-        '
-        Me.GEmployeeMappingToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed
-        Me.GEmployeeMappingToolStripMenuItem.Name = "GEmployeeMappingToolStripMenuItem"
-        Me.GEmployeeMappingToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
-        Me.GEmployeeMappingToolStripMenuItem.Text = "&G. Employee Mapping"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
-        Me.ExitToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
-        Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'XtraTabbedMdiManager1
         '
@@ -892,6 +685,227 @@ Partial Class FrmMDIMain
         Me.Panel1.Size = New System.Drawing.Size(1547, 643)
         Me.Panel1.TabIndex = 1
         '
+        'HomeToolStripMenuItem
+        '
+        Me.HomeToolStripMenuItem.BackColor = System.Drawing.Color.Khaki
+        Me.HomeToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HomeToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.HomeToolStripMenuItem.Image = CType(resources.GetObject("HomeToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(96, 24)
+        Me.HomeToolStripMenuItem.Text = "Home"
+        '
+        'EntryToolStripMenuItem
+        '
+        Me.EntryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BillingEntryToolStripMenuItem, Me.PaymentCollectionToolStripMenuItem})
+        Me.EntryToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.EntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.EntryToolStripMenuItem.Image = CType(resources.GetObject("EntryToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EntryToolStripMenuItem.Name = "EntryToolStripMenuItem"
+        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
+        Me.EntryToolStripMenuItem.Text = "&1.Entry"
+        '
+        'BillingEntryToolStripMenuItem
+        '
+        Me.BillingEntryToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.BillingEntryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickSalesEntryToolStripMenuItem, Me.SalesBillEntryToolStripMenuItem, Me.SalesRetrunToolStripMenuItem})
+        Me.BillingEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.BillingEntryToolStripMenuItem.Image = CType(resources.GetObject("BillingEntryToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.BillingEntryToolStripMenuItem.Name = "BillingEntryToolStripMenuItem"
+        Me.BillingEntryToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
+        Me.BillingEntryToolStripMenuItem.Text = "&A. Sales Entry"
+        '
+        'QuickSalesEntryToolStripMenuItem
+        '
+        Me.QuickSalesEntryToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.QuickSalesEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.QuickSalesEntryToolStripMenuItem.Name = "QuickSalesEntryToolStripMenuItem"
+        Me.QuickSalesEntryToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.QuickSalesEntryToolStripMenuItem.Text = "Quick Sales Entry"
+        '
+        'SalesBillEntryToolStripMenuItem
+        '
+        Me.SalesBillEntryToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.SalesBillEntryToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.SalesBillEntryToolStripMenuItem.Name = "SalesBillEntryToolStripMenuItem"
+        Me.SalesBillEntryToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.SalesBillEntryToolStripMenuItem.Text = "Sales Bill Entry"
+        '
+        'SalesRetrunToolStripMenuItem
+        '
+        Me.SalesRetrunToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.SalesRetrunToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.SalesRetrunToolStripMenuItem.Name = "SalesRetrunToolStripMenuItem"
+        Me.SalesRetrunToolStripMenuItem.Size = New System.Drawing.Size(261, 26)
+        Me.SalesRetrunToolStripMenuItem.Text = "Sales Retrun Entry"
+        '
+        'PaymentCollectionToolStripMenuItem
+        '
+        Me.PaymentCollectionToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.PaymentCollectionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.PaymentCollectionToolStripMenuItem.Image = CType(resources.GetObject("PaymentCollectionToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PaymentCollectionToolStripMenuItem.Name = "PaymentCollectionToolStripMenuItem"
+        Me.PaymentCollectionToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
+        Me.PaymentCollectionToolStripMenuItem.Text = "&B. Payment Collection"
+        Me.PaymentCollectionToolStripMenuItem.Visible = False
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.BackColor = System.Drawing.Color.SeaShell
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OutstandingReportToolStripMenuItem})
+        Me.ViewToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.ViewToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(106, 24)
+        Me.ViewToolStripMenuItem.Text = "&2.View"
+        '
+        'OutstandingReportToolStripMenuItem
+        '
+        Me.OutstandingReportToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.OutstandingReportToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.OutstandingReportToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Outstanding
+        Me.OutstandingReportToolStripMenuItem.Name = "OutstandingReportToolStripMenuItem"
+        Me.OutstandingReportToolStripMenuItem.Size = New System.Drawing.Size(291, 26)
+        Me.OutstandingReportToolStripMenuItem.Text = "&A. Outstanding report"
+        '
+        'UtilityToolStripMenuItem
+        '
+        Me.UtilityToolStripMenuItem.BackColor = System.Drawing.Color.SeaShell
+        Me.UtilityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.BChangePasswordToolStripMenuItem, Me.CDataBackUpToolStripMenuItem, Me.DUserRightsToolStripMenuItem, Me.EToolStripMenuItem})
+        Me.UtilityToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.UtilityToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.UtilityToolStripMenuItem.Image = CType(resources.GetObject("UtilityToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.UtilityToolStripMenuItem.Name = "UtilityToolStripMenuItem"
+        Me.UtilityToolStripMenuItem.Size = New System.Drawing.Size(118, 24)
+        Me.UtilityToolStripMenuItem.Text = "&3.Utility"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
+        Me.SettingsToolStripMenuItem.Text = "&A. Settings"
+        '
+        'BChangePasswordToolStripMenuItem
+        '
+        Me.BChangePasswordToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.BChangePasswordToolStripMenuItem.Name = "BChangePasswordToolStripMenuItem"
+        Me.BChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
+        Me.BChangePasswordToolStripMenuItem.Text = "&B. Change Password"
+        '
+        'CDataBackUpToolStripMenuItem
+        '
+        Me.CDataBackUpToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.CDataBackUpToolStripMenuItem.Name = "CDataBackUpToolStripMenuItem"
+        Me.CDataBackUpToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
+        Me.CDataBackUpToolStripMenuItem.Text = "&C. Data BackUp"
+        '
+        'DUserRightsToolStripMenuItem
+        '
+        Me.DUserRightsToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.DUserRightsToolStripMenuItem.Name = "DUserRightsToolStripMenuItem"
+        Me.DUserRightsToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
+        Me.DUserRightsToolStripMenuItem.Text = "&D. User Rights"
+        '
+        'EToolStripMenuItem
+        '
+        Me.EToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.EToolStripMenuItem.Name = "EToolStripMenuItem"
+        Me.EToolStripMenuItem.Size = New System.Drawing.Size(277, 26)
+        Me.EToolStripMenuItem.Text = "&E. Run Query"
+        Me.EToolStripMenuItem.Visible = False
+        '
+        'MasterToolStripMenuItem
+        '
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BusinessProfileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.DAreaToolStripMenuItem, Me.EMiscMasterToolStripMenuItem, Me.FCreditMasterToolStripMenuItem, Me.GEmployeeMappingToolStripMenuItem, Me.HUsersToolStripMenuItem})
+        Me.MasterToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MasterToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.MasterToolStripMenuItem.Image = CType(resources.GetObject("MasterToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(123, 24)
+        Me.MasterToolStripMenuItem.Text = "&4.Master"
+        '
+        'BusinessProfileToolStripMenuItem
+        '
+        Me.BusinessProfileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.BusinessProfileToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.BusinessProfileToolStripMenuItem.Image = CType(resources.GetObject("BusinessProfileToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.BusinessProfileToolStripMenuItem.Name = "BusinessProfileToolStripMenuItem"
+        Me.BusinessProfileToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.BusinessProfileToolStripMenuItem.Text = "&A. Business Profile"
+        '
+        'CustomerToolStripMenuItem
+        '
+        Me.CustomerToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.CustomerToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.CustomerToolStripMenuItem.Image = CType(resources.GetObject("CustomerToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.CustomerToolStripMenuItem.Text = "&B. Customer"
+        '
+        'EmployeeToolStripMenuItem
+        '
+        Me.EmployeeToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.EmployeeToolStripMenuItem.Image = CType(resources.GetObject("EmployeeToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.EmployeeToolStripMenuItem.Text = "&C. Employee"
+        '
+        'DAreaToolStripMenuItem
+        '
+        Me.DAreaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.DAreaToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.DAreaToolStripMenuItem.Image = CType(resources.GetObject("DAreaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DAreaToolStripMenuItem.Name = "DAreaToolStripMenuItem"
+        Me.DAreaToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.DAreaToolStripMenuItem.Text = "&D. Area"
+        '
+        'EMiscMasterToolStripMenuItem
+        '
+        Me.EMiscMasterToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.EMiscMasterToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.EMiscMasterToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Misc
+        Me.EMiscMasterToolStripMenuItem.Name = "EMiscMasterToolStripMenuItem"
+        Me.EMiscMasterToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.EMiscMasterToolStripMenuItem.Text = "&E. Misc Master"
+        Me.EMiscMasterToolStripMenuItem.Visible = False
+        '
+        'FCreditMasterToolStripMenuItem
+        '
+        Me.FCreditMasterToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.FCreditMasterToolStripMenuItem.Image = CType(resources.GetObject("FCreditMasterToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.FCreditMasterToolStripMenuItem.Name = "FCreditMasterToolStripMenuItem"
+        Me.FCreditMasterToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.FCreditMasterToolStripMenuItem.Text = "&F. Credit Master"
+        Me.FCreditMasterToolStripMenuItem.Visible = False
+        '
+        'GEmployeeMappingToolStripMenuItem
+        '
+        Me.GEmployeeMappingToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.GEmployeeMappingToolStripMenuItem.Image = Global.GaytriGeneralStore.My.Resources.Resources.Employee_Mapping
+        Me.GEmployeeMappingToolStripMenuItem.Name = "GEmployeeMappingToolStripMenuItem"
+        Me.GEmployeeMappingToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.GEmployeeMappingToolStripMenuItem.Text = "&G. Employee Mapping"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.ExitToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 24)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'HUsersToolStripMenuItem
+        '
+        Me.HUsersToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.HUsersToolStripMenuItem.Name = "HUsersToolStripMenuItem"
+        Me.HUsersToolStripMenuItem.Size = New System.Drawing.Size(290, 26)
+        Me.HUsersToolStripMenuItem.Text = "&H. Users"
+        '
         'FrmMDIMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -952,4 +966,5 @@ Partial Class FrmMDIMain
     Friend WithEvents EToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FCreditMasterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GEmployeeMappingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HUsersToolStripMenuItem As ToolStripMenuItem
 End Class

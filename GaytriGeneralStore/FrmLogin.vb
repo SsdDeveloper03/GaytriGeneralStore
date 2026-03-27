@@ -16,7 +16,7 @@ Public Class FrmLogin
 #End Region
 
 #Region "Declaration"
-    Dim version As String = "(Version: 10.03.2026)"
+    Dim version As String = "(Version: 24.03.2026)"
     Dim obj As New DBManager
     Dim sql_Query As String
     Dim ds As New Data.DataSet

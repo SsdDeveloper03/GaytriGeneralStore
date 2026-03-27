@@ -304,7 +304,27 @@ Public Class FrmMDIMain
     End Sub
 
     Private Sub FToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FCreditMasterToolStripMenuItem.Click
+        FrmCreditMaster.MdiParent = Me
+        FrmCreditMaster.Show()
+        FrmCreditMaster.Activate()
+    End Sub
 
+    Private Sub BChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BChangePasswordToolStripMenuItem.Click
+        FrmChangePassword.MdiParent = Me
+        FrmChangePassword.Show()
+        FrmChangePassword.Activate()
+    End Sub
+
+    Private Sub DUserRightsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DUserRightsToolStripMenuItem.Click
+        FrmUserRightsMaster.MdiParent = Me
+        FrmUserRightsMaster.Show()
+        FrmUserRightsMaster.Activate()
+    End Sub
+
+    Private Sub HUsersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HUsersToolStripMenuItem.Click
+        FrmUserMaster.MdiParent = Me
+        FrmUserMaster.Show()
+        FrmUserMaster.Activate()
     End Sub
 
     Private Sub cmbFinYr_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmbFinYr.Validating, cmbCName.Validating

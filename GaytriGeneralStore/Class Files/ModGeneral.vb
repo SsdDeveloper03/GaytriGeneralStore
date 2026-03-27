@@ -120,7 +120,7 @@ Module ModGeneral
     Public M_MeasurementSheetPrint, M_SalesBillPrintCopies, M_InvPrintCopy, M_InvRptFile, M_PurchaseForBranch, M_OnSavePrint, M_TailoringInvoicePrintCopies, M_DirectInvoicePrintCopy, M_OnSavePrint_TailoringInv, M_OnSavePrint_RentalInv, M_OnSavePrint_SalesBill, M_ShowHistoryTailoringInvoice, M_InvNumbering, M_NotesStyle, M_TrialDateRqrd, M_WorkDaysTabStop, M_PrintPcWiseMSlip, M_AllowZeroRate, M_UserWiseInvoicePrefix, M_CloseDay, M_DobInQuickLedgerCreation, M_JobWorkReport, M_TailoringInvRptFile, M_RentalInvRptFile, M_RentalInvRptFile_GST, M_RentalInvGSTApp, M_RetailWantItemWiseBranding, M_DynamicRepLayout, M_WorkerWorkEntryRptFile, M_ShowRatesInStockStatement, M_IgnoreSalesQtyInStockStatement, M_IgnoreMaterialIssueQtyInStockStatement, M_WorkManagementModule, M_SalesBillRptFile, M_DirectInvRptFile, M_MeasurementRptFile, M_CustMaster_MeasurementRptFile, M_MeasurementSlipType, M_SMSSenderNo, M_SMSSenderPwd, M_SMSSenderId, M_SMSEnabled, M_WhatsAppEnabled, M_SMSOnSaveTI, M_AllwDupLcode, M_AllwDupSIcode, M_AllwDupTIcode, M_SMSOWrkrWrk, M_PreviewSMS, M_PreviewWhatsApp, M_ShowCustNameInMeasurementSheet, M_ShowCustMobNoInMeasurementSheet, M_BgImg, M_BackgroundImageLayout, M_DashboardOnStartUp, M_BarcodeLabelFileName, M_BarcodeSheetFileName, M_PurchaseBarcodeSheetFileName, M_BarcodeLabelSheet, M_WorkAllocationSlipReportFileName, M_WebAPIEnabled, M_WorkRtnAutoPostEntry, M_WorkRtnAutoPostStatus, M_DefaultWorkDays, M_MinimumWorkDays, M_DefaultTrialDays, M_CustNameCharCasing, M_TItemNameCharCasing, M_SalesItemCharCasing, M_DefaultInvoiceView, M_SalesItemSelectionMode, M_CustomModeValue, M_CustomTextInInvoice, M_PritableInvoiceItems, M_TailoringInvoiceOnStartUp, M_HelpLedgerList, M_InvoicePrintAfterChangeAmt, M_BarcodeSetting, M_TopRows, M_FieldSetting, M_SalesModule, M_PurchaseModule, M_TailoringOrderModule, M_BarcodeCreation, M_ShowLedgerBalanceInInvoice, M_CashCreditLedgerId, M_SalesTypeCash, M_SalesTypeCredit, M_SalesTypeCard, M_SalesTypeWallet, M_OnSavePrint_BarcodeLabel, M_TailoringLedger, M_SalesPersonCompulsoryInTailoringInv, M_CustomerWeightCompulsoryInTailoringInv, M_CustAddMsgForDueBill, M_SpecifyProfitPerForMRPInPurchase, M_DefaultProfitPerForMRPInPurchase, M_ConsiderGSTForProfitPer, M_OfferRateApplicableTI, M_OfferRateApplicableSI, M_WorkerWiseItemRates, M_LedgerIdOpeningStock, M_PurchaseIdOpeningStock, M_PostEntryInPurchaseDetailForOpeningStock, M_PrnCmd, M_TailoringInvoiceSeries, M_ShowTrialQtyInTailoringOrder, M_ShowProductionNoInTailoringOrder, M_WorkerWorkDirectEntry, M_ItemNameWithRemark, M_TailoringBarcodeFileName, M_TailoringOrderRptFile, M_TailoringInvRptFile_GST, M_OnSaveTailoringBarcodePrint, M_MeasurementByCompulsoryInTailoringInv, M_WorkerPaymentSlipRptFile, M_DayEmpPmtEntry, M_DaySalesCommissionPmtEntry, M_ShowWorkerOnTailoringItemDelivery, M_ShowWorkIssueCompanyWise, M_OnSavePrint_TailoringMeas, M_DupMobGenMessage, M_OutstandingPayRptFile, M_DefaultReciptType, M_DeliveryItemRptFile, M_MoveToSalesRegisterAfterEverBill, M_WhatsAppProviderName, M_ShowDeliItemReport As String
     Public M_SMSAPI, M_GetSMSBalAPI As String
 
-    Public M_InputCGST, M_InputSGST, M_InputIGST, M_OutputCGST, M_OutputSGST, M_OutputIGST, M_PurchaseDefaultTaxation, M_SalesDefaultTaxation, M_PurchaseDefaultBillType, M_SalesDefaultBillType, M_TaxCalculation As String
+    Public M_InputCGST, M_InputSGST, M_InputIGST, M_OutputCGST, M_OutputSGST, M_OutputIGST, M_PurchaseDefaultTaxation, M_ManageCompanyWiseMiscMaster, M_SalesDefaultTaxation, M_PurchaseDefaultBillType, M_SalesDefaultBillType, M_TaxCalculation As String
     Public M_PurchaseEntryGSTCalculationOn, M_SalesEntryGSTCalculationOn, M_PurchaseItemWiseGSTRounding, M_SalesItemWiseGSTRounding, M_PurchaseBillGSTRounding, M_SalesBillGSTRounding, M_AQtyRoundnig, M_SqMtrRoundnig, M_PurchaseBillAmtRounding, M_SalesBillAmtRounding, M_PurchaseItemDiscountRounding, M_SalesItemDiscountRounding, M_PurchaseBillDiscountRounding, M_SalesBillDiscountRounding, M_StockCalcField, M_StockQtyRounding, M_SqFtRoundnig, M_RFRoundnig, M_SqFtDF, M_SqMtrDV, M_RFtDF, M_FabricMargine, M_ShowMeasurmentPanelinTailoringOrder, M_BillEditOTP, M_BillDeleteOTP, M_ResetSalesInvoiceNumberOnDailyBasis, M_WhatsappOnSaveTimeTextPDF, M_WhatsappOnSaveTimeRITextPDF, M_TIRightClickBookingWhatsApp, M_AllowPurchaserateZero As String
     Public M_PurchaseRateEI, M_SalesRateEI, M_PurchaseHelpLedgerList, M_SalesHelpLedgerList, M_PurchaseItemTotalRounding, M_SalesItemTotalRounding, M_ItemHelpList, M_UpdateSalesRateInItemMasterWhilePurchaseEntry, M_VGrpForLacAmt, M_BarcodeText, M_CompanyWiseMiscMaster, M_CompanyWisePurchase, M_TIHelpLedgerList, M_TailoringItemList As String
     Public M_TIRightClickBookingSMS, M_TIRightClickReadySMS, M_TIRightClickTrialSMS, M_TIRightClickDeliverySMS, M_TIRightClickDueSMS, M_WorkerWorkEntry, M_ProductionOutputLedgerId, M_ProductionOutputPurchaseId, M_TIRightClickFeedback, M_TIRightClickViewImageSheet, M_TIRightClickAttachment, M_TIRightClickItemLabelPrint, M_TIRightClickViewOrder, M_TIRightClickViewTailoringBarcode, M_TailoringItemImagePath, M_TIRightClickTrackBarcode, M_SMS_DeliveryTime, M_TIRightClickUpdateTrialAndDeliveryDate, M_UseNotifyPendingDelivery, M_TimerInterval, M_CallingOrderStatus As String
@@ -523,13 +523,13 @@ Module ModGeneral
     End Function
 
     Public Function checkRightsToLoad(ByVal _FormViewName As String) As Boolean
-        'For i As Integer = 0 To M_dsUserRights.Tables(0).Rows.Count - 1
-        '    If M_dsUserRights.Tables(0).Rows(i)("AllowAccess") = True And M_dsUserRights.Tables(0).Rows(i)("FormViewName") = _FormViewName Then
-        '        Return True
-        '        Exit For
-        '    End If
-        'Next
-        'Return False
+        For i As Integer = 0 To M_dsUserRights.Tables(0).Rows.Count - 1
+            If M_dsUserRights.Tables(0).Rows(i)("AllowAccess") = True And M_dsUserRights.Tables(0).Rows(i)("FormViewName") = _FormViewName Then
+                Return True
+                Exit For
+            End If
+        Next
+        Return False
 
 
         '=============
@@ -722,11 +722,11 @@ Module ModGeneral
 
 #Region "Methods"
 
-    'Public Sub M_loadUserRights()
-    '    M_dsUserRights.Clear()
-    '    sql_query = "Select * From View_UserRightsMaster Where UserName = '" & loggedUser & "'"
-    '    obj.LoadData(sql_query, M_dsUserRights)
-    'End Sub
+    Public Sub M_loadUserRights()
+        M_dsUserRights.Clear()
+        sql_query = "Select * From View_UserRightsMaster Where UserName = '" & loggedUser & "'"
+        obj.LoadData(sql_query, M_dsUserRights)
+    End Sub
 
     Public Sub M_loadUserRights_New()
         M_dsUserRights.Clear()
@@ -923,6 +923,9 @@ Module ModGeneral
                     Exit Select
                 Case "Show Dashboard At Startup"
                     M_DashboardOnStartUp = M_dsSettings.Tables(0).Rows(i)("SettingValue")
+                    Exit Select
+                Case "Manage Company Wise Misc. Master (Yes/No)"
+                    M_ManageCompanyWiseMiscMaster = M_dsSettings.Tables(0).Rows(i)("SettingValue")
                     Exit Select
                 Case "Show Tailoring Invoice At Startup"
                     M_TailoringInvoiceOnStartUp = M_dsSettings.Tables(0).Rows(i)("SettingValue")
@@ -4391,6 +4394,16 @@ Module ModGeneral
         Else
             Return Nothing
         End If
+    End Function
+
+    Public Function checkRightsToAllowPrevYearTran(ByVal _FormViewName As String) As Boolean
+        For i As Integer = 0 To M_dsUserRights.Tables(0).Rows.Count - 1
+            If M_dsUserRights.Tables(0).Rows(i)("AllowPrevYearTran") = True And M_dsUserRights.Tables(0).Rows(i)("FormViewName") = _FormViewName Then
+                Return True
+                Exit For
+            End If
+        Next
+        Return False
     End Function
 
     Private Function GetEINVNo(ByVal authToken As String, ByVal json As String, ByVal gstin As String, ByVal username As String) As String

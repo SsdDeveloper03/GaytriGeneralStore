@@ -471,6 +471,12 @@
       <DependentUpon>FrmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmReportViewer_Stimul.designer.vb">
+      <DependentUpon>FrmReportViewer_Stimul.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportViewer_Stimul.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Help\FrmGridToExcel.Designer.vb">
       <DependentUpon>FrmGridToExcel.vb</DependentUpon>
     </Compile>
@@ -481,6 +487,12 @@
       <DependentUpon>FrmHelpConpath.vb</DependentUpon>
     </Compile>
     <Compile Include="Help\FrmHelpConpath.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\FrmHelpMiscList.Designer.vb">
+      <DependentUpon>FrmHelpMiscList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Help\FrmHelpMiscList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\FrmSQLSetup.Designer.vb">
@@ -522,7 +534,9 @@
     <Compile Include="Master\FrmCreditMaster.Designer.vb">
       <DependentUpon>FrmCreditMaster.vb</DependentUpon>
     </Compile>
-    <Compile Include="Master\FrmCreditMaster.vb" />
+    <Compile Include="Master\FrmCreditMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Master\FrmCustomerMaster.Designer.vb">
       <DependentUpon>FrmCustomerMaster.vb</DependentUpon>
     </Compile>
@@ -545,6 +559,12 @@
       <DependentUpon>FrmMiscMaster.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\FrmMiscMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\FrmUserMaster.Designer.vb">
+      <DependentUpon>FrmUserMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FrmUserMaster.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -574,6 +594,12 @@
     <Compile Include="Transaction\FrmPaymentCollection.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utility\FrmChangePassword.Designer.vb">
+      <DependentUpon>FrmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FrmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utility\FrmRunQuery.designer.vb">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
     </Compile>
@@ -584,6 +610,12 @@
       <DependentUpon>FrmSettings.vb</DependentUpon>
     </Compile>
     <Compile Include="Utility\FrmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\FrmUserRightsMaster.Designer.vb">
+      <DependentUpon>FrmUserRightsMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FrmUserRightsMaster.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FrmOutstandingReport.Designer.vb">
@@ -609,11 +641,17 @@
     <EmbeddedResource Include="FrmMDIMain.resx">
       <DependentUpon>FrmMDIMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportViewer_Stimul.resx">
+      <DependentUpon>FrmReportViewer_Stimul.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Help\FrmGridToExcel.resx">
       <DependentUpon>FrmGridToExcel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help\FrmHelpConpath.resx">
       <DependentUpon>FrmHelpConpath.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\FrmHelpMiscList.resx">
+      <DependentUpon>FrmHelpMiscList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help\FrmSQLSetup.resx">
       <DependentUpon>FrmSQLSetup.vb</DependentUpon>
@@ -648,6 +686,9 @@
     <EmbeddedResource Include="Master\FrmMiscMaster.resx">
       <DependentUpon>FrmMiscMaster.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\FrmUserMaster.resx">
+      <DependentUpon>FrmUserMaster.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -661,11 +702,17 @@
     <EmbeddedResource Include="Transaction\FrmPaymentCollection.resx">
       <DependentUpon>FrmPaymentCollection.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utility\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmRunQuery.resx">
       <DependentUpon>FrmRunQuery.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmSettings.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\FrmUserRightsMaster.resx">
+      <DependentUpon>FrmUserRightsMaster.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmOutstandingReport.resx">
       <DependentUpon>FrmOutstandingReport.vb</DependentUpon>
@@ -729,6 +776,7 @@
     <None Include="Resources\Outstanding.png" />
     <None Include="Resources\Whatsapp.gif" />
     <None Include="Resources\Whatsapp Icon.png" />
+    <None Include="Resources\Employee Mapping.png" />
     <Content Include="Sunrise Logo Icon FIles.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -306,6 +306,7 @@ Partial Class FrmOutstandingReport
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.grpFilter = New DevExpress.XtraEditors.GroupControl()
+        Me.lkpCustomerName = New DevExpress.XtraEditors.LookUpEdit()
         Me.lblReportType = New System.Windows.Forms.Label()
         Me.cmbOutstandingType = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -314,27 +315,27 @@ Partial Class FrmOutstandingReport
         Me.lblTo = New System.Windows.Forms.Label()
         Me.dtpTo = New System.Windows.Forms.DateTimePicker()
         Me.lblCustomer = New System.Windows.Forms.Label()
-        Me.lkpCustomerName = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnExport = New System.Windows.Forms.Button()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.gcData = New DevExpress.XtraGrid.GridControl()
-        Me.gvData = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RenameColumnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportToExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.gvData = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.lkpArea = New DevExpress.XtraEditors.LookUpEdit()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.grpFilter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpFilter.SuspendLayout()
+        CType(Me.lkpCustomerName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbOutstandingType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lkpCustomerName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.gvData, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lkpArea.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpFilter
@@ -343,6 +344,9 @@ Partial Class FrmOutstandingReport
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpFilter.Appearance.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpFilter.Appearance.Options.UseFont = True
+        Me.grpFilter.Controls.Add(Me.lkpArea)
+        Me.grpFilter.Controls.Add(Me.Label1)
+        Me.grpFilter.Controls.Add(Me.lkpCustomerName)
         Me.grpFilter.Controls.Add(Me.lblReportType)
         Me.grpFilter.Controls.Add(Me.cmbOutstandingType)
         Me.grpFilter.Controls.Add(Me.lblFrom)
@@ -350,22 +354,32 @@ Partial Class FrmOutstandingReport
         Me.grpFilter.Controls.Add(Me.lblTo)
         Me.grpFilter.Controls.Add(Me.dtpTo)
         Me.grpFilter.Controls.Add(Me.lblCustomer)
-        Me.grpFilter.Controls.Add(Me.lkpCustomerName)
         Me.grpFilter.Controls.Add(Me.btnRefresh)
         Me.grpFilter.Controls.Add(Me.btnExport)
         Me.grpFilter.Controls.Add(Me.btnPrint)
         Me.grpFilter.Controls.Add(Me.btnExit)
         Me.grpFilter.Location = New System.Drawing.Point(12, 0)
         Me.grpFilter.Name = "grpFilter"
-        Me.grpFilter.Size = New System.Drawing.Size(1576, 73)
+        Me.grpFilter.Size = New System.Drawing.Size(1656, 118)
         Me.grpFilter.TabIndex = 1
         Me.grpFilter.Text = "Report Filters"
+        '
+        'lkpCustomerName
+        '
+        Me.lkpCustomerName.Location = New System.Drawing.Point(770, 43)
+        Me.lkpCustomerName.Name = "lkpCustomerName"
+        Me.lkpCustomerName.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lkpCustomerName.Properties.Appearance.Options.UseFont = True
+        Me.lkpCustomerName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lkpCustomerName.Properties.NullText = ""
+        Me.lkpCustomerName.Size = New System.Drawing.Size(314, 28)
+        Me.lkpCustomerName.TabIndex = 12
         '
         'lblReportType
         '
         Me.lblReportType.AutoSize = True
         Me.lblReportType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReportType.Location = New System.Drawing.Point(19, 35)
+        Me.lblReportType.Location = New System.Drawing.Point(5, 43)
         Me.lblReportType.Name = "lblReportType"
         Me.lblReportType.Size = New System.Drawing.Size(111, 24)
         Me.lblReportType.TabIndex = 0
@@ -373,7 +387,7 @@ Partial Class FrmOutstandingReport
         '
         'cmbOutstandingType
         '
-        Me.cmbOutstandingType.Location = New System.Drawing.Point(136, 33)
+        Me.cmbOutstandingType.Location = New System.Drawing.Point(122, 41)
         Me.cmbOutstandingType.Name = "cmbOutstandingType"
         Me.cmbOutstandingType.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbOutstandingType.Properties.Appearance.Options.UseFont = True
@@ -393,7 +407,7 @@ Partial Class FrmOutstandingReport
         '
         Me.lblFrom.AutoSize = True
         Me.lblFrom.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrom.Location = New System.Drawing.Point(501, 35)
+        Me.lblFrom.Location = New System.Drawing.Point(487, 43)
         Me.lblFrom.Name = "lblFrom"
         Me.lblFrom.Size = New System.Drawing.Size(53, 24)
         Me.lblFrom.TabIndex = 2
@@ -402,7 +416,7 @@ Partial Class FrmOutstandingReport
         'dtpFrom
         '
         Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFrom.Location = New System.Drawing.Point(560, 32)
+        Me.dtpFrom.Location = New System.Drawing.Point(546, 40)
         Me.dtpFrom.Name = "dtpFrom"
         Me.dtpFrom.Size = New System.Drawing.Size(120, 28)
         Me.dtpFrom.TabIndex = 3
@@ -411,7 +425,7 @@ Partial Class FrmOutstandingReport
         '
         Me.lblTo.AutoSize = True
         Me.lblTo.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTo.Location = New System.Drawing.Point(686, 36)
+        Me.lblTo.Location = New System.Drawing.Point(511, 76)
         Me.lblTo.Name = "lblTo"
         Me.lblTo.Size = New System.Drawing.Size(29, 24)
         Me.lblTo.TabIndex = 4
@@ -420,7 +434,7 @@ Partial Class FrmOutstandingReport
         'dtpTo
         '
         Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpTo.Location = New System.Drawing.Point(721, 33)
+        Me.dtpTo.Location = New System.Drawing.Point(546, 73)
         Me.dtpTo.Name = "dtpTo"
         Me.dtpTo.Size = New System.Drawing.Size(120, 28)
         Me.dtpTo.TabIndex = 5
@@ -429,39 +443,21 @@ Partial Class FrmOutstandingReport
         '
         Me.lblCustomer.AutoSize = True
         Me.lblCustomer.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCustomer.Location = New System.Drawing.Point(840, 35)
+        Me.lblCustomer.Location = New System.Drawing.Point(672, 43)
         Me.lblCustomer.Name = "lblCustomer"
         Me.lblCustomer.Size = New System.Drawing.Size(91, 24)
         Me.lblCustomer.TabIndex = 6
         Me.lblCustomer.Text = "Customer"
-        '
-        'lkpCustomerName
-        '
-        Me.lkpCustomerName.Location = New System.Drawing.Point(937, 34)
-        Me.lkpCustomerName.Name = "lkpCustomerName"
-        Me.lkpCustomerName.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lkpCustomerName.Properties.Appearance.Options.UseFont = True
-        Me.lkpCustomerName.Properties.NullText = ""
-        Me.lkpCustomerName.Properties.View = Me.GridView2
-        Me.lkpCustomerName.Size = New System.Drawing.Size(250, 28)
-        Me.lkpCustomerName.TabIndex = 7
-        '
-        'GridView2
-        '
-        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView2.OptionsView.ShowGroupPanel = False
         '
         'btnRefresh
         '
         Me.btnRefresh.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefresh.ForeColor = System.Drawing.Color.White
-        Me.btnRefresh.Location = New System.Drawing.Point(1193, 30)
+        Me.btnRefresh.ForeColor = System.Drawing.Color.Black
+        Me.btnRefresh.Location = New System.Drawing.Point(1465, 30)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(90, 32)
+        Me.btnRefresh.Size = New System.Drawing.Size(90, 38)
         Me.btnRefresh.TabIndex = 8
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = False
@@ -469,12 +465,12 @@ Partial Class FrmOutstandingReport
         'btnExport
         '
         Me.btnExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.btnExport.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExport.ForeColor = System.Drawing.Color.White
-        Me.btnExport.Location = New System.Drawing.Point(1289, 30)
+        Me.btnExport.ForeColor = System.Drawing.Color.Black
+        Me.btnExport.Location = New System.Drawing.Point(1465, 77)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(90, 32)
+        Me.btnExport.Size = New System.Drawing.Size(90, 38)
         Me.btnExport.TabIndex = 9
         Me.btnExport.Text = "Export"
         Me.btnExport.UseVisualStyleBackColor = False
@@ -484,9 +480,9 @@ Partial Class FrmOutstandingReport
         Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrint.Location = New System.Drawing.Point(1385, 30)
+        Me.btnPrint.Location = New System.Drawing.Point(1561, 29)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(90, 32)
+        Me.btnPrint.Size = New System.Drawing.Size(90, 38)
         Me.btnPrint.TabIndex = 10
         Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = False
@@ -494,12 +490,12 @@ Partial Class FrmOutstandingReport
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.ForeColor = System.Drawing.Color.White
-        Me.btnExit.Location = New System.Drawing.Point(1481, 30)
+        Me.btnExit.ForeColor = System.Drawing.Color.Black
+        Me.btnExit.Location = New System.Drawing.Point(1561, 77)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(90, 32)
+        Me.btnExit.Size = New System.Drawing.Size(90, 38)
         Me.btnExit.TabIndex = 11
         Me.btnExit.Text = "Close"
         Me.btnExit.UseVisualStyleBackColor = False
@@ -509,20 +505,13 @@ Partial Class FrmOutstandingReport
         Me.gcData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gcData.Location = New System.Drawing.Point(12, 79)
+        Me.gcData.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gcData.Location = New System.Drawing.Point(12, 124)
         Me.gcData.MainView = Me.gvData
         Me.gcData.Name = "gcData"
-        Me.gcData.Size = New System.Drawing.Size(1576, 709)
+        Me.gcData.Size = New System.Drawing.Size(1656, 664)
         Me.gcData.TabIndex = 0
         Me.gcData.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvData})
-        '
-        'gvData
-        '
-        Me.gvData.GridControl = Me.gcData
-        Me.gvData.Name = "gvData"
-        Me.gvData.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvData.OptionsView.ShowAutoFilterRow = True
-        Me.gvData.OptionsView.ShowGroupPanel = False
         '
         'ContextMenuStrip1
         '
@@ -534,24 +523,66 @@ Partial Class FrmOutstandingReport
         'RenameColumnToolStripMenuItem
         '
         Me.RenameColumnToolStripMenuItem.Name = "RenameColumnToolStripMenuItem"
-        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.RenameColumnToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.RenameColumnToolStripMenuItem.Text = "Rename Column"
         '
         'ExportToExcelToolStripMenuItem
         '
         Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
-        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.ExportToExcelToolStripMenuItem.Text = "Export To Excel"
         '
         'SaveLayoutToolStripMenuItem
         '
         Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
-        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(187, 24)
         Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
+        '
+        'gvData
+        '
+        Me.gvData.Appearance.ColumnFilterButton.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.ColumnFilterButton.Options.UseFont = True
+        Me.gvData.Appearance.FooterPanel.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.FooterPanel.Options.UseFont = True
+        Me.gvData.Appearance.GroupFooter.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.GroupFooter.Options.UseFont = True
+        Me.gvData.Appearance.GroupRow.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.GroupRow.Options.UseFont = True
+        Me.gvData.Appearance.HeaderPanel.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvData.Appearance.Row.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvData.Appearance.Row.Options.UseFont = True
+        Me.gvData.GridControl = Me.gcData
+        Me.gvData.Name = "gvData"
+        Me.gvData.OptionsBehavior.Editable = False
+        Me.gvData.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvData.OptionsView.ShowAutoFilterRow = True
+        Me.gvData.OptionsView.ShowGroupPanel = False
+        '
+        'lkpArea
+        '
+        Me.lkpArea.Location = New System.Drawing.Point(770, 77)
+        Me.lkpArea.Name = "lkpArea"
+        Me.lkpArea.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lkpArea.Properties.Appearance.Options.UseFont = True
+        Me.lkpArea.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lkpArea.Properties.NullText = ""
+        Me.lkpArea.Size = New System.Drawing.Size(314, 28)
+        Me.lkpArea.TabIndex = 14
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(672, 77)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 24)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Area"
         '
         'FrmOutstandingReport
         '
-        Me.ClientSize = New System.Drawing.Size(1600, 800)
+        Me.ClientSize = New System.Drawing.Size(1680, 800)
         Me.Controls.Add(Me.gcData)
         Me.Controls.Add(Me.grpFilter)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!)
@@ -561,13 +592,13 @@ Partial Class FrmOutstandingReport
         CType(Me.grpFilter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpFilter.ResumeLayout(False)
         Me.grpFilter.PerformLayout()
+        CType(Me.lkpCustomerName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbOutstandingType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lkpCustomerName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gcData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.gvData, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lkpArea.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -586,8 +617,6 @@ Partial Class FrmOutstandingReport
     Friend WithEvents dtpTo As DateTimePicker
 
     Friend WithEvents lblCustomer As Label
-    Friend WithEvents lkpCustomerName As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
 
     Friend WithEvents btnRefresh As Button
     Friend WithEvents btnExport As Button
@@ -600,4 +629,7 @@ Partial Class FrmOutstandingReport
     Friend WithEvents RenameColumnToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportToExcelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveLayoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lkpCustomerName As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lkpArea As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents Label1 As Label
 End Class

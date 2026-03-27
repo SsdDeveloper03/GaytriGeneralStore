@@ -273,6 +273,7 @@ Public Class FrmBillingEntry
         obj.AddCmdParameter("@InsSys_Time", Dtype.DateTime, Date.Now, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsCurrUsr", Dtype.varchar, loggedUser, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsRemark3", Dtype.varchar, cmbSeries.SelectedValue, ParaDirection.Input, True)
         Dim cp As String = ""
 
         If cmbCollectionPerson.SelectedValue IsNot Nothing Then
@@ -336,7 +337,7 @@ Public Class FrmBillingEntry
         obj.AddCmdParameter("@UpSalesBillAmt", Dtype.float, Val(txtBillAmount.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpRemark1", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpRemark2", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpRemark3", Dtype.varchar, "", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpRemark3", Dtype.varchar, cmbSeries.SelectedValue, ParaDirection.Input, True)
         obj.AddCmdParameter("@UpOrderFlag", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpInvId", Dtype.int, Val(lblInvId.Text), ParaDirection.Input, True)
         Dim cp As String = ""

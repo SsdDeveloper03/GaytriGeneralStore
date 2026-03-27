@@ -234,26 +234,27 @@ Partial Class FrmEmployeeMapping
         Me.lblEmployee = New System.Windows.Forms.Label()
         Me.lstAssignedAreas = New System.Windows.Forms.ListBox()
         Me.gcCustomers = New DevExpress.XtraGrid.GridControl()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RenameFieldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.gvCustomers = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.lblCustomers = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.pnlBottom = New System.Windows.Forms.Panel()
         Me.txtSearchCustomer = New System.Windows.Forms.TextBox()
         Me.lblAssigned = New System.Windows.Forms.Label()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.gcAssignedCustomers = New DevExpress.XtraGrid.GridControl()
         Me.gvAssignedCustomers = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.lblArea = New System.Windows.Forms.Label()
         Me.btnLoad = New System.Windows.Forms.Button()
         Me.gbMain = New System.Windows.Forms.GroupBox()
-        Me.btnDelete = New System.Windows.Forms.Button()
         Me.cmbArea = New DevExpress.XtraEditors.LookUpEdit()
         Me.cmbEmployee = New DevExpress.XtraEditors.LookUpEdit()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.RenameFieldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveLayoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.gcCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.gvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlBottom.SuspendLayout()
         CType(Me.gcAssignedCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -261,13 +262,12 @@ Partial Class FrmEmployeeMapping
         Me.gbMain.SuspendLayout()
         CType(Me.cmbArea.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbEmployee.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblEmployee
         '
         Me.lblEmployee.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmployee.Location = New System.Drawing.Point(19, 39)
+        Me.lblEmployee.Location = New System.Drawing.Point(14, 37)
         Me.lblEmployee.Name = "lblEmployee"
         Me.lblEmployee.Size = New System.Drawing.Size(184, 32)
         Me.lblEmployee.TabIndex = 0
@@ -275,47 +275,73 @@ Partial Class FrmEmployeeMapping
         '
         'lstAssignedAreas
         '
-        Me.lstAssignedAreas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstAssignedAreas.ItemHeight = 16
-        Me.lstAssignedAreas.Location = New System.Drawing.Point(822, 186)
+        Me.lstAssignedAreas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lstAssignedAreas.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstAssignedAreas.ItemHeight = 25
+        Me.lstAssignedAreas.Location = New System.Drawing.Point(959, 127)
         Me.lstAssignedAreas.Name = "lstAssignedAreas"
-        Me.lstAssignedAreas.Size = New System.Drawing.Size(775, 244)
+        Me.lstAssignedAreas.Size = New System.Drawing.Size(263, 254)
         Me.lstAssignedAreas.TabIndex = 2
         '
         'gcCustomers
         '
-        Me.gcCustomers.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gcCustomers.Location = New System.Drawing.Point(12, 151)
+        Me.gcCustomers.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gcCustomers.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gcCustomers.Location = New System.Drawing.Point(12, 127)
         Me.gcCustomers.MainView = Me.gvCustomers
         Me.gcCustomers.Name = "gcCustomers"
-        Me.gcCustomers.Size = New System.Drawing.Size(804, 276)
+        Me.gcCustomers.Size = New System.Drawing.Size(936, 263)
         Me.gcCustomers.TabIndex = 1
         Me.gcCustomers.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvCustomers})
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameFieldToolStripMenuItem, Me.SaveLayoutToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(169, 52)
+        '
+        'RenameFieldToolStripMenuItem
+        '
+        Me.RenameFieldToolStripMenuItem.Name = "RenameFieldToolStripMenuItem"
+        Me.RenameFieldToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
+        Me.RenameFieldToolStripMenuItem.Text = "Rename Field"
+        '
+        'SaveLayoutToolStripMenuItem
+        '
+        Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
+        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
+        Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
+        '
         'gvCustomers
         '
+        Me.gvCustomers.Appearance.HeaderPanel.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvCustomers.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvCustomers.Appearance.Row.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvCustomers.Appearance.Row.Options.UseFont = True
         Me.gvCustomers.GridControl = Me.gcCustomers
         Me.gvCustomers.Name = "gvCustomers"
         Me.gvCustomers.OptionsBehavior.Editable = False
         Me.gvCustomers.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gvCustomers.OptionsView.ShowGroupPanel = False
+        Me.gvCustomers.RowHeight = 26
         '
         'lblCustomers
         '
-        Me.lblCustomers.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCustomers.Location = New System.Drawing.Point(19, 87)
+        Me.lblCustomers.Font = New System.Drawing.Font("Verdana", 11.0!)
+        Me.lblCustomers.Location = New System.Drawing.Point(19, 97)
         Me.lblCustomers.Name = "lblCustomers"
-        Me.lblCustomers.Size = New System.Drawing.Size(198, 35)
+        Me.lblCustomers.Size = New System.Drawing.Size(183, 23)
         Me.lblCustomers.TabIndex = 0
         Me.lblCustomers.Text = "Search Customers"
         '
         'txtSearch
         '
-        Me.txtSearch.Location = New System.Drawing.Point(223, 82)
+        Me.txtSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSearch.Font = New System.Drawing.Font("Verdana", 11.0!)
+        Me.txtSearch.Location = New System.Drawing.Point(211, 93)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(300, 35)
+        Me.txtSearch.Size = New System.Drawing.Size(412, 30)
         Me.txtSearch.TabIndex = 3
         '
         'pnlBottom
@@ -325,17 +351,19 @@ Partial Class FrmEmployeeMapping
         Me.pnlBottom.BackColor = System.Drawing.Color.White
         Me.pnlBottom.Controls.Add(Me.txtSearchCustomer)
         Me.pnlBottom.Controls.Add(Me.lblAssigned)
+        Me.pnlBottom.Controls.Add(Me.btnDelete)
         Me.pnlBottom.Location = New System.Drawing.Point(12, 456)
         Me.pnlBottom.Name = "pnlBottom"
-        Me.pnlBottom.Size = New System.Drawing.Size(1585, 47)
+        Me.pnlBottom.Size = New System.Drawing.Size(1210, 47)
         Me.pnlBottom.TabIndex = 4
         '
         'txtSearchCustomer
         '
-        Me.txtSearchCustomer.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearchCustomer.Location = New System.Drawing.Point(117, 7)
+        Me.txtSearchCustomer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSearchCustomer.Font = New System.Drawing.Font("Verdana", 11.0!)
+        Me.txtSearchCustomer.Location = New System.Drawing.Point(106, 7)
         Me.txtSearchCustomer.Name = "txtSearchCustomer"
-        Me.txtSearchCustomer.Size = New System.Drawing.Size(406, 32)
+        Me.txtSearchCustomer.Size = New System.Drawing.Size(313, 30)
         Me.txtSearchCustomer.TabIndex = 0
         '
         'lblAssigned
@@ -347,40 +375,63 @@ Partial Class FrmEmployeeMapping
         Me.lblAssigned.TabIndex = 0
         Me.lblAssigned.Text = "Search "
         '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.Firebrick
+        Me.btnDelete.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.White
+        Me.btnDelete.Location = New System.Drawing.Point(1075, 2)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(130, 41)
+        Me.btnDelete.TabIndex = 5
+        Me.btnDelete.Text = "Delete(F5)"
+        Me.btnDelete.UseVisualStyleBackColor = False
+        '
         'gcAssignedCustomers
         '
         Me.gcAssignedCustomers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gcAssignedCustomers.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.gcAssignedCustomers.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gcAssignedCustomers.Location = New System.Drawing.Point(12, 509)
         Me.gcAssignedCustomers.MainView = Me.gvAssignedCustomers
         Me.gcAssignedCustomers.Name = "gcAssignedCustomers"
-        Me.gcAssignedCustomers.Size = New System.Drawing.Size(1585, 290)
+        Me.gcAssignedCustomers.Size = New System.Drawing.Size(1210, 290)
         Me.gcAssignedCustomers.TabIndex = 4
         Me.gcAssignedCustomers.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvAssignedCustomers})
         '
         'gvAssignedCustomers
         '
+        Me.gvAssignedCustomers.Appearance.HeaderPanel.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvAssignedCustomers.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvAssignedCustomers.Appearance.Row.Font = New System.Drawing.Font("Verdana", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvAssignedCustomers.Appearance.Row.Options.UseFont = True
+        Me.gvAssignedCustomers.AppearancePrint.Row.Font = New System.Drawing.Font("Bell MT", 8.25!)
+        Me.gvAssignedCustomers.AppearancePrint.Row.Options.UseFont = True
+        Me.gvAssignedCustomers.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
         Me.gvAssignedCustomers.GridControl = Me.gcAssignedCustomers
         Me.gvAssignedCustomers.Name = "gvAssignedCustomers"
         Me.gvAssignedCustomers.OptionsBehavior.Editable = False
         Me.gvAssignedCustomers.OptionsView.ShowGroupPanel = False
+        Me.gvAssignedCustomers.RowHeight = 26
         '
         'btnSave
         '
         Me.btnSave.BackColor = System.Drawing.Color.YellowGreen
+        Me.btnSave.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(582, 79)
+        Me.btnSave.Location = New System.Drawing.Point(12, 396)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(105, 50)
+        Me.btnSave.Size = New System.Drawing.Size(123, 50)
         Me.btnSave.TabIndex = 4
-        Me.btnSave.Text = "Save"
+        Me.btnSave.Text = "Save(F2)"
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'lblArea
         '
         Me.lblArea.Font = New System.Drawing.Font("Verdana", 12.0!)
-        Me.lblArea.Location = New System.Drawing.Point(641, 39)
+        Me.lblArea.Location = New System.Drawing.Point(621, 37)
         Me.lblArea.Name = "lblArea"
         Me.lblArea.Size = New System.Drawing.Size(133, 32)
         Me.lblArea.TabIndex = 2
@@ -388,53 +439,39 @@ Partial Class FrmEmployeeMapping
         '
         'btnLoad
         '
+        Me.btnLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnLoad.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnLoad.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLoad.ForeColor = System.Drawing.Color.White
-        Me.btnLoad.Location = New System.Drawing.Point(1096, 28)
+        Me.btnLoad.Location = New System.Drawing.Point(1068, 31)
         Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(105, 50)
+        Me.btnLoad.Size = New System.Drawing.Size(131, 45)
         Me.btnLoad.TabIndex = 2
-        Me.btnLoad.Text = "Load"
+        Me.btnLoad.Text = "Load(F3)"
         Me.btnLoad.UseVisualStyleBackColor = False
         '
         'gbMain
         '
         Me.gbMain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbMain.Controls.Add(Me.lblCustomers)
-        Me.gbMain.Controls.Add(Me.txtSearch)
-        Me.gbMain.Controls.Add(Me.btnDelete)
         Me.gbMain.Controls.Add(Me.cmbArea)
         Me.gbMain.Controls.Add(Me.cmbEmployee)
         Me.gbMain.Controls.Add(Me.lblEmployee)
         Me.gbMain.Controls.Add(Me.btnLoad)
-        Me.gbMain.Controls.Add(Me.btnSave)
         Me.gbMain.Controls.Add(Me.lblArea)
-        Me.gbMain.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbMain.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbMain.Location = New System.Drawing.Point(12, 1)
         Me.gbMain.Name = "gbMain"
-        Me.gbMain.Size = New System.Drawing.Size(1585, 144)
+        Me.gbMain.Size = New System.Drawing.Size(1210, 85)
         Me.gbMain.TabIndex = 0
         Me.gbMain.TabStop = False
-        Me.gbMain.Text = "Assign"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BackColor = System.Drawing.Color.Firebrick
-        Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(717, 79)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(105, 50)
-        Me.btnDelete.TabIndex = 5
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = False
+        Me.gbMain.Text = "Assign Area"
         '
         'cmbArea
         '
-        Me.cmbArea.Location = New System.Drawing.Point(781, 36)
+        Me.cmbArea.Location = New System.Drawing.Point(752, 36)
         Me.cmbArea.Name = "cmbArea"
-        Me.cmbArea.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 13.8!)
+        Me.cmbArea.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbArea.Properties.Appearance.Options.UseFont = True
         Me.cmbArea.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbArea.Properties.NullText = ""
@@ -443,67 +480,53 @@ Partial Class FrmEmployeeMapping
         '
         'cmbEmployee
         '
-        Me.cmbEmployee.Location = New System.Drawing.Point(223, 37)
+        Me.cmbEmployee.Location = New System.Drawing.Point(199, 36)
         Me.cmbEmployee.Name = "cmbEmployee"
-        Me.cmbEmployee.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 13.8!)
+        Me.cmbEmployee.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbEmployee.Properties.Appearance.Options.UseFont = True
         Me.cmbEmployee.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbEmployee.Properties.NullText = ""
-        Me.cmbEmployee.Size = New System.Drawing.Size(391, 34)
+        Me.cmbEmployee.Size = New System.Drawing.Size(412, 34)
         Me.cmbEmployee.TabIndex = 0
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(822, 151)
+        Me.Label1.ForeColor = System.Drawing.Color.Navy
+        Me.Label1.Location = New System.Drawing.Point(958, 96)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(198, 35)
+        Me.Label1.Size = New System.Drawing.Size(198, 24)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Assigned Areas"
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenameFieldToolStripMenuItem, Me.SaveLayoutToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(211, 80)
-        '
-        'RenameFieldToolStripMenuItem
-        '
-        Me.RenameFieldToolStripMenuItem.Name = "RenameFieldToolStripMenuItem"
-        Me.RenameFieldToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
-        Me.RenameFieldToolStripMenuItem.Text = "Rename Field"
-        '
-        'SaveLayoutToolStripMenuItem
-        '
-        Me.SaveLayoutToolStripMenuItem.Name = "SaveLayoutToolStripMenuItem"
-        Me.SaveLayoutToolStripMenuItem.Size = New System.Drawing.Size(210, 24)
-        Me.SaveLayoutToolStripMenuItem.Text = "Save Layout"
         '
         'FrmEmployeeMapping
         '
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1609, 811)
+        Me.ClientSize = New System.Drawing.Size(1234, 811)
+        Me.Controls.Add(Me.lblCustomers)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.gcCustomers)
         Me.Controls.Add(Me.gcAssignedCustomers)
         Me.Controls.Add(Me.gbMain)
         Me.Controls.Add(Me.lstAssignedAreas)
         Me.Controls.Add(Me.pnlBottom)
+        Me.Controls.Add(Me.btnSave)
         Me.Name = "FrmEmployeeMapping"
         Me.Text = "Employee Mapping"
         CType(Me.gcCustomers, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.gvCustomers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlBottom.ResumeLayout(False)
         Me.pnlBottom.PerformLayout()
         CType(Me.gcAssignedCustomers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvAssignedCustomers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbMain.ResumeLayout(False)
-        Me.gbMain.PerformLayout()
         CType(Me.cmbArea.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbEmployee.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents lblEmployee As Label

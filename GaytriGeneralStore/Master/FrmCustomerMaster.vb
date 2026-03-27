@@ -182,7 +182,7 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@InsAcContactNo", Dtype.varchar, Val(cmbSalesPerson.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsTranSMS", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsPromoSMS", Dtype.varchar, Val(txtCreditDays.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@InsPANNo", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
@@ -192,6 +192,7 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@InsCurrUsr", Dtype.nvarchar, loggedUser, ParaDirection.Input, True)
         obj.AddCmdParameter("@InsIsActive", Dtype.Bit, "True", ParaDirection.Input, True)
         obj.AddCmdParameter("@InsCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
+        obj.AddCmdParameter("@InsCreditLimit", Dtype.int, Val(txtCreditLimit.Text), ParaDirection.Input, True)
         obj.ExecuteCommand()
 
         If Val(txtOpBal.Text) <> 0 Then
@@ -239,12 +240,13 @@ Public Class FrmCustomerMaster
         obj.AddCmdParameter("@UpAcContactNo", Dtype.varchar, Val(cmbSalesPerson.SelectedValue), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpAcEmailId", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpTranSMS", Dtype.varchar, "", ParaDirection.Input, True)
-        obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, Val(txtDueDays.Text), ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpPromoSMS", Dtype.varchar, Val(txtCreditDays.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpGSTNo", Dtype.varchar, Trim(txtGSTNo.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpPANNo", Dtype.varchar, "", ParaDirection.Input, True)
         obj.AddCmdParameter("@UpTaxation", Dtype.varchar, cmbTaxation.Text, ParaDirection.Input, True)
         obj.AddCmdParameter("@UpCId", Dtype.int, M_CId, ParaDirection.Input, True)
         obj.AddCmdParameter("@UpIsActive", Dtype.Bit, "True", ParaDirection.Input, True)
+        obj.AddCmdParameter("@UpCreditLimit", Dtype.int, Val(txtCreditLimit.Text), ParaDirection.Input, True)
         obj.AddCmdParameter("@UpLedgerId", Dtype.int, Val(lblLedgerId.Text), ParaDirection.Input, True)
         obj.ExecuteCommand()
 
@@ -304,10 +306,12 @@ Public Class FrmCustomerMaster
         'btnExit.Enabled = True
         gcData.Enabled = True
         gbMaindetail.Enabled = False
+        grpTaxInfo.Enabled = False
     End Sub
 
     Public Sub addClickTime()
         gbMaindetail.Enabled = True
+        grpTaxInfo.Enabled = True
         gcData.Enabled = False
 
         btnAdd.Enabled = False
@@ -329,6 +333,7 @@ Public Class FrmCustomerMaster
 
     Public Sub editClickTime()
         gbMaindetail.Enabled = True
+        grpTaxInfo.Enabled = True
         gcData.Enabled = False
 
         btnAdd.Enabled = False
@@ -346,6 +351,7 @@ Public Class FrmCustomerMaster
     Public Sub saveClickTime()
         gridfill(True)
         gbMaindetail.Enabled = False
+        grpTaxInfo.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
@@ -370,7 +376,7 @@ Public Class FrmCustomerMaster
         txtGSTNo.Clear()
         txtPhone.Clear()
         txtMobile.Clear()
-        txtDueDays.Text = 0
+        txtCreditDays.Text = 0
         txtEMailId.Clear()
 
         cmbCustType.Text = "-"
@@ -387,6 +393,7 @@ Public Class FrmCustomerMaster
     Public Sub deleteClickTime()
         gridfill(True)
         gbMaindetail.Enabled = False
+        grpTaxInfo.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
@@ -415,7 +422,7 @@ Public Class FrmCustomerMaster
         cmbCountry.Text = ""
         txtEMailId.Clear()
 
-        txtDueDays.Text = 0
+        txtCreditDays.Text = 0
         cmbTaxation.Text = ""
         cmbSalesPerson.Text = ""
         cmbCollectionPerson.Text = ""
@@ -427,6 +434,7 @@ Public Class FrmCustomerMaster
 
     Public Sub cancelClickTime()
         gbMaindetail.Enabled = False
+        grpTaxInfo.Enabled = False
         gcData.Enabled = True
 
         btnAdd.Enabled = True
@@ -473,6 +481,7 @@ Public Class FrmCustomerMaster
         cmbTaxation.Text = gvData.GetFocusedRowCellValue("Taxation")
         txtPhone.Text = gvData.GetFocusedRowCellValue("PhoneNo")
         txtMobile.Text = gvData.GetFocusedRowCellValue("MobileNo")
+        txtCreditLimit.Text = gvData.GetFocusedRowCellValue("CreditLimit")
         cmbArea.SelectedValue = gvData.GetFocusedRowCellValue("FaxNo")
         cmbSalesPerson.SelectedValue = gvData.GetFocusedRowCellValue("AcContactNo")
         cmbCollectionPerson.SelectedValue = Val(gvData.GetFocusedRowCellValue("AcContactPerson"))
@@ -748,7 +757,7 @@ Public Class FrmCustomerMaster
 
     End Sub
 
-    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtPhone.KeyPress, txtDueDays.KeyPress
+    Private Sub txtMobile_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMobile.KeyPress, txtPhone.KeyPress, txtCreditDays.KeyPress
 
         If UCase(M_AllowMultiCountryMobileSeries) = "NO" Then
 
@@ -870,6 +879,7 @@ Public Class FrmCustomerMaster
                     obj.AddCmdParameter("@InsRefId1", Dtype.int, 0, ParaDirection.Input, True)
                     obj.AddCmdParameter("@InsRefId2", Dtype.int, 0, ParaDirection.Input, True)
                     obj.AddCmdParameter("@InsIsActive", Dtype.Bit, True, ParaDirection.Input, True)
+                    obj.AddCmdParameter("@InsCreditLimit", Dtype.int, Val(txtCreditLimit.Text), ParaDirection.Input, True)
                     obj.AddCmdParameter("@InsCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
                     obj.ExecuteCommand()
 
@@ -925,6 +935,7 @@ Public Class FrmCustomerMaster
                     obj.AddCmdParameter("@UpRefId2", Dtype.int, 0, ParaDirection.Input, True)
                     obj.AddCmdParameter("@UpIsActive", Dtype.Bit, True, ParaDirection.Input, True)
                     obj.AddCmdParameter("@UpCountryCode", Dtype.varchar, "+91", ParaDirection.Input, True)
+                    obj.AddCmdParameter("@UpCreditLImit", Dtype.varchar, Val(txtCreditLimit.Text), ParaDirection.Input, True)
                     obj.AddCmdParameter("@UpLedgerId", Dtype.int, ds_Excel.Tables(0).Rows(i)(0), ParaDirection.Input, True)
                     obj.ExecuteCommand()
 
@@ -1032,7 +1043,7 @@ Public Class FrmCustomerMaster
         btnsave.Focus()
     End Sub
 
-    Private Sub txtDueDays_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtDueDays.Validating
+    Private Sub txtDueDays_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtCreditDays.Validating
         txtGSTNo.Focus()
     End Sub
 

@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Integrated Security=False;Data Source=198.38.87.17;Initial Catalog=dbGaytri_General;Password=SunriseDb@2025;User ID=sa</ConnectionString>
+        <Name>Connection</Name>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <View_CompanyMaster Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>View_CompanyMaster</Alias>
+        <Columns isList="true" count="37">
+          <value>CId,System.Int64</value>
+          <value>CCode,System.String</value>
+          <value>CName,System.String</value>
+          <value>Add1,System.String</value>
+          <value>Add2,System.String</value>
+          <value>City,System.String</value>
+          <value>State,System.String</value>
+          <value>Pincode,System.String</value>
+          <value>Country,System.String</value>
+          <value>PhNo,System.String</value>
+          <value>FaxNo,System.String</value>
+          <value>EMail,System.String</value>
+          <value>PANNo,System.String</value>
+          <value>ServiceTaxNo,System.String</value>
+          <value>ECCNo,System.String</value>
+          <value>CSTTinNo,System.String</value>
+          <value>GSTTinNo,System.String</value>
+          <value>Invoice,System.String</value>
+          <value>TC1,System.String</value>
+          <value>TC2,System.String</value>
+          <value>TC3,System.String</value>
+          <value>TC4,System.String</value>
+          <value>TC5,System.String</value>
+          <value>TC6,System.String</value>
+          <value>TC7,System.String</value>
+          <value>ForCo,System.String</value>
+          <value>BankName,System.String</value>
+          <value>BankAcNo,System.String</value>
+          <value>BranchCode,System.String</value>
+          <value>IFSCCode,System.String</value>
+          <value>ImagePath,System.String</value>
+          <value>AuthSign,System.String</value>
+          <value>AuthDesig,System.String</value>
+          <value>Pwd,System.String</value>
+          <value>CPwd,System.String</value>
+          <value>SMTP,System.String</value>
+          <value>PORT,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>View_CompanyMaster</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from View_CompanyMaster Where {CId}</SqlCommand>
+      </View_CompanyMaster>
+      <View_Outstanding_Report_Gayatry Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>View_Outstanding_Report_Gayatry</Alias>
+        <Columns isList="true" count="30">
+          <value>LedgerId,System.Int64</value>
+          <value>DrAmt,System.Double</value>
+          <value>V_No,System.Int64</value>
+          <value>AreaId,System.Int64</value>
+          <value>AreaName,System.String</value>
+          <value>InvoiceNo,System.Int64</value>
+          <value>InvoiceDate,System.DateTime</value>
+          <value>BillAmt,System.Double</value>
+          <value>ReceivedAmt,System.Double</value>
+          <value>DueAmt,System.Double</value>
+          <value>SalesDueDate,System.DateTime</value>
+          <value>InvoiceNumber,System.String</value>
+          <value>EmpName,System.String</value>
+          <value>LedgerCode,System.String</value>
+          <value>CustType,System.String</value>
+          <value>PromoSMS,System.String</value>
+          <value>CustomerCode,System.String</value>
+          <value>TS_Id,System.Int64</value>
+          <value>SP1,System.String</value>
+          <value>VDate,System.DateTime</value>
+          <value>Narration2,System.String</value>
+          <value>LedgerName,System.String</value>
+          <value>G_Id,System.Int64</value>
+          <value>CId,System.Int64</value>
+          <value>MobileNo,System.String</value>
+          <value>Address1,System.String</value>
+          <value>Remark1,System.String</value>
+          <value>Remark3,System.String</value>
+          <value>DueDays,System.Int32</value>
+          <value>Balance,System.Double</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>View_Outstanding_Report_Gayatry</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *,DATEDIFF(DAY, InvoiceDate, GETDATE()) AS DueDays,SUM(ISNULL(BillAmt,0) - ISNULL(DrAmt,0)) OVER (PARTITION BY LedgerId ORDER BY InvoiceDate, InvoiceNo ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS Balance from View_Outstanding_Report_Gayatry</SqlCommand>
+      </View_Outstanding_Report_Gayatry>
+      <tbl_FinancialYearMaster Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>tbl_FinancialYearMaster</Alias>
+        <Columns isList="true" count="11">
+          <value>FinYrId,System.Int64</value>
+          <value>FinYrFrom,System.DateTime</value>
+          <value>FinYrTo,System.DateTime</value>
+          <value>FinYrFrom_WH,System.DateTime</value>
+          <value>FinYrTo_WH,System.DateTime</value>
+          <value>YrText,System.String</value>
+          <value>YrSuffix,System.String</value>
+          <value>DeptName,System.String</value>
+          <value>DispOrder,System.Int64</value>
+          <value>StockYrId,System.Int64</value>
+          <value>StockYrFrom,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>tbl_FinancialYearMaster</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from tbl_FinancialYearMaster</SqlCommand>
+      </tbl_FinancialYearMaster>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="3">
+      <value>,Filter,Filter,System.String,,False,False</value>
+      <value>,BillNo,BillNo,System.String,,False,False</value>
+      <value>,CId,CId,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <PageHeaderBand1 Ref="7" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,20,764,60</ClientRectangle>
+          <Components isList="true" count="13">
+            <Text28 Ref="8" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>200,0,291,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,11</Font>
+              <Guid>2e92a75895254047b3b007e1e8ba5489</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Outstanding Bill Detail Report</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text1 Ref="9" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,191,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,11</Font>
+              <Guid>c3817bce04b24b9a9d525f00a06ae799</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>From *{tbl_FinancialYearMaster.FinYrFrom} To {tbl_FinancialYearMaster.FinYrTo}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 Ref="10" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>120,30,51,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>4fb3c8ce21e0463da2a9e2ca0e8a39fd</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Days</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="11" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>170,30,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>ea197e4bce914ec0ac35f131656b53c4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Bill Date</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="12" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>240,30,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>ffd8a0f85f4144a896ccffa5ac3ac242</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Note</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="13" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>310,30,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>31e18929759e4d6282249c6bfdee958a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Bill Amt</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="14" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>380,30,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>15186ebc17184613b8ffc0b5c19c9d83</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Vou. No.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="15" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>450,30,81,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>55f656a380074d4a84c4fed7c5960808</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Vou. Date.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="16" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>530,30,51,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>c54a7ced871d4f4085309392099e9408</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Note</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="17" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>580,30,101,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>881ff8c4ea354d83b9ce31d83d4f6c15</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Vou.Amount</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="18" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>680,30,81,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>ef32fe4ba1c7417ca2870b65a8f36cb3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Balance</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <HorizontalLinePrimitive1 Ref="19" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,30,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="20" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <StartCap Ref="21" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+            <HorizontalLinePrimitive10 Ref="22" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,60,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="23" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>5604ad8898284adc99b4fb5e18f0fe55</Guid>
+              <Name>HorizontalLinePrimitive10</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <StartCap Ref="24" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </PageHeaderBand1>
+        <GroupHeaderBand1 Ref="25" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,120,764,80</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text12 Ref="26" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,761,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,11</Font>
+              <Guid>2ef17823bd5d48af8bf31e88a608d41d</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>{View_Outstanding_Report_Gayatry.AreaName} - {View_Outstanding_Report_Gayatry.EmpName}</Text>
+              <TextBrush>[23:54:93]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="27" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,30,581,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>4e82041d7e7e4cfb80582d096cc550d0</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>{View_Outstanding_Report_Gayatry.LedgerName},{View_Outstanding_Report_Gayatry.Address1},{View_Outstanding_Report_Gayatry.AreaName}</Text>
+              <TextBrush>[0:114:188]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="28" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,55,581,24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Guid>485494d5c6c44db8804f199e7b3b185d</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>{View_Outstanding_Report_Gayatry.MobileNo}</Text>
+              <TextBrush>[186:20:25]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <HorizontalLinePrimitive3 Ref="29" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,28,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="30" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>3bf13ff98ffc43ebb186ad57a6a80ce8</Guid>
+              <Name>HorizontalLinePrimitive3</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <StartCap Ref="31" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive3>
+            <HorizontalLinePrimitive4 Ref="32" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,80,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="33" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>1e257d869a934ce69db361d44d20c73d</Guid>
+              <Name>HorizontalLinePrimitive4</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <StartCap Ref="34" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive4>
+          </Components>
+          <Condition>{View_Outstanding_Report_Gayatry.AreaId}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupHeaderBand1>
+        <DataBand1 Ref="35" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,240,764,60</ClientRectangle>
+          <Components isList="true" count="20">
+            <Text15 Ref="36" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>30,0,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>e74e6af83ba14efda0ed68b0a28ecb40</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.InvoiceNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="37" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>120,0,51,26</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>View_Outstanding_Report_Gayatry.DueDays,EqualTo,_x007B_DueDays_x007D__x0020__x003E__x0020_30,,String,Red,Transparent,Arial_x002C_8,True,False,,_x0023__x0023_Warning_x0023__x0023_,None</value>
+              </Conditions>
+              <Font>Verdana,10</Font>
+              <Guid>3a3cb6b66461406690025fc905eed433</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.DueDays}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="38" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>170,0,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>0a8eb43477ec4c60bfafc9b59b0e81d2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.InvoiceDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text18 Ref="39" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>240,0,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>5f00ab1b3558438d8d36bbfa6f568a90</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.Remark1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="40" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>310,0,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>732c655dbf344624ba8ec38e1772bcb9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.BillAmt}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text20 Ref="41" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>380,0,71,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>64366974afb14249b654c83244da91ff</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.V_No}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="42" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>450,0,81,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>2f0269b2b6db45c79f5e7e8b4150b7dc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.VDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text22 Ref="43" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>530,0,51,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>13115c4b96c942c99b841627cd43553a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.Narration2}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text23 Ref="44" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>580,0,101,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>111ee60f47c64e739d5ce6078a941cf3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.DrAmt}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text24 Ref="45" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>680,0,81,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>57f141a5cc624d1fbbc9de1825e8ead6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.Balance}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text30 Ref="46" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>100,32,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>9603d5647b79434585af843ce6594da9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{SumRunning(DataBand1,View_Outstanding_Report_Gayatry.DueAmt)}</Text>
+              <TextBrush>[192:80:77]</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+            <Text31 Ref="47" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>310,30,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>fdffb152ed014a66898cbf07c9f9a99f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{SumRunning(DataBand1,View_Outstanding_Report_Gayatry.BillAmt)}</Text>
+              <TextBrush>[96:76:120]</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+            <Text32 Ref="48" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>310,32,91,25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>c6d5e2f162184a19a70db74fce186f52</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{SumRunning(DataBand1,View_Outstanding_Report_Gayatry.BillAmt)}</Text>
+              <TextBrush>[120:192:212]</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text33 Ref="49" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>420,32,111,25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>e27a6880685746969cfd10e81fa31fbd</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>&lt;- Total -&gt;</Text>
+              <TextBrush>[120:192:212]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+            <Text34 Ref="50" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>580,32,101,25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>5de904654ca9480690e42fb838aa3995</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{Sum(DataBand1,View_Outstanding_Report_Gayatry.DrAmt)}</Text>
+              <TextBrush>[120:192:212]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text34>
+            <Text35 Ref="51" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,51,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>24a86d3a93344cd5bf68c5c51e56259e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>{View_Outstanding_Report_Gayatry.Remark3}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text2 Ref="52" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>30,0,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>c9e172837f2a4f559f373fdfe480f546</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <Text>Bill No.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <HorizontalLinePrimitive6 Ref="53" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>380,28,380,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="54" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>af22923ad8cd4523a257388066f42626</Guid>
+              <Name>HorizontalLinePrimitive6</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <StartCap Ref="55" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive6>
+            <HorizontalLinePrimitive5 Ref="56" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,33,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="57" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>cb4302196649450393fec5710093c8c5</Guid>
+              <Name>HorizontalLinePrimitive5</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <StartCap Ref="58" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive5>
+            <HorizontalLinePrimitive9 Ref="59" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,60,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="60" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>1624e9e0d3fd4a66b82c4dc1e1b66fd1</Guid>
+              <Name>HorizontalLinePrimitive9</Name>
+              <Page isRef="6" />
+              <Parent isRef="35" />
+              <StartCap Ref="61" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive9>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>View_Outstanding_Report_Gayatry</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <GroupFooterBand1 Ref="62" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,340,764,70</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text25 Ref="63" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>100,0,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>7bf1ffec80154accb1e76e4e9a4dfbed</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <Text>{SumRunning(DataBand1,View_Outstanding_Report_Gayatry.DueAmt)}</Text>
+              <TextBrush>[192:80:77]</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text26 Ref="64" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>310,0,91,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>d5833d696db2413b8f8c8de3ab260c1c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <Text>{SumRunning(DataBand1,View_Outstanding_Report_Gayatry.BillAmt)}</Text>
+              <TextBrush>[96:76:120]</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text27 Ref="65" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>410,0,131,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>c8ae44f805834fa98ca5be9f7782a76d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <Text>&lt;- Grand Total -&gt;</Text>
+              <TextBrush>[96:76:120]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text29 Ref="66" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>580,0,101,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Guid>0b61cfb0fb754abda4ffa48046ab7e83</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <Text>{Sum(DataBand1,View_Outstanding_Report_Gayatry.DrAmt)}</Text>
+              <TextBrush>[96:76:120]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <HorizontalLinePrimitive7 Ref="67" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,0,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="68" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>6e77c78cad5a4c868fb27ad905e7b07c</Guid>
+              <Name>HorizontalLinePrimitive7</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <StartCap Ref="69" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive7>
+            <HorizontalLinePrimitive8 Ref="70" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,30,760,1</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="71" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>21840557e2a0466fb1c63f08e602efc1</Guid>
+              <Name>HorizontalLinePrimitive8</Name>
+              <Page isRef="6" />
+              <Parent isRef="62" />
+              <StartCap Ref="72" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupFooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>65fb0fa427a641a298595af16d5f38ea</Guid>
+      <Margins>29,34,29,29</Margins>
+      <Name>Page1</Name>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="73" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="74" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>3/25/2026 5:29:19 PM</ReportChanged>
+  <ReportCreated>10/14/2020 6:43:48 PM</ReportCreated>
+  <ReportFile>C:\Code\New Billing Module\GaytriGeneralStore\GaytriGeneralStore\Report\Outstading_Report.mrt</ReportFile>
+  <ReportGuid>0a22c9a0bfb3475fbe3b115366bc041c</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>HundredthsOfInch</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>
